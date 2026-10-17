@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-17-abc123",
+  "audit_id": "demo",
+  "profile_id": "mini-profile",
+  "evaluated_at": "2026-10-17T00:00:00.000Z",
+  "obligations": [
+    {
+      "obligation_id": "OBL-A11Y-1.1.1",
+      "rule_id": "A11Y-1.1.1",
+      "pack_id": "mini-core",
+      "authority_id": "A01",
+      "mandatory": true,
+      "state": "applicable",
+      "temporal_state": "effective",
+      "effective_date": null,
+      "predicate_trace": [
+        {
+          "op": "eq",
+          "fact": "covered",
+          "result": "true"
+        }
+      ],
+      "facts_used": [
+        "covered"
+      ],
+      "exclusion": null
+    },
+    {
+      "obligation_id": "OBL-A11Y-1.4.3",
+      "rule_id": "A11Y-1.4.3",
+      "pack_id": "mini-core",
+      "authority_id": "A01",
+      "mandatory": true,
+      "state": "unknown",
+      "temporal_state": "unknown",
+      "effective_date": null,
+      "predicate_trace": [
+        {
+          "op": "eq",
+          "fact": "covered",
+          "result": "unknown"
+        }
+      ],
+      "facts_used": [
+        "covered"
+      ],
+      "exclusion": null
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-17-abc123",
+  "items": [
+    {
+      "item_id": "rq-1",
+      "kind": "human",
+      "task": "Review the alternative text for adequacy",
+      "owner_role": "accessibility_lead",
+      "blocking_reason": "Adequacy needs a human",
+      "obligation_id": "OBL-A11Y-1.1.1",
+      "status": "open",
+      "evidence_refs": [],
+      "resolution_evidence_refs": []
+    }
+  ]
+}

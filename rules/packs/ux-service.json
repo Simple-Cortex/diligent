@@ -1,0 +1,1402 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "ux-service",
+  "pack_version": "0.1.0",
+  "profile_ids": [
+    "us-federal-public-web",
+    "us-state-local-ada-title-ii"
+  ],
+  "normative": false,
+  "rules": [
+    {
+      "rule_id": "UX-001",
+      "obligation_id": "OBL-UX-001",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Is page/service purpose clear from title, heading and opening content? Compare with the confirmed task.",
+      "authority": {
+        "authority_id": null,
+        "section": "product guidance (blueprint 18.3); not a legal obligation",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US",
+      "applicability": {
+        "predicate": "service_brief_present",
+        "required_facts": [
+          "service_brief_present"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Findings must link to a confirmed task or an explicit hypothesis",
+        "Aesthetic failures based on reviewer taste alone are not findings"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_protected_content",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_design_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "UX-001",
+        "repair_direction": "State service and relevant audience plainly.",
+        "result_vocabulary": [
+          "supported",
+          "barrier_observed",
+          "hypothesis",
+          "not_assessed",
+          "not_applicable"
+        ],
+        "note": "UX states are not legal conformance states. A hypothesis needs a research question and a validation method."
+      }
+    },
+    {
+      "rule_id": "UX-002",
+      "obligation_id": "OBL-UX-002",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Does visual and reading order prioritize the user's next decision? Inspect desktop/mobile and semantic order.",
+      "authority": {
+        "authority_id": null,
+        "section": "product guidance (blueprint 18.3); not a legal obligation",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US",
+      "applicability": {
+        "predicate": "service_brief_present",
+        "required_facts": [
+          "service_brief_present"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Findings must link to a confirmed task or an explicit hypothesis",
+        "Aesthetic failures based on reviewer taste alone are not findings"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_protected_content",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_design_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "UX-002",
+        "repair_direction": "Adjust grouping/emphasis while preserving required content.",
+        "result_vocabulary": [
+          "supported",
+          "barrier_observed",
+          "hypothesis",
+          "not_assessed",
+          "not_applicable"
+        ],
+        "note": "UX states are not legal conformance states. A hypothesis needs a research question and a validation method."
+      }
+    },
+    {
+      "rule_id": "UX-003",
+      "obligation_id": "OBL-UX-003",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Can users answer eligibility and preparation questions before investing effort? Check approved program content.",
+      "authority": {
+        "authority_id": null,
+        "section": "product guidance (blueprint 18.3); not a legal obligation",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US",
+      "applicability": {
+        "predicate": "service_brief_present",
+        "required_facts": [
+          "service_brief_present"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Findings must link to a confirmed task or an explicit hypothesis",
+        "Aesthetic failures based on reviewer taste alone are not findings"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_protected_content",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_design_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "UX-003",
+        "repair_direction": "Explain conditions, documents, fees and expected time early.",
+        "result_vocabulary": [
+          "supported",
+          "barrier_observed",
+          "hypothesis",
+          "not_assessed",
+          "not_applicable"
+        ],
+        "note": "UX states are not legal conformance states. A hypothesis needs a research question and a validation method."
+      }
+    },
+    {
+      "rule_id": "UX-004",
+      "obligation_id": "OBL-UX-004",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Do navigation and labels use audience language? Compare search/support terminology and task tests.",
+      "authority": {
+        "authority_id": null,
+        "section": "product guidance (blueprint 18.3); not a legal obligation",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US",
+      "applicability": {
+        "predicate": "service_brief_present",
+        "required_facts": [
+          "service_brief_present"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Findings must link to a confirmed task or an explicit hypothesis",
+        "Aesthetic failures based on reviewer taste alone are not findings"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_protected_content",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_design_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "UX-004",
+        "repair_direction": "Rename ambiguous labels without changing legal meaning.",
+        "result_vocabulary": [
+          "supported",
+          "barrier_observed",
+          "hypothesis",
+          "not_assessed",
+          "not_applicable"
+        ],
+        "note": "UX states are not legal conformance states. A hypothesis needs a research question and a validation method."
+      }
+    },
+    {
+      "rule_id": "UX-005",
+      "obligation_id": "OBL-UX-005",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Are next actions distinguishable and accurately named? Review action sets and outcomes.",
+      "authority": {
+        "authority_id": null,
+        "section": "product guidance (blueprint 18.3); not a legal obligation",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US",
+      "applicability": {
+        "predicate": "service_brief_present",
+        "required_facts": [
+          "service_brief_present"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Findings must link to a confirmed task or an explicit hypothesis",
+        "Aesthetic failures based on reviewer taste alone are not findings"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_protected_content",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_design_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "UX-005",
+        "repair_direction": "Clarify labels and primary/secondary/destructive hierarchy.",
+        "result_vocabulary": [
+          "supported",
+          "barrier_observed",
+          "hypothesis",
+          "not_assessed",
+          "not_applicable"
+        ],
+        "note": "UX states are not legal conformance states. A hypothesis needs a research question and a validation method."
+      }
+    },
+    {
+      "rule_id": "UX-006",
+      "obligation_id": "OBL-UX-006",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Does every collected field have a documented purpose? Compare field inventory with approved collection.",
+      "authority": {
+        "authority_id": null,
+        "section": "product guidance (blueprint 18.3); not a legal obligation",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US",
+      "applicability": {
+        "predicate": "service_brief_present",
+        "required_facts": [
+          "service_brief_present"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Findings must link to a confirmed task or an explicit hypothesis",
+        "Aesthetic failures based on reviewer taste alone are not findings"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_protected_content",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_design_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "UX-006",
+        "repair_direction": "Remove only with authorized collection/product review.",
+        "result_vocabulary": [
+          "supported",
+          "barrier_observed",
+          "hypothesis",
+          "not_assessed",
+          "not_applicable"
+        ],
+        "note": "UX states are not legal conformance states. A hypothesis needs a research question and a validation method."
+      }
+    },
+    {
+      "rule_id": "UX-007",
+      "obligation_id": "OBL-UX-007",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Can users prevent and recover from errors? Exercise validation, back, retry and corrections.",
+      "authority": {
+        "authority_id": null,
+        "section": "product guidance (blueprint 18.3); not a legal obligation",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US",
+      "applicability": {
+        "predicate": "service_brief_present",
+        "required_facts": [
+          "service_brief_present"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Findings must link to a confirmed task or an explicit hypothesis",
+        "Aesthetic failures based on reviewer taste alone are not findings"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_protected_content",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_design_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "UX-007",
+        "repair_direction": "Explain correction, preserve safe valid input, offer recovery.",
+        "result_vocabulary": [
+          "supported",
+          "barrier_observed",
+          "hypothesis",
+          "not_assessed",
+          "not_applicable"
+        ],
+        "note": "UX states are not legal conformance states. A hypothesis needs a research question and a validation method."
+      }
+    },
+    {
+      "rule_id": "UX-008",
+      "obligation_id": "OBL-UX-008",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Can people understand status and next steps? Inspect submission, pending and rejected states.",
+      "authority": {
+        "authority_id": null,
+        "section": "product guidance (blueprint 18.3); not a legal obligation",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US",
+      "applicability": {
+        "predicate": "service_brief_present",
+        "required_facts": [
+          "service_brief_present"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Findings must link to a confirmed task or an explicit hypothesis",
+        "Aesthetic failures based on reviewer taste alone are not findings"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_protected_content",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_design_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "UX-008",
+        "repair_direction": "Provide receipt, expected timing and action/help paths.",
+        "result_vocabulary": [
+          "supported",
+          "barrier_observed",
+          "hypothesis",
+          "not_assessed",
+          "not_applicable"
+        ],
+        "note": "UX states are not legal conformance states. A hypothesis needs a research question and a validation method."
+      }
+    },
+    {
+      "rule_id": "UX-009",
+      "obligation_id": "OBL-UX-009",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Is help available at the point of difficulty? Check content, contact and handoff behavior.",
+      "authority": {
+        "authority_id": null,
+        "section": "product guidance (blueprint 18.3); not a legal obligation",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US",
+      "applicability": {
+        "predicate": "service_brief_present",
+        "required_facts": [
+          "service_brief_present"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Findings must link to a confirmed task or an explicit hypothesis",
+        "Aesthetic failures based on reviewer taste alone are not findings"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_protected_content",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_design_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "UX-009",
+        "repair_direction": "Add contextual guidance and a usable support route.",
+        "result_vocabulary": [
+          "supported",
+          "barrier_observed",
+          "hypothesis",
+          "not_assessed",
+          "not_applicable"
+        ],
+        "note": "UX states are not legal conformance states. A hypothesis needs a research question and a validation method."
+      }
+    },
+    {
+      "rule_id": "UX-010",
+      "obligation_id": "OBL-UX-010",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Is avoidable cognitive burden reduced? Identify memorization, unexplained terms and repeated steps.",
+      "authority": {
+        "authority_id": null,
+        "section": "product guidance (blueprint 18.3); not a legal obligation",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US",
+      "applicability": {
+        "predicate": "service_brief_present",
+        "required_facts": [
+          "service_brief_present"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Findings must link to a confirmed task or an explicit hypothesis",
+        "Aesthetic failures based on reviewer taste alone are not findings"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_protected_content",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_design_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "UX-010",
+        "repair_direction": "Reduce repetition and provide contextual explanations.",
+        "result_vocabulary": [
+          "supported",
+          "barrier_observed",
+          "hypothesis",
+          "not_assessed",
+          "not_applicable"
+        ],
+        "note": "UX states are not legal conformance states. A hypothesis needs a research question and a validation method."
+      }
+    },
+    {
+      "rule_id": "UX-011",
+      "obligation_id": "OBL-UX-011",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Can users work with realistic interruptions and devices? Exercise resume, orientation, mobile and poor network.",
+      "authority": {
+        "authority_id": null,
+        "section": "product guidance (blueprint 18.3); not a legal obligation",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US",
+      "applicability": {
+        "predicate": "service_brief_present",
+        "required_facts": [
+          "service_brief_present"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Findings must link to a confirmed task or an explicit hypothesis",
+        "Aesthetic failures based on reviewer taste alone are not findings"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_protected_content",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_design_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "UX-011",
+        "repair_direction": "Make interruption/recovery behavior explicit and reliable.",
+        "result_vocabulary": [
+          "supported",
+          "barrier_observed",
+          "hypothesis",
+          "not_assessed",
+          "not_applicable"
+        ],
+        "note": "UX states are not legal conformance states. A hypothesis needs a research question and a validation method."
+      }
+    },
+    {
+      "rule_id": "UX-012",
+      "obligation_id": "OBL-UX-012",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Are language and alternative access paths usable? Follow the path through the task, not only a selector.",
+      "authority": {
+        "authority_id": null,
+        "section": "product guidance (blueprint 18.3); not a legal obligation",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US",
+      "applicability": {
+        "predicate": "service_brief_present",
+        "required_facts": [
+          "service_brief_present"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Findings must link to a confirmed task or an explicit hypothesis",
+        "Aesthetic failures based on reviewer taste alone are not findings"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_protected_content",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_design_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "UX-012",
+        "repair_direction": "Align translated content, routing and support.",
+        "result_vocabulary": [
+          "supported",
+          "barrier_observed",
+          "hypothesis",
+          "not_assessed",
+          "not_applicable"
+        ],
+        "note": "UX states are not legal conformance states. A hypothesis needs a research question and a validation method."
+      }
+    },
+    {
+      "rule_id": "UX-013",
+      "obligation_id": "OBL-UX-013",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Is content accurate, owned and timely? Compare with approved program source and update record.",
+      "authority": {
+        "authority_id": null,
+        "section": "product guidance (blueprint 18.3); not a legal obligation",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US",
+      "applicability": {
+        "predicate": "service_brief_present",
+        "required_facts": [
+          "service_brief_present"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Findings must link to a confirmed task or an explicit hypothesis",
+        "Aesthetic failures based on reviewer taste alone are not findings"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_protected_content",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_design_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "UX-013",
+        "repair_direction": "Correct with program owner review and remove stale conflicts.",
+        "result_vocabulary": [
+          "supported",
+          "barrier_observed",
+          "hypothesis",
+          "not_assessed",
+          "not_applicable"
+        ],
+        "note": "UX states are not legal conformance states. A hypothesis needs a research question and a validation method."
+      }
+    },
+    {
+      "rule_id": "UX-014",
+      "obligation_id": "OBL-UX-014",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Is search effective for top tasks? Test an owner-approved query set and zero-result handling.",
+      "authority": {
+        "authority_id": null,
+        "section": "product guidance (blueprint 18.3); not a legal obligation",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US",
+      "applicability": {
+        "predicate": "service_brief_present",
+        "required_facts": [
+          "service_brief_present"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Findings must link to a confirmed task or an explicit hypothesis",
+        "Aesthetic failures based on reviewer taste alone are not findings"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_protected_content",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_design_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "UX-014",
+        "repair_direction": "Improve indexing, naming, result context and recovery.",
+        "result_vocabulary": [
+          "supported",
+          "barrier_observed",
+          "hypothesis",
+          "not_assessed",
+          "not_applicable"
+        ],
+        "note": "UX states are not legal conformance states. A hypothesis needs a research question and a validation method."
+      }
+    },
+    {
+      "rule_id": "UX-015",
+      "obligation_id": "OBL-UX-015",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Does typography/spacing support scanning and comprehension? Inspect actual content and user tasks.",
+      "authority": {
+        "authority_id": null,
+        "section": "product guidance (blueprint 18.3); not a legal obligation",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US",
+      "applicability": {
+        "predicate": "service_brief_present",
+        "required_facts": [
+          "service_brief_present"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Findings must link to a confirmed task or an explicit hypothesis",
+        "Aesthetic failures based on reviewer taste alone are not findings"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_protected_content",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_design_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "UX-015",
+        "repair_direction": "Improve hierarchy and grouping within approved tokens.",
+        "result_vocabulary": [
+          "supported",
+          "barrier_observed",
+          "hypothesis",
+          "not_assessed",
+          "not_applicable"
+        ],
+        "note": "UX states are not legal conformance states. A hypothesis needs a research question and a validation method."
+      }
+    },
+    {
+      "rule_id": "UX-016",
+      "obligation_id": "OBL-UX-016",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Do charts/tables support correct interpretation? Check definitions, units, uncertainty and alternatives.",
+      "authority": {
+        "authority_id": null,
+        "section": "product guidance (blueprint 18.3); not a legal obligation",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US",
+      "applicability": {
+        "predicate": "service_brief_present",
+        "required_facts": [
+          "service_brief_present"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Findings must link to a confirmed task or an explicit hypothesis",
+        "Aesthetic failures based on reviewer taste alone are not findings"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_protected_content",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_design_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "UX-016",
+        "repair_direction": "Add context, accessible equivalent and useful summaries.",
+        "result_vocabulary": [
+          "supported",
+          "barrier_observed",
+          "hypothesis",
+          "not_assessed",
+          "not_applicable"
+        ],
+        "note": "UX states are not legal conformance states. A hypothesis needs a research question and a validation method."
+      }
+    },
+    {
+      "rule_id": "UX-017",
+      "obligation_id": "OBL-UX-017",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Are people informed about consequences and choices? Check consent, fees, destructive and final actions.",
+      "authority": {
+        "authority_id": null,
+        "section": "product guidance (blueprint 18.3); not a legal obligation",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US",
+      "applicability": {
+        "predicate": "service_brief_present",
+        "required_facts": [
+          "service_brief_present"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Findings must link to a confirmed task or an explicit hypothesis",
+        "Aesthetic failures based on reviewer taste alone are not findings"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_protected_content",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_design_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "UX-017",
+        "repair_direction": "Explain consequence before commitment; preserve real choice.",
+        "result_vocabulary": [
+          "supported",
+          "barrier_observed",
+          "hypothesis",
+          "not_assessed",
+          "not_applicable"
+        ],
+        "note": "UX states are not legal conformance states. A hypothesis needs a research question and a validation method."
+      }
+    },
+    {
+      "rule_id": "UX-018",
+      "obligation_id": "OBL-UX-018",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Is the complete outcome achievable across channels/vendors? Follow handoffs and return paths.",
+      "authority": {
+        "authority_id": null,
+        "section": "product guidance (blueprint 18.3); not a legal obligation",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US",
+      "applicability": {
+        "predicate": "service_brief_present",
+        "required_facts": [
+          "service_brief_present"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Findings must link to a confirmed task or an explicit hypothesis",
+        "Aesthetic failures based on reviewer taste alone are not findings"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_protected_content",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_design_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "UX-018",
+        "repair_direction": "Fix breaks in context, state, accountability and confirmation.",
+        "result_vocabulary": [
+          "supported",
+          "barrier_observed",
+          "hypothesis",
+          "not_assessed",
+          "not_applicable"
+        ],
+        "note": "UX states are not legal conformance states. A hypothesis needs a research question and a validation method."
+      }
+    }
+  ],
+  "extensions": {
+    "title": "Service UX review rule family",
+    "notes": "Product engineering rules UX-001 to UX-018. Not legal obligations."
+  }
+}

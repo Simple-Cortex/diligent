@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Simple-Cortex/diligent/schemas/verification.schema.json",
+  "title": "Verification",
+  "description": "VERIFICATION.json: independent before/after retest records (blueprint 23.3).",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^run-\\d{4}-\\d{2}-\\d{2}-[0-9a-f]{6}$"
+    },
+    "before_snapshot_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "after_snapshot_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "verified",
+        "failed",
+        "incomplete"
+      ]
+    },
+    "verified_by": {
+      "type": "object",
+      "properties": {
+        "role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "independent_of_author": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "role",
+        "independent_of_author"
+      ],
+      "additionalProperties": false
+    },
+    "verified_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "retest_coverage": {
+      "type": "object"
+    },
+    "verifications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "finding_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "verified_resolved",
+              "still_failing",
+              "blocked"
+            ]
+          },
+          "retest_result_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "evidence_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "required": [
+          "finding_id",
+          "status",
+          "retest_result_ids",
+          "evidence_refs"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "new_failures": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "remaining_review": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Namespaced vendor or local fields. Unknown top-level fields are rejected; put them here."
+    }
+  },
+  "required": [
+    "schema_version",
+    "run_id",
+    "before_snapshot_ref",
+    "after_snapshot_ref",
+    "status",
+    "verified_by",
+    "verified_at",
+    "retest_coverage",
+    "verifications",
+    "new_failures",
+    "remaining_review"
+  ],
+  "additionalProperties": false
+}

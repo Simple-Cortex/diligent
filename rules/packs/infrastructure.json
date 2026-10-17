@@ -1,0 +1,1874 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "infrastructure",
+  "pack_version": "0.1.0",
+  "profile_ids": [
+    "us-federal-public-web"
+  ],
+  "rules": [
+    {
+      "rule_id": "INFRA-01",
+      "obligation_id": "OBL-INFRA-01",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "HTTPS across public websites/services.",
+      "authority": {
+        "authority_id": "A43",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "network",
+          "browser"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Needs actual deployment evidence",
+        "Mixed content and embedded assets need runtime capture"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls",
+        "preserve_assurance_levels",
+        "preserve_accessible_alternatives"
+      ],
+      "owner_role": "security_owner",
+      "severity_default": "high",
+      "source_verified_at": null,
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "SEC-01",
+        "class_label": "P, A43; A13",
+        "proposed_procedure": "N/B: test HTTP redirect, valid certificate/hostname/chain, TLS configuration, mixed content and embedded assets. Capture actual deployment evidence.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "additional_authority_ids": [
+          "A13"
+        ],
+        "source_caveat": "Primary authority is not source-verified; verify directive or memo text before enabling exact timing or header checks."
+      }
+    },
+    {
+      "rule_id": "INFRA-02",
+      "obligation_id": "OBL-INFRA-02",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "HSTS in applicable scope.",
+      "authority": {
+        "authority_id": "A13",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && https_service",
+        "required_facts": [
+          "federal_executive_agency",
+          "https_service"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "network",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Do not add includeSubDomains or preload without checking affected hosts"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls",
+        "preserve_assurance_levels",
+        "preserve_accessible_alternatives"
+      ],
+      "owner_role": "security_owner",
+      "severity_default": "high",
+      "source_verified_at": null,
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "SEC-02",
+        "class_label": "P/C, A13",
+        "proposed_procedure": "N/O: inspect headers and subordinate-domain readiness; validate directive specifics. Do not add includeSubDomains/preload without checking affected hosts.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "source_caveat": "Primary authority is not source-verified; verify directive or memo text before enabling exact timing or header checks."
+      }
+    },
+    {
+      "rule_id": "INFRA-03",
+      "obligation_id": "OBL-INFRA-03",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Protect mail-enabled domains.",
+      "authority": {
+        "authority_id": "A13",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "is_mail_enabled_domain",
+        "required_facts": [
+          "is_mail_enabled_domain"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "network",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Do not demand mail records for unrelated hostnames"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls",
+        "preserve_assurance_levels",
+        "preserve_accessible_alternatives"
+      ],
+      "owner_role": "security_owner",
+      "severity_default": "high",
+      "source_verified_at": null,
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "SEC-03",
+        "class_label": "P/C, A13",
+        "proposed_procedure": "N/O: assess relevant STARTTLS, SPF, DKIM, DMARC and reporting requirements against the domain's mail role. Do not demand mail records for unrelated hostnames.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "source_caveat": "Primary authority is not source-verified; verify directive or memo text before enabling exact timing or header checks."
+      }
+    },
+    {
+      "rule_id": "INFRA-04",
+      "obligation_id": "OBL-INFRA-04",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "System categorization, selected controls, authorization.",
+      "authority": {
+        "authority_id": "A11",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "fisma_system_in_scope",
+        "required_facts": [
+          "fisma_system_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Cloud status alone does not authorize the application",
+        "Authorization records are organizational evidence"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls",
+        "preserve_assurance_levels",
+        "preserve_accessible_alternatives"
+      ],
+      "owner_role": "security_owner",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "SEC-04",
+        "class_label": "L/P/C/O, A11",
+        "proposed_procedure": "O: inspect boundary, FIPS category, RMF artifacts, ATO/conditions, inherited controls and assessment currency. Cloud status alone does not authorize the application.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "INFRA-05",
+      "obligation_id": "OBL-INFRA-05",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Appropriate cloud-service assurance.",
+      "authority": {
+        "authority_id": "A15",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "uses_cloud_service_for_agency_information",
+        "required_facts": [
+          "uses_cloud_service_for_agency_information"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Each use case and service boundary must be evaluated"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls",
+        "preserve_assurance_levels",
+        "preserve_accessible_alternatives"
+      ],
+      "owner_role": "security_owner",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "SEC-05",
+        "class_label": "L/P/C/O, A15",
+        "proposed_procedure": "O: evaluate actual use case, offering, service boundary and required FedRAMP status; identify agency responsibilities and applicable exclusions.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "INFRA-06",
+      "obligation_id": "OBL-INFRA-06",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Asset/software/hardware inventory.",
+      "authority": {
+        "authority_id": "A14",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency",
+        "required_facts": [
+          "federal_executive_agency"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Build-time dependencies alone do not describe production"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls",
+        "preserve_assurance_levels",
+        "preserve_accessible_alternatives"
+      ],
+      "owner_role": "security_owner",
+      "severity_default": "high",
+      "source_verified_at": null,
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "SEC-06",
+        "class_label": "P/C/O, A14; A18",
+        "proposed_procedure": "S/O: compare domains, hosts, deployed versions, packages and vendors with inventory. Build-time dependencies alone do not describe production.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "additional_authority_ids": [
+          "A18"
+        ],
+        "source_caveat": "Primary authority is not source-verified; verify directive or memo text before enabling exact timing or header checks."
+      }
+    },
+    {
+      "rule_id": "INFRA-07",
+      "obligation_id": "OBL-INFRA-07",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Known exploited vulnerabilities and vulnerability cadence.",
+      "authority": {
+        "authority_id": "A14",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "cisa_directive_scope",
+        "required_facts": [
+          "cisa_directive_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "network",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "CVSS alone is not exploitability",
+        "Reachability and mitigation need confirmation"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls",
+        "preserve_assurance_levels",
+        "preserve_accessible_alternatives"
+      ],
+      "owner_role": "security_owner",
+      "severity_default": "high",
+      "source_verified_at": null,
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "SEC-07",
+        "class_label": "P/C/O, A14",
+        "proposed_procedure": "S/N/O: join exact products/versions to current KEV entries and required due dates; confirm exposure, reachability and mitigation. CVSS alone is not exploitability.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "source_caveat": "Primary authority is not source-verified; verify directive or memo text before enabling exact timing or header checks."
+      }
+    },
+    {
+      "rule_id": "INFRA-08",
+      "obligation_id": "OBL-INFRA-08",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Vulnerability disclosure intake and response.",
+      "authority": {
+        "authority_id": "A12",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Never submit fake vulnerability reports merely to test contact forms"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls",
+        "preserve_assurance_levels",
+        "preserve_accessible_alternatives"
+      ],
+      "owner_role": "security_owner",
+      "severity_default": "high",
+      "source_verified_at": null,
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "SEC-08",
+        "class_label": "P/C/O, A12",
+        "proposed_procedure": "B/O: verify reporting route and tracked response/remediation procedures. Never submit fake vulnerability reports merely to test contact forms.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "source_caveat": "Primary authority is not source-verified; verify directive or memo text before enabling exact timing or header checks."
+      }
+    },
+    {
+      "rule_id": "INFRA-09",
+      "obligation_id": "OBL-INFRA-09",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Server-side authorization.",
+      "authority": {
+        "authority_id": "A11",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "security_controls_selected_for_system",
+        "required_facts": [
+          "security_controls_selected_for_system"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "browser"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Hiding a button is insufficient; denial must be verified at the API",
+        "Requires authorized fixtures"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls",
+        "preserve_assurance_levels",
+        "preserve_accessible_alternatives"
+      ],
+      "owner_role": "security_owner",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "SEC-09",
+        "class_label": "C selected controls A11; R test detail A42",
+        "proposed_procedure": "S/B: use authorized fixtures for object, role and tenant boundaries. Hiding a button is insufficient; verify denial at the API.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "additional_authority_ids": [
+          "A42"
+        ]
+      }
+    },
+    {
+      "rule_id": "INFRA-10",
+      "obligation_id": "OBL-INFRA-10",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Session and credential protection.",
+      "authority": {
+        "authority_id": "A44",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "security_controls_selected_for_system && service_requires_authentication",
+        "required_facts": [
+          "security_controls_selected_for_system",
+          "service_requires_authentication"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "browser"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Accessible timeout warnings must be preserved within required limits"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls",
+        "preserve_assurance_levels",
+        "preserve_accessible_alternatives"
+      ],
+      "owner_role": "security_owner",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "SEC-10",
+        "class_label": "C, A44; A11",
+        "proposed_procedure": "S/B: test cookie scope/flags, session renewal/invalidation, CSRF controls, logout and recovery. Preserve accessible timeout warnings within required limits.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "additional_authority_ids": [
+          "A11"
+        ]
+      }
+    },
+    {
+      "rule_id": "INFRA-11",
+      "obligation_id": "OBL-INFRA-11",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Injection, unsafe rendering and request handling.",
+      "authority": {
+        "authority_id": "A11",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "security_controls_selected_for_system",
+        "required_facts": [
+          "security_controls_selected_for_system"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "browser"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Requires authorized test targets",
+        "Typed validation and contextual encoding are repair directions, not tests"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls",
+        "preserve_assurance_levels",
+        "preserve_accessible_alternatives"
+      ],
+      "owner_role": "security_owner",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "SEC-11",
+        "class_label": "C selected controls; R test detail A42",
+        "proposed_procedure": "S/B: inspect SQL/command/template/HTML sinks, SSRF, deserialization and URL handling. Prefer typed validation, parameterization and contextual encoding.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "additional_authority_ids": [
+          "A42"
+        ]
+      }
+    },
+    {
+      "rule_id": "INFRA-12",
+      "obligation_id": "OBL-INFRA-12",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Secure configuration and browser protections.",
+      "authority": {
+        "authority_id": "A11",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "security_controls_selected_for_system",
+        "required_facts": [
+          "security_controls_selected_for_system"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "network",
+          "source"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "A missing content security policy is not universally a statutory failure"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls",
+        "preserve_assurance_levels",
+        "preserve_accessible_alternatives"
+      ],
+      "owner_role": "security_owner",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "SEC-12",
+        "class_label": "C selected controls; R detail A42",
+        "proposed_procedure": "N/S: evaluate CSP, frame protections, content-type handling, CORS, referrer behavior, debug modes and error output. Missing CSP is not universally a statutory failure.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "additional_authority_ids": [
+          "A42"
+        ]
+      }
+    },
+    {
+      "rule_id": "INFRA-13",
+      "obligation_id": "OBL-INFRA-13",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Safe upload processing.",
+      "authority": {
+        "authority_id": "A11",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "security_controls_selected_for_system && accepts_file_uploads",
+        "required_facts": [
+          "security_controls_selected_for_system",
+          "accepts_file_uploads"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "browser"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Test safe files only"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls",
+        "preserve_assurance_levels",
+        "preserve_accessible_alternatives"
+      ],
+      "owner_role": "security_owner",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "SEC-13",
+        "class_label": "C selected controls; R detail A42",
+        "proposed_procedure": "S/B: verify size/type checks, signature handling, malware isolation, naming/storage, private access and processing limits. Test safe files only.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "additional_authority_ids": [
+          "A42"
+        ]
+      }
+    },
+    {
+      "rule_id": "INFRA-14",
+      "obligation_id": "OBL-INFRA-14",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Secret and key management.",
+      "authority": {
+        "authority_id": "A11",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "security_controls_selected_for_system",
+        "required_facts": [
+          "security_controls_selected_for_system"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Actual secret values must never appear in reports or model prompts"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls",
+        "preserve_assurance_levels",
+        "preserve_accessible_alternatives"
+      ],
+      "owner_role": "security_owner",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "SEC-14",
+        "class_label": "C selected controls A11",
+        "proposed_procedure": "S/O: inspect secrets handling, bundle exposure, least-privilege credentials and rotation process; do not place actual secret values in reports or model prompts.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "INFRA-15",
+      "obligation_id": "OBL-INFRA-15",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Cryptography meets applicable standards.",
+      "authority": {
+        "authority_id": "A11",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "security_controls_selected_for_system",
+        "required_facts": [
+          "security_controls_selected_for_system"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "documentary",
+          "source"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "HTTPS or a library description does not establish validated cryptographic modules"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls",
+        "preserve_assurance_levels",
+        "preserve_accessible_alternatives"
+      ],
+      "owner_role": "security_owner",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "SEC-15",
+        "class_label": "C, A11/A44",
+        "proposed_procedure": "O/S: verify approved algorithms/modules/configuration for the selected system and use. HTTPS or a library's marketing does not establish FIPS module validation.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "additional_authority_ids": [
+          "A44"
+        ]
+      }
+    },
+    {
+      "rule_id": "INFRA-16",
+      "obligation_id": "OBL-INFRA-16",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Supply-chain assurance based on current policy.",
+      "authority": {
+        "authority_id": "A18",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency",
+        "required_facts": [
+          "federal_executive_agency"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "An SBOM or attestation is required only where authority or contract calls for it"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls",
+        "preserve_assurance_levels",
+        "preserve_accessible_alternatives"
+      ],
+      "owner_role": "security_owner",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "SEC-16",
+        "class_label": "P/C/O, A18; R SSDF A45",
+        "proposed_procedure": "S/O: review pinned dependencies, provenance, build/release controls and vendor evidence against agency risk policy. Require SBOM/attestation only when authority/contract calls for it.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "additional_authority_ids": [
+          "A45"
+        ]
+      }
+    },
+    {
+      "rule_id": "INFRA-17",
+      "obligation_id": "OBL-INFRA-17",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Monitoring, incident response and audit logs.",
+      "authority": {
+        "authority_id": "A11",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "security_controls_selected_for_system",
+        "required_facts": [
+          "security_controls_selected_for_system"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Balance investigation needs with privacy and records requirements"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls",
+        "preserve_assurance_levels",
+        "preserve_accessible_alternatives"
+      ],
+      "owner_role": "security_owner",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "SEC-17",
+        "class_label": "C/O selected controls A11",
+        "proposed_procedure": "O: verify ownership, alerts, retention and response procedures. Balance investigation needs with privacy and records requirements.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "INFRA-18",
+      "obligation_id": "OBL-INFRA-18",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Backups, recovery and continuity.",
+      "authority": {
+        "authority_id": "A11",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "security_controls_selected_for_system",
+        "required_facts": [
+          "security_controls_selected_for_system"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "No universal federal availability percentage or recovery time exists"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls",
+        "preserve_assurance_levels",
+        "preserve_accessible_alternatives"
+      ],
+      "owner_role": "security_owner",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "SEC-18",
+        "class_label": "C/O selected controls A11",
+        "proposed_procedure": "O: inspect restoration evidence and agreed recovery targets. Do not invent a universal federal availability percentage or recovery time.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "INFRA-19",
+      "obligation_id": "OBL-INFRA-19",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Workforce zero-trust/enterprise identity controls.",
+      "authority": {
+        "authority_id": "A16",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "workforce_system_in_scope",
+        "required_facts": [
+          "workforce_system_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "documentary",
+          "source"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Do not require PIV or CAC for every citizen task"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls",
+        "preserve_assurance_levels",
+        "preserve_accessible_alternatives"
+      ],
+      "owner_role": "identity_owner",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "SEC-19",
+        "class_label": "C/O agency policy; A16 references",
+        "proposed_procedure": "O/S: assess applicable enterprise requirements separately from public-user identity. Do not require PIV/CAC for every citizen task.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "INFRA-20",
+      "obligation_id": "OBL-INFRA-20",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Identity proofing/authentication levels fit service risk.",
+      "authority": {
+        "authority_id": "A16",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "service_requires_authentication",
+        "required_facts": [
+          "service_requires_authentication"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "documentary",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Authentication and identity proofing are separate",
+        "User burden and recovery must be evaluated"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls",
+        "preserve_assurance_levels",
+        "preserve_accessible_alternatives"
+      ],
+      "owner_role": "identity_owner",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "ID-01",
+        "class_label": "P/C/O, A16/A44",
+        "proposed_procedure": "O/H: document IAL/AAL/FAL and risk assessment; separate authentication from identity proofing. Evaluate user burden and recovery.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "additional_authority_ids": [
+          "A44"
+        ]
+      }
+    },
+    {
+      "rule_id": "INFRA-21",
+      "obligation_id": "OBL-INFRA-21",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Login.gov for in-scope services, with dates/exceptions.",
+      "authority": {
+        "authority_id": "A16",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "m2618_in_scope",
+        "required_facts": [
+          "m2618_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [
+          {
+            "label": "Login.gov rollout milestones are offsets from the memo issuance date of 2026-08-31; dates are not computed",
+            "date": null
+          }
+        ],
+        "pending_effective_date": true
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "browser",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Default presentation and alternative providers follow the memo's scope",
+        "The applicable cohort and deadline need confirmation"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls",
+        "preserve_assurance_levels",
+        "preserve_accessible_alternatives"
+      ],
+      "owner_role": "identity_owner",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "ID-02",
+        "class_label": "P/C, A16",
+        "proposed_procedure": "S/B/O: inspect sign-on options, applicable cohort/deadline and certified exceptions. Default presentation and alternative providers follow the memo's scope.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "INFRA-22",
+      "obligation_id": "OBL-INFRA-22",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Password behavior meets adopted NIST profile.",
+      "authority": {
+        "authority_id": "A44",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "service_requires_authentication && adopted_nist_63_profile",
+        "required_facts": [
+          "service_requires_authentication",
+          "adopted_nist_63_profile"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "source"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Verify paste and manager support, blocklists, and the prohibitions on composition and routine rotation rules",
+        "Applies the final Rev. 4 profile, not draft thresholds"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls",
+        "preserve_assurance_levels",
+        "preserve_accessible_alternatives"
+      ],
+      "owner_role": "identity_owner",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "ID-03",
+        "class_label": "C, A44",
+        "proposed_procedure": "B/S: for the final Rev.4 profile, minimum 15 characters for single-factor passwords; an MFA password may use minimum eight. The profile recommends permitting at least 64 characters; verify paste/manager support, blocklists, and the prohibitions on composition and routine rotation rules.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "INFRA-23",
+      "obligation_id": "OBL-INFRA-23",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "MFA/phishing resistance and recovery meet assurance requirements.",
+      "authority": {
+        "authority_id": "A44",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "service_requires_authentication",
+        "required_facts": [
+          "service_requires_authentication"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "A screenshot of an MFA prompt does not certify assurance"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls",
+        "preserve_assurance_levels",
+        "preserve_accessible_alternatives"
+      ],
+      "owner_role": "identity_owner",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "ID-04",
+        "class_label": "C, A44",
+        "proposed_procedure": "B/O: inspect required factors, phishing-resistant options and account recovery; do not certify assurance from a screenshot of an MFA prompt.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "INFRA-24",
+      "obligation_id": "OBL-INFRA-24",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Federation protects assertions and redirects.",
+      "authority": {
+        "authority_id": "A44",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "uses_identity_federation",
+        "required_facts": [
+          "uses_identity_federation"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "browser"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Requires approved test identity accounts"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls",
+        "preserve_assurance_levels",
+        "preserve_accessible_alternatives"
+      ],
+      "owner_role": "identity_owner",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "ID-05",
+        "class_label": "C, A44 family; R detail A42",
+        "proposed_procedure": "S/B: inspect issuer/audience validation, redirect allowlists, state/nonce, replay and session handling using approved test identity accounts.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "additional_authority_ids": [
+          "A42"
+        ]
+      }
+    },
+    {
+      "rule_id": "INFRA-25",
+      "obligation_id": "OBL-INFRA-25",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Identity UX is monitored for exclusion and friction.",
+      "authority": {
+        "authority_id": "A16",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "m2618_in_scope",
+        "required_facts": [
+          "m2618_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [
+          {
+            "label": "Identity UX monitoring follows the memo milestones; dates are not computed",
+            "date": null
+          }
+        ],
+        "pending_effective_date": true
+      },
+      "evaluation": {
+        "channels": [
+          "documentary",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Completion and abandonment data are organizational evidence"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls",
+        "preserve_assurance_levels",
+        "preserve_accessible_alternatives"
+      ],
+      "owner_role": "identity_owner",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "ID-06",
+        "class_label": "P/C/O, A16",
+        "proposed_procedure": "O/H: examine completion, abandonment and time alongside fraud/privacy outcomes; review failure paths and support access.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "INFRA-26",
+      "obligation_id": "OBL-INFRA-26",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "America.gov covered-service planning and execution.",
+      "authority": {
+        "authority_id": "A17",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "america_gov_covered_service",
+        "required_facts": [
+          "america_gov_covered_service"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [
+          {
+            "label": "OMB implementation guidance was directed within 90 days of the order; treat as unresolved until published",
+            "date": null
+          }
+        ],
+        "pending_effective_date": true
+      },
+      "evaluation": {
+        "channels": [
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Track upcoming requirements separately from overdue ones",
+        "Expose only authorized data and functions"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls",
+        "preserve_assurance_levels",
+        "preserve_accessible_alternatives"
+      ],
+      "owner_role": "program_owner",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "GOV-01",
+        "class_label": "P/C/O, A17",
+        "proposed_procedure": "O: record annual-user predicate, exclusions and implementation guidance. Expose only authorized data/functions; track upcoming requirements separately from overdue ones.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    }
+  ],
+  "extensions": {
+    "title": "Security, identity, hosting, and operations",
+    "notes": "Security (19), identity (6), and America.gov governance (1) rows. Several primary authorities are not source-verified. Research lifecycle."
+  }
+}

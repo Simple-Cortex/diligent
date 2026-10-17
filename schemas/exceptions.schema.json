@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Simple-Cortex/diligent/schemas/exceptions.schema.json",
+  "title": "Exceptions",
+  "description": "EXCEPTIONS.json: authorized exceptions, kept separate from results (blueprint 17.5).",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^run-\\d{4}-\\d{2}-\\d{2}-[0-9a-f]{6}$"
+    },
+    "exceptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "exception_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "authority_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "clause": {
+            "type": "string",
+            "minLength": 1
+          },
+          "obligation_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "instances": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1
+          },
+          "required_findings": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "approving_role": {
+            "type": "string",
+            "minLength": 1
+          },
+          "approval_evidence_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "approval_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "expires_on": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "review_trigger": {
+            "type": "string",
+            "minLength": 1
+          },
+          "alternative_access": {
+            "type": "string",
+            "minLength": 1
+          },
+          "residual_barriers": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "legal_effect": {
+            "type": "string",
+            "enum": [
+              "removes_obligation",
+              "release_decision_only",
+              "none"
+            ]
+          }
+        },
+        "required": [
+          "exception_id",
+          "authority_id",
+          "clause",
+          "obligation_id",
+          "instances",
+          "rationale",
+          "required_findings",
+          "approving_role",
+          "approval_evidence_refs",
+          "approval_date",
+          "expires_on",
+          "review_trigger",
+          "alternative_access",
+          "residual_barriers",
+          "legal_effect"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Namespaced vendor or local fields. Unknown top-level fields are rejected; put them here."
+    }
+  },
+  "required": [
+    "schema_version",
+    "run_id",
+    "exceptions"
+  ],
+  "additionalProperties": false
+}

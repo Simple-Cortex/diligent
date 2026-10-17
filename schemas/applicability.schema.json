@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Simple-Cortex/diligent/schemas/applicability.schema.json",
+  "title": "Applicability",
+  "description": "APPLICABILITY.json: every selected obligation with predicate trace (blueprint 17.4).",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^run-\\d{4}-\\d{2}-\\d{2}-[0-9a-f]{6}$"
+    },
+    "audit_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "profile_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evaluated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "obligations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/obligation"
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Namespaced vendor or local fields. Unknown top-level fields are rejected; put them here."
+    }
+  },
+  "required": [
+    "schema_version",
+    "run_id",
+    "audit_id",
+    "profile_id",
+    "evaluated_at",
+    "obligations"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "obligation": {
+      "type": "object",
+      "properties": {
+        "obligation_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rule_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pack_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "authority_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mandatory": {
+          "type": "boolean"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "applicable",
+            "not_applicable",
+            "unknown",
+            "pending_effective_date"
+          ]
+        },
+        "temporal_state": {
+          "type": "string",
+          "enum": [
+            "effective",
+            "pending",
+            "unknown"
+          ]
+        },
+        "effective_date": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "predicate_trace": {
+          "type": "array"
+        },
+        "facts_used": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "exclusion": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "citation": {
+              "type": "string",
+              "minLength": 1
+            },
+            "predicate_facts": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1
+            },
+            "evidence_refs": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "required": [
+            "citation",
+            "predicate_facts",
+            "evidence_refs"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "obligation_id",
+        "rule_id",
+        "pack_id",
+        "authority_id",
+        "mandatory",
+        "state",
+        "temporal_state",
+        "effective_date",
+        "predicate_trace",
+        "facts_used",
+        "exclusion"
+      ],
+      "additionalProperties": false,
+      "if": {
+        "properties": {
+          "state": {
+            "const": "not_applicable"
+          }
+        },
+        "required": [
+          "state"
+        ]
+      },
+      "then": {
+        "properties": {
+          "exclusion": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  }
+}

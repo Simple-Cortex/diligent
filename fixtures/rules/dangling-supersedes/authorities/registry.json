@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0.0",
+  "registry_version": "0.1.0",
+  "authorities": [
+    {
+      "authority_id": "A01",
+      "title": "Fixture authority A01",
+      "issuer": "Fixture issuer",
+      "kind": "regulation",
+      "official_url": "https://example.gov/A01",
+      "version_url": null,
+      "publication_date": "2024-01-01",
+      "effective_date": "2024-06-01",
+      "transition_dates": [],
+      "status": "active",
+      "supersedes": null,
+      "superseded_by": null,
+      "scope_note": "Fixture record for tests only.",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "content_sha256": null
+    },
+    {
+      "authority_id": "A02",
+      "title": "Fixture authority A02",
+      "issuer": "Fixture issuer",
+      "kind": "technical_standard",
+      "official_url": "https://example.gov/A02",
+      "version_url": null,
+      "publication_date": "2024-01-01",
+      "effective_date": "2024-06-01",
+      "transition_dates": [],
+      "status": "active",
+      "supersedes": [
+        "A77"
+      ],
+      "superseded_by": null,
+      "scope_note": "Fixture record for tests only.",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "content_sha256": null
+    }
+  ]
+}

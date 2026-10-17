@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-17-abc123",
+  "exceptions": [
+    {
+      "exception_id": "exc-1",
+      "authority_id": "A01",
+      "clause": "E202.5",
+      "obligation_id": "OBL-A11Y-1.1.1",
+      "instances": [
+        "inst-1"
+      ],
+      "rationale": "Approved by the agency head for a legacy document.",
+      "required_findings": [],
+      "approving_role": "agency accessibility officer",
+      "approval_evidence_refs": [
+        "ev-3"
+      ],
+      "approval_date": "2026-09-01",
+      "expires_on": "2027-09-01",
+      "review_trigger": "Annual review",
+      "alternative_access": "Provided on request",
+      "residual_barriers": [
+        "Screen reader users cannot read the scan"
+      ],
+      "legal_effect": "release_decision_only"
+    }
+  ]
+}

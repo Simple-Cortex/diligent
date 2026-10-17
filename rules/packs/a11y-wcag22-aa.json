@@ -1,0 +1,448 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "a11y-wcag22-aa",
+  "pack_version": "0.1.0",
+  "profile_ids": [
+    "us-federal-public-web",
+    "us-state-local-ada-title-ii"
+  ],
+  "rules": [
+    {
+      "rule_id": "A11Y-2.4.11",
+      "obligation_id": "OBL-A11Y-2.4.11",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.2 success criterion 2.4.11 Focus not obscured, minimum at level AA as a product target.",
+      "authority": {
+        "authority_id": "A03",
+        "section": "WCAG 2.2 SC 2.4.11",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US",
+      "applicability": {
+        "predicate": "adopted_wcag_version == '2.2' || product_target_wcag_version == '2.2'",
+        "required_facts": [
+          "adopted_wcag_version",
+          "product_target_wcag_version"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Focus after state change and under overlays must be evaluated in context"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.2-2.4.11",
+        "wcag_level": "AA",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html",
+        "proposed_procedure": "Ensure focused components are not entirely hidden by author-created content. Test sticky headers/footers, overlays, and scrolling.",
+        "blueprint_test_channels": "B",
+        "modality_basis": "Recommended product target unless made binding by an applicable adoption (blueprint 4.6). Distinguish from the incorporated federal minimum."
+      }
+    },
+    {
+      "rule_id": "A11Y-2.5.7",
+      "obligation_id": "OBL-A11Y-2.5.7",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.2 success criterion 2.5.7 Dragging at level AA as a product target.",
+      "authority": {
+        "authority_id": "A03",
+        "section": "WCAG 2.2 SC 2.5.7",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US",
+      "applicability": {
+        "predicate": "adopted_wcag_version == '2.2' || product_target_wcag_version == '2.2'",
+        "required_facts": [
+          "adopted_wcag_version",
+          "product_target_wcag_version"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Hit areas and criterion-specific spacing and exceptions must be measured"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.2-2.5.7",
+        "wcag_level": "AA",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html",
+        "proposed_procedure": "Supply a single-pointer method without dragging unless a specified exception applies; keyboard support alone is insufficient for this criterion.",
+        "blueprint_test_channels": "B H",
+        "modality_basis": "Recommended product target unless made binding by an applicable adoption (blueprint 4.6). Distinguish from the incorporated federal minimum."
+      }
+    },
+    {
+      "rule_id": "A11Y-2.5.8",
+      "obligation_id": "OBL-A11Y-2.5.8",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.2 success criterion 2.5.8 Target size, minimum at level AA as a product target.",
+      "authority": {
+        "authority_id": "A03",
+        "section": "WCAG 2.2 SC 2.5.8",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US",
+      "applicability": {
+        "predicate": "adopted_wcag_version == '2.2' || product_target_wcag_version == '2.2'",
+        "required_facts": [
+          "adopted_wcag_version",
+          "product_target_wcag_version"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Hit areas and criterion-specific spacing and exceptions must be measured"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.2-2.5.8",
+        "wcag_level": "AA",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html",
+        "proposed_procedure": "Evaluate 24×24 CSS px targets or qualifying spacing/exceptions. Use the actual geometry rules; 44×44 is not the universal AA minimum.",
+        "blueprint_test_channels": "B",
+        "modality_basis": "Recommended product target unless made binding by an applicable adoption (blueprint 4.6). Distinguish from the incorporated federal minimum."
+      }
+    },
+    {
+      "rule_id": "A11Y-3.2.6",
+      "obligation_id": "OBL-A11Y-3.2.6",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.2 success criterion 3.2.6 Consistent help at level A as a product target.",
+      "authority": {
+        "authority_id": "A03",
+        "section": "WCAG 2.2 SC 3.2.6",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US",
+      "applicability": {
+        "predicate": "adopted_wcag_version == '2.2' || product_target_wcag_version == '2.2'",
+        "required_facts": [
+          "adopted_wcag_version",
+          "product_target_wcag_version"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Context-change behavior needs exercised interaction and cross-page comparison"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.2-3.2.6",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/consistent-help.html",
+        "proposed_procedure": "Compare repeated help mechanisms' relative order across pages. Do not claim this criterion requires a chatbot.",
+        "blueprint_test_channels": "B",
+        "modality_basis": "Recommended product target unless made binding by an applicable adoption (blueprint 4.6). Distinguish from the incorporated federal minimum."
+      }
+    },
+    {
+      "rule_id": "A11Y-3.3.7",
+      "obligation_id": "OBL-A11Y-3.3.7",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.2 success criterion 3.3.7 Redundant entry at level A as a product target.",
+      "authority": {
+        "authority_id": "A03",
+        "section": "WCAG 2.2 SC 3.3.7",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US",
+      "applicability": {
+        "predicate": "adopted_wcag_version == '2.2' || product_target_wcag_version == '2.2'",
+        "required_facts": [
+          "adopted_wcag_version",
+          "product_target_wcag_version"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default",
+          "error",
+          "success"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Real interaction and business behavior need safe fixtures"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.2-3.3.7",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/redundant-entry.html",
+        "proposed_procedure": "Identify repeated information within the same process. Offer qualifying reuse/selection, subject to security, validity, and essential exceptions.",
+        "blueprint_test_channels": "B H",
+        "modality_basis": "Recommended product target unless made binding by an applicable adoption (blueprint 4.6). Distinguish from the incorporated federal minimum."
+      }
+    },
+    {
+      "rule_id": "A11Y-3.3.8",
+      "obligation_id": "OBL-A11Y-3.3.8",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.2 success criterion 3.3.8 Accessible authentication at level AA as a product target.",
+      "authority": {
+        "authority_id": "A03",
+        "section": "WCAG 2.2 SC 3.3.8",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US",
+      "applicability": {
+        "predicate": "adopted_wcag_version == '2.2' || product_target_wcag_version == '2.2'",
+        "required_facts": [
+          "adopted_wcag_version",
+          "product_target_wcag_version"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default",
+          "error",
+          "success"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Real interaction and business behavior need safe fixtures"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.2-3.3.8",
+        "wcag_level": "AA",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html",
+        "proposed_procedure": "Assess cognitive-function tests and permitted alternatives/mechanisms/exceptions. Test password-manager support, paste, and actual recovery flows.",
+        "blueprint_test_channels": "B H",
+        "modality_basis": "Recommended product target unless made binding by an applicable adoption (blueprint 4.6). Distinguish from the incorporated federal minimum."
+      }
+    }
+  ],
+  "extensions": {
+    "title": "WCAG 2.2 A/AA additions",
+    "notes": "The 6 level A and AA criteria that WCAG 2.2 adds. Recommended product target unless made binding by an applicable adoption. Research lifecycle."
+  }
+}

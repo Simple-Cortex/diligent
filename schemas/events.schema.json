@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Simple-Cortex/diligent/schemas/events.schema.json",
+  "title": "Event",
+  "description": "One line of EVENTS.jsonl: append-only stage transitions and artifact hashes (blueprint 20.2).",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "ts": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^run-\\d{4}-\\d{2}-\\d{2}-[0-9a-f]{6}$"
+    },
+    "stage": {
+      "type": "string",
+      "enum": [
+        "initialized",
+        "discovered",
+        "scoped",
+        "planned",
+        "collecting",
+        "assessed",
+        "proposed",
+        "verified",
+        "reported"
+      ]
+    },
+    "event": {
+      "type": "string",
+      "minLength": 1
+    },
+    "artifact": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "sha256": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "detail": {
+      "type": "string"
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Namespaced vendor or local fields. Unknown top-level fields are rejected; put them here."
+    }
+  },
+  "required": [
+    "schema_version",
+    "ts",
+    "run_id",
+    "stage",
+    "event",
+    "artifact",
+    "sha256"
+  ],
+  "additionalProperties": false
+}

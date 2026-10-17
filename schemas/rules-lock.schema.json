@@ -1,0 +1,222 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Simple-Cortex/diligent/schemas/rules-lock.schema.json",
+  "title": "Rules lock",
+  "description": "RULES.lock.json: frozen rule-pack versions, hashes and supported-check matrix.",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^run-\\d{4}-\\d{2}-\\d{2}-[0-9a-f]{6}$"
+    },
+    "locked_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "profile": {
+      "type": "object",
+      "properties": {
+        "profile_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "profile_id",
+        "path",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "schema_hashes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    },
+    "packs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "pack_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "pack_version": {
+            "type": "string",
+            "pattern": "^\\d+\\.\\d+\\.\\d+$"
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "rule_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "normative": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "pack_id",
+          "pack_version",
+          "path",
+          "sha256",
+          "rule_count",
+          "normative"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "supported_check_matrix": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "pack_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "rule_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "obligation_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "lifecycle": {
+            "type": "string",
+            "enum": [
+              "research",
+              "draft",
+              "validated",
+              "published",
+              "retired"
+            ]
+          },
+          "channel_support": {
+            "type": "object",
+            "description": "Support level per test channel (blueprint section 3 test channels S B N M H O).",
+            "properties": {
+              "source": {
+                "type": "string",
+                "enum": [
+                  "automated",
+                  "assisted",
+                  "human",
+                  "documentary",
+                  "unsupported"
+                ]
+              },
+              "browser": {
+                "type": "string",
+                "enum": [
+                  "automated",
+                  "assisted",
+                  "human",
+                  "documentary",
+                  "unsupported"
+                ]
+              },
+              "network": {
+                "type": "string",
+                "enum": [
+                  "automated",
+                  "assisted",
+                  "human",
+                  "documentary",
+                  "unsupported"
+                ]
+              },
+              "model": {
+                "type": "string",
+                "enum": [
+                  "automated",
+                  "assisted",
+                  "human",
+                  "documentary",
+                  "unsupported"
+                ]
+              },
+              "human": {
+                "type": "string",
+                "enum": [
+                  "automated",
+                  "assisted",
+                  "human",
+                  "documentary",
+                  "unsupported"
+                ]
+              },
+              "documentary": {
+                "type": "string",
+                "enum": [
+                  "automated",
+                  "assisted",
+                  "human",
+                  "documentary",
+                  "unsupported"
+                ]
+              }
+            },
+            "required": [
+              "source",
+              "browser",
+              "network",
+              "model",
+              "human",
+              "documentary"
+            ],
+            "additionalProperties": false
+          },
+          "unsupported": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "pack_id",
+          "rule_id",
+          "obligation_id",
+          "lifecycle",
+          "channel_support",
+          "unsupported"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Namespaced vendor or local fields. Unknown top-level fields are rejected; put them here."
+    }
+  },
+  "required": [
+    "schema_version",
+    "run_id",
+    "locked_at",
+    "profile",
+    "schema_hashes",
+    "packs",
+    "supported_check_matrix"
+  ],
+  "additionalProperties": false
+}

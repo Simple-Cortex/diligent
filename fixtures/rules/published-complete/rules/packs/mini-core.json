@@ -1,0 +1,194 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "mini-core",
+  "pack_version": "0.1.0",
+  "profile_ids": [
+    "mini-profile"
+  ],
+  "rules": [
+    {
+      "rule_id": "A11Y-1.1.1",
+      "obligation_id": "OBL-A11Y-1.1.1",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "published",
+      "obligation": "Fixture obligation for A11Y-1.1.1.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "Fixture section",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "covered",
+        "required_facts": [
+          "covered"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Fixture blind spot"
+      ],
+      "fixtures": {
+        "positive": [
+          "fx-pos"
+        ],
+        "negative": [
+          "fx-neg"
+        ],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "reviewed"
+    },
+    {
+      "rule_id": "A11Y-1.4.3",
+      "obligation_id": "OBL-A11Y-1.4.3",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Fixture obligation for A11Y-1.4.3.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "Fixture section",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "covered",
+        "required_facts": [
+          "covered"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Fixture blind spot"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research"
+    },
+    {
+      "rule_id": "FED-01",
+      "obligation_id": "OBL-FED-01",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Fixture obligation for FED-01.",
+      "authority": {
+        "authority_id": "A02",
+        "section": "Fixture section",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "covered",
+        "required_facts": [
+          "covered"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Fixture blind spot"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research"
+    }
+  ]
+}

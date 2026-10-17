@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "mini-profile",
+  "title": "Fixture profile",
+  "jurisdiction": "US-federal",
+  "status": "draft",
+  "selected_packs": [
+    "mini-core",
+    "mini-ux",
+    "mini-ghost"
+  ],
+  "required_facts": [
+    "covered"
+  ],
+  "claim_boundary": "Fixture claim boundary.",
+  "notes": "Fixture."
+}

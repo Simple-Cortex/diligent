@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Simple-Cortex/diligent/schemas/design-system.schema.json",
+  "title": "Design system",
+  "description": "DESIGN-SYSTEM.json: library identities, tokens, wrappers and usage graph.",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "audit_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^run-\\d{4}-\\d{2}-\\d{2}-[0-9a-f]{6}$"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "in_progress",
+        "complete",
+        "blocked"
+      ]
+    },
+    "libraries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "version": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "kind": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "version",
+          "source",
+          "kind"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "tokens": {
+      "type": "object"
+    },
+    "wrappers": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "usage_graph": {
+      "type": "object"
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Namespaced vendor or local fields. Unknown top-level fields are rejected; put them here."
+    }
+  },
+  "required": [
+    "schema_version",
+    "audit_id",
+    "run_id",
+    "status",
+    "libraries",
+    "tokens",
+    "wrappers",
+    "usage_graph"
+  ],
+  "additionalProperties": false
+}

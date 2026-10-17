@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Simple-Cortex/diligent/schemas/evidence-record.schema.json",
+  "title": "Evidence record",
+  "description": "One line of EVIDENCE.jsonl (blueprint 19.2).",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "evidence_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^run-\\d{4}-\\d{2}-\\d{2}-[0-9a-f]{6}$"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "source_span",
+        "runtime_observation",
+        "accessibility_tree",
+        "computed_style",
+        "interaction_trace",
+        "http_response",
+        "document_extract",
+        "owner_assertion",
+        "human_test",
+        "model_assessment"
+      ]
+    },
+    "collector": {
+      "type": "string",
+      "minLength": 1
+    },
+    "collector_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "captured_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "snapshot_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "context": {
+      "type": "object"
+    },
+    "payload_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "data_classification": {
+      "type": "string",
+      "minLength": 1
+    },
+    "redaction": {
+      "type": "object",
+      "properties": {
+        "applied": {
+          "type": "boolean"
+        },
+        "flags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "applied",
+        "flags"
+      ],
+      "additionalProperties": false
+    },
+    "trust": {
+      "type": "string",
+      "enum": [
+        "direct_observation",
+        "verified_document",
+        "owner_assertion",
+        "inference",
+        "untrusted_claim"
+      ]
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "derived_from": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "valid_until": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Namespaced vendor or local fields. Unknown top-level fields are rejected; put them here."
+    }
+  },
+  "required": [
+    "schema_version",
+    "evidence_id",
+    "run_id",
+    "kind",
+    "collector",
+    "collector_version",
+    "captured_at",
+    "snapshot_ref",
+    "context",
+    "payload_ref",
+    "sha256",
+    "data_classification",
+    "redaction",
+    "trust",
+    "limitations",
+    "derived_from"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "us-federal-public-web",
+  "title": "U.S. federal executive branch public website or digital service",
+  "jurisdiction": "US-federal",
+  "status": "draft",
+  "selected_packs": [
+    "a11y-wcag20-aa",
+    "a11y-wcag21-aa",
+    "a11y-wcag22-aa",
+    "federal-public-web",
+    "privacy-collection",
+    "infrastructure",
+    "ux-service"
+  ],
+  "required_facts": [
+    "federal_executive_agency",
+    "public_facing",
+    "section508_covered",
+    "electronic_content_in_scope",
+    "adopted_wcag_version",
+    "collects_personal_data",
+    "service_requires_authentication",
+    "service_brief_present",
+    "fisma_system_in_scope"
+  ],
+  "claim_boundary": "Diligent 0.1.0 organizes scope, evidence, and review work for a federal public website and computes a deterministic gate from supplied results, but every rule in this profile is at the research lifecycle and no automated check ships, so the most any run can report is that the declared scope is incomplete or that supplied results show a failure; it is not a certification, an authority to operate, or a statement of legal compliance.",
+  "notes": "Draft profile. WCAG 2.1 and 2.2 packs are included so that adopted or recommended targets are recorded; their applicability predicates keep them inert unless the target adopts them. Agency, program, and contract overlays come from regulatory discovery and are not included here."
+}

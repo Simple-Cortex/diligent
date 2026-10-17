@@ -1,0 +1,76 @@
+{
+  "name": "diligent",
+  "version": "0.1.0",
+  "description": "An agent skill that audits U.S. government websites and digital services for accessibility and federal web obligations, with evidence-bound findings and a deterministic gate.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Mohsin Amjed",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Simple-Cortex/diligent.git"
+  },
+  "homepage": "https://github.com/Simple-Cortex/diligent#readme",
+  "bugs": {
+    "url": "https://github.com/Simple-Cortex/diligent/issues"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "diligent": "bin/diligent.mjs"
+  },
+  "files": [
+    "SKILL.md",
+    "package.json",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "bin/diligent.mjs",
+    "scripts/lib/artifacts.mjs",
+    "scripts/lib/cli.mjs",
+    "scripts/lib/data.mjs",
+    "scripts/lib/engine.mjs",
+    "scripts/lib/manifest.mjs",
+    "scripts/lib/schema.mjs",
+    "scripts/lib/scope-facts.mjs",
+    "scripts/lib/status.mjs",
+    "scripts/init.mjs",
+    "scripts/status.mjs",
+    "scripts/gate.mjs",
+    "scripts/report.mjs",
+    "scripts/validate-rules.mjs",
+    "scripts/validate-skill.mjs",
+    "scripts/install.mjs",
+    "scripts/prepack.mjs",
+    "scripts/check.mjs",
+    "scripts/test.mjs",
+    "schemas/*.json",
+    "authorities/registry.json",
+    "rules/packs/*.json",
+    "profiles/*.json",
+    "prompts/*.md",
+    "references/*.md",
+    "skills/*/SKILL.md",
+    "docs/supported-checks.md",
+    "docs/known-limitations.md",
+    "runtime-manifest.json"
+  ],
+  "keywords": [
+    "agent-skill",
+    "accessibility",
+    "section-508",
+    "wcag",
+    "government",
+    "audit"
+  ],
+  "scripts": {
+    "test": "node scripts/test.mjs",
+    "check": "node scripts/check.mjs",
+    "validate": "node scripts/validate-rules.mjs",
+    "gate": "node scripts/gate.mjs",
+    "report": "node scripts/report.mjs",
+    "install-skill": "node scripts/install.mjs",
+    "prepack": "node scripts/prepack.mjs",
+    "test:packed-artifact": "node --test tests/packed-artifact.test.mjs"
+  }
+}

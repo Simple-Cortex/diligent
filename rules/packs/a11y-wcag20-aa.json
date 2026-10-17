@@ -1,0 +1,3130 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "a11y-wcag20-aa",
+  "pack_version": "0.1.0",
+  "profile_ids": [
+    "us-federal-public-web",
+    "us-state-local-ada-title-ii"
+  ],
+  "rules": [
+    {
+      "rule_id": "A11Y-1.1.1",
+      "obligation_id": "OBL-A11Y-1.1.1",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 1.1.1 Non-text content at level A where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 1.1.1",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "browser",
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Presence is automatable; adequacy and complex graphics need expert or model-assisted review"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-1.1.1",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html",
+        "proposed_procedure": "Inventory images, SVG, canvas, icons, charts, and CAPTCHA. Check alternatives against purpose; use empty alternatives for decoration and equivalent data for meaningful graphics.",
+        "blueprint_test_channels": "S B M H",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-1.2.1",
+      "obligation_id": "OBL-A11Y-1.2.1",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 1.2.1 Audio/video only at level A where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 1.2.1",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Track presence does not prove accuracy, completeness, or synchronization"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-1.2.1",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/audio-only-and-video-only-prerecorded.html",
+        "proposed_procedure": "Identify prerecorded single-medium content; inspect equivalent alternatives. Link a usable transcript or other required equivalent alongside the media.",
+        "blueprint_test_channels": "B M H",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-1.2.2",
+      "obligation_id": "OBL-A11Y-1.2.2",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 1.2.2 Prerecorded captions at level A where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 1.2.2",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Track presence does not prove accuracy, completeness, or synchronization"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-1.2.2",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/captions-prerecorded.html",
+        "proposed_procedure": "Verify actual caption coverage, timing, speaker and meaningful-sound information; a track element alone is insufficient. Correct captions against media.",
+        "blueprint_test_channels": "S B H",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-1.2.3",
+      "obligation_id": "OBL-A11Y-1.2.3",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 1.2.3 Description or media alternative at level A where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 1.2.3",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Track presence does not prove accuracy, completeness, or synchronization"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-1.2.3",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/audio-description-or-media-alternative-prerecorded.html",
+        "proposed_procedure": "Check essential visual information in synchronized prerecorded media; evaluate a qualifying description or full media alternative.",
+        "blueprint_test_channels": "B H",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-1.2.4",
+      "obligation_id": "OBL-A11Y-1.2.4",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 1.2.4 Live captions at level AA where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 1.2.4",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Track presence does not prove accuracy, completeness, or synchronization"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-1.2.4",
+        "wcag_level": "AA",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/captions-live.html",
+        "proposed_procedure": "Review live synchronized-media delivery and caption operations, including the actual event experience.",
+        "blueprint_test_channels": "B H O",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-1.2.5",
+      "obligation_id": "OBL-A11Y-1.2.5",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 1.2.5 Prerecorded audio description at level AA where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 1.2.5",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Track presence does not prove accuracy, completeness, or synchronization"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-1.2.5",
+        "wcag_level": "AA",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/audio-description-prerecorded.html",
+        "proposed_procedure": "Evaluate description of meaningful visuals in prerecorded synchronized video. A transcript alone does not automatically satisfy this AA requirement.",
+        "blueprint_test_channels": "B H",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-1.3.1",
+      "obligation_id": "OBL-A11Y-1.3.1",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 1.3.1 Relationships at level A where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 1.3.1",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "DOM and accessibility-tree evidence needs task reading and layout review; CSS order may differ"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-1.3.1",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html",
+        "proposed_procedure": "Compare visual structure with accessibility tree: headings, lists, tables, labels, groups, and instructions. Repair semantics at the component/template level.",
+        "blueprint_test_channels": "S B H",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-1.3.2",
+      "obligation_id": "OBL-A11Y-1.3.2",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 1.3.2 Meaningful sequence at level A where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 1.3.2",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "DOM and accessibility-tree evidence needs task reading and layout review; CSS order may differ"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-1.3.2",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/meaningful-sequence.html",
+        "proposed_procedure": "Compare DOM/assistive reading order with intended meaning, especially CSS reorderings and responsive layouts.",
+        "blueprint_test_channels": "S B H",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-1.3.3",
+      "obligation_id": "OBL-A11Y-1.3.3",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 1.3.3 Sensory characteristics at level A where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 1.3.3",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "DOM and accessibility-tree evidence needs task reading and layout review; CSS order may differ"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-1.3.3",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/sensory-characteristics.html",
+        "proposed_procedure": "Find instructions relying only on position, shape, sound, or size. Add a stable name or text reference.",
+        "blueprint_test_channels": "M H",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-1.4.1",
+      "obligation_id": "OBL-A11Y-1.4.1",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 1.4.1 Color at level A where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 1.4.1",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Exceptions are criterion-specific; complex backgrounds and essential two-dimensional layouts require review"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-1.4.1",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html",
+        "proposed_procedure": "Review errors, charts, links, selection, and statuses without color cues. Add text, symbols, patterns, or another suitable cue.",
+        "blueprint_test_channels": "B M H",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-1.4.2",
+      "obligation_id": "OBL-A11Y-1.4.2",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 1.4.2 Audio control at level A where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 1.4.2",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Exceptions are criterion-specific; complex backgrounds and essential two-dimensional layouts require review"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-1.4.2",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/audio-control.html",
+        "proposed_procedure": "Detect audio starting automatically for more than three seconds. Provide qualifying independent control or avoid autoplay.",
+        "blueprint_test_channels": "B",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-1.4.3",
+      "obligation_id": "OBL-A11Y-1.4.3",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 1.4.3 Text contrast at level AA where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 1.4.3",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser"
+        ],
+        "required_states": [
+          "default",
+          "error",
+          "hover",
+          "focus",
+          "selected"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Exceptions are criterion-specific; complex backgrounds and essential two-dimensional layouts require review"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-1.4.3",
+        "wcag_level": "AA",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+        "proposed_procedure": "Measure rendered foreground/background pairs: 4.5:1 ordinary text; 3:1 large text, at least 18 pt or 14 pt bold. Honor exclusions and image/gradient uncertainty.",
+        "blueprint_test_channels": "B",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-1.4.4",
+      "obligation_id": "OBL-A11Y-1.4.4",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 1.4.4 Resize text at level AA where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 1.4.4",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Exceptions are criterion-specific; complex backgrounds and essential two-dimensional layouts require review"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-1.4.4",
+        "wcag_level": "AA",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html",
+        "proposed_procedure": "Resize to 200% and inspect content/function loss, with the criterion's exceptions. Replace clipping/fixed heights with layouts that accommodate text.",
+        "blueprint_test_channels": "B H",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-1.4.5",
+      "obligation_id": "OBL-A11Y-1.4.5",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 1.4.5 Images of text at level AA where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 1.4.5",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "browser",
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Exceptions are criterion-specific; complex backgrounds and essential two-dimensional layouts require review"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-1.4.5",
+        "wcag_level": "AA",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/images-of-text.html",
+        "proposed_procedure": "Detect rasterized text and evaluate customization/essential exceptions. Use real text where required.",
+        "blueprint_test_channels": "S B M H",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-2.1.1",
+      "obligation_id": "OBL-A11Y-2.1.1",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 2.1.1 Keyboard at level A where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 2.1.1",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "A tab-order snapshot cannot prove task operability"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-2.1.1",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html",
+        "proposed_procedure": "Execute every task by keyboard, including custom controls, uploads, menus, editors, and maps; account for path-dependent-input exceptions. Prefer native controls.",
+        "blueprint_test_channels": "B H",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-2.1.2",
+      "obligation_id": "OBL-A11Y-2.1.2",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 2.1.2 No keyboard trap at level A where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 2.1.2",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "A tab-order snapshot cannot prove task operability"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-2.1.2",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html",
+        "proposed_procedure": "Enter and leave widgets/frames. Verify modal exit and restoration; a proper modal's temporary focus containment is not inherently a failure.",
+        "blueprint_test_channels": "B H",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-2.2.1",
+      "obligation_id": "OBL-A11Y-2.2.1",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 2.2.1 Timing at level A where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 2.2.1",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "browser",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Timing and moving content need exercised behavior, not a static capture"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-2.2.1",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html",
+        "proposed_procedure": "Exercise session and form timers. Verify qualifying adjustment, warning/extension, or exception; coordinate with required security limits.",
+        "blueprint_test_channels": "S B O",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-2.2.2",
+      "obligation_id": "OBL-A11Y-2.2.2",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 2.2.2 Moving/updating content at level A where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 2.2.2",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Timing and moving content need exercised behavior, not a static capture"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-2.2.2",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html",
+        "proposed_procedure": "Inspect carousels, tickers, auto-updates, and animations. Provide qualifying pause/stop/hide or update-frequency control.",
+        "blueprint_test_channels": "B H",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-2.3.1",
+      "obligation_id": "OBL-A11Y-2.3.1",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 2.3.1 Flashes at level A where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 2.3.1",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "No simple screenshot flash test; escalate unmeasured media safely"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-2.3.1",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/three-flashes-or-below-threshold.html",
+        "proposed_procedure": "Flag flashing media/animations; use suitable analysis for frequency and flash thresholds. Avoid unsafe flashing rather than relying on a warning.",
+        "blueprint_test_channels": "B H",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-2.4.1",
+      "obligation_id": "OBL-A11Y-2.4.1",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 2.4.1 Bypass blocks at level A where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 2.4.1",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Focus after state change and under overlays must be evaluated in context"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-2.4.1",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/bypass-blocks.html",
+        "proposed_procedure": "Verify a working way past repeated content. Test skip navigation target/focus behavior and relevant structural mechanisms.",
+        "blueprint_test_channels": "S B H",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-2.4.2",
+      "obligation_id": "OBL-A11Y-2.4.2",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 2.4.2 Page title at level A where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 2.4.2",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "browser",
+          "model"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Focus after state change and under overlays must be evaluated in context"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-2.4.2",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/page-titled.html",
+        "proposed_procedure": "Compare page and SPA route titles with purpose. Generate meaningful titles for results, errors, and transaction stages.",
+        "blueprint_test_channels": "S B M",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-2.4.3",
+      "obligation_id": "OBL-A11Y-2.4.3",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 2.4.3 Focus order at level A where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 2.4.3",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Focus after state change and under overlays must be evaluated in context"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-2.4.3",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html",
+        "proposed_procedure": "Record sequential focus through responsive layouts, inserted content, and dialogs. Repair order without arbitrary positive tabindex values.",
+        "blueprint_test_channels": "B H",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-2.4.4",
+      "obligation_id": "OBL-A11Y-2.4.4",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 2.4.4 Link purpose at level A where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 2.4.4",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "browser",
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Focus after state change and under overlays must be evaluated in context"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-2.4.4",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-in-context.html",
+        "proposed_procedure": "Evaluate links with permitted programmatic context. Replace ambiguous link copy while preserving concise layouts.",
+        "blueprint_test_channels": "S B M H",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-2.4.5",
+      "obligation_id": "OBL-A11Y-2.4.5",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 2.4.5 Multiple ways at level AA where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 2.4.5",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Focus after state change and under overlays must be evaluated in context"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-2.4.5",
+        "wcag_level": "AA",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/multiple-ways.html",
+        "proposed_procedure": "Inspect ways to locate pages within a set; account for process-step exceptions. Combine navigation with search, index, or other suitable access.",
+        "blueprint_test_channels": "B H",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-2.4.6",
+      "obligation_id": "OBL-A11Y-2.4.6",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 2.4.6 Headings/labels at level AA where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 2.4.6",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Focus after state change and under overlays must be evaluated in context"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-2.4.6",
+        "wcag_level": "AA",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html",
+        "proposed_procedure": "Check whether headings and labels describe topic/purpose. A fixed heading count is not the conformance test.",
+        "blueprint_test_channels": "M H",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-2.4.7",
+      "obligation_id": "OBL-A11Y-2.4.7",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 2.4.7 Visible focus at level AA where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 2.4.7",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default",
+          "hover",
+          "focus"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Focus after state change and under overlays must be evaluated in context"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-2.4.7",
+        "wcag_level": "AA",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html",
+        "proposed_procedure": "Observe every focused interactive component across states and themes. Restore a visible indicator; do not import AAA geometry into this AA criterion.",
+        "blueprint_test_channels": "B H",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-3.1.1",
+      "obligation_id": "OBL-A11Y-3.1.1",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 3.1.1 Page language at level A where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 3.1.1",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "browser",
+          "model"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Automated language guessing cannot prove correctness"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-3.1.1",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/language-of-page.html",
+        "proposed_procedure": "Compare declared document language with actual content. Fix templates and localized route output.",
+        "blueprint_test_channels": "S B M",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-3.1.2",
+      "obligation_id": "OBL-A11Y-3.1.2",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 3.1.2 Language changes at level AA where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 3.1.2",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "browser",
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Automated language guessing cannot prove correctness"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-3.1.2",
+        "wcag_level": "AA",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/language-of-parts.html",
+        "proposed_procedure": "Check meaningful changes in human language, with specified exceptions. Mark appropriate passages and UI strings.",
+        "blueprint_test_channels": "S B M H",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-3.2.1",
+      "obligation_id": "OBL-A11Y-3.2.1",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 3.2.1 Focus behavior at level A where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 3.2.1",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Context-change behavior needs exercised interaction and cross-page comparison"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-3.2.1",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/on-focus.html",
+        "proposed_procedure": "Focus controls without activation; detect unexpected context changes. Move navigation/submission to intentional actions.",
+        "blueprint_test_channels": "B",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-3.2.2",
+      "obligation_id": "OBL-A11Y-3.2.2",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 3.2.2 Input behavior at level A where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 3.2.2",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Context-change behavior needs exercised interaction and cross-page comparison"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-3.2.2",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/on-input.html",
+        "proposed_procedure": "Change selects/toggles/inputs; check context changes and advance notice. Use explicit submission when appropriate.",
+        "blueprint_test_channels": "B H",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-3.2.3",
+      "obligation_id": "OBL-A11Y-3.2.3",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 3.2.3 Consistent navigation at level AA where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 3.2.3",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "browser"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Context-change behavior needs exercised interaction and cross-page comparison"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-3.2.3",
+        "wcag_level": "AA",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/consistent-navigation.html",
+        "proposed_procedure": "Compare repeated navigation order across page sets, with permitted user changes. Fix shared templates.",
+        "blueprint_test_channels": "S B",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-3.2.4",
+      "obligation_id": "OBL-A11Y-3.2.4",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 3.2.4 Consistent identification at level AA where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 3.2.4",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "browser",
+          "model"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Context-change behavior needs exercised interaction and cross-page comparison"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-3.2.4",
+        "wcag_level": "AA",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/consistent-identification.html",
+        "proposed_procedure": "Compare labels/icons for the same function across the site. Align names through design-system components.",
+        "blueprint_test_channels": "S B M",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-3.3.1",
+      "obligation_id": "OBL-A11Y-3.3.1",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 3.3.1 Error identification at level A where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 3.3.1",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default",
+          "error",
+          "success"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Real interaction and business behavior need safe fixtures"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-3.3.1",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html",
+        "proposed_procedure": "Submit invalid fixtures; check textual identification and description of detected input errors. Map backend errors to meaningful fields.",
+        "blueprint_test_channels": "B H",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-3.3.2",
+      "obligation_id": "OBL-A11Y-3.3.2",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 3.3.2 Labels/instructions at level A where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 3.3.2",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "browser",
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default",
+          "error",
+          "success"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Real interaction and business behavior need safe fixtures"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-3.3.2",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html",
+        "proposed_procedure": "Inspect required input instructions, labels, formats, and expectations. Placeholder text alone is often inadequate.",
+        "blueprint_test_channels": "S B M H",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-3.3.3",
+      "obligation_id": "OBL-A11Y-3.3.3",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 3.3.3 Error suggestions at level AA where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 3.3.3",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default",
+          "error",
+          "success"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Real interaction and business behavior need safe fixtures"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-3.3.3",
+        "wcag_level": "AA",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html",
+        "proposed_procedure": "When correction is known, inspect actionable suggestions, with security/purpose exceptions. Avoid vague “invalid input” loops.",
+        "blueprint_test_channels": "B M H",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-3.3.4",
+      "obligation_id": "OBL-A11Y-3.3.4",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 3.3.4 Error prevention at level AA where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 3.3.4",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human",
+          "documentary"
+        ],
+        "required_states": [
+          "default",
+          "error",
+          "success"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Real interaction and business behavior need safe fixtures"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-3.3.4",
+        "wcag_level": "AA",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/error-prevention-legal-financial-data.html",
+        "proposed_procedure": "Test covered legal/financial/data operations for qualifying reversibility, checking, or confirmation. Add review/edit without inventing cancellation rights.",
+        "blueprint_test_channels": "B H O",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    },
+    {
+      "rule_id": "A11Y-4.1.1",
+      "obligation_id": "OBL-A11Y-4.1.1",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 4.1.1 Parsing at level A where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 4.1.1",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope && incorporated_standard_retains_4_1_1) || (ada_title2_covered && ada_title2_content_in_scope && incorporated_standard_retains_4_1_1)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "incorporated_standard_retains_4_1_1",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "browser"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Accessibility-tree correctness does not prove screen-reader experience"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-4.1.1",
+        "wcag_level": "A, older profiles",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/parsing.html",
+        "proposed_procedure": "Retain for standards that still incorporate it. Assess the applicable version/errata; distinguish parsing defects from actual name/role or relationship failures.",
+        "blueprint_test_channels": "S B",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ],
+        "note": "Retain only for standards that still incorporate it. WCAG 2.2 removes it. Distinguish parsing defects from actual name, role, or relationship failures."
+      }
+    },
+    {
+      "rule_id": "A11Y-4.1.2",
+      "obligation_id": "OBL-A11Y-4.1.2",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.0 success criterion 4.1.2 Name/role/value at level A where the incorporated standard applies.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205.4; WCAG 2.0 SC 4.1.2",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.0 AA"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "(section508_covered && electronic_content_in_scope) || (ada_title2_covered && ada_title2_content_in_scope)",
+        "required_facts": [
+          "section508_covered",
+          "electronic_content_in_scope",
+          "ada_title2_covered",
+          "ada_title2_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Accessibility-tree correctness does not prove screen-reader experience"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.0-4.1.2",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html",
+        "proposed_procedure": "Inspect computed accessibility properties and changes. Test custom controls, expanded state, labels, and values against actual behavior.",
+        "blueprint_test_channels": "S B H",
+        "modality_basis": "Section 508 incorporates WCAG 2.0 A/AA; the blueprint example record for this family uses modality shall.",
+        "also_required_via": [
+          {
+            "authority_id": "A02",
+            "condition": "ada_title2_covered",
+            "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
+          }
+        ]
+      }
+    }
+  ],
+  "extensions": {
+    "title": "WCAG 2.0 A/AA",
+    "notes": "The 38 WCAG 2.0 level A and AA success criteria, the incorporated Section 508 baseline (also reaching state and local entities through WCAG 2.1 AA under ADA Title II). Research lifecycle. No automated checks ship in 0.1.0."
+  }
+}

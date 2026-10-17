@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Simple-Cortex/diligent/schemas/audit-plan.schema.json",
+  "title": "Audit plan",
+  "description": "AUDIT-PLAN.json: required obligations, tests, instances and sampling rationale.",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^run-\\d{4}-\\d{2}-\\d{2}-[0-9a-f]{6}$"
+    },
+    "audit_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "computed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "required_obligations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "obligation_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "check_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "instances": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "instance_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "target": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "context": {
+                  "type": "object"
+                }
+              },
+              "required": [
+                "instance_id",
+                "target",
+                "context"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "obligation_id",
+          "check_ids",
+          "instances"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "sampling": {
+      "type": "object",
+      "properties": {
+        "method": {
+          "type": "string",
+          "minLength": 1
+        },
+        "seed": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "method",
+        "seed",
+        "rationale"
+      ],
+      "additionalProperties": false
+    },
+    "manual_work": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "documentary_work": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "budgets": {
+      "type": "object"
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Namespaced vendor or local fields. Unknown top-level fields are rejected; put them here."
+    }
+  },
+  "required": [
+    "schema_version",
+    "run_id",
+    "audit_id",
+    "computed_at",
+    "required_obligations",
+    "sampling",
+    "manual_work",
+    "documentary_work",
+    "budgets"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,451 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Simple-Cortex/diligent/schemas/rule-pack.schema.json",
+  "title": "Rule pack",
+  "description": "A versioned pack of atomic rules (blueprint 10.1 and 19.4).",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "pack_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "pack_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "profile_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "normative": {
+      "type": "boolean",
+      "description": "false marks product engineering rules that are not legal obligations (the ux-service pack)."
+    },
+    "notes": {
+      "type": "string"
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/rule"
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Namespaced vendor or local fields. Unknown top-level fields are rejected; put them here."
+    }
+  },
+  "required": [
+    "schema_version",
+    "pack_id",
+    "pack_version",
+    "profile_ids",
+    "rules"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "rule": {
+      "type": "object",
+      "properties": {
+        "rule_id": {
+          "type": "string",
+          "pattern": "^(A11Y-\\d+\\.\\d+\\.\\d+|FED-\\d+|PRIV-\\d+|INFRA-\\d+|UX-\\d+)$"
+        },
+        "obligation_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "check_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$"
+        },
+        "lifecycle": {
+          "type": "string",
+          "enum": [
+            "research",
+            "draft",
+            "validated",
+            "published",
+            "retired"
+          ]
+        },
+        "obligation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authority": {
+          "type": "object",
+          "properties": {
+            "authority_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "section": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "modality": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "shall",
+                "should",
+                "may",
+                "must",
+                null
+              ]
+            },
+            "incorporated_standard": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "authority_id",
+            "section",
+            "modality",
+            "incorporated_standard"
+          ],
+          "additionalProperties": false
+        },
+        "jurisdiction": {
+          "type": "string",
+          "minLength": 1
+        },
+        "applicability": {
+          "type": "object",
+          "properties": {
+            "predicate": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "object"
+                }
+              ]
+            },
+            "required_facts": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "required": [
+            "predicate",
+            "required_facts"
+          ],
+          "additionalProperties": false
+        },
+        "temporal": {
+          "type": "object",
+          "properties": {
+            "effective": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date"
+            },
+            "transition": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "date": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "format": "date"
+                      }
+                    },
+                    "required": [
+                      "label",
+                      "date"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              ]
+            },
+            "pending_effective_date": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "effective",
+            "transition",
+            "pending_effective_date"
+          ],
+          "additionalProperties": false
+        },
+        "evaluation": {
+          "type": "object",
+          "properties": {
+            "channels": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required_states": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "automatic_pass_scope": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "channels",
+            "required_states",
+            "automatic_pass_scope"
+          ],
+          "additionalProperties": false
+        },
+        "channel_support": {
+          "type": "object",
+          "description": "Support level per test channel (blueprint section 3 test channels S B N M H O).",
+          "properties": {
+            "source": {
+              "type": "string",
+              "enum": [
+                "automated",
+                "assisted",
+                "human",
+                "documentary",
+                "unsupported"
+              ]
+            },
+            "browser": {
+              "type": "string",
+              "enum": [
+                "automated",
+                "assisted",
+                "human",
+                "documentary",
+                "unsupported"
+              ]
+            },
+            "network": {
+              "type": "string",
+              "enum": [
+                "automated",
+                "assisted",
+                "human",
+                "documentary",
+                "unsupported"
+              ]
+            },
+            "model": {
+              "type": "string",
+              "enum": [
+                "automated",
+                "assisted",
+                "human",
+                "documentary",
+                "unsupported"
+              ]
+            },
+            "human": {
+              "type": "string",
+              "enum": [
+                "automated",
+                "assisted",
+                "human",
+                "documentary",
+                "unsupported"
+              ]
+            },
+            "documentary": {
+              "type": "string",
+              "enum": [
+                "automated",
+                "assisted",
+                "human",
+                "documentary",
+                "unsupported"
+              ]
+            }
+          },
+          "required": [
+            "source",
+            "browser",
+            "network",
+            "model",
+            "human",
+            "documentary"
+          ],
+          "additionalProperties": false
+        },
+        "blind_spots": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "fixtures": {
+          "type": "object",
+          "properties": {
+            "positive": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "negative": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "exception": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "insufficient": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "regression": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "required": [
+            "positive",
+            "negative",
+            "exception",
+            "insufficient",
+            "regression"
+          ],
+          "additionalProperties": false
+        },
+        "remediation_constraints": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "owner_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "severity_default": {
+          "type": "string",
+          "enum": [
+            "critical",
+            "high",
+            "medium",
+            "low"
+          ]
+        },
+        "source_verified_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "source_review_status": {
+          "type": "string",
+          "enum": [
+            "research",
+            "in_review",
+            "reviewed"
+          ]
+        },
+        "notes": {
+          "type": "string"
+        },
+        "extensions": {
+          "type": "object",
+          "description": "Namespaced vendor or local fields. Unknown top-level fields are rejected; put them here."
+        },
+        "normative": {
+          "type": "boolean",
+          "description": "false marks a product engineering rule that is not a legal obligation. Requires extensions.authority_basis and permits a null authority_id."
+        }
+      },
+      "required": [
+        "rule_id",
+        "obligation_id",
+        "check_ids",
+        "version",
+        "lifecycle",
+        "obligation",
+        "authority",
+        "jurisdiction",
+        "applicability",
+        "temporal",
+        "evaluation",
+        "channel_support",
+        "blind_spots",
+        "fixtures",
+        "remediation_constraints",
+        "owner_role",
+        "severity_default",
+        "source_verified_at",
+        "source_review_status"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

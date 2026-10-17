@@ -1,0 +1,1209 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "privacy-collection",
+  "pack_version": "0.1.0",
+  "profile_ids": [
+    "us-federal-public-web"
+  ],
+  "rules": [
+    {
+      "rule_id": "PRIV-01",
+      "obligation_id": "OBL-PRIV-01",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Identify lawful collection and data flows.",
+      "authority": {
+        "authority_id": "A08",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "collects_personal_data || has_tracking_or_analytics",
+        "required_facts": [
+          "collects_personal_data",
+          "has_tracking_or_analytics"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "network",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Needs a field, upload, parameter, cookie, log, analytics, embed, and processor inventory"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_approved_collection",
+        "preserve_official_wording",
+        "preserve_records_obligations"
+      ],
+      "owner_role": "privacy_officer",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "PRIV-01",
+        "class_label": "L/C, A08; P/C A09",
+        "proposed_procedure": "S/N/O: inventory fields, uploads, URL parameters, cookies, logs, analytics, embeds and processors. Map purpose and destination; remove unnecessary collection.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "additional_authority_ids": [
+          "A09"
+        ]
+      }
+    },
+    {
+      "rule_id": "PRIV-02",
+      "obligation_id": "OBL-PRIV-02",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Privacy Act statements when applicable.",
+      "authority": {
+        "authority_id": "A08",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "collects_personal_data && privacy_act_applies",
+        "required_facts": [
+          "collects_personal_data",
+          "privacy_act_applies"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Authority, purpose, routine uses, and consequences need privacy counsel",
+        "The notice must appear at the collection context"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_approved_collection",
+        "preserve_official_wording",
+        "preserve_records_obligations"
+      ],
+      "owner_role": "privacy_officer",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "PRIV-02",
+        "class_label": "L/C, A08; A09",
+        "proposed_procedure": "B/O: confirm authority, purpose, routine uses, mandatory/voluntary nature and consequences with privacy counsel. Display at the required collection context.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "additional_authority_ids": [
+          "A09"
+        ]
+      }
+    },
+    {
+      "rule_id": "PRIV-03",
+      "obligation_id": "OBL-PRIV-03",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "System of Records Notice where triggered.",
+      "authority": {
+        "authority_id": "A08",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "privacy_act_records_retrieved_by_identifier",
+        "required_facts": [
+          "privacy_act_records_retrieved_by_identifier"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "A database containing PII is not the complete legal test",
+        "Retrieval by name or identifier must be established"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_approved_collection",
+        "preserve_official_wording",
+        "preserve_records_obligations"
+      ],
+      "owner_role": "privacy_officer",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "PRIV-03",
+        "class_label": "L/C/O, A08",
+        "proposed_procedure": "O: determine actual retrieval by name/identifier and applicable SORN. A database with PII is not automatically the complete legal test.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "PRIV-04",
+      "obligation_id": "OBL-PRIV-04",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Privacy impact assessment where triggered.",
+      "authority": {
+        "authority_id": "A09",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "privacy_impact_assessment_triggered",
+        "required_facts": [
+          "privacy_impact_assessment_triggered"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Repository search cannot prove absence of an assessment",
+        "Publication and redaction treatment need organizational evidence"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_approved_collection",
+        "preserve_official_wording",
+        "preserve_records_obligations"
+      ],
+      "owner_role": "privacy_officer",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "PRIV-04",
+        "class_label": "L/C/O, A09",
+        "proposed_procedure": "O: inspect applicable PIA, publication/redaction treatment, updates and actual system boundary. Repository search cannot prove absence.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "PRIV-05",
+      "obligation_id": "OBL-PRIV-05",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Tracking classification, notice and controls.",
+      "authority": {
+        "authority_id": "A40",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && has_tracking_or_analytics",
+        "required_facts": [
+          "federal_executive_agency",
+          "has_tracking_or_analytics"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "network",
+          "browser",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "This is not a universal cookie-banner mandate",
+        "Tiers, approvals, and user choices need records"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_approved_collection",
+        "preserve_official_wording",
+        "preserve_records_obligations"
+      ],
+      "owner_role": "privacy_officer",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "PRIV-05",
+        "class_label": "P/C, A40",
+        "proposed_procedure": "N/B/O: classify session/persistent, PII and customization use against policy tiers, approvals and user choices. Do not impose a universal EU-style cookie banner on every federal site.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "PRIV-06",
+      "obligation_id": "OBL-PRIV-06",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Third-party practices match disclosed/approved handling.",
+      "authority": {
+        "authority_id": "A09",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "uses_third_party_services",
+        "required_facts": [
+          "uses_third_party_services"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "network",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Scripts, fonts, maps, video, session replay, CAPTCHA, and AI endpoints all count"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_approved_collection",
+        "preserve_official_wording",
+        "preserve_records_obligations"
+      ],
+      "owner_role": "privacy_officer",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "PRIV-06",
+        "class_label": "C, A09/A40; adopted controls A11",
+        "proposed_procedure": "N/O: inspect external scripts, fonts, maps, video, session replay, CAPTCHA and AI endpoints. Consider click-to-load or first-party assets with equivalent UX.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "additional_authority_ids": [
+          "A40",
+          "A11"
+        ]
+      }
+    },
+    {
+      "rule_id": "PRIV-07",
+      "obligation_id": "OBL-PRIV-07",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Prevent unnecessary disclosure of sensitive data.",
+      "authority": {
+        "authority_id": "A11",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "handles_sensitive_data",
+        "required_facts": [
+          "handles_sensitive_data"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "network",
+          "browser"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Redaction must not remove the support correlation operators need"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_approved_collection",
+        "preserve_official_wording",
+        "preserve_records_obligations"
+      ],
+      "owner_role": "security_owner",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "PRIV-07",
+        "class_label": "C controls/program law; R engineering",
+        "proposed_procedure": "S/N/B: inspect referrers, logs, telemetry, caches, browser storage, public bundles and error bodies. Redact without removing needed support correlation.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "PRIV-08",
+      "obligation_id": "OBL-PRIV-08",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Rights, sharing and retention match authority.",
+      "authority": {
+        "authority_id": "A08",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "collects_personal_data",
+        "required_facts": [
+          "collects_personal_data"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Deletion must not be promised where records law requires retention"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_approved_collection",
+        "preserve_official_wording",
+        "preserve_records_obligations"
+      ],
+      "owner_role": "privacy_officer",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "PRIV-08",
+        "class_label": "L/C/O, A08; A23",
+        "proposed_procedure": "O: verify allowed disclosure, access/amendment processes, retention schedules and legal holds. Do not promise deletion when records law requires retention.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "additional_authority_ids": [
+          "A23"
+        ]
+      }
+    },
+    {
+      "rule_id": "PRIV-09",
+      "obligation_id": "OBL-PRIV-09",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "PRA applicability determination.",
+      "authority": {
+        "authority_id": "A10",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "collects_information_from_public",
+        "required_facts": [
+          "collects_information_from_public"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "A field count is not the test",
+        "Standardized collection from ten or more persons, with exemptions and special cases"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_approved_collection",
+        "preserve_official_wording",
+        "preserve_records_obligations"
+      ],
+      "owner_role": "pra_officer",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "FORM-01",
+        "class_label": "L/C/O, A10",
+        "proposed_procedure": "O: assess standardized information collection from ten or more persons over the relevant period, with exemptions and special cases. A field count is not the test.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "PRIV-10",
+      "obligation_id": "OBL-PRIV-10",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Valid clearance and required display.",
+      "authority": {
+        "authority_id": "A10",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "collects_information_from_public",
+        "required_facts": [
+          "collects_information_from_public"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Exceptions to display need confirmation",
+        "Active approval and burden need organizational evidence"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_approved_collection",
+        "preserve_official_wording",
+        "preserve_records_obligations"
+      ],
+      "owner_role": "pra_officer",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "FORM-02",
+        "class_label": "L/C/O, A10",
+        "proposed_procedure": "B/O: check actual collection against active approval, OMB control number, expiration/display rules, burden and required notices. Confirm any exception to display.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "PRIV-11",
+      "obligation_id": "OBL-PRIV-11",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Collection changes reviewed before release.",
+      "authority": {
+        "authority_id": "A10",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "collects_information_from_public",
+        "required_facts": [
+          "collects_information_from_public"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Material changes must be routed to the PRA owner"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_approved_collection",
+        "preserve_official_wording",
+        "preserve_records_obligations"
+      ],
+      "owner_role": "pra_officer",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "FORM-03",
+        "class_label": "L/C/O, A10",
+        "proposed_procedure": "S/O: diff fields, instructions, purpose and burden against approved collection. Route material changes to the PRA owner.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "PRIV-12",
+      "obligation_id": "OBL-PRIV-12",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "E-signature/attestation treatment matches program authority.",
+      "authority": {
+        "authority_id": "A04",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "service_uses_esignature_or_attestation",
+        "required_facts": [
+          "service_uses_esignature_or_attestation"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Typed-name signature, identity proofing, consent, and legal attestation are distinct",
+        "Exact wording and signature records must be preserved"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_approved_collection",
+        "preserve_official_wording",
+        "preserve_records_obligations"
+      ],
+      "owner_role": "program_owner",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "FORM-04",
+        "class_label": "L/C/O, A04; program rules",
+        "proposed_procedure": "B/O: distinguish typed-name signature, identity proofing, consent and legal attestation. Preserve required exact wording and signature records.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "PRIV-13",
+      "obligation_id": "OBL-PRIV-13",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Identify and schedule web records.",
+      "authority": {
+        "authority_id": "A23",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency",
+        "required_facts": [
+          "federal_executive_agency"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Version control alone is not a retention system"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_approved_collection",
+        "preserve_official_wording",
+        "preserve_records_obligations"
+      ],
+      "owner_role": "records_officer",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "REC-01",
+        "class_label": "L/C/O, A23",
+        "proposed_procedure": "O: include content, approvals, transactional records and relevant administration/context. Git alone is not a complete retention system.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "PRIV-14",
+      "obligation_id": "OBL-PRIV-14",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Preserve before removal or redesign.",
+      "authority": {
+        "authority_id": "A23",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency",
+        "required_facts": [
+          "federal_executive_agency"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Unpublishing is distinct from authorized records destruction"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_approved_collection",
+        "preserve_official_wording",
+        "preserve_records_obligations"
+      ],
+      "owner_role": "records_officer",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "REC-02",
+        "class_label": "L/C/O, A23",
+        "proposed_procedure": "O: verify capture/versioning, disposition authority, schedules and holds. Public unpublishing is distinct from authorized records destruction.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "PRIV-15",
+      "obligation_id": "OBL-PRIV-15",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "FOIA proactive electronic disclosure.",
+      "authority": {
+        "authority_id": "A22",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && foia_covered",
+        "required_facts": [
+          "federal_executive_agency",
+          "foia_covered"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "documentary",
+          "browser"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Lawful redactions apply",
+        "Needs FOIA staff review"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_approved_collection",
+        "preserve_official_wording",
+        "preserve_records_obligations"
+      ],
+      "owner_role": "foia_officer",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "REC-03",
+        "class_label": "L/C/O, A22",
+        "proposed_procedure": "O/B: review applicable decisions, policies, manuals and frequently requested records with FOIA staff; apply lawful redactions.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "PRIV-16",
+      "obligation_id": "OBL-PRIV-16",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Open-data/data-catalog obligations when applicable.",
+      "authority": {
+        "authority_id": "A41",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "publishes_datasets",
+        "required_facts": [
+          "publishes_datasets"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "documentary",
+          "network"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Do not publish protected data to satisfy a generic openness check"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_approved_collection",
+        "preserve_official_wording",
+        "preserve_records_obligations"
+      ],
+      "owner_role": "data_steward",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "DATA-01",
+        "class_label": "L/P/C/O, A41",
+        "proposed_procedure": "O/N: resolve dataset publication authority and exemptions, metadata, formats and catalog requirements. Do not publish protected data to satisfy a generic openness check.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "PRIV-17",
+      "obligation_id": "OBL-PRIV-17",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Information-quality correction process.",
+      "authority": {
+        "authority_id": "A21",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency",
+        "required_facts": [
+          "federal_executive_agency"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Link to the controlling agency process rather than inventing one"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_approved_collection",
+        "preserve_official_wording",
+        "preserve_records_obligations"
+      ],
+      "owner_role": "data_steward",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "DATA-02",
+        "class_label": "C/O, A21",
+        "proposed_procedure": "B/O: identify applicable agency guidelines and correction mechanism. Link to the controlling agency process rather than inventing one.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    }
+  ],
+  "extensions": {
+    "title": "Privacy, information collection, records, and open information",
+    "notes": "Privacy (8), information collection (4), records (3), and open information (2) rows. Research lifecycle."
+  }
+}

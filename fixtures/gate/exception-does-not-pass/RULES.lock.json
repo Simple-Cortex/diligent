@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-17-abc123",
+  "locked_at": "2026-10-17T00:00:00.000Z",
+  "profile": {
+    "profile_id": "mini-profile",
+    "path": "profiles/mini-profile.json",
+    "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "schema_hashes": {
+    "run.schema.json": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "packs": [
+    {
+      "pack_id": "mini-core",
+      "pack_version": "0.1.0",
+      "path": "rules/packs/mini-core.json",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "rule_count": 1,
+      "normative": true
+    }
+  ],
+  "supported_check_matrix": [
+    {
+      "pack_id": "mini-core",
+      "rule_id": "A11Y-1.1.1",
+      "obligation_id": "OBL-A11Y-1.1.1",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Simple-Cortex/diligent/schemas/run.schema.json",
+  "title": "Run record",
+  "description": "RUN.json: one record per run (blueprint 19.1).",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^run-\\d{4}-\\d{2}-\\d{2}-[0-9a-f]{6}$"
+    },
+    "audit_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "profile_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "modes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "source",
+          "page",
+          "journey",
+          "documents",
+          "combined"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "requested_scope": {
+      "type": "object"
+    },
+    "engine": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "enum": [
+            "node-fallback",
+            "native-rust"
+          ]
+        },
+        "executed_by": {
+          "type": "string",
+          "enum": [
+            "node"
+          ]
+        },
+        "native_available": {
+          "type": "boolean"
+        },
+        "protocol_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "executed_by",
+        "native_available",
+        "protocol_version"
+      ],
+      "additionalProperties": false
+    },
+    "tool_versions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "started_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "ended_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "snapshot_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "pipeline_state": {
+      "type": "string",
+      "enum": [
+        "initialized",
+        "discovered",
+        "scoped",
+        "planned",
+        "collecting",
+        "assessed",
+        "proposed",
+        "verified",
+        "reported"
+      ]
+    },
+    "execution_status": {
+      "type": "string",
+      "enum": [
+        "initialized",
+        "running",
+        "completed",
+        "interrupted",
+        "failed"
+      ]
+    },
+    "assessment_complete": {
+      "type": "boolean"
+    },
+    "budgets": {
+      "type": "object"
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Namespaced vendor or local fields. Unknown top-level fields are rejected; put them here."
+    }
+  },
+  "required": [
+    "schema_version",
+    "run_id",
+    "audit_id",
+    "profile_id",
+    "modes",
+    "requested_scope",
+    "engine",
+    "tool_versions",
+    "started_at",
+    "ended_at",
+    "snapshot_refs",
+    "pipeline_state",
+    "execution_status",
+    "assessment_complete",
+    "budgets",
+    "warnings"
+  ],
+  "additionalProperties": false
+}

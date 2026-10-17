@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+
+# Rust build artifacts
+target/
+
+# npm pack / publish output
+*.tgz
+
+# Evaluation results are collected per-run and are not part of the package.
+evals/results/*
+
+# Artifacts the skill writes into a consuming workspace. Never tracked here.
+.diligent/
+
+# Session handoffs and working specs. Local coordination state, not part of the skill.
+tasks/
+
+# Local agent/editor tooling
+.serena/
+.codebase-memory/
+.claude/
+.playwright-mcp/
+.playwright-cli/
+test-results/
+
+# Working screenshots. Anything tracked here ships to every user.
+*.png
+*.jpeg
+*.jpg
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+# Logs and editor scratch
+*.log
+*.swp
+.idea/
+.vscode/

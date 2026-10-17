@@ -1,0 +1,1014 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "a11y-wcag21-aa",
+  "pack_version": "0.1.0",
+  "profile_ids": [
+    "us-federal-public-web",
+    "us-state-local-ada-title-ii"
+  ],
+  "rules": [
+    {
+      "rule_id": "A11Y-1.3.4",
+      "obligation_id": "OBL-A11Y-1.3.4",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.1 success criterion 1.3.4 Orientation at level AA where WCAG 2.1 is the adopted standard.",
+      "authority": {
+        "authority_id": "A02",
+        "section": "28 CFR Part 35 Subpart H; WCAG 2.1 SC 1.3.4",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.1 AA"
+      },
+      "jurisdiction": "US-state-local",
+      "applicability": {
+        "predicate": "(ada_title2_covered && ada_title2_content_in_scope) || adopted_wcag_version in ['2.1','2.2']",
+        "required_facts": [
+          "ada_title2_covered",
+          "ada_title2_content_in_scope",
+          "adopted_wcag_version"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [
+          {
+            "label": "Title II compliance date for public entities with a population of 50,000 or more",
+            "date": "2027-04-26"
+          },
+          {
+            "label": "Title II compliance date for smaller public entities and special district governments",
+            "date": "2028-04-26"
+          }
+        ],
+        "pending_effective_date": true
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "DOM and accessibility-tree evidence needs task reading and layout review; CSS order may differ"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.1-1.3.4",
+        "wcag_level": "AA",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/orientation.html",
+        "proposed_procedure": "Rotate common devices; identify essential-orientation exceptions. Remove unnecessary orientation locks.",
+        "blueprint_test_channels": "B H",
+        "modality_basis": "Conditional legal baseline for ADA Title II and for any agency or contract adopting WCAG 2.1; recommended beyond the federal WCAG 2.0 minimum.",
+        "temporal_note": "The specific Title II compliance dates are future dates. Existing ADA duties continue before those dates. The dates are from current Department of Justice guidance as stated in the blueprint and must be re-verified at source review."
+      }
+    },
+    {
+      "rule_id": "A11Y-1.3.5",
+      "obligation_id": "OBL-A11Y-1.3.5",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.1 success criterion 1.3.5 Input purpose at level AA where WCAG 2.1 is the adopted standard.",
+      "authority": {
+        "authority_id": "A02",
+        "section": "28 CFR Part 35 Subpart H; WCAG 2.1 SC 1.3.5",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.1 AA"
+      },
+      "jurisdiction": "US-state-local",
+      "applicability": {
+        "predicate": "(ada_title2_covered && ada_title2_content_in_scope) || adopted_wcag_version in ['2.1','2.2']",
+        "required_facts": [
+          "ada_title2_covered",
+          "ada_title2_content_in_scope",
+          "adopted_wcag_version"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [
+          {
+            "label": "Title II compliance date for public entities with a population of 50,000 or more",
+            "date": "2027-04-26"
+          },
+          {
+            "label": "Title II compliance date for smaller public entities and special district governments",
+            "date": "2028-04-26"
+          }
+        ],
+        "pending_effective_date": true
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "browser"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "DOM and accessibility-tree evidence needs task reading and layout review; CSS order may differ"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.1-1.3.5",
+        "wcag_level": "AA",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html",
+        "proposed_procedure": "Check covered personal-data fields for programmatically identifiable purpose, commonly through valid autocomplete tokens.",
+        "blueprint_test_channels": "S B",
+        "modality_basis": "Conditional legal baseline for ADA Title II and for any agency or contract adopting WCAG 2.1; recommended beyond the federal WCAG 2.0 minimum.",
+        "temporal_note": "The specific Title II compliance dates are future dates. Existing ADA duties continue before those dates. The dates are from current Department of Justice guidance as stated in the blueprint and must be re-verified at source review."
+      }
+    },
+    {
+      "rule_id": "A11Y-1.4.10",
+      "obligation_id": "OBL-A11Y-1.4.10",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.1 success criterion 1.4.10 Reflow at level AA where WCAG 2.1 is the adopted standard.",
+      "authority": {
+        "authority_id": "A02",
+        "section": "28 CFR Part 35 Subpart H; WCAG 2.1 SC 1.4.10",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.1 AA"
+      },
+      "jurisdiction": "US-state-local",
+      "applicability": {
+        "predicate": "(ada_title2_covered && ada_title2_content_in_scope) || adopted_wcag_version in ['2.1','2.2']",
+        "required_facts": [
+          "ada_title2_covered",
+          "ada_title2_content_in_scope",
+          "adopted_wcag_version"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [
+          {
+            "label": "Title II compliance date for public entities with a population of 50,000 or more",
+            "date": "2027-04-26"
+          },
+          {
+            "label": "Title II compliance date for smaller public entities and special district governments",
+            "date": "2028-04-26"
+          }
+        ],
+        "pending_effective_date": true
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Exceptions are criterion-specific; complex backgrounds and essential two-dimensional layouts require review"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.1-1.4.10",
+        "wcag_level": "AA",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/reflow.html",
+        "proposed_procedure": "Test 320 CSS px width and the equivalent 256 CSS px height for relevant writing modes. Check two-dimensional-content exceptions; avoid page-wide scrolling.",
+        "blueprint_test_channels": "B H",
+        "modality_basis": "Conditional legal baseline for ADA Title II and for any agency or contract adopting WCAG 2.1; recommended beyond the federal WCAG 2.0 minimum.",
+        "temporal_note": "The specific Title II compliance dates are future dates. Existing ADA duties continue before those dates. The dates are from current Department of Justice guidance as stated in the blueprint and must be re-verified at source review."
+      }
+    },
+    {
+      "rule_id": "A11Y-1.4.11",
+      "obligation_id": "OBL-A11Y-1.4.11",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.1 success criterion 1.4.11 Non-text contrast at level AA where WCAG 2.1 is the adopted standard.",
+      "authority": {
+        "authority_id": "A02",
+        "section": "28 CFR Part 35 Subpart H; WCAG 2.1 SC 1.4.11",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.1 AA"
+      },
+      "jurisdiction": "US-state-local",
+      "applicability": {
+        "predicate": "(ada_title2_covered && ada_title2_content_in_scope) || adopted_wcag_version in ['2.1','2.2']",
+        "required_facts": [
+          "ada_title2_covered",
+          "ada_title2_content_in_scope",
+          "adopted_wcag_version"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [
+          {
+            "label": "Title II compliance date for public entities with a population of 50,000 or more",
+            "date": "2027-04-26"
+          },
+          {
+            "label": "Title II compliance date for smaller public entities and special district governments",
+            "date": "2028-04-26"
+          }
+        ],
+        "pending_effective_date": true
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default",
+          "error",
+          "hover",
+          "focus",
+          "selected"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Exceptions are criterion-specific; complex backgrounds and essential two-dimensional layouts require review"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.1-1.4.11",
+        "wcag_level": "AA",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html",
+        "proposed_procedure": "Measure required control/state and meaningful graphic cues at 3:1 against adjacent colors; account for specified exclusions.",
+        "blueprint_test_channels": "B H",
+        "modality_basis": "Conditional legal baseline for ADA Title II and for any agency or contract adopting WCAG 2.1; recommended beyond the federal WCAG 2.0 minimum.",
+        "temporal_note": "The specific Title II compliance dates are future dates. Existing ADA duties continue before those dates. The dates are from current Department of Justice guidance as stated in the blueprint and must be re-verified at source review."
+      }
+    },
+    {
+      "rule_id": "A11Y-1.4.12",
+      "obligation_id": "OBL-A11Y-1.4.12",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.1 success criterion 1.4.12 Text spacing at level AA where WCAG 2.1 is the adopted standard.",
+      "authority": {
+        "authority_id": "A02",
+        "section": "28 CFR Part 35 Subpart H; WCAG 2.1 SC 1.4.12",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.1 AA"
+      },
+      "jurisdiction": "US-state-local",
+      "applicability": {
+        "predicate": "(ada_title2_covered && ada_title2_content_in_scope) || adopted_wcag_version in ['2.1','2.2']",
+        "required_facts": [
+          "ada_title2_covered",
+          "ada_title2_content_in_scope",
+          "adopted_wcag_version"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [
+          {
+            "label": "Title II compliance date for public entities with a population of 50,000 or more",
+            "date": "2027-04-26"
+          },
+          {
+            "label": "Title II compliance date for smaller public entities and special district governments",
+            "date": "2028-04-26"
+          }
+        ],
+        "pending_effective_date": true
+      },
+      "evaluation": {
+        "channels": [
+          "browser"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Exceptions are criterion-specific; complex backgrounds and essential two-dimensional layouts require review"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.1-1.4.12",
+        "wcag_level": "AA",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html",
+        "proposed_procedure": "Override line height to 1.5×, paragraph spacing 2×, letter spacing .12×, word spacing .16× font size. Check loss; these are tolerances, not mandatory default styling.",
+        "blueprint_test_channels": "B",
+        "modality_basis": "Conditional legal baseline for ADA Title II and for any agency or contract adopting WCAG 2.1; recommended beyond the federal WCAG 2.0 minimum.",
+        "temporal_note": "The specific Title II compliance dates are future dates. Existing ADA duties continue before those dates. The dates are from current Department of Justice guidance as stated in the blueprint and must be re-verified at source review."
+      }
+    },
+    {
+      "rule_id": "A11Y-1.4.13",
+      "obligation_id": "OBL-A11Y-1.4.13",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.1 success criterion 1.4.13 Hover/focus content at level AA where WCAG 2.1 is the adopted standard.",
+      "authority": {
+        "authority_id": "A02",
+        "section": "28 CFR Part 35 Subpart H; WCAG 2.1 SC 1.4.13",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.1 AA"
+      },
+      "jurisdiction": "US-state-local",
+      "applicability": {
+        "predicate": "(ada_title2_covered && ada_title2_content_in_scope) || adopted_wcag_version in ['2.1','2.2']",
+        "required_facts": [
+          "ada_title2_covered",
+          "ada_title2_content_in_scope",
+          "adopted_wcag_version"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [
+          {
+            "label": "Title II compliance date for public entities with a population of 50,000 or more",
+            "date": "2027-04-26"
+          },
+          {
+            "label": "Title II compliance date for smaller public entities and special district governments",
+            "date": "2028-04-26"
+          }
+        ],
+        "pending_effective_date": true
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Exceptions are criterion-specific; complex backgrounds and essential two-dimensional layouts require review"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.1-1.4.13",
+        "wcag_level": "AA",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html",
+        "proposed_procedure": "Test tooltips/popovers for applicable dismissible, hoverable, and persistent behavior. Include magnification and keyboard use.",
+        "blueprint_test_channels": "B H",
+        "modality_basis": "Conditional legal baseline for ADA Title II and for any agency or contract adopting WCAG 2.1; recommended beyond the federal WCAG 2.0 minimum.",
+        "temporal_note": "The specific Title II compliance dates are future dates. Existing ADA duties continue before those dates. The dates are from current Department of Justice guidance as stated in the blueprint and must be re-verified at source review."
+      }
+    },
+    {
+      "rule_id": "A11Y-2.1.4",
+      "obligation_id": "OBL-A11Y-2.1.4",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.1 success criterion 2.1.4 Character shortcuts at level A where WCAG 2.1 is the adopted standard.",
+      "authority": {
+        "authority_id": "A02",
+        "section": "28 CFR Part 35 Subpart H; WCAG 2.1 SC 2.1.4",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.1 AA"
+      },
+      "jurisdiction": "US-state-local",
+      "applicability": {
+        "predicate": "(ada_title2_covered && ada_title2_content_in_scope) || adopted_wcag_version in ['2.1','2.2']",
+        "required_facts": [
+          "ada_title2_covered",
+          "ada_title2_content_in_scope",
+          "adopted_wcag_version"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [
+          {
+            "label": "Title II compliance date for public entities with a population of 50,000 or more",
+            "date": "2027-04-26"
+          },
+          {
+            "label": "Title II compliance date for smaller public entities and special district governments",
+            "date": "2028-04-26"
+          }
+        ],
+        "pending_effective_date": true
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "browser"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "A tab-order snapshot cannot prove task operability"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.1-2.1.4",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/character-key-shortcuts.html",
+        "proposed_procedure": "Check character-only shortcuts for qualifying disabling, remapping, or focus restriction.",
+        "blueprint_test_channels": "S B",
+        "modality_basis": "Conditional legal baseline for ADA Title II and for any agency or contract adopting WCAG 2.1; recommended beyond the federal WCAG 2.0 minimum.",
+        "temporal_note": "The specific Title II compliance dates are future dates. Existing ADA duties continue before those dates. The dates are from current Department of Justice guidance as stated in the blueprint and must be re-verified at source review."
+      }
+    },
+    {
+      "rule_id": "A11Y-2.5.1",
+      "obligation_id": "OBL-A11Y-2.5.1",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.1 success criterion 2.5.1 Pointer gestures at level A where WCAG 2.1 is the adopted standard.",
+      "authority": {
+        "authority_id": "A02",
+        "section": "28 CFR Part 35 Subpart H; WCAG 2.1 SC 2.5.1",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.1 AA"
+      },
+      "jurisdiction": "US-state-local",
+      "applicability": {
+        "predicate": "(ada_title2_covered && ada_title2_content_in_scope) || adopted_wcag_version in ['2.1','2.2']",
+        "required_facts": [
+          "ada_title2_covered",
+          "ada_title2_content_in_scope",
+          "adopted_wcag_version"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [
+          {
+            "label": "Title II compliance date for public entities with a population of 50,000 or more",
+            "date": "2027-04-26"
+          },
+          {
+            "label": "Title II compliance date for smaller public entities and special district governments",
+            "date": "2028-04-26"
+          }
+        ],
+        "pending_effective_date": true
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Hit areas and criterion-specific spacing and exceptions must be measured"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.1-2.5.1",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/pointer-gestures.html",
+        "proposed_procedure": "Test multipoint/path gestures with a single-pointer alternative unless essential. Add controls for pinch, swipe, or path functions as needed.",
+        "blueprint_test_channels": "B H",
+        "modality_basis": "Conditional legal baseline for ADA Title II and for any agency or contract adopting WCAG 2.1; recommended beyond the federal WCAG 2.0 minimum.",
+        "temporal_note": "The specific Title II compliance dates are future dates. Existing ADA duties continue before those dates. The dates are from current Department of Justice guidance as stated in the blueprint and must be re-verified at source review."
+      }
+    },
+    {
+      "rule_id": "A11Y-2.5.2",
+      "obligation_id": "OBL-A11Y-2.5.2",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.1 success criterion 2.5.2 Pointer cancellation at level A where WCAG 2.1 is the adopted standard.",
+      "authority": {
+        "authority_id": "A02",
+        "section": "28 CFR Part 35 Subpart H; WCAG 2.1 SC 2.5.2",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.1 AA"
+      },
+      "jurisdiction": "US-state-local",
+      "applicability": {
+        "predicate": "(ada_title2_covered && ada_title2_content_in_scope) || adopted_wcag_version in ['2.1','2.2']",
+        "required_facts": [
+          "ada_title2_covered",
+          "ada_title2_content_in_scope",
+          "adopted_wcag_version"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [
+          {
+            "label": "Title II compliance date for public entities with a population of 50,000 or more",
+            "date": "2027-04-26"
+          },
+          {
+            "label": "Title II compliance date for smaller public entities and special district governments",
+            "date": "2028-04-26"
+          }
+        ],
+        "pending_effective_date": true
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "browser"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Hit areas and criterion-specific spacing and exceptions must be measured"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.1-2.5.2",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/pointer-cancellation.html",
+        "proposed_procedure": "Inspect down/up event behavior and abort/undo alternatives, with specified exceptions. Avoid irreversible activation on pointer-down.",
+        "blueprint_test_channels": "S B",
+        "modality_basis": "Conditional legal baseline for ADA Title II and for any agency or contract adopting WCAG 2.1; recommended beyond the federal WCAG 2.0 minimum.",
+        "temporal_note": "The specific Title II compliance dates are future dates. Existing ADA duties continue before those dates. The dates are from current Department of Justice guidance as stated in the blueprint and must be re-verified at source review."
+      }
+    },
+    {
+      "rule_id": "A11Y-2.5.3",
+      "obligation_id": "OBL-A11Y-2.5.3",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.1 success criterion 2.5.3 Label in name at level A where WCAG 2.1 is the adopted standard.",
+      "authority": {
+        "authority_id": "A02",
+        "section": "28 CFR Part 35 Subpart H; WCAG 2.1 SC 2.5.3",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.1 AA"
+      },
+      "jurisdiction": "US-state-local",
+      "applicability": {
+        "predicate": "(ada_title2_covered && ada_title2_content_in_scope) || adopted_wcag_version in ['2.1','2.2']",
+        "required_facts": [
+          "ada_title2_covered",
+          "ada_title2_content_in_scope",
+          "adopted_wcag_version"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [
+          {
+            "label": "Title II compliance date for public entities with a population of 50,000 or more",
+            "date": "2027-04-26"
+          },
+          {
+            "label": "Title II compliance date for smaller public entities and special district governments",
+            "date": "2028-04-26"
+          }
+        ],
+        "pending_effective_date": true
+      },
+      "evaluation": {
+        "channels": [
+          "browser"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Hit areas and criterion-specific spacing and exceptions must be measured"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.1-2.5.3",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/label-in-name.html",
+        "proposed_procedure": "Compare visible text with accessible names, especially speech-input targets. Preserve visible wording within the name.",
+        "blueprint_test_channels": "B",
+        "modality_basis": "Conditional legal baseline for ADA Title II and for any agency or contract adopting WCAG 2.1; recommended beyond the federal WCAG 2.0 minimum.",
+        "temporal_note": "The specific Title II compliance dates are future dates. Existing ADA duties continue before those dates. The dates are from current Department of Justice guidance as stated in the blueprint and must be re-verified at source review."
+      }
+    },
+    {
+      "rule_id": "A11Y-2.5.4",
+      "obligation_id": "OBL-A11Y-2.5.4",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.1 success criterion 2.5.4 Motion actuation at level A where WCAG 2.1 is the adopted standard.",
+      "authority": {
+        "authority_id": "A02",
+        "section": "28 CFR Part 35 Subpart H; WCAG 2.1 SC 2.5.4",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.1 AA"
+      },
+      "jurisdiction": "US-state-local",
+      "applicability": {
+        "predicate": "(ada_title2_covered && ada_title2_content_in_scope) || adopted_wcag_version in ['2.1','2.2']",
+        "required_facts": [
+          "ada_title2_covered",
+          "ada_title2_content_in_scope",
+          "adopted_wcag_version"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [
+          {
+            "label": "Title II compliance date for public entities with a population of 50,000 or more",
+            "date": "2027-04-26"
+          },
+          {
+            "label": "Title II compliance date for smaller public entities and special district governments",
+            "date": "2028-04-26"
+          }
+        ],
+        "pending_effective_date": true
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Hit areas and criterion-specific spacing and exceptions must be measured"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "high",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.1-2.5.4",
+        "wcag_level": "A",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/motion-actuation.html",
+        "proposed_procedure": "Inspect device/user motion actions; provide qualifying UI alternatives and disabling controls except where exempt.",
+        "blueprint_test_channels": "S B H",
+        "modality_basis": "Conditional legal baseline for ADA Title II and for any agency or contract adopting WCAG 2.1; recommended beyond the federal WCAG 2.0 minimum.",
+        "temporal_note": "The specific Title II compliance dates are future dates. Existing ADA duties continue before those dates. The dates are from current Department of Justice guidance as stated in the blueprint and must be re-verified at source review."
+      }
+    },
+    {
+      "rule_id": "A11Y-4.1.3",
+      "obligation_id": "OBL-A11Y-4.1.3",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meet WCAG 2.1 success criterion 4.1.3 Status messages at level AA where WCAG 2.1 is the adopted standard.",
+      "authority": {
+        "authority_id": "A02",
+        "section": "28 CFR Part 35 Subpart H; WCAG 2.1 SC 4.1.3",
+        "modality": "shall",
+        "incorporated_standard": "WCAG 2.1 AA"
+      },
+      "jurisdiction": "US-state-local",
+      "applicability": {
+        "predicate": "(ada_title2_covered && ada_title2_content_in_scope) || adopted_wcag_version in ['2.1','2.2']",
+        "required_facts": [
+          "ada_title2_covered",
+          "ada_title2_content_in_scope",
+          "adopted_wcag_version"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [
+          {
+            "label": "Title II compliance date for public entities with a population of 50,000 or more",
+            "date": "2027-04-26"
+          },
+          {
+            "label": "Title II compliance date for smaller public entities and special district governments",
+            "date": "2028-04-26"
+          }
+        ],
+        "pending_effective_date": true
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Accessibility-tree correctness does not prove screen-reader experience"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_action_hierarchy",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "accessibility_lead",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WCAG-2.1-4.1.3",
+        "wcag_level": "AA",
+        "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html",
+        "proposed_procedure": "Observe asynchronous status/error/progress updates without focus moves. Use suitable programmatic status exposure and avoid excessive announcements.",
+        "blueprint_test_channels": "B H",
+        "modality_basis": "Conditional legal baseline for ADA Title II and for any agency or contract adopting WCAG 2.1; recommended beyond the federal WCAG 2.0 minimum.",
+        "temporal_note": "The specific Title II compliance dates are future dates. Existing ADA duties continue before those dates. The dates are from current Department of Justice guidance as stated in the blueprint and must be re-verified at source review."
+      }
+    }
+  ],
+  "extensions": {
+    "title": "WCAG 2.1 A/AA additions",
+    "notes": "The 12 level A and AA criteria that WCAG 2.1 adds to 2.0. Conditional legal baseline for ADA Title II and for any agency or contract adopting WCAG 2.1. Research lifecycle."
+  }
+}

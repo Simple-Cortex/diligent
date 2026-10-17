@@ -1,0 +1,210 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Simple-Cortex/diligent/schemas/authority-registry.schema.json",
+  "title": "Authority registry",
+  "description": "Shipped registry of legal and technical authorities (blueprint 17.2).",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "registry_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "authorities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/authority"
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Namespaced vendor or local fields. Unknown top-level fields are rejected; put them here."
+    }
+  },
+  "required": [
+    "schema_version",
+    "registry_version",
+    "authorities"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "authority": {
+      "type": "object",
+      "properties": {
+        "authority_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "issuer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "statute",
+            "regulation",
+            "executive_order",
+            "binding_policy",
+            "contract",
+            "agency_policy",
+            "technical_standard",
+            "guidance"
+          ]
+        },
+        "official_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "version_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "publication_date": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "effective_date": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "transition_dates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "date": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date"
+              }
+            },
+            "required": [
+              "label",
+              "date"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "active",
+            "pending",
+            "draft",
+            "superseded",
+            "withdrawn",
+            "disputed",
+            "unverified"
+          ]
+        },
+        "supersedes": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "superseded_by": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "incorporates": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "scope_note": {
+          "type": "string"
+        },
+        "source_verified_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "source_review_status": {
+          "type": "string",
+          "enum": [
+            "research",
+            "in_review",
+            "reviewed"
+          ]
+        },
+        "content_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "extensions": {
+          "type": "object",
+          "description": "Namespaced vendor or local fields. Unknown top-level fields are rejected; put them here."
+        }
+      },
+      "required": [
+        "authority_id",
+        "title",
+        "issuer",
+        "kind",
+        "official_url",
+        "version_url",
+        "publication_date",
+        "effective_date",
+        "transition_dates",
+        "status",
+        "supersedes",
+        "superseded_by",
+        "scope_note",
+        "source_verified_at",
+        "source_review_status",
+        "content_sha256"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Simple-Cortex/diligent/schemas/scope.schema.json",
+  "title": "Scope",
+  "description": "SCOPE.json: typed facts, permissions and processing boundary (blueprint 2 and 17.1).",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "audit_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^run-\\d{4}-\\d{2}-\\d{2}-[0-9a-f]{6}$"
+    },
+    "profile_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "modes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "source",
+          "page",
+          "journey",
+          "documents",
+          "combined"
+        ]
+      },
+      "minItems": 1
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/fact"
+      }
+    },
+    "permissions": {
+      "type": "object"
+    },
+    "processing_boundary": {
+      "type": "object"
+    },
+    "source_deployment_relationship": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Namespaced vendor or local fields. Unknown top-level fields are rejected; put them here."
+    }
+  },
+  "required": [
+    "schema_version",
+    "audit_id",
+    "run_id",
+    "profile_id",
+    "modes",
+    "facts",
+    "permissions",
+    "processing_boundary",
+    "source_deployment_relationship"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "fact": {
+      "type": "object",
+      "properties": {
+        "fact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "group": {
+          "type": "string",
+          "enum": [
+            "government_owner",
+            "audience_and_channel",
+            "lifecycle",
+            "system",
+            "data",
+            "service",
+            "reach",
+            "dependencies",
+            "adopted_standards",
+            "governance",
+            "permission_and_evidence"
+          ]
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "value": {
+          "description": "Typed value; null while the fact is unknown."
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "known",
+            "unknown",
+            "disputed"
+          ]
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "provided_by": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "observed_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "valid_until": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "question": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "owner_role": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "affected_obligations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "effect_on_assessment": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "fact_id",
+        "group",
+        "label",
+        "value",
+        "state",
+        "evidence_refs",
+        "provided_by",
+        "observed_at",
+        "valid_until",
+        "question",
+        "owner_role",
+        "affected_obligations",
+        "effect_on_assessment"
+      ],
+      "additionalProperties": false,
+      "if": {
+        "properties": {
+          "state": {
+            "const": "known"
+          }
+        },
+        "required": [
+          "state"
+        ]
+      },
+      "else": {
+        "properties": {
+          "question": {
+            "type": "string",
+            "minLength": 1
+          },
+          "owner_role": {
+            "type": "string",
+            "minLength": 1
+          },
+          "effect_on_assessment": {
+            "type": "string",
+            "minLength": 1
+          },
+          "affected_obligations": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          }
+        }
+      }
+    }
+  }
+}

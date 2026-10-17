@@ -1,0 +1,69 @@
+{
+  "$schema": "diligent-runtime-manifest/v1",
+  "version": "0.1.0",
+  "description": "Authority for installed skill files. Everything listed here is included in the runtime skill package. Everything not listed is excluded.",
+  "include": [
+    "SKILL.md",
+    "package.json",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "bin/diligent.mjs",
+    "scripts/lib/artifacts.mjs",
+    "scripts/lib/cli.mjs",
+    "scripts/lib/data.mjs",
+    "scripts/lib/engine.mjs",
+    "scripts/lib/manifest.mjs",
+    "scripts/lib/schema.mjs",
+    "scripts/lib/scope-facts.mjs",
+    "scripts/lib/status.mjs",
+    "scripts/init.mjs",
+    "scripts/status.mjs",
+    "scripts/gate.mjs",
+    "scripts/report.mjs",
+    "scripts/validate-rules.mjs",
+    "scripts/validate-skill.mjs",
+    "scripts/install.mjs",
+    "scripts/prepack.mjs",
+    "scripts/check.mjs",
+    "scripts/test.mjs",
+    "schemas/*.json",
+    "authorities/registry.json",
+    "rules/packs/*.json",
+    "profiles/*.json",
+    "prompts/*.md",
+    "references/*.md",
+    "skills/*/SKILL.md",
+    "docs/supported-checks.md",
+    "docs/known-limitations.md",
+    "runtime-manifest.json"
+  ],
+  "exclude": [
+    "evals/",
+    "tests/",
+    "fixtures/",
+    "docs/",
+    "crates/",
+    "Cargo.toml",
+    "Cargo.lock",
+    "rust-toolchain.toml",
+    "DEVLOG.md",
+    "DEVLOG.raw.md",
+    "tasks/",
+    ".github/",
+    ".diligent/"
+  ],
+  "engine": {
+    "node": {
+      "entry": "bin/diligent.mjs",
+      "status": "supported"
+    },
+    "rust": {
+      "binary": "diligent-rs",
+      "install": "cargo install --path crates/diligent-cli",
+      "status": "scaffold",
+      "protocol_version": "1"
+    }
+  },
+  "notes": "An include entry takes precedence over an exclude entry: docs/ is excluded except docs/supported-checks.md and docs/known-limitations.md."
+}

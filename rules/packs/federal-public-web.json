@@ -1,0 +1,3052 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "federal-public-web",
+  "pack_version": "0.1.0",
+  "profile_ids": [
+    "us-federal-public-web"
+  ],
+  "rules": [
+    {
+      "rule_id": "FED-01",
+      "obligation_id": "OBL-FED-01",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Appropriate government domain and domain governance.",
+      "authority": {
+        "authority_id": "A28",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "network",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "A .gov hostname alone does not establish domain governance",
+        "Vendor-hosted services and redirects need separate inventory"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "domain_owner",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WEB-01",
+        "class_label": "P/C, A28; A29",
+        "proposed_procedure": "N/O: inspect canonical host, domain inventory, ownership and approved exceptions. Include redirects and vendor-hosted services.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "additional_authority_ids": [
+          "A29"
+        ]
+      }
+    },
+    {
+      "rule_id": "FED-02",
+      "obligation_id": "OBL-FED-02",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Clear official government identity.",
+      "authority": {
+        "authority_id": "A05",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Banner text must match the actual domain and security state",
+        "Mobile operability needs runtime evidence"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "web_manager",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WEB-02",
+        "class_label": "P/R/C by provision, A05; implementation A30",
+        "proposed_procedure": "B/H: confirm agency identity and official-site cues. A federal banner must describe the actual domain/security state and remain operable on mobile.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "additional_authority_ids": [
+          "A30"
+        ]
+      }
+    },
+    {
+      "rule_id": "FED-03",
+      "obligation_id": "OBL-FED-03",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Clear parent agency attribution.",
+      "authority": {
+        "authority_id": "A05",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "The attribution link must work",
+        "A compact identifier must not compete with the primary task"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "web_manager",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WEB-03",
+        "class_label": "P/R/C by provision, A05; implementation A31",
+        "proposed_procedure": "B: verify attribution and working parent link. Use a compact identifier that does not compete with the primary task.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "additional_authority_ids": [
+          "A31"
+        ]
+      }
+    },
+    {
+      "rule_id": "FED-04",
+      "obligation_id": "OBL-FED-04",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "About information and applicable organizational disclosures.",
+      "authority": {
+        "authority_id": "A21",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing && (is_principal_agency_site || is_secondary_site || is_major_entry_point)",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing",
+          "is_principal_agency_site",
+          "is_secondary_site",
+          "is_major_entry_point"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Agency-level disclosure destinations may be shared",
+        "Placement differs for principal sites, secondary sites, and entry points"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "policy_content_owner",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WEB-04",
+        "class_label": "P/C, A21",
+        "proposed_procedure": "B/O: inspect mission/ownership and appropriate agency About links. Agency-level disclosure destinations may be shared.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "FED-05",
+      "obligation_id": "OBL-FED-05",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Accessible accessibility statement and feedback path.",
+      "authority": {
+        "authority_id": "A06",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "A statement existing does not prove it is accurate or current",
+        "Program manager and complaint path need organizational confirmation"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "section508_program_manager",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WEB-05",
+        "class_label": "P, A06; A32",
+        "proposed_procedure": "B/O: verify applied standard, known limitations, program-manager name/email, feedback, complaint instructions, reasonable accommodations information, relay guidance, relevant policies, review date.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "additional_authority_ids": [
+          "A32"
+        ]
+      }
+    },
+    {
+      "rule_id": "FED-06",
+      "obligation_id": "OBL-FED-06",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Privacy policy and collection-context notices.",
+      "authority": {
+        "authority_id": "A09",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "network",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Generic footer copy does not establish accurate disclosure",
+        "The notice must be compared to actual data flows"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "privacy_officer",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WEB-06",
+        "class_label": "P/C, A09",
+        "proposed_procedure": "B/N/O: compare notices to actual data flows, collection points, analytics and vendors. Generic footer copy does not establish accurate disclosure.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "FED-07",
+      "obligation_id": "OBL-FED-07",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "FOIA access and electronic reading-room duties.",
+      "authority": {
+        "authority_id": "A22",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing && is_principal_agency_site",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing",
+          "is_principal_agency_site"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Request instructions and proactive disclosures need the agency FOIA owner"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "foia_officer",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WEB-07",
+        "class_label": "L/C, A22",
+        "proposed_procedure": "B/O: verify request instructions and applicable proactive disclosures/indexes with the agency FOIA owner.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "FED-08",
+      "obligation_id": "OBL-FED-08",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "No FEAR Act data link/content.",
+      "authority": {
+        "authority_id": "A21",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing && is_principal_agency_site",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing",
+          "is_principal_agency_site"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Placement is required on the principal agency homepage, not on every microsite",
+        "Reporting currency needs organizational evidence"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "policy_content_owner",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WEB-08",
+        "class_label": "L/C, A21",
+        "proposed_procedure": "B/O: check principal agency homepage placement, authoritative destination and reporting currency. Do not require a full report on every microsite.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "FED-09",
+      "obligation_id": "OBL-FED-09",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Budget/performance information.",
+      "authority": {
+        "authority_id": "A21",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing && (is_principal_agency_site || is_secondary_site)",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing",
+          "is_principal_agency_site",
+          "is_secondary_site"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Required destinations differ by site role"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "policy_content_owner",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WEB-09",
+        "class_label": "P/C, A21",
+        "proposed_procedure": "B/O: verify required plans/report destinations and appropriate principal-site access.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "FED-10",
+      "obligation_id": "OBL-FED-10",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Inspector General reporting access.",
+      "authority": {
+        "authority_id": "A21",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing && is_principal_agency_site",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing",
+          "is_principal_agency_site"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Anonymity of reporting mechanisms must be preserved",
+        "Reports and audits need organizational confirmation"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "policy_content_owner",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WEB-10",
+        "class_label": "L/C, A21",
+        "proposed_procedure": "B/O: check applicable homepage link, audits/reports and reporting mechanism; preserve anonymity where required.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "FED-11",
+      "obligation_id": "OBL-FED-11",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Public vulnerability reporting policy.",
+      "authority": {
+        "authority_id": "A12",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "network",
+          "browser",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "security.txt is useful but not a universal substitute or mandate",
+        "Response ownership needs organizational evidence"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "security_owner",
+      "severity_default": "medium",
+      "source_verified_at": null,
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WEB-11",
+        "class_label": "P/C, A12",
+        "proposed_procedure": "N/B/O: find VDP, reporting instructions and scope; connect to actual response ownership. `security.txt` is useful but not a universal substitute or universal mandate.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "source_caveat": "Primary authority is not source-verified; see its registry notes."
+      }
+    },
+    {
+      "rule_id": "FED-12",
+      "obligation_id": "OBL-FED-12",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Contact/help and policy access.",
+      "authority": {
+        "authority_id": "A05",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Nonfunctional mail links and inaccessible widgets do not satisfy contact access"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "web_manager",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WEB-12",
+        "class_label": "P/R/C by provision, A05; R layout A31",
+        "proposed_procedure": "B/H: test contact routes and required policy access in representative layouts. Do not rely on nonfunctional mail links or inaccessible widgets.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "additional_authority_ids": [
+          "A31"
+        ]
+      }
+    },
+    {
+      "rule_id": "FED-13",
+      "obligation_id": "OBL-FED-13",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Appropriate government-wide support link.",
+      "authority": {
+        "authority_id": "A21",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing && (is_principal_agency_site || is_secondary_site || is_major_entry_point)",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing",
+          "is_principal_agency_site",
+          "is_secondary_site",
+          "is_major_entry_point"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Current agency implementation guidance must be confirmed alongside the new America.gov policy"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "policy_content_owner",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "WEB-13",
+        "class_label": "P/C placement index, A21",
+        "proposed_procedure": "B: verify USA.gov access at applicable principal sites, sub-agency sites and major entry points; confirm current agency implementation guidance alongside the new America.gov policy.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "FED-14",
+      "obligation_id": "OBL-FED-14",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Consistent appearance across a service.",
+      "authority": {
+        "authority_id": "A04",
+        "section": "section 3",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Necessary task differences must be retained"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_owner",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "EXP-01",
+        "class_label": "L qualified, A04 §3",
+        "proposed_procedure": "B/M/H: compare navigation, hierarchy, terminology, and control behavior across templates. Fix shared tokens/components while retaining necessary task differences.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "FED-15",
+      "obligation_id": "OBL-FED-15",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Appropriate federal design-system/website-standard adoption.",
+      "authority": {
+        "authority_id": "A04",
+        "section": "section 3(e)",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Absence of the design system package alone is not proof of noncompliance",
+        "The approved approach needs an organizational record"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_owner",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "EXP-02",
+        "class_label": "L/P/C, A04 §3(e); A05; A33",
+        "proposed_procedure": "S/O: record applicable GSA/agency standards and approved approach. Absence of the USWDS npm package alone is not proof of noncompliance.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "additional_authority_ids": [
+          "A05",
+          "A33"
+        ]
+      }
+    },
+    {
+      "rule_id": "FED-16",
+      "obligation_id": "OBL-FED-16",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "User-centered design informed by evidence.",
+      "authority": {
+        "authority_id": "A04",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "documentary",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "A model persona is not participant research"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_owner",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "EXP-03",
+        "class_label": "L qualified, A04",
+        "proposed_procedure": "O/H: require research and task evidence; inspect whether priority journeys work for actual audiences. A model persona is not participant research.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "FED-17",
+      "obligation_id": "OBL-FED-17",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Public content can be searched.",
+      "authority": {
+        "authority_id": "A04",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Narrow-site exceptions need controlling guidance",
+        "Search quality needs a labeled query set"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_owner",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "EXP-04",
+        "class_label": "L qualified, A04; A34",
+        "proposed_procedure": "B: run known-item and top-task queries; verify scope and result destinations. Assess narrow-site exceptions/alternative implementations using controlling guidance.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "additional_authority_ids": [
+          "A34"
+        ]
+      }
+    },
+    {
+      "rule_id": "FED-18",
+      "obligation_id": "OBL-FED-18",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Public information is discoverable externally.",
+      "authority": {
+        "authority_id": "A05",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "network",
+          "source"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Intentionally restricted data must be distinguished from accidental blocking"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "web_manager",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "EXP-05",
+        "class_label": "P/R by provision, A05; A35",
+        "proposed_procedure": "N/S: inspect robots rules, response codes, canonical URLs, sitemap and indexability. Distinguish intentional restricted data from accidental public-content blocking.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "additional_authority_ids": [
+          "A35"
+        ]
+      }
+    },
+    {
+      "rule_id": "FED-19",
+      "obligation_id": "OBL-FED-19",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Search results are usable.",
+      "authority": {
+        "authority_id": "A34",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing && site_has_search",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing",
+          "site_has_search"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Never index private records",
+        "Result freshness needs content ownership evidence"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_owner",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "EXP-06",
+        "class_label": "R, A34/A35",
+        "proposed_procedure": "B/H: check empty/error states, spelling variants, meaningful snippets, accessible controls and result freshness; never index private records.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "additional_authority_ids": [
+          "A35"
+        ]
+      }
+    },
+    {
+      "rule_id": "FED-20",
+      "obligation_id": "OBL-FED-20",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Authoritative, current, nonduplicative content.",
+      "authority": {
+        "authority_id": "A05",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "documentary",
+          "model"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Not every undated page is legally stale",
+        "Approved source facts and owners come from the organization"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "policy_content_owner",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "EXP-07",
+        "class_label": "P/R/C by provision, A05; L qualified consolidation A04",
+        "proposed_procedure": "O/M: compare approved source facts, owners and review history; flag contradictions and obsolete copies. Do not label every undated page legally stale.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "additional_authority_ids": [
+          "A04"
+        ]
+      }
+    },
+    {
+      "rule_id": "FED-21",
+      "obligation_id": "OBL-FED-21",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Plain writing in covered public material.",
+      "authority": {
+        "authority_id": "A07",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing && covered_public_document",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing",
+          "covered_public_document"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "There is no universal grade-level mandate",
+        "Legally necessary text must be preserved with clear explanations"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "policy_content_owner",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "EXP-08",
+        "class_label": "L/C, A07",
+        "proposed_procedure": "M/H: assess audience, jargon, instructions, headings, and task comprehension. Preserve legally necessary text with clear explanations; no universal grade-level mandate.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "FED-22",
+      "obligation_id": "OBL-FED-22",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Accurate policies, claims, eligibility and deadlines.",
+      "authority": {
+        "authority_id": null,
+        "section": "program-specific authority supplied through regulatory discovery",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "program_authority_supplied",
+        "required_facts": [
+          "program_authority_supplied"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "model",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Never invent fees, appeal rights, approval times, or legal effects",
+        "Requires supplied authoritative program rules"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "program_owner",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "EXP-09",
+        "class_label": "C program authority; R evidence discipline",
+        "proposed_procedure": "M/O: compare against supplied authoritative program rules. Never invent fees, appeal rights, approval times, or legal effects while rewriting.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "authority_basis": "none cited in source research"
+      },
+      "normative": false
+    },
+    {
+      "rule_id": "FED-23",
+      "obligation_id": "OBL-FED-23",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Functional and usable on common mobile devices.",
+      "authority": {
+        "authority_id": "A04",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Needs relevant widths, touch devices, zoom, and virtual keyboard states"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_owner",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "EXP-10",
+        "class_label": "L qualified, A04",
+        "proposed_procedure": "B/H: complete tasks on relevant widths, touch devices, zoom and virtual-keyboard states; inspect fixed elements and file uploads.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "FED-24",
+      "obligation_id": "OBL-FED-24",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Digital forms/services and signature alternatives.",
+      "authority": {
+        "authority_id": "A04",
+        "section": "sections 4 to 5",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing && service_is_transactional",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing",
+          "service_is_transactional"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Handoffs to print, mail, or wet signature need documented constraints"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_owner",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "EXP-11",
+        "class_label": "L/P qualified, A04 §§4-5; A05",
+        "proposed_procedure": "B/O: identify print/mail/wet-signature handoffs and documented constraints; propose equivalent digital paths where required.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "additional_authority_ids": [
+          "A05"
+        ]
+      }
+    },
+    {
+      "rule_id": "FED-25",
+      "obligation_id": "OBL-FED-25",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Access for people unable to use digital services.",
+      "authority": {
+        "authority_id": "A04",
+        "section": "section 4(e)",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing && service_is_transactional",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing",
+          "service_is_transactional"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Digitization must not silently remove required access",
+        "Alternative operations need organizational evidence"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "program_owner",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "EXP-12",
+        "class_label": "L, A04 §4(e)",
+        "proposed_procedure": "B/O: inspect alternative completion information and actual operations. Digitization must not silently remove required access.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "FED-26",
+      "obligation_id": "OBL-FED-26",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Shared services and appropriate customization.",
+      "authority": {
+        "authority_id": "A04",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "documentary",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Accounts or tracking must not be required merely to personalize a public page"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_owner",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "EXP-13",
+        "class_label": "L/P qualified, A04/A05",
+        "proposed_procedure": "S/O/H: review unnecessary duplicate capabilities and preference/data reuse. Do not require accounts or tracking merely to personalize a public page.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "additional_authority_ids": [
+          "A05"
+        ]
+      }
+    },
+    {
+      "rule_id": "FED-27",
+      "obligation_id": "OBL-FED-27",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Digital Analytics Program use where applicable.",
+      "authority": {
+        "authority_id": "A36",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing && dap_applies",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing",
+          "dap_applies"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "network",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Script presence is not proof; production configuration and allowed requests matter",
+        "Exclusions and protected routes must be recorded"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "web_manager",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "EXP-14",
+        "class_label": "P/C, A36",
+        "proposed_procedure": "B/N/O: inspect production configuration and actual allowed requests; script presence alone is not proof. Record exclusions and protected routes.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "FED-28",
+      "obligation_id": "OBL-FED-28",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Experience measurement and service improvement.",
+      "authority": {
+        "authority_id": "A37",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Applicable measurement and reporting duties need the current circular scope",
+        "Event names, URLs, and survey payloads must not leak personal data"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_owner",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "EXP-15",
+        "class_label": "P/C/O, A37",
+        "proposed_procedure": "O: inspect applicable CX measurement, feedback and service plans. Test no personal data leaks through event names, URLs or survey payloads.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "FED-29",
+      "obligation_id": "OBL-FED-29",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Language access under current applicable authority.",
+      "authority": {
+        "authority_id": "A19",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "language_access_obligation_identified",
+        "required_facts": [
+          "language_access_obligation_identified"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "documentary",
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Machine translation alone is not proof of fulfillment",
+        "Obligations depend on program and jurisdiction"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "program_owner",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "EXP-16",
+        "class_label": "C, A19; DC example A38",
+        "proposed_procedure": "O/B/H: resolve program/jurisdiction obligations; evaluate vital content, human review, language declaration and completion paths. Machine translation alone is not proof of fulfillment.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "additional_authority_ids": [
+          "A38"
+        ]
+      }
+    },
+    {
+      "rule_id": "FED-30",
+      "obligation_id": "OBL-FED-30",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Complete task states and recovery.",
+      "authority": {
+        "authority_id": null,
+        "section": "engineering recommendation; specific accessibility duties remain separate obligations",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "service_brief_present",
+        "required_facts": [
+          "service_brief_present"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Specific accessibility duties for these states remain separate obligations"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_owner",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "EXP-17",
+        "class_label": "R; specific accessibility duties remain L/P",
+        "proposed_procedure": "B/H: test empty/loading/error/partial/save/resume/offline/interrupted/expired states. Preserve entered information when safe and explain recovery.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "authority_basis": "none cited in source research"
+      },
+      "normative": false
+    },
+    {
+      "rule_id": "FED-31",
+      "obligation_id": "OBL-FED-31",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Honest visual priority and task flow.",
+      "authority": {
+        "authority_id": null,
+        "section": "engineering recommendation",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "service_brief_present",
+        "required_facts": [
+          "service_brief_present"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "model",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Compliance repairs must not bury the main task"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity",
+        "preserve_primary_task"
+      ],
+      "owner_role": "product_owner",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "EXP-18",
+        "class_label": "R",
+        "proposed_procedure": "M/H: evaluate user decision, ranked questions, visual hierarchy, action scope and density. Repair compliance issues without burying the main task.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "authority_basis": "none cited in source research",
+        "notes": "Engineering recommendation informed by the Considered design-review skill; not a legal obligation."
+      },
+      "normative": false
+    },
+    {
+      "rule_id": "FED-32",
+      "obligation_id": "OBL-FED-32",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Federal government banner (pending GSA standard). Readiness finding unless independently required by adopted agency or contract authority.",
+      "authority": {
+        "authority_id": "A50",
+        "section": "pending standard acceptance criteria",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [
+          {
+            "label": "No compliance timeline supplied by the pending standard page; do not invent one",
+            "date": null
+          }
+        ],
+        "pending_effective_date": true
+      },
+      "evaluation": {
+        "channels": [
+          "browser",
+          "human"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Banner must describe the actual domain and security state",
+        "Pending status does not cancel obligations already imposed by IDEA, Section 508, or another source"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "web_manager",
+      "severity_default": "low",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "GSA-01",
+        "class_label": "pending standard",
+        "proposed_procedure": "Top of every page, on a line by itself, with flag, official-site text and dropdown information, for .gov and .mil on HTTPS. Scope is public executive-branch .gov and .mil services.",
+        "catalog_authority_id": "A49",
+        "modality_basis": "Pending standard; modality not established. Treated as a readiness finding, never a legal failure."
+      }
+    },
+    {
+      "rule_id": "FED-33",
+      "obligation_id": "OBL-FED-33",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "HTML page title (pending GSA standard). Readiness finding unless independently required by adopted agency or contract authority.",
+      "authority": {
+        "authority_id": "A51",
+        "section": "pending standard acceptance criteria",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [
+          {
+            "label": "No compliance timeline supplied by the pending standard page; do not invent one",
+            "date": null
+          }
+        ],
+        "pending_effective_date": true
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "browser",
+          "model"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Pending-specific length and uniqueness checks stay separate from already-binding WCAG 2.4.2",
+        "Pending status does not cancel obligations already imposed by another source"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "web_manager",
+      "severity_default": "low",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "GSA-02",
+        "class_label": "pending standard",
+        "proposed_procedure": "Every page has a unique title of at least 20 characters under this pending standard. Descriptiveness needs semantic review.",
+        "catalog_authority_id": "A49",
+        "modality_basis": "Pending standard; modality not established. Treated as a readiness finding, never a legal failure."
+      }
+    },
+    {
+      "rule_id": "FED-34",
+      "obligation_id": "OBL-FED-34",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Meta page description (pending GSA standard). Readiness finding unless independently required by adopted agency or contract authority.",
+      "authority": {
+        "authority_id": "A52",
+        "section": "pending standard acceptance criteria",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && public_facing",
+        "required_facts": [
+          "federal_executive_agency",
+          "public_facing"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [
+          {
+            "label": "No compliance timeline supplied by the pending standard page; do not invent one",
+            "date": null
+          }
+        ],
+        "pending_effective_date": true
+      },
+      "evaluation": {
+        "channels": [
+          "source",
+          "browser",
+          "model"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "blind_spots": [
+        "Pending-specific length and uniqueness checks stay separate from already-binding WCAG 2.4.2",
+        "Pending status does not cancel obligations already imposed by another source"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_official_wording",
+        "preserve_approved_identity"
+      ],
+      "owner_role": "web_manager",
+      "severity_default": "low",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "GSA-03",
+        "class_label": "pending standard",
+        "proposed_procedure": "Every page has a unique description of at least 50 characters under this pending standard. Accuracy is assessed separately.",
+        "catalog_authority_id": "A49",
+        "modality_basis": "Pending standard; modality not established. Treated as a readiness finding, never a legal failure."
+      }
+    },
+    {
+      "rule_id": "FED-35",
+      "obligation_id": "OBL-FED-35",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Correctly scope public and covered non-public electronic content.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E205",
+        "modality": "shall",
+        "incorporated_standard": "Revised 508 Standards"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "section508_covered",
+        "required_facts": [
+          "section508_covered"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "human",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Internal-only is not a per-item exclusion",
+        "Documents and non-HTML content need their own inventory"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_official_wording"
+      ],
+      "owner_role": "section508_program_manager",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "ICT-01",
+        "domain": "section508_ict",
+        "class_label": "L/C, A01 E205",
+        "proposed_procedure": "Inventory official communications and documents. Record exclusions per item, not an “internal = exempt” shortcut.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "FED-36",
+      "obligation_id": "OBL-FED-36",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Evaluate applicable functional performance criteria and software requirements.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E204; E207; chapters 3 and 5",
+        "modality": "shall",
+        "incorporated_standard": "Revised 508 Standards"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "section508_covered",
+        "required_facts": [
+          "section508_covered"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "human",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Irrelevant desktop provisions must not be applied to every web app",
+        "Needs an Accessibility Requirements Tool record or a qualified evaluator"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_official_wording"
+      ],
+      "owner_role": "section508_program_manager",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "ICT-02",
+        "domain": "section508_ict",
+        "class_label": "L/C, A01 E204/E207; chapters 3/5",
+        "proposed_procedure": "Scope platform services, interoperability, applications, and authoring tools; use ART or a qualified evaluator. Avoid applying irrelevant desktop provisions to all web apps.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "FED-37",
+      "obligation_id": "OBL-FED-37",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Accessible documentation/support.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E208; chapter 6",
+        "modality": "shall",
+        "incorporated_standard": "Revised 508 Standards"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "section508_covered",
+        "required_facts": [
+          "section508_covered"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "human",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Support channels and alternative-format delivery cannot be observed from page markup alone"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_official_wording"
+      ],
+      "owner_role": "section508_program_manager",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "ICT-03",
+        "domain": "section508_ict",
+        "class_label": "L/C, A01 E208; chapter 6",
+        "proposed_procedure": "Inspect help, support channels, accessibility information, and alternative-format delivery.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "FED-38",
+      "obligation_id": "OBL-FED-38",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Exceptions require authorized basis and alternative access where required.",
+      "authority": {
+        "authority_id": "A01",
+        "section": "E202",
+        "modality": "shall",
+        "incorporated_standard": "Revised 508 Standards"
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "section508_covered",
+        "required_facts": [
+          "section508_covered"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "human",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Age alone does not prove legacy safe-harbor eligibility",
+        "Written determinations live outside the site"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_official_wording"
+      ],
+      "owner_role": "section508_program_manager",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "ICT-04",
+        "domain": "section508_ict",
+        "class_label": "L/C/O, A01 E202",
+        "proposed_procedure": "Preserve written burden/fundamental-alteration or best-meets determinations and affected provisions. Age alone does not prove legacy safe-harbor eligibility.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "FED-39",
+      "obligation_id": "OBL-FED-39",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Prioritize HTML; use PDFs when necessary and accessible.",
+      "authority": {
+        "authority_id": "A06",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && electronic_content_in_scope",
+        "required_facts": [
+          "federal_executive_agency",
+          "electronic_content_in_scope"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "human",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "A tag tree alone does not establish PDF accessibility"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_official_wording"
+      ],
+      "owner_role": "section508_program_manager",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "ICT-05",
+        "domain": "section508_ict",
+        "class_label": "P, A06; A26",
+        "proposed_procedure": "Review PDF purpose and available HTML. Test structure, reading order, headings, language, links, tables, form names, OCR/text, and alternatives. A tag tree alone is insufficient.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "FED-40",
+      "obligation_id": "OBL-FED-40",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Acquisition requirements must address applicable accessibility standards.",
+      "authority": {
+        "authority_id": "A06",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency && ict_acquired_by_agency",
+        "required_facts": [
+          "federal_executive_agency",
+          "ict_acquired_by_agency"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "human",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Vendor and embedded components must be validated in the exact version and configuration procured"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_official_wording"
+      ],
+      "owner_role": "section508_program_manager",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "ICT-06",
+        "domain": "section508_ict",
+        "class_label": "L/P/O, A06; A27",
+        "proposed_procedure": "Check solicitation/contract requirements and acceptance evidence. Validate the exact product/version/configuration, including embedded vendors.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "FED-41",
+      "obligation_id": "OBL-FED-41",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Maintain accessibility program, testing/remediation evidence, and required reporting.",
+      "authority": {
+        "authority_id": "A06",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "federal_executive_agency",
+        "required_facts": [
+          "federal_executive_agency"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "human",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "No page scan can prove an accessibility program operates"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_official_wording"
+      ],
+      "owner_role": "section508_program_manager",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "ICT-07",
+        "domain": "section508_ict",
+        "class_label": "P/O, A06",
+        "proposed_procedure": "Ask for named owner, release checks, issue tracking, and current reporting evidence; no page scan can prove program operation.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    },
+    {
+      "rule_id": "FED-42",
+      "obligation_id": "OBL-FED-42",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "ACR/VPAT is evidence, not certification of the deployed service.",
+      "authority": {
+        "authority_id": "A27",
+        "section": "unatomized: clause locator pending source review",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "vendor_conformance_report_supplied",
+        "required_facts": [
+          "vendor_conformance_report_supplied"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "human",
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "A vendor conformance report is evidence, not certification of the deployed service"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_content",
+        "preserve_official_wording"
+      ],
+      "owner_role": "section508_program_manager",
+      "severity_default": "medium",
+      "source_verified_at": "2026-10-15",
+      "source_review_status": "research",
+      "extensions": {
+        "source_row_id": "ICT-08",
+        "domain": "section508_ict",
+        "class_label": "R/O, A27",
+        "proposed_procedure": "Compare vendor statements to independent tests and limitations. Retest customized components and complete workflows.",
+        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+      }
+    }
+  ],
+  "extensions": {
+    "title": "Federal public web identity, content, and product requirements",
+    "notes": "Official identity and required content (13), content, discoverability, and design (18), pending GSA standards (3, pending_effective_date), and Section 508 content, support, and procurement rows (8, FED-35 to FED-42). Research lifecycle."
+  }
+}
