@@ -1,0 +1,163 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-18-0a1b2c",
+  "audit_id": "fixture",
+  "generated_by": "diligent-inventory/0.2.0",
+  "routes": [
+    {
+      "url": "https://example.gov/",
+      "cluster_id": "8f306e3de160",
+      "sources": [
+        "link",
+        "start"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/",
+      "title": "Home",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/about",
+      "cluster_id": "f497ef0b0c31",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/about",
+      "title": "About",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/data.json",
+      "cluster_id": "946d08747c71",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/data.json",
+      "title": null,
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/private/public-faq",
+      "cluster_id": "12cc31b949a1",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/private/public-faq",
+      "title": "FAQ",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/private/records",
+      "cluster_id": "d4e7a31c19d4",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/private/records",
+      "title": "Records",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/public/info",
+      "cluster_id": "1db33c955919",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/public/info",
+      "title": "Info",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    }
+  ],
+  "templates": [
+    {
+      "cluster_id": "8f306e3de160",
+      "path_shape": "/",
+      "dom_shape": "L=header,nav,main,footer;h1=1;h2=0;submit_form=0;data_table=0",
+      "size": 1,
+      "representative": "https://example.gov/",
+      "fetched_members": 1
+    },
+    {
+      "cluster_id": "f497ef0b0c31",
+      "path_shape": "/about",
+      "dom_shape": "L=header,nav,main,footer;h1=1;h2=0;submit_form=0;data_table=0",
+      "size": 1,
+      "representative": "https://example.gov/about",
+      "fetched_members": 1
+    },
+    {
+      "cluster_id": "946d08747c71",
+      "path_shape": "/data.json",
+      "dom_shape": null,
+      "size": 1,
+      "representative": "https://example.gov/data.json",
+      "fetched_members": 1
+    },
+    {
+      "cluster_id": "12cc31b949a1",
+      "path_shape": "/private/public-faq",
+      "dom_shape": "L=header,nav,main,footer;h1=1;h2=0;submit_form=0;data_table=0",
+      "size": 1,
+      "representative": "https://example.gov/private/public-faq",
+      "fetched_members": 1
+    },
+    {
+      "cluster_id": "d4e7a31c19d4",
+      "path_shape": "/private/records",
+      "dom_shape": "L=header,nav,main,footer;h1=1;h2=0;submit_form=0;data_table=0",
+      "size": 1,
+      "representative": "https://example.gov/private/records",
+      "fetched_members": 1
+    },
+    {
+      "cluster_id": "1db33c955919",
+      "path_shape": "/public/info",
+      "dom_shape": "L=header,nav,main,footer;h1=1;h2=0;submit_form=0;data_table=0",
+      "size": 1,
+      "representative": "https://example.gov/public/info",
+      "fetched_members": 1
+    }
+  ],
+  "components": [],
+  "documents": [],
+  "vendors": [],
+  "roles": [],
+  "states": [],
+  "discovery_limits": [
+    "roles_and_states: a fetch-only crawler sees one anonymous role and one default state; authenticated roles and interactive states are not inventoried",
+    "client_rendered_navigation_not_followed: links created by JavaScript are not discovered",
+    "robots_overridden_by_operator",
+    "rate_limit: at most 0.2 requests per second (5000 ms between requests), one request at a time",
+    "request_interval: 5000 ms between requests, set by robots.txt Crawl-delay 5 s (longer than the 500 ms from --rps 2)",
+    "crawl_delay: robots.txt asks for 5 seconds between requests",
+    "partial: false"
+  ]
+}

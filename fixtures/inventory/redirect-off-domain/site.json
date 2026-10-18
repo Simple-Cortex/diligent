@@ -1,0 +1,42 @@
+{
+  "https://example.gov/": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Home</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Home</h1><p>Links.</p><a href=\"/go\">Go</a> <a href=\"/moved\">Moved</a> <a href=\"/loop\">Loop</a> <a href=\"/to-www\">WWW</a> <a href=\"/down\">Down</a> <a href=\"/missing\">Missing</a> </main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/go": {
+    "status": 302,
+    "location": "https://evil.example/landing"
+  },
+  "https://example.gov/moved": {
+    "status": 301,
+    "location": "/new-home"
+  },
+  "https://example.gov/new-home": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>New home</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>New home</h1><p>Moved here.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/loop": {
+    "status": 302,
+    "location": "/loop"
+  },
+  "https://example.gov/to-www": {
+    "status": 302,
+    "location": "https://www.example.gov/about"
+  },
+  "https://www.example.gov/about": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>WWW about</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>WWW about</h1><p>Other origin.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/down": {
+    "error": "timeout"
+  }
+}

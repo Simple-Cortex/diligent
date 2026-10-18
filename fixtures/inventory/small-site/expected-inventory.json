@@ -1,0 +1,277 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-18-0a1b2c",
+  "audit_id": "fixture",
+  "generated_by": "diligent-inventory/0.2.0",
+  "routes": [
+    {
+      "url": "https://example.gov/",
+      "cluster_id": "cde6850118e6",
+      "sources": [
+        "sitemap",
+        "link",
+        "start"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/",
+      "title": "Example agency",
+      "has_form": false,
+      "lastmod": "2026-09-01",
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/about",
+      "cluster_id": "f497ef0b0c31",
+      "sources": [
+        "sitemap",
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/about",
+      "title": "About",
+      "has_form": false,
+      "lastmod": "2026-08-01",
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/contact",
+      "cluster_id": "973adae283cd",
+      "sources": [
+        "sitemap",
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/contact",
+      "title": "Contact",
+      "has_form": true,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/data/q1-2025",
+      "cluster_id": "1ce849d86fa4",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/data/q1-2025",
+      "title": "Q1 2025",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/data/q2-2025",
+      "cluster_id": "1ce849d86fa4",
+      "sources": [
+        "sitemap",
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/data/q2-2025",
+      "title": "Q2 2025",
+      "has_form": false,
+      "lastmod": "2026-06-30",
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/news/2024-budget",
+      "cluster_id": "f13dc6bcc68a",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/news/2024-budget",
+      "title": "Budget 2024",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/news/2024-hearing",
+      "cluster_id": "f13dc6bcc68a",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/news/2024-hearing",
+      "title": "Hearing 2024",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/news/2025-recap",
+      "cluster_id": "8c2c9f9746f1",
+      "sources": [
+        "sitemap"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/news/2025-recap",
+      "title": "Recap 2025",
+      "has_form": false,
+      "lastmod": "2026-07-20",
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/news/2025-update",
+      "cluster_id": "f13dc6bcc68a",
+      "sources": [
+        "sitemap",
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/news/2025-update",
+      "title": "Update 2025",
+      "has_form": false,
+      "lastmod": "2026-07-15",
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/programs/p-101",
+      "cluster_id": "41ba0aa28e1a",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/programs/p-101",
+      "title": "Program 101",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/programs/p-102",
+      "cluster_id": "41ba0aa28e1a",
+      "sources": [
+        "sitemap",
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/programs/p-102",
+      "title": "Program 102",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/programs/p-103",
+      "cluster_id": "41ba0aa28e1a",
+      "sources": [
+        "sitemap"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/programs/p-103",
+      "title": "Program 103",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    }
+  ],
+  "templates": [
+    {
+      "cluster_id": "f13dc6bcc68a",
+      "path_shape": "/news/{slug}",
+      "dom_shape": "L=header,nav,main,footer;h1=1;h2=2-4;submit_form=0;data_table=0",
+      "size": 3,
+      "representative": "https://example.gov/news/2024-budget",
+      "fetched_members": 3
+    },
+    {
+      "cluster_id": "41ba0aa28e1a",
+      "path_shape": "/programs/{slug}",
+      "dom_shape": "L=header,nav,main,footer;h1=1;h2=1;submit_form=0;data_table=0",
+      "size": 3,
+      "representative": "https://example.gov/programs/p-101",
+      "fetched_members": 3
+    },
+    {
+      "cluster_id": "1ce849d86fa4",
+      "path_shape": "/data/{slug}",
+      "dom_shape": "L=header,nav,main,footer;h1=1;h2=0;submit_form=0;data_table=1",
+      "size": 2,
+      "representative": "https://example.gov/data/q1-2025",
+      "fetched_members": 2
+    },
+    {
+      "cluster_id": "cde6850118e6",
+      "path_shape": "/",
+      "dom_shape": "L=header,nav,main,footer;h1=1;h2=2-4;submit_form=0;data_table=0",
+      "size": 1,
+      "representative": "https://example.gov/",
+      "fetched_members": 1
+    },
+    {
+      "cluster_id": "f497ef0b0c31",
+      "path_shape": "/about",
+      "dom_shape": "L=header,nav,main,footer;h1=1;h2=0;submit_form=0;data_table=0",
+      "size": 1,
+      "representative": "https://example.gov/about",
+      "fetched_members": 1
+    },
+    {
+      "cluster_id": "973adae283cd",
+      "path_shape": "/contact",
+      "dom_shape": "L=header,nav,main,form,footer;h1=1;h2=0;submit_form=1;data_table=0",
+      "size": 1,
+      "representative": "https://example.gov/contact",
+      "fetched_members": 1
+    },
+    {
+      "cluster_id": "8c2c9f9746f1",
+      "path_shape": "/news/{slug}",
+      "dom_shape": "L=header,nav,main,aside,footer;h1=1;h2=2-4;submit_form=0;data_table=0",
+      "size": 1,
+      "representative": "https://example.gov/news/2025-recap",
+      "fetched_members": 1
+    }
+  ],
+  "components": [],
+  "documents": [
+    {
+      "url": "https://example.gov/reports/annual.pdf",
+      "kind": "pdf"
+    }
+  ],
+  "vendors": [
+    {
+      "host": "analytics.vendor.example",
+      "first_seen_on": "https://example.gov/"
+    }
+  ],
+  "roles": [],
+  "states": [],
+  "discovery_limits": [
+    "roles_and_states: a fetch-only crawler sees one anonymous role and one default state; authenticated roles and interactive states are not inventoried",
+    "client_rendered_navigation_not_followed: links created by JavaScript are not discovered",
+    "robots_excluded: 0 urls",
+    "rate_limit: at most 2 requests per second (500 ms between requests), one request at a time",
+    "documents_not_fetched: 1 documents",
+    "off_scope: 1 urls on other origins were not inventoried",
+    "partial: false"
+  ]
+}

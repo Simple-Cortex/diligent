@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "authorities": [
+    {
+      "authority_id": "A01",
+      "title": "Fixture Authority One | with a pipe"
+    },
+    {
+      "authority_id": "A02",
+      "title": "Fixture Authority Two"
+    }
+  ]
+}

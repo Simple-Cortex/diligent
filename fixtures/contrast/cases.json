@@ -1,0 +1,558 @@
+{
+  "description": "Contrast fixtures for diligent-assess. Ratios are computed with the WCAG 2.x formula in f64 from the sRGB values; boundary pairs were found by scanning all 16.7M colors against white. Translucent colors are composited over the background with channel = floor(fg*a + bg*(1-a) + 0.5). needs_review means the harness must not decide.",
+  "ratio_tolerance": 1e-06,
+  "cases": [
+    {
+      "id": "aa-normal-just-below-4.5",
+      "fg": "#9a6c5a",
+      "bg": "#ffffff",
+      "font_px": 16,
+      "bold": false,
+      "level": "AA",
+      "note": "4.4999998: displays as 4.50:1 but must fail",
+      "expected_composite": null,
+      "expected_ratio": 4.499999851,
+      "expected_size": "normal",
+      "expected_verdict": "fail"
+    },
+    {
+      "id": "aa-normal-just-above-4.5",
+      "fg": "#7c7290",
+      "bg": "#ffffff",
+      "font_px": 16,
+      "bold": false,
+      "level": "AA",
+      "note": "4.5000006: passes",
+      "expected_composite": null,
+      "expected_ratio": 4.500000635,
+      "expected_size": "normal",
+      "expected_verdict": "pass"
+    },
+    {
+      "id": "aa-normal-4.49",
+      "fg": "#597f6c",
+      "bg": "#ffffff",
+      "font_px": 16,
+      "bold": false,
+      "level": "AA",
+      "note": "4.49:1 fails",
+      "expected_composite": null,
+      "expected_ratio": 4.490000049,
+      "expected_size": "normal",
+      "expected_verdict": "fail"
+    },
+    {
+      "id": "aa-normal-grey-767676",
+      "fg": "#767676",
+      "bg": "#ffffff",
+      "font_px": 16,
+      "bold": false,
+      "level": "AA",
+      "note": "4.54:1, the classic AA minimum grey",
+      "expected_composite": null,
+      "expected_ratio": 4.54222496,
+      "expected_size": "normal",
+      "expected_verdict": "pass"
+    },
+    {
+      "id": "aa-normal-grey-777777",
+      "fg": "#777777",
+      "bg": "#ffffff",
+      "font_px": 16,
+      "bold": false,
+      "level": "AA",
+      "note": "4.48:1, one step lighter fails",
+      "expected_composite": null,
+      "expected_ratio": 4.478089454,
+      "expected_size": "normal",
+      "expected_verdict": "fail"
+    },
+    {
+      "id": "aa-large-just-below-3",
+      "fg": "#989a30",
+      "bg": "#ffffff",
+      "font_px": 24,
+      "bold": false,
+      "level": "AA",
+      "note": "2.9999998 at 24px: large text, fails 3:1",
+      "expected_composite": null,
+      "expected_ratio": 2.999999768,
+      "expected_size": "large",
+      "expected_verdict": "fail"
+    },
+    {
+      "id": "aa-large-just-above-3",
+      "fg": "#e969a1",
+      "bg": "#ffffff",
+      "font_px": 24,
+      "bold": false,
+      "level": "AA",
+      "note": "3.0000002 at 24px: large text, passes 3:1",
+      "expected_composite": null,
+      "expected_ratio": 3.000000193,
+      "expected_size": "large",
+      "expected_verdict": "pass"
+    },
+    {
+      "id": "aa-normal-3.0-colors-fail",
+      "fg": "#e969a1",
+      "bg": "#ffffff",
+      "font_px": 16,
+      "bold": false,
+      "level": "AA",
+      "note": "same colors as above at 16px need 4.5:1",
+      "expected_composite": null,
+      "expected_ratio": 3.000000193,
+      "expected_size": "normal",
+      "expected_verdict": "fail"
+    },
+    {
+      "id": "aaa-normal-just-below-7",
+      "fg": "#960fb1",
+      "bg": "#ffffff",
+      "font_px": 16,
+      "bold": false,
+      "level": "AAA",
+      "note": "6.9999987 fails 7:1",
+      "expected_composite": null,
+      "expected_ratio": 6.999998691,
+      "expected_size": "normal",
+      "expected_verdict": "fail"
+    },
+    {
+      "id": "aaa-normal-just-above-7",
+      "fg": "#33642c",
+      "bg": "#ffffff",
+      "font_px": 16,
+      "bold": false,
+      "level": "AAA",
+      "note": "7.0000003 passes 7:1",
+      "expected_composite": null,
+      "expected_ratio": 7.000000295,
+      "expected_size": "normal",
+      "expected_verdict": "pass"
+    },
+    {
+      "id": "aaa-large-just-above-4.5",
+      "fg": "#7c7290",
+      "bg": "#ffffff",
+      "font_px": 24,
+      "bold": false,
+      "level": "AAA",
+      "note": "4.5000006 at 24px passes large AAA 4.5:1",
+      "expected_composite": null,
+      "expected_ratio": 4.500000635,
+      "expected_size": "large",
+      "expected_verdict": "pass"
+    },
+    {
+      "id": "aaa-large-just-below-4.5",
+      "fg": "#9a6c5a",
+      "bg": "#ffffff",
+      "font_px": 24,
+      "bold": false,
+      "level": "AAA",
+      "note": "4.4999998 at 24px fails large AAA 4.5:1",
+      "expected_composite": null,
+      "expected_ratio": 4.499999851,
+      "expected_size": "large",
+      "expected_verdict": "fail"
+    },
+    {
+      "id": "black-on-white",
+      "fg": "#000000",
+      "bg": "#ffffff",
+      "font_px": 16,
+      "bold": false,
+      "level": "AAA",
+      "note": "21:1",
+      "expected_composite": null,
+      "expected_ratio": 21.0,
+      "expected_size": "normal",
+      "expected_verdict": "pass"
+    },
+    {
+      "id": "white-on-black",
+      "fg": "#ffffff",
+      "bg": "#000000",
+      "font_px": 16,
+      "bold": false,
+      "level": "AAA",
+      "note": "symmetric, 21:1",
+      "expected_composite": null,
+      "expected_ratio": 21.0,
+      "expected_size": "normal",
+      "expected_verdict": "pass"
+    },
+    {
+      "id": "white-on-white",
+      "fg": "#ffffff",
+      "bg": "#ffffff",
+      "font_px": 16,
+      "bold": false,
+      "level": "AA",
+      "note": "1:1",
+      "expected_composite": null,
+      "expected_ratio": 1.0,
+      "expected_size": "normal",
+      "expected_verdict": "fail"
+    },
+    {
+      "id": "size-23.99px-normal",
+      "fg": "#e969a1",
+      "bg": "#ffffff",
+      "font_px": 23.99,
+      "bold": false,
+      "level": "AA",
+      "note": "23.99px is below 18pt: normal text, needs 4.5:1, fails",
+      "expected_composite": null,
+      "expected_ratio": 3.000000193,
+      "expected_size": "normal",
+      "expected_verdict": "fail"
+    },
+    {
+      "id": "size-24px-normal",
+      "fg": "#e969a1",
+      "bg": "#ffffff",
+      "font_px": 24,
+      "bold": false,
+      "level": "AA",
+      "note": "24px is exactly 18pt: large text, 3:1 passes",
+      "expected_composite": null,
+      "expected_ratio": 3.000000193,
+      "expected_size": "large",
+      "expected_verdict": "pass"
+    },
+    {
+      "id": "size-18.65px-bold",
+      "fg": "#e969a1",
+      "bg": "#ffffff",
+      "font_px": 18.65,
+      "bold": true,
+      "level": "AA",
+      "note": "below 14pt: normal text, fails",
+      "expected_composite": null,
+      "expected_ratio": 3.000000193,
+      "expected_size": "normal",
+      "expected_verdict": "fail"
+    },
+    {
+      "id": "size-18.66px-bold",
+      "fg": "#e969a1",
+      "bg": "#ffffff",
+      "font_px": 18.66,
+      "bold": true,
+      "level": "AA",
+      "note": "18.66px is below 14pt = 18.666...px: still normal text, fails",
+      "expected_composite": null,
+      "expected_ratio": 3.000000193,
+      "expected_size": "normal",
+      "expected_verdict": "fail"
+    },
+    {
+      "id": "size-18.67px-bold",
+      "fg": "#e969a1",
+      "bg": "#ffffff",
+      "font_px": 18.67,
+      "bold": true,
+      "level": "AA",
+      "note": "at or above 14pt bold: large text, passes",
+      "expected_composite": null,
+      "expected_ratio": 3.000000193,
+      "expected_size": "large",
+      "expected_verdict": "pass"
+    },
+    {
+      "id": "size-18.67px-not-bold",
+      "fg": "#e969a1",
+      "bg": "#ffffff",
+      "font_px": 18.67,
+      "bold": false,
+      "level": "AA",
+      "note": "14pt but not bold: normal text, fails",
+      "expected_composite": null,
+      "expected_ratio": 3.000000193,
+      "expected_size": "normal",
+      "expected_verdict": "fail"
+    },
+    {
+      "id": "size-24px-bold",
+      "fg": "#e969a1",
+      "bg": "#ffffff",
+      "font_px": 24,
+      "bold": true,
+      "level": "AA",
+      "note": "large",
+      "expected_composite": null,
+      "expected_ratio": 3.000000193,
+      "expected_size": "large",
+      "expected_verdict": "pass"
+    },
+    {
+      "id": "size-14px-bold",
+      "fg": "#e969a1",
+      "bg": "#ffffff",
+      "font_px": 14,
+      "bold": true,
+      "level": "AA",
+      "note": "too small even when bold: normal text, fails",
+      "expected_composite": null,
+      "expected_ratio": 3.000000193,
+      "expected_size": "normal",
+      "expected_verdict": "fail"
+    },
+    {
+      "id": "translucent-black-50-over-white",
+      "fg": "rgba(0,0,0,0.5)",
+      "bg": "#ffffff",
+      "font_px": 16,
+      "bold": false,
+      "level": "AA",
+      "note": "composites to #808080 (127.5 rounds up): 3.95:1 fails normal AA",
+      "expected_composite": "#808080",
+      "expected_ratio": 3.949439648,
+      "expected_size": "normal",
+      "expected_verdict": "fail"
+    },
+    {
+      "id": "translucent-black-50-over-white-large",
+      "fg": "rgba(0,0,0,0.5)",
+      "bg": "#ffffff",
+      "font_px": 24,
+      "bold": false,
+      "level": "AA",
+      "note": "same color at 24px passes 3:1",
+      "expected_composite": "#808080",
+      "expected_ratio": 3.949439648,
+      "expected_size": "large",
+      "expected_verdict": "pass"
+    },
+    {
+      "id": "translucent-hex-alpha",
+      "fg": "#00000080",
+      "bg": "#ffffff",
+      "font_px": 16,
+      "bold": false,
+      "level": "AA",
+      "note": "alpha 128/255 composites to #7f7f7f: fails normal AA",
+      "expected_composite": "#7f7f7f",
+      "expected_ratio": 4.004106957,
+      "expected_size": "normal",
+      "expected_verdict": "fail"
+    },
+    {
+      "id": "translucent-black-87-over-white",
+      "fg": "rgba(0,0,0,0.87)",
+      "bg": "#ffffff",
+      "font_px": 16,
+      "bold": false,
+      "level": "AAA",
+      "note": "composites to #212121: passes AAA",
+      "expected_composite": "#212121",
+      "expected_ratio": 16.102191704,
+      "expected_size": "normal",
+      "expected_verdict": "pass"
+    },
+    {
+      "id": "transparent-text-over-white",
+      "fg": "transparent",
+      "bg": "#ffffff",
+      "font_px": 16,
+      "bold": false,
+      "level": "AA",
+      "note": "invisible text composites to the background: 1:1 fails",
+      "expected_composite": "#ffffff",
+      "expected_ratio": 1.0,
+      "expected_size": "normal",
+      "expected_verdict": "fail"
+    },
+    {
+      "id": "translucent-background-needs-review",
+      "fg": "#000000",
+      "bg": "rgba(255,255,255,0.8)",
+      "font_px": 16,
+      "bold": false,
+      "level": "AA",
+      "note": "background is not opaque: cannot measure without the layer beneath",
+      "expected_ratio": null,
+      "expected_size": null,
+      "expected_composite": null,
+      "expected_verdict": "needs_review"
+    },
+    {
+      "id": "unsupported-color-needs-review",
+      "fg": "hsl(0, 0%, 0%)",
+      "bg": "#ffffff",
+      "font_px": 16,
+      "bold": false,
+      "level": "AA",
+      "note": "hsl() is not parsed: needs review",
+      "expected_ratio": null,
+      "expected_size": null,
+      "expected_composite": null,
+      "expected_verdict": "needs_review"
+    },
+    {
+      "id": "named-navy-on-white",
+      "fg": "navy",
+      "bg": "white",
+      "font_px": 16,
+      "bold": false,
+      "level": "AAA",
+      "note": "named colors",
+      "expected_composite": null,
+      "expected_ratio": 16.009727057,
+      "expected_size": "normal",
+      "expected_verdict": "pass"
+    },
+    {
+      "id": "named-gray-on-white",
+      "fg": "gray",
+      "bg": "white",
+      "font_px": 16,
+      "bold": false,
+      "level": "AA",
+      "note": "#808080 is 3.95:1: fails normal AA",
+      "expected_composite": null,
+      "expected_ratio": 3.949439648,
+      "expected_size": "normal",
+      "expected_verdict": "fail"
+    },
+    {
+      "id": "named-rebeccapurple-on-white",
+      "fg": "rebeccapurple",
+      "bg": "white",
+      "font_px": 16,
+      "bold": false,
+      "level": "AAA",
+      "note": "passes AAA",
+      "expected_composite": null,
+      "expected_ratio": 8.405149896,
+      "expected_size": "normal",
+      "expected_verdict": "pass"
+    },
+    {
+      "id": "shorthand-and-case",
+      "fg": "#FFF",
+      "bg": "#000",
+      "font_px": 16,
+      "bold": false,
+      "level": "AAA",
+      "note": "shorthand hex, any case",
+      "expected_composite": null,
+      "expected_ratio": 21.0,
+      "expected_size": "normal",
+      "expected_verdict": "pass"
+    }
+  ],
+  "parse_cases": [
+    {
+      "input": "#fff",
+      "kind": "opaque",
+      "hex": "#ffffff",
+      "alpha": null
+    },
+    {
+      "input": "#FFFFFF",
+      "kind": "opaque",
+      "hex": "#ffffff",
+      "alpha": null
+    },
+    {
+      "input": "#767676",
+      "kind": "opaque",
+      "hex": "#767676",
+      "alpha": null
+    },
+    {
+      "input": "#abc",
+      "kind": "opaque",
+      "hex": "#aabbcc",
+      "alpha": null
+    },
+    {
+      "input": "#12345",
+      "kind": "none",
+      "hex": null,
+      "alpha": null
+    },
+    {
+      "input": "#gggggg",
+      "kind": "none",
+      "hex": null,
+      "alpha": null
+    },
+    {
+      "input": "rgb(10, 20, 30)",
+      "kind": "opaque",
+      "hex": "#0a141e",
+      "alpha": null
+    },
+    {
+      "input": "RGB(10 20 30)",
+      "kind": "opaque",
+      "hex": "#0a141e",
+      "alpha": null
+    },
+    {
+      "input": "rgb(100%, 0%, 50%)",
+      "kind": "opaque",
+      "hex": "#ff0080",
+      "alpha": null
+    },
+    {
+      "input": "rgba(0,0,0,1)",
+      "kind": "opaque",
+      "hex": "#000000",
+      "alpha": null
+    },
+    {
+      "input": "rgba(0, 0, 0, 0.5)",
+      "kind": "translucent",
+      "hex": "#000000",
+      "alpha": 0.5
+    },
+    {
+      "input": "rgb(0 0 0 / 25%)",
+      "kind": "translucent",
+      "hex": "#000000",
+      "alpha": 0.25
+    },
+    {
+      "input": "#00000080",
+      "kind": "translucent",
+      "hex": "#000000",
+      "alpha": 0.5019607843137255
+    },
+    {
+      "input": "transparent",
+      "kind": "translucent",
+      "hex": "#000000",
+      "alpha": 0.0
+    },
+    {
+      "input": "Rebeccapurple",
+      "kind": "opaque",
+      "hex": "#663399",
+      "alpha": null
+    },
+    {
+      "input": "currentcolor",
+      "kind": "none",
+      "hex": null,
+      "alpha": null
+    },
+    {
+      "input": "hsl(0,0%,0%)",
+      "kind": "none",
+      "hex": null,
+      "alpha": null
+    },
+    {
+      "input": "",
+      "kind": "none",
+      "hex": null,
+      "alpha": null
+    }
+  ]
+}

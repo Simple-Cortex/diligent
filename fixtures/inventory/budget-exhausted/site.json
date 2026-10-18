@@ -1,0 +1,85 @@
+{
+  "https://example.gov/robots.txt": {
+    "body": "User-agent: *\nDisallow:\nSitemap: https://example.gov/sitemap.xml\n"
+  },
+  "https://example.gov/sitemap.xml": {
+    "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"><url><loc>https://example.gov/p/p-1</loc></url><url><loc>https://example.gov/p/p-2</loc></url><url><loc>https://example.gov/p/p-3</loc></url><url><loc>https://example.gov/p/p-4</loc></url><url><loc>https://example.gov/p/p-5</loc></url><url><loc>https://example.gov/p/p-6</loc></url><url><loc>https://example.gov/p/p-7</loc></url><url><loc>https://example.gov/p/p-8</loc></url></urlset>"
+  },
+  "https://example.gov/": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Home</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Home</h1><p>Links.</p><a href=\"/about\">About</a> <a href=\"/news/2025-a\">News</a> </main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/about": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>About</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>About</h1><p>x</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/news/2025-a": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>News A</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>News A</h1><h2>Summary</h2><p>Text.</p><h2>Details</h2><p>More text.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/p/p-1": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Page 1</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Page 1</h1><h2>Eligibility</h2><p>Who can apply.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/p/p-2": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Page 2</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Page 2</h1><h2>Eligibility</h2><p>Who can apply.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/p/p-3": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Page 3</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Page 3</h1><h2>Eligibility</h2><p>Who can apply.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/p/p-4": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Page 4</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Page 4</h1><h2>Eligibility</h2><p>Who can apply.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/p/p-5": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Page 5</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Page 5</h1><h2>Eligibility</h2><p>Who can apply.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/p/p-6": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Page 6</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Page 6</h1><h2>Eligibility</h2><p>Who can apply.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/p/p-7": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Page 7</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Page 7</h1><h2>Eligibility</h2><p>Who can apply.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/p/p-8": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Page 8</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Page 8</h1><h2>Eligibility</h2><p>Who can apply.</p></main><footer>Footer</footer></body></html>"
+  }
+}

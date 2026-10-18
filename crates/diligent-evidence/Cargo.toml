@@ -1,0 +1,20 @@
+[package]
+name = "diligent-evidence"
+description = "Evidence hashing, provenance, redaction and freshness."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[dependencies]
+diligent-capture.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+jsonschema.workspace = true
+diligent-infra.workspace = true

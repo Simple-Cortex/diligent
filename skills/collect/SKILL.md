@@ -16,4 +16,6 @@ Stage `collect` of the Diligent chain. The root skill (`../../SKILL.md`) routes;
 1. `../../references/evidence.md`
 2. `../../references/workflow.md` section for `collect`
 
+**Executable path:** `diligent audit --url <https://host/>` collects each sampled page with headless Chrome inside the permitted origin and keeps the payloads under `captures/`; see `../../references/workflow.md` section 4a. Chrome must be installed (`DILIGENT_CHROME`).
+
 **Block only when** a needed origin, role, or fixture is not permitted. Record the item as `blocked` in the plan and continue. Never submit real applications, payments, or notifications.

@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0.0",
+  "audit_id": "fixture-audit",
+  "run_id": "run-2026-10-17-a1b2c3",
+  "profile_id": "fixture-profile",
+  "modes": [
+    "source"
+  ],
+  "facts": [
+    {
+      "fact_id": "public_facing",
+      "group": "system",
+      "label": "public facing",
+      "value": true,
+      "state": "disputed",
+      "evidence_refs": [
+        "ev-010",
+        "ev-011"
+      ],
+      "provided_by": "fixture",
+      "observed_at": null,
+      "valid_until": null,
+      "question": "What is the value of public_facing?",
+      "owner_role": "product_owner",
+      "affected_obligations": [
+        "OBL-FIXTURE"
+      ],
+      "effect_on_assessment": "Rules that use this fact stay unknown."
+    },
+    {
+      "fact_id": "adopted_wcag_version",
+      "group": "system",
+      "label": "adopted wcag version",
+      "value": null,
+      "state": "known",
+      "evidence_refs": [],
+      "provided_by": "fixture",
+      "observed_at": null,
+      "valid_until": null,
+      "question": null,
+      "owner_role": null,
+      "affected_obligations": [],
+      "effect_on_assessment": null
+    },
+    {
+      "fact_id": "site_has_search",
+      "group": "system",
+      "label": "site has search",
+      "value": null,
+      "state": "unknown",
+      "evidence_refs": [],
+      "provided_by": "fixture",
+      "observed_at": null,
+      "valid_until": null,
+      "question": "What is the value of site_has_search?",
+      "owner_role": "product_owner",
+      "affected_obligations": [
+        "OBL-FIXTURE"
+      ],
+      "effect_on_assessment": "Rules that use this fact stay unknown."
+    }
+  ],
+  "permissions": {},
+  "processing_boundary": {},
+  "source_deployment_relationship": null
+}

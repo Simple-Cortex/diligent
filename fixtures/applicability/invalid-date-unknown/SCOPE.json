@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "audit_id": "fixture-audit",
+  "run_id": "run-2026-10-17-a1b2c3",
+  "profile_id": "fixture-profile",
+  "modes": [
+    "source"
+  ],
+  "facts": [
+    {
+      "fact_id": "launch_date",
+      "group": "system",
+      "label": "launch date",
+      "value": "2026-02-30",
+      "state": "known",
+      "evidence_refs": [],
+      "provided_by": "fixture",
+      "observed_at": null,
+      "valid_until": null,
+      "question": null,
+      "owner_role": null,
+      "affected_obligations": [],
+      "effect_on_assessment": null
+    },
+    {
+      "fact_id": "report_date",
+      "group": "system",
+      "label": "report date",
+      "value": "2026-03-15",
+      "state": "known",
+      "evidence_refs": [
+        "ev-020"
+      ],
+      "provided_by": "fixture",
+      "observed_at": null,
+      "valid_until": null,
+      "question": null,
+      "owner_role": null,
+      "affected_obligations": [],
+      "effect_on_assessment": null
+    },
+    {
+      "fact_id": "deadline_number",
+      "group": "system",
+      "label": "deadline number",
+      "value": 20260315,
+      "state": "known",
+      "evidence_refs": [],
+      "provided_by": "fixture",
+      "observed_at": null,
+      "valid_until": null,
+      "question": null,
+      "owner_role": null,
+      "affected_obligations": [],
+      "effect_on_assessment": null
+    }
+  ],
+  "permissions": {},
+  "processing_boundary": {},
+  "source_deployment_relationship": null
+}

@@ -2,7 +2,7 @@
 
 A routed catalog of the accessibility obligations in the `a11y-*` rule packs. It lists every WCAG 2.0, 2.1, and 2.2 level A and AA success criterion, and the Section 508 content, support, and procurement rows. Read the family you need; do not load the whole catalog into a prompt.
 
-**No row here has an executable check in Diligent 0.1.1.** Every rule is at the `research` lifecycle. A row names the proposed test and the channels that could establish it. It does not claim a check exists. See `../docs/supported-checks.md`.
+**Rows here name a proposed test and the channels that could establish it.** Whether a Source, Browser or Network check exists is stated only in `../docs/supported-checks.md`. The Node package runs none; the `diligent-rs` companion binary runs the rows that matrix marks automated or assisted, and a row it does not mark has no executable check. Every rule is at the `research` lifecycle, so automated results are advisory.
 
 ## 1. How to apply the catalog
 

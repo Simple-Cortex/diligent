@@ -1,0 +1,9 @@
+[package]
+name = "diligent-gate"
+description = "Deterministic applicability-aware gate."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true

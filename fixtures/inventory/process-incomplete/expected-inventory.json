@@ -1,0 +1,165 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-18-0a1b2c",
+  "audit_id": "fixture",
+  "generated_by": "diligent-inventory/0.2.0",
+  "routes": [
+    {
+      "url": "https://example.gov/",
+      "cluster_id": "8f306e3de160",
+      "sources": [
+        "link",
+        "start"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/",
+      "title": "Home",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/about",
+      "cluster_id": "f1e9a4008e24",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 404,
+      "final_url": "https://example.gov/about",
+      "title": null,
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/apply/confirm",
+      "cluster_id": "d7cbce8ee024",
+      "sources": [
+        "process"
+      ],
+      "fetched": true,
+      "status": 404,
+      "final_url": "https://example.gov/apply/confirm",
+      "title": null,
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/apply/details",
+      "cluster_id": "d1c95e14b1eb",
+      "sources": [
+        "link",
+        "process"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/apply/details",
+      "title": "Apply: details",
+      "has_form": true,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/apply/start",
+      "cluster_id": "5e1f32d7a967",
+      "sources": [
+        "link",
+        "process"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/apply/start",
+      "title": "Apply: start",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/contact",
+      "cluster_id": "973adae283cd",
+      "sources": [
+        "link",
+        "process"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/contact",
+      "title": "Contact",
+      "has_form": true,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    }
+  ],
+  "templates": [
+    {
+      "cluster_id": "8f306e3de160",
+      "path_shape": "/",
+      "dom_shape": "L=header,nav,main,footer;h1=1;h2=0;submit_form=0;data_table=0",
+      "size": 1,
+      "representative": "https://example.gov/",
+      "fetched_members": 1
+    },
+    {
+      "cluster_id": "f1e9a4008e24",
+      "path_shape": "/about",
+      "dom_shape": "L=;h1=0;h2=0;submit_form=0;data_table=0",
+      "size": 1,
+      "representative": "https://example.gov/about",
+      "fetched_members": 1
+    },
+    {
+      "cluster_id": "d7cbce8ee024",
+      "path_shape": "/apply/confirm",
+      "dom_shape": "L=;h1=0;h2=0;submit_form=0;data_table=0",
+      "size": 1,
+      "representative": "https://example.gov/apply/confirm",
+      "fetched_members": 1
+    },
+    {
+      "cluster_id": "d1c95e14b1eb",
+      "path_shape": "/apply/details",
+      "dom_shape": "L=header,nav,main,form,footer;h1=1;h2=0;submit_form=1;data_table=0",
+      "size": 1,
+      "representative": "https://example.gov/apply/details",
+      "fetched_members": 1
+    },
+    {
+      "cluster_id": "5e1f32d7a967",
+      "path_shape": "/apply/start",
+      "dom_shape": "L=header,nav,main,footer;h1=1;h2=0;submit_form=0;data_table=0",
+      "size": 1,
+      "representative": "https://example.gov/apply/start",
+      "fetched_members": 1
+    },
+    {
+      "cluster_id": "973adae283cd",
+      "path_shape": "/contact",
+      "dom_shape": "L=header,nav,main,form,footer;h1=1;h2=0;submit_form=1;data_table=0",
+      "size": 1,
+      "representative": "https://example.gov/contact",
+      "fetched_members": 1
+    }
+  ],
+  "components": [],
+  "documents": [],
+  "vendors": [],
+  "roles": [],
+  "states": [],
+  "discovery_limits": [
+    "roles_and_states: a fetch-only crawler sees one anonymous role and one default state; authenticated roles and interactive states are not inventoried",
+    "client_rendered_navigation_not_followed: links created by JavaScript are not discovered",
+    "robots_excluded: 0 urls",
+    "rate_limit: at most 2 requests per second (500 ms between requests), one request at a time",
+    "partial: true",
+    "remaining_work: process apply-permit: step https://example.gov/apply/confirm not completed (status 404)"
+  ]
+}

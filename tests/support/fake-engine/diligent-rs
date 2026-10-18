@@ -1,0 +1,123 @@
+#!/usr/bin/env node
+/**
+ * A fake diligent-rs for orchestrator tests. It writes canned, schema-valid outputs for each
+ * subcommand and does no network or browser work. FAKE_ENGINE_CONFIG may point at a JSON file:
+ *   pages: [paths]            sampled paths after the start page (default ["/about"])
+ *   emptySample: true         sample with no pages
+ *   samePayload: true         every page capture has identical bytes (evidence dedupe)
+ *   dupResultId: true         every page emits the same result_id
+ *   foreignRunId: true        evidence rows carry another run id
+ *   traversal: true           an evidence row points at ../../etc/passwd
+ *   badHash: true             an evidence row's sha256 does not match its payload
+ *   collectBlocked: [paths]   collect exits 2 (blocked origin) for these paths
+ *   collectFail: [paths]      collect exits 3 for these paths
+ *   noReview: true            no needs_review results
+ */
+import { createHash } from 'node:crypto';
+import { appendFileSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
+
+const argv = process.argv.slice(2);
+const config = process.env.FAKE_ENGINE_CONFIG ? JSON.parse(readFileSync(process.env.FAKE_ENGINE_CONFIG, 'utf8')) : {};
+const [command] = argv;
+if (process.env.FAKE_ENGINE_LOG) appendFileSync(process.env.FAKE_ENGINE_LOG, `${JSON.stringify(argv)}\n`);
+const flag = name => { const i = argv.indexOf(`--${name}`); return i >= 0 ? argv[i + 1] : undefined; };
+const has = name => argv.includes(`--${name}`);
+const sha = bytes => createHash('sha256').update(bytes).digest('hex');
+const write = (path, value) => writeFileSync(path, typeof value === 'string' ? value : `${JSON.stringify(value, null, 2)}\n`);
+const jsonl = (path, rows) => writeFileSync(path, rows.map(r => JSON.stringify(r)).join('\n') + (rows.length ? '\n' : ''));
+const NOW = '2026-10-18T12:00:00.000Z';
+
+if (command === 'protocol-version') { console.log('1'); process.exit(0); }
+if (command === '--version') { console.log('0.2.0-fake'); process.exit(0); }
+
+if (command === 'applicability') {
+  const scope = JSON.parse(readFileSync(flag('scope'), 'utf8'));
+  const obligation = (id, rule) => ({ obligation_id: `OBL-${id}`, rule_id: rule, pack_id: 'a11y-wcag20-aa', authority_id: 'A01', mandatory: true, state: 'applicable', temporal_state: 'effective', effective_date: null, predicate_trace: [], facts_used: [], exclusion: null });
+  write(flag('out'), { schema_version: '1.0.0', run_id: flag('run-id') ?? scope.run_id, audit_id: scope.audit_id, profile_id: flag('profile'), evaluated_at: NOW, obligations: [obligation('A11Y-1.4.3', 'A11Y-1.4.3'), obligation('A11Y-1.1.1', 'A11Y-1.1.1')] });
+  console.log(JSON.stringify({ applicable: 2 }));
+  process.exit(0);
+}
+
+if (command === 'inventory') {
+  const out = flag('out'); mkdirSync(out, { recursive: true });
+  const base = new URL(flag('url'));
+  const runId = flag('run-id'); const auditId = flag('audit-id');
+  const urls = config.emptySample ? [] : [base.href, ...(config.pages ?? ['/about']).map(p => new URL(p, base).href)];
+  write(join(out, 'INVENTORY.json'), { schema_version: '1.0.0', run_id: runId, audit_id: auditId, generated_by: 'fake-engine', routes: urls, templates: [], components: [], documents: [], vendors: [], roles: [], states: [], discovery_limits: [] });
+  write(join(out, 'SAMPLE.json'), {
+    schema_version: '1.0.0', run_id: runId, audit_id: auditId, method: 'wcag-em-2.0', algorithm: 'diligent-sampler/1', seed: flag('seed') ?? runId, prng: 'diligent-xorshift64star/1',
+    structured: urls.slice(0, 1).map(url => ({ url, cluster_id: sha(url).slice(0, 12), reason: 'home' })),
+    random: urls.slice(1).map(url => ({ url, cluster_id: sha(url).slice(0, 12), in_structured_cluster: false })),
+    processes: [],
+    coverage: { discovered: urls.length, fetched: urls.length, clustered: urls.length, sampled_structured: Math.min(1, urls.length), sampled_random: Math.max(0, urls.length - 1), excluded_by_robots: 0, unreachable: 0, off_scope: 0, documents: 0 },
+    structured_coverage_estimate: null,
+    statement: 'A sample never supports a whole-site conformance claim. Results apply to the sampled pages and processes.',
+    partial: false, remaining_work: []
+  });
+  process.exit(0);
+}
+
+if (command === 'collect') {
+  const url = new URL(flag('url'));
+  if ((config.collectBlocked ?? []).includes(url.pathname)) { console.log(JSON.stringify({ status: 'error', error: { kind: 'blocked_origin', message: 'blocked' } })); process.exit(2); }
+  if ((config.collectFail ?? []).includes(url.pathname)) { console.error('fake collector failure'); process.exit(3); }
+  const out = flag('out'); mkdirSync(out, { recursive: true });
+  const payload = JSON.stringify({ fake: 'dom', url: config.samePayload ? 'same' : url.href });
+  const id = sha(payload);
+  write(join(out, `${id}.json`), payload);
+  jsonl(join(out, 'manifest.jsonl'), [{ evidence_id: id, kind: 'dom_snapshot', path: `${id}.json`, sha256: id, final_url: url.href }]);
+  console.log(JSON.stringify({ evidence: [id], final_url: url.href }));
+  process.exit(0);
+}
+
+if (command === 'assess') {
+  const capture = flag('capture'); const out = flag('out'); const runId = flag('run-id');
+  mkdirSync(out, { recursive: true });
+  const manifest = readFileSync(join(capture, 'manifest.jsonl'), 'utf8').trim().split('\n').map(l => JSON.parse(l))[0];
+  const bytes = readFileSync(join(capture, manifest.path));
+  const slug = sha(manifest.final_url).slice(0, 12);
+  const row = (n, obligation, check, status) => ({
+    schema_version: '1.0.0', result_id: config.dupResultId ? `res-dup-${n}` : `res-${slug}-${n}`, check_id: check, check_version: '1.0.0', obligation_id: obligation,
+    instance_id: `inst-${slug}-${n}`, applicability_ref: obligation, status, evidence_refs: [manifest.evidence_id], expected: 'ok', observed: status === 'needs_review' ? 'Fake check could not decide; confirm by eye.' : `fake ${status}`,
+    limitations: ['fake engine'], executed_at: NOW, engine_version: '0.2.0-fake', supersedes_result_id: null
+  });
+  const results = [row(1, 'OBL-A11Y-1.4.3', 'BRW-TEXT-CONTRAST', manifest.final_url.endsWith('/about') ? 'pass' : 'fail'), row(2, 'OBL-A11Y-1.1.1', 'BRW-AX-NAME-REQUIRED', 'pass')];
+  if (!config.noReview) results.push(row(3, 'OBL-A11Y-1.1.1', 'BRW-AX-NAME-REQUIRED', 'needs_review'));
+  const evidence = (id, ref, hash) => ({
+    schema_version: '1.0.0', evidence_id: id, run_id: config.foreignRunId ? 'run-2020-01-01-aaaaaa' : runId, kind: 'runtime_observation', collector: 'fake', collector_version: '0.2.0-fake', captured_at: NOW,
+    snapshot_ref: null, context: {}, payload_ref: ref, sha256: hash, data_classification: 'public', redaction: { applied: false, flags: [] }, trust: 'direct_observation', limitations: [], derived_from: null
+  });
+  const rows = [evidence(manifest.evidence_id, config.traversal ? '../../etc/passwd' : `captures/${manifest.path}`, config.badHash ? 'f'.repeat(64) : sha(bytes))];
+  jsonl(join(out, 'RESULTS.jsonl'), results);
+  jsonl(join(out, 'EVIDENCE.jsonl'), rows);
+  if (!has('no-signals')) {
+    jsonl(join(out, 'SIGNALS.jsonl'), [{
+      schema_version: '1.0.0', signal_id: `sig-${slug}`, signal_key: 'craft.font_family_count', family: 'craft', instance_id: `page-${slug}`, state: 'lead', value: 5, unit: null, observed: 'Five font families.',
+      threshold: { rule: 'families <= 3', source: 'practice', confidence: 'low' }, label: 'static', normative: false, evidence_refs: [manifest.evidence_id], limitations: ['fake engine'], executed_at: NOW,
+      engine_version: '0.2.0-fake', run_id: config.foreignRunId ? 'run-2020-01-01-aaaaaa' : runId, extensions: {}
+    }]);
+  }
+  process.exit(results.some(r => r.status === 'fail') ? 1 : results.some(r => r.status === 'needs_review') ? 2 : 0);
+}
+
+if (command === 'infra') {
+  const out = flag('out'); const runId = flag('run-id');
+  mkdirSync(join(out, 'evidence'), { recursive: true });
+  const body = 'HTTP/1.1 200 OK\n';
+  const id = sha(body);
+  write(join(out, 'evidence', `${id}.txt`), body);
+  const evidence = (eid, ref, hash) => ({
+    schema_version: '1.0.0', evidence_id: eid, run_id: runId, kind: 'http_response', collector: 'fake-infra', collector_version: '0.2.0-fake', captured_at: NOW, snapshot_ref: null, context: {},
+    payload_ref: ref, sha256: hash, data_classification: 'public', redaction: { applied: false, flags: [] }, trust: 'direct_observation', limitations: [], derived_from: null
+  });
+  jsonl(join(out, 'EVIDENCE.jsonl'), [evidence(`ev-infra-${id.slice(0, 8)}`, `evidence/${id}.txt`, id), evidence('ev-infra-dns', 'dns:TXT:example.gov', sha('dns:TXT:example.gov'))]);
+  jsonl(join(out, 'RESULTS.jsonl'), [{
+    schema_version: '1.0.0', result_id: 'res-infra-1', check_id: 'INF-HTTPS-REDIRECT', check_version: '1.0.0', obligation_id: 'OBL-INFRA-HTTPS', instance_id: 'inst-infra-1', applicability_ref: 'OBL-INFRA-HTTPS',
+    status: 'pass', evidence_refs: [`ev-infra-${id.slice(0, 8)}`], expected: 'redirect', observed: 'redirects', limitations: [], executed_at: NOW, engine_version: '0.2.0-fake', supersedes_result_id: null
+  }]);
+  process.exit(0);
+}
+
+console.error(`fake diligent-rs: ${command} is not implemented`);
+process.exit(3);

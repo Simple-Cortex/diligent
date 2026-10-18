@@ -3,7 +3,7 @@
 **Task id:** `label-name-match`  
 **Task version:** 1.0.0  
 **Source:** Blueprint section 9.4 example, WCAG 2.5.3 label in name  
-**Mode:** review only. No task in Diligent 0.1.1 is calibrated, so no output of this task is a result by itself.
+**Mode:** review only. No task in Diligent 0.2.0 is calibrated, so no output of this task is a result by itself.
 
 ## Purpose
 

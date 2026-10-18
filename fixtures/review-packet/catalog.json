@@ -1,0 +1,48 @@
+{
+  "checks": [
+    {
+      "id": "BRW-ONE",
+      "channel": "browser",
+      "informs": [
+        "FX-1"
+      ],
+      "act_ids": [
+        "aaa111"
+      ],
+      "summary": "one",
+      "never_fails": false
+    },
+    {
+      "id": "BRW-TWO",
+      "channel": "browser",
+      "informs": [
+        "FX-1",
+        "FX-2"
+      ],
+      "act_ids": [],
+      "summary": "two",
+      "never_fails": true
+    }
+  ],
+  "signals": [],
+  "source_checks": [
+    {
+      "id": "SRC-ONE",
+      "act": [],
+      "informs": [
+        "FX-2",
+        "FX-GHOST"
+      ],
+      "summary": "s"
+    }
+  ],
+  "infra_checks": [
+    {
+      "id": "INF-ONE",
+      "informs": [
+        "FX-4"
+      ],
+      "summary": "i"
+    }
+  ]
+}

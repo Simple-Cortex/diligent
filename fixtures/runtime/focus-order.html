@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Diligent runtime fixture: focus order</title>
+<style>a:focus, button:focus, input:focus, select:focus, textarea:focus, [tabindex]:focus { outline: 3px solid #1a4fd6; }</style>
+</head>
+<body>
+<h1>Focus order</h1>
+<a id="s1" href="#a">Link one</a>
+<button id="s2" type="button">Button two</button>
+<input id="s3" type="text" aria-label="Text three">
+<div id="skipped" tabindex="-1">Programmatically focusable only</div>
+<select id="s4" aria-label="Select four"><option>a</option></select>
+<textarea id="s5" aria-label="Textarea five"></textarea>
+<div id="s6" tabindex="0">Custom focusable six</div>
+<button id="hidden" type="button" style="display:none">Hidden button</button>
+<a id="s7" href="#b">Link seven</a>
+<input id="s8" type="checkbox" aria-label="Checkbox eight">
+<button id="s9" type="button" disabled>Disabled nine</button>
+<a id="s10" href="#c">Link ten</a>
+</body>
+</html>

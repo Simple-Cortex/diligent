@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example Agency: sample page for craft signals</title>
+<style>
+body { margin: 0; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.5; color: #1b1b1b; background: #fff; }
+main { padding: 16px; }
+h1, h2, h3, h4, p, ul { margin: 0 0 16px 0; }
+p { max-width: 560px; }
+
+</style>
+</head>
+<body>
+<main>
+<h1>Form</h1>
+<p>Step 2 of 3</p>
+<div id="summary" class="usa-alert--error" role="alert"><p>There is a problem</p><ul><li><a href="#cv">Enter a valid case number</a></li></ul></div>
+<form action="https://example.gov/submit" method="post">
+<p><label for="q1">Your answer</label> <input id="q1" type="text" name="q1" placeholder="e.g. yes"></p>
+<p><label for="em">Email</label> <input id="em" name="email" type="email" autocomplete="email"></p>
+<p><label for="ph">Phone (required) *</label> <input id="ph" name="phone" type="tel" required autocomplete="tel"></p>
+<p><label for="cv">Case number</label> <input id="cv" name="case" type="text" aria-invalid="true"></p>
+<fieldset><legend>Date of birth</legend>
+<label for="d">Day</label> <input id="d" name="day" type="text" size="2" autocomplete="bday-day">
+<label for="m">Month</label> <input id="m" name="month" type="text" size="2" autocomplete="bday-month">
+<label for="y">Year</label> <input id="y" name="year" type="text" size="4" autocomplete="bday-year"></fieldset>
+<p><label for="up">Upload your proof (PDF or JPG, up to 10 MB)</label> <input id="up" name="doc" type="file"></p>
+</form>
+</main>
+</body>
+</html>

@@ -1,0 +1,3 @@
+Contact: mailto:security@example.gov
+Expires: 2027-01-01T00:00:00.000Z
+Policy: https://www.example.gov/vulnerability-disclosure-policy

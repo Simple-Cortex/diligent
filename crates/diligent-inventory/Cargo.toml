@@ -1,0 +1,25 @@
+[package]
+name = "diligent-inventory"
+description = "Fetch-only site inventory and WCAG-EM 2.0 sampler: routes, templates, documents, vendors and a structured plus random sample."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[dependencies]
+diligent-infra.workspace = true
+diligent-netpolicy.workspace = true
+diligent-source.workspace = true
+url.workspace = true
+roxmltree.workspace = true
+scraper.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+thiserror.workspace = true
+flate2.workspace = true
+
+[dev-dependencies]
+jsonschema.workspace = true

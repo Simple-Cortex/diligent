@@ -1,0 +1,7 @@
+{
+  "start": "https://example.gov/",
+  "run_id": "run-2026-10-18-0a1b2c",
+  "audit_id": "fixture",
+  "seed": "beta",
+  "max_fetch": 200
+}

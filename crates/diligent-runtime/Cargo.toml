@@ -1,0 +1,30 @@
+[package]
+name = "diligent-runtime"
+description = "Browser-worker protocol and runtime captures."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[features]
+default = ["chrome"]
+# Headless Chrome adapter built on chromiumoxide.
+chrome = ["dep:chromiumoxide"]
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+tokio.workspace = true
+futures.workspace = true
+async-trait.workspace = true
+sha2.workspace = true
+url.workspace = true
+diligent-netpolicy.workspace = true
+diligent-capture.workspace = true
+chromiumoxide = { workspace = true, optional = true }
+
+[[example]]
+name = "bless_a11y"
+required-features = ["chrome"]

@@ -1,0 +1,14 @@
+{
+  "cases": [
+    {
+      "case_id": "brw-one--x",
+      "check_id": "BRW-ONE",
+      "expected": "pass"
+    },
+    {
+      "case_id": "brw-two--x",
+      "check_id": "BRW-TWO",
+      "expected": "fail"
+    }
+  ]
+}

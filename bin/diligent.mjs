@@ -17,6 +17,7 @@ const UTILITIES = {
   status: 'status.mjs',
   gate: 'gate.mjs',
   report: 'report.mjs',
+  audit: 'audit.mjs',
   'validate-skill': 'validate-skill.mjs',
   install: 'install.mjs',
   check: 'check.mjs',
@@ -38,6 +39,7 @@ CLI commands (implemented):
   status <audit-id>          pipeline state and artifact validity
   gate <audit-id>            recompute the assessment deterministically (exit 0/1/2/3)
   report <audit-id>          render REPORT.md from ASSESSMENT.json
+  audit --url <https://host/>  run the whole chain with the diligent-rs companion binary (see docs/audit-command.md)
   rules validate             validate authorities, rule packs and profiles
   validate-skill             check skill frontmatter, paths and versions
   install                    copy the skill to ~/.agents/skills/diligent

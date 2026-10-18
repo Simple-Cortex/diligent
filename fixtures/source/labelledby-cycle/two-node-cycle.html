@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Two-node labelledby cycle fixture</title></head>
+<body>
+<img id="a" src="a.png" aria-labelledby="b">
+<img id="b" src="b.png" aria-labelledby="a">
+<a href="/x" id="l"><img src="c.png" aria-labelledby="l"></a>
+</body>
+</html>

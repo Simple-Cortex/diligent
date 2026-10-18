@@ -49,6 +49,22 @@
     "notes": {
       "type": "string"
     },
+    "corroboration": {
+      "type": "object",
+      "description": "Optional corroboration of the deterministic checks by a third-party engine. Off by default; a corroborator never decides a result, and a disagreement is a review item.",
+      "properties": {
+        "browser": {
+          "type": "array",
+          "description": "Corroborators to run inside the browser worker. Empty or absent means none.",
+          "items": {
+            "type": "string",
+            "enum": ["axe-core"]
+          },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
     "extensions": {
       "type": "object",
       "description": "Namespaced vendor or local fields. Unknown top-level fields are rejected; put them here."

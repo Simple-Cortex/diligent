@@ -1,0 +1,260 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "fixture-pack",
+  "pack_version": "0.1.0",
+  "profile_ids": [
+    "fixture-profile"
+  ],
+  "rules": [
+    {
+      "rule_id": "FX-01",
+      "obligation_id": "OBL-FX-01",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Fixture obligation FX-01.",
+      "authority": {
+        "authority_id": "AX1",
+        "section": "1.1",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": {
+          "date_before": {
+            "fact": "launch_date",
+            "date": "2026-06-01"
+          }
+        },
+        "required_facts": [
+          "launch_date"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Fixture rule; not a real obligation"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls"
+      ],
+      "owner_role": "security_owner",
+      "severity_default": "low",
+      "source_verified_at": null,
+      "source_review_status": "research"
+    },
+    {
+      "rule_id": "FX-02",
+      "obligation_id": "OBL-FX-02",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Fixture obligation FX-02.",
+      "authority": {
+        "authority_id": "AX1",
+        "section": "1.1",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "date_on_or_after(report_date, '2026-03-01')",
+        "required_facts": [
+          "report_date"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Fixture rule; not a real obligation"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls"
+      ],
+      "owner_role": "security_owner",
+      "severity_default": "low",
+      "source_verified_at": null,
+      "source_review_status": "research"
+    },
+    {
+      "rule_id": "FX-03",
+      "obligation_id": "OBL-FX-03",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Fixture obligation FX-03.",
+      "authority": {
+        "authority_id": "AX1",
+        "section": "1.1",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": {
+          "date_before": {
+            "fact": "report_date",
+            "date": "2026-03-01"
+          }
+        },
+        "required_facts": [
+          "report_date"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Fixture rule; not a real obligation"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls"
+      ],
+      "owner_role": "security_owner",
+      "severity_default": "low",
+      "source_verified_at": null,
+      "source_review_status": "research"
+    },
+    {
+      "rule_id": "FX-04",
+      "obligation_id": "OBL-FX-04",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Fixture obligation FX-04.",
+      "authority": {
+        "authority_id": "AX1",
+        "section": "1.1",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "jurisdiction": "US-federal",
+      "applicability": {
+        "predicate": "date_before(deadline_number, '2026-03-01')",
+        "required_facts": [
+          "deadline_number"
+        ]
+      },
+      "temporal": {
+        "effective": null,
+        "transition": [],
+        "pending_effective_date": false
+      },
+      "evaluation": {
+        "channels": [
+          "documentary"
+        ],
+        "required_states": [
+          "default"
+        ],
+        "automatic_pass_scope": "none_in_0.1.0"
+      },
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "blind_spots": [
+        "Fixture rule; not a real obligation"
+      ],
+      "fixtures": {
+        "positive": [],
+        "negative": [],
+        "exception": [],
+        "insufficient": [],
+        "regression": []
+      },
+      "remediation_constraints": [
+        "preserve_security_controls"
+      ],
+      "owner_role": "security_owner",
+      "severity_default": "low",
+      "source_verified_at": null,
+      "source_review_status": "research"
+    }
+  ]
+}

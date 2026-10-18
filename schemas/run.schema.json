@@ -52,7 +52,9 @@
         "executed_by": {
           "type": "string",
           "enum": [
-            "node"
+            "node",
+            "rust",
+            "mixed"
           ]
         },
         "native_available": {
@@ -63,6 +65,13 @@
             "string",
             "null"
           ]
+        },
+        "binary_version": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Version of the diligent-rs binary that executed the automated stages; absent when no binary ran."
         }
       },
       "required": [

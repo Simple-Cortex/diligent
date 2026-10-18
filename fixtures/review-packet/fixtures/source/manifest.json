@@ -1,0 +1,19 @@
+{
+  "entries": [
+    {
+      "path": "a.html",
+      "check_id": "SRC-ONE",
+      "expected": "pass"
+    },
+    {
+      "path": "b.html",
+      "check_id": "SRC-ONE",
+      "expected": "fail"
+    },
+    {
+      "path": "c.html",
+      "check_id": "SRC-ONE",
+      "expected": "pass"
+    }
+  ]
+}

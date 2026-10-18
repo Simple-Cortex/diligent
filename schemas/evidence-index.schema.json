@@ -1,0 +1,167 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Simple-Cortex/diligent/schemas/evidence-index.schema.json",
+  "title": "Evidence index line",
+  "description": "One line of an evidence store's index.jsonl: an ingested evidence record or a tombstone for a removed payload. Selected by the entry field.",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "entry": {
+      "type": "string",
+      "enum": [
+        "record",
+        "tombstone"
+      ]
+    },
+    "evidence_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "source_span",
+        "runtime_observation",
+        "accessibility_tree",
+        "computed_style",
+        "interaction_trace",
+        "http_response",
+        "document_extract",
+        "owner_assertion",
+        "human_test",
+        "model_assessment"
+      ]
+    },
+    "producer": {
+      "type": "string",
+      "enum": [
+        "collect",
+        "assess",
+        "infra",
+        "source",
+        "other"
+      ]
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "original_payload_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stored": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^objects/[0-9a-f]{64}[.][a-z0-9]{1,16}$",
+      "description": "Store-relative object path, or null when the store does not hold the payload (dns: refs, repo paths, hash mismatch)."
+    },
+    "bytes": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "ingested_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "record": {
+      "type": "object",
+      "description": "The evidence record exactly as ingested (schemas/evidence-record.schema.json)."
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "marked_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "replay_limitation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Namespaced vendor or local fields. Unknown top-level fields are rejected; put them here."
+    }
+  },
+  "required": [
+    "schema_version",
+    "entry",
+    "evidence_id",
+    "sha256"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "entry": {
+            "const": "record"
+          }
+        },
+        "required": [
+          "entry"
+        ]
+      },
+      "then": {
+        "required": [
+          "kind",
+          "producer",
+          "run_id",
+          "original_payload_ref",
+          "stored",
+          "bytes",
+          "ingested_at",
+          "record"
+        ],
+        "properties": {
+          "reason": false,
+          "marked_at": false,
+          "replay_limitation": false
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "entry": {
+            "const": "tombstone"
+          }
+        },
+        "required": [
+          "entry"
+        ]
+      },
+      "then": {
+        "required": [
+          "reason",
+          "marked_at",
+          "replay_limitation"
+        ],
+        "properties": {
+          "kind": false,
+          "producer": false,
+          "run_id": false,
+          "original_payload_ref": false,
+          "stored": false,
+          "bytes": false,
+          "ingested_at": false,
+          "record": false
+        }
+      }
+    }
+  ],
+  "additionalProperties": false
+}

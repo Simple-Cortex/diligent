@@ -1,6 +1,6 @@
 # Design-aware remediation
 
-Every repair is proposed against a failed requirement, an affected task, and the protected constraints of an existing service. Diligent 0.1.1 plans and records repairs. It does not verify them automatically, and applying code changes is a separate requested operation.
+Every repair is proposed against a failed requirement, an affected task, and the protected constraints of an existing service. Diligent 0.2.0 plans and records repairs. It does not verify them automatically, and applying code changes is a separate requested operation.
 
 ## 1. Repair standard
 

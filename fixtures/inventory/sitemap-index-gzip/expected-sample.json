@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-18-0a1b2c",
+  "audit_id": "fixture",
+  "method": "wcag-em-2.0",
+  "algorithm": "diligent-sampler/1",
+  "seed": "run-2026-10-18-0a1b2c",
+  "prng": "diligent-xorshift64star/1",
+  "structured": [
+    {
+      "url": "https://example.gov/",
+      "cluster_id": "8f306e3de160",
+      "reason": "home"
+    },
+    {
+      "url": "https://example.gov/a/p-1",
+      "cluster_id": "44c4e61862c0",
+      "reason": "template:44c4e61862c0"
+    },
+    {
+      "url": "https://example.gov/b/p-1",
+      "cluster_id": "57091bd9b4d5",
+      "reason": "template:57091bd9b4d5"
+    },
+    {
+      "url": "https://example.gov/about",
+      "cluster_id": "f1e9a4008e24",
+      "reason": "unique"
+    }
+  ],
+  "random": [
+    {
+      "url": "https://example.gov/b/p-2",
+      "cluster_id": "57091bd9b4d5",
+      "in_structured_cluster": true
+    },
+    {
+      "url": "https://example.gov/b/p-3",
+      "cluster_id": "57091bd9b4d5",
+      "in_structured_cluster": true
+    },
+    {
+      "url": "https://example.gov/a/p-4",
+      "cluster_id": "44c4e61862c0",
+      "in_structured_cluster": true
+    }
+  ],
+  "processes": [],
+  "coverage": {
+    "discovered": 9,
+    "fetched": 9,
+    "clustered": 4,
+    "sampled_structured": 4,
+    "sampled_random": 3,
+    "excluded_by_robots": 0,
+    "unreachable": 0,
+    "off_scope": 3,
+    "documents": 0
+  },
+  "structured_coverage_estimate": 1.0,
+  "statement": "A sample never supports a whole-site conformance claim. Results apply to the sampled pages and processes.",
+  "partial": false,
+  "remaining_work": []
+}

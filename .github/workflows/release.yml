@@ -1,0 +1,107 @@
+name: Release
+
+# Builds the native companion binary for each supported target when a version
+# tag is pushed, and attaches the archives plus SHA256SUMS to a DRAFT GitHub
+# Release in this repository. A person reviews and publishes the draft.
+# Nothing here publishes to npm.
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: build (${{ matrix.target }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - target: aarch64-apple-darwin
+            os: macos-14
+          # macos-13, the last Intel runner image, is retired. The Intel
+          # binary is cross-built on the Apple silicon runner instead.
+          - target: x86_64-apple-darwin
+            os: macos-14
+          - target: x86_64-unknown-linux-gnu
+            os: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+
+      - name: Cache cargo
+        uses: Swatinem/rust-cache@v2
+        with:
+          key: ${{ matrix.target }}
+
+      - name: Build
+        run: cargo build --release -p diligent-cli --locked --target ${{ matrix.target }}
+
+      - name: Check the binary version equals the tag
+        id: version
+        shell: bash
+        run: |
+          set -euo pipefail
+          bin="target/${{ matrix.target }}/release/diligent-rs"
+          version="$("$bin" --version)"
+          tag="${GITHUB_REF_NAME#v}"
+          if [ "$version" != "$tag" ]; then
+            echo "diligent-rs --version is '$version' but the tag is '$GITHUB_REF_NAME'" >&2
+            exit 1
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          name="diligent-rs-${{ steps.version.outputs.version }}-${{ matrix.target }}"
+          mkdir -p "dist/$name/licenses/axe-core"
+          cp "target/${{ matrix.target }}/release/diligent-rs" "dist/$name/"
+          cp LICENSE "dist/$name/LICENSE"
+          cp crates/diligent-runtime/vendor/axe-core/NOTICE.md "dist/$name/licenses/axe-core/NOTICE.md"
+          cp crates/diligent-runtime/vendor/axe-core/LICENSE "dist/$name/licenses/axe-core/LICENSE"
+          tar -C dist -czf "dist/$name.tar.gz" "$name"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: archive-${{ matrix.target }}
+          path: dist/*.tar.gz
+          if-no-files-found: error
+
+  release:
+    name: checksums and draft release
+    needs: build
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: archive-*
+          path: dist
+          merge-multiple: true
+
+      - name: SHA256SUMS
+        shell: bash
+        working-directory: dist
+        run: |
+          set -euo pipefail
+          sha256sum *.tar.gz > SHA256SUMS
+          cat SHA256SUMS
+
+      - name: Create draft release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh release create "$GITHUB_REF_NAME" dist/*.tar.gz dist/SHA256SUMS \
+            --repo "$GITHUB_REPOSITORY" --draft --verify-tag \
+            --title "$GITHUB_REF_NAME" \
+            --notes "Native companion binary. Verify the download against SHA256SUMS before use; see docs/install.md."

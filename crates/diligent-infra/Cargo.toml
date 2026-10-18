@@ -1,0 +1,25 @@
+[package]
+name = "diligent-infra"
+description = "Infrastructure and deployment evidence checks."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[dependencies]
+diligent-source.workspace = true
+reqwest.workspace = true
+hickory-resolver.workspace = true
+tokio.workspace = true
+url.workspace = true
+diligent-netpolicy.workspace = true
+roxmltree.workspace = true
+scraper.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+jsonschema.workspace = true

@@ -1,0 +1,20 @@
+[package]
+name = "diligent-assess"
+description = "Deterministic checks over browser captures, plus bounded model-task adapters and abstention handling."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[dependencies]
+diligent-capture.workspace = true
+unicode-normalization.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+url.workspace = true
+
+[dev-dependencies]
+jsonschema.workspace = true

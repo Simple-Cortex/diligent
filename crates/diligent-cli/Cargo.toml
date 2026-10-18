@@ -1,0 +1,23 @@
+[package]
+name = "diligent-cli"
+description = "Native companion CLI for Diligent: rules validation, applicability, browser evidence collection, accessibility, source and infrastructure checks, inventory and sampling, and the evidence store."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[[bin]]
+name = "diligent-rs"
+path = "src/main.rs"
+
+[dependencies]
+diligent-rules.workspace = true
+diligent-source.workspace = true
+diligent-runtime.workspace = true
+diligent-infra.workspace = true
+diligent-assess.workspace = true
+diligent-inventory.workspace = true
+diligent-evidence.workspace = true
+serde_json.workspace = true

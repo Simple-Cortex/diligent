@@ -1,0 +1,21 @@
+{
+  "https://example.gov/robots.txt": {
+    "headers": {
+      "content-type": "text/plain"
+    },
+    "body": "User-agent: *\nDisallow: /\nSitemap: https://example.gov/sitemap.xml\n"
+  },
+  "https://example.gov/": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Home</title></head><body><header><p>Example agency</p></header><main><h1>Home</h1><p>Text.</p><a href=\"/about\">/about</a></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/sitemap.xml": {
+    "headers": {
+      "content-type": "application/xml"
+    },
+    "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"><url><loc>https://example.gov/</loc></url><url><loc>https://example.gov/about</loc></url><url><loc>https://example.gov/services/apply</loc></url><url><loc>https://example.gov/services/renew</loc></url><url><loc>https://example.gov/news/2026/one</loc></url><url><loc>https://example.gov/news/2026/two</loc></url><url><loc>https://example.gov/files/report.pdf</loc></url></urlset>"
+  }
+}

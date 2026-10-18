@@ -1,0 +1,5 @@
+{
+  "gate_exit": 1,
+  "minimum": { "results": 50, "signals": 20, "evidence": 10, "review_items": 1 },
+  "note": "The smoke site carries one page with text that fails WCAG 1.4.3, and the example facts make that obligation mandatory and applicable, so the gate exits 1."
+}

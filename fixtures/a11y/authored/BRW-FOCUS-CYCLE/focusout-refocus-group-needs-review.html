@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Re-focusing group</title>
+<style>
+body { background: #fff; color: #000; margin: 8px; }
+</style>
+</head>
+<body>
+<a href="https://example.gov/">Before</a>
+<div id="grp">
+<a href="https://example.gov/" id="g1">Group one</a>
+<a href="https://example.gov/">Group two</a>
+<a href="https://example.gov/">Group three</a>
+</div>
+<script>
+var grp = document.getElementById('grp');
+grp.addEventListener('focusout', function (e) {
+  if (!grp.contains(e.relatedTarget)) { document.getElementById('g1').focus(); }
+});
+</script>
+</body>
+</html>

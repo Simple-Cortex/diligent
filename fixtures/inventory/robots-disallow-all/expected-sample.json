@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-18-0a1b2c",
+  "audit_id": "fixture",
+  "method": "wcag-em-2.0",
+  "algorithm": "diligent-sampler/1",
+  "seed": "run-2026-10-18-0a1b2c",
+  "prng": "diligent-xorshift64star/1",
+  "structured": [],
+  "random": [],
+  "processes": [],
+  "coverage": {
+    "discovered": 6,
+    "fetched": 0,
+    "clustered": 6,
+    "sampled_structured": 0,
+    "sampled_random": 0,
+    "excluded_by_robots": 6,
+    "unreachable": 0,
+    "off_scope": 0,
+    "documents": 1
+  },
+  "structured_coverage_estimate": null,
+  "statement": "A sample never supports a whole-site conformance claim. Results apply to the sampled pages and processes.",
+  "partial": true,
+  "remaining_work": [
+    "start URL disallowed by robots.txt: no page was fetched"
+  ]
+}

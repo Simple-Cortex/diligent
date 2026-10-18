@@ -1,0 +1,29 @@
+{
+  "origin": "https://example.gov/",
+  "pages": [
+    {
+      "url": "https://example.gov/authored/BRW-FED-BANNER/federal-good.html",
+      "captures": "fixtures/a11y/captures/brw-fed-banner--federal-good-pass"
+    },
+    {
+      "url": "https://example.gov/authored/BRW-TEXT-CONTRAST/large-bold-18-66px-fail.html",
+      "captures": "fixtures/a11y/captures/brw-text-contrast--large-bold-18-66px-fail"
+    },
+    {
+      "url": "https://example.gov/authored/BRW-BYPASS-BLOCKS/repeated-nav-without-bypass-fail.html",
+      "captures": "fixtures/a11y/captures/brw-bypass-blocks--repeated-nav-without-bypass-fail"
+    },
+    {
+      "url": "https://example.gov/authored/BRW-REFLOW-320/fixed-1000px-block-fail.html",
+      "captures": "fixtures/a11y/captures/brw-reflow-320--fixed-1000px-block-fail"
+    },
+    {
+      "url": "https://example.gov/authored/CRAFT-CONTENT/dense-regulatory-text.html",
+      "captures": "fixtures/a11y/captures/craft-content-readability-fk-grade--dense-regulatory-text"
+    },
+    {
+      "url": "https://example.gov/authored/CRAFT-PERF/large-image.html",
+      "captures": "fixtures/a11y/captures/craft-perf-lcp-ms--large-image"
+    }
+  ]
+}

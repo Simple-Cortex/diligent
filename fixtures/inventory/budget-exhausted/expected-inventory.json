@@ -1,0 +1,230 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-18-0a1b2c",
+  "audit_id": "fixture",
+  "generated_by": "diligent-inventory/0.2.0",
+  "routes": [
+    {
+      "url": "https://example.gov/",
+      "cluster_id": "8f306e3de160",
+      "sources": [
+        "link",
+        "start"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/",
+      "title": "Home",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/about",
+      "cluster_id": "f497ef0b0c31",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/about",
+      "title": "About",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/news/2025-a",
+      "cluster_id": "703137fa7094",
+      "sources": [
+        "link"
+      ],
+      "fetched": false,
+      "status": null,
+      "final_url": null,
+      "title": null,
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/p/p-1",
+      "cluster_id": "fc0fe8836cc8",
+      "sources": [
+        "sitemap"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/p/p-1",
+      "title": "Page 1",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/p/p-2",
+      "cluster_id": "80aa9dbb24e5",
+      "sources": [
+        "sitemap"
+      ],
+      "fetched": false,
+      "status": null,
+      "final_url": null,
+      "title": null,
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/p/p-3",
+      "cluster_id": "80aa9dbb24e5",
+      "sources": [
+        "sitemap"
+      ],
+      "fetched": false,
+      "status": null,
+      "final_url": null,
+      "title": null,
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/p/p-4",
+      "cluster_id": "80aa9dbb24e5",
+      "sources": [
+        "sitemap"
+      ],
+      "fetched": false,
+      "status": null,
+      "final_url": null,
+      "title": null,
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/p/p-5",
+      "cluster_id": "80aa9dbb24e5",
+      "sources": [
+        "sitemap"
+      ],
+      "fetched": false,
+      "status": null,
+      "final_url": null,
+      "title": null,
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/p/p-6",
+      "cluster_id": "80aa9dbb24e5",
+      "sources": [
+        "sitemap"
+      ],
+      "fetched": false,
+      "status": null,
+      "final_url": null,
+      "title": null,
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/p/p-7",
+      "cluster_id": "80aa9dbb24e5",
+      "sources": [
+        "sitemap"
+      ],
+      "fetched": false,
+      "status": null,
+      "final_url": null,
+      "title": null,
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/p/p-8",
+      "cluster_id": "80aa9dbb24e5",
+      "sources": [
+        "sitemap"
+      ],
+      "fetched": false,
+      "status": null,
+      "final_url": null,
+      "title": null,
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    }
+  ],
+  "templates": [
+    {
+      "cluster_id": "80aa9dbb24e5",
+      "path_shape": "/p/{slug}",
+      "dom_shape": null,
+      "size": 7,
+      "representative": "https://example.gov/p/p-2",
+      "fetched_members": 0
+    },
+    {
+      "cluster_id": "8f306e3de160",
+      "path_shape": "/",
+      "dom_shape": "L=header,nav,main,footer;h1=1;h2=0;submit_form=0;data_table=0",
+      "size": 1,
+      "representative": "https://example.gov/",
+      "fetched_members": 1
+    },
+    {
+      "cluster_id": "f497ef0b0c31",
+      "path_shape": "/about",
+      "dom_shape": "L=header,nav,main,footer;h1=1;h2=0;submit_form=0;data_table=0",
+      "size": 1,
+      "representative": "https://example.gov/about",
+      "fetched_members": 1
+    },
+    {
+      "cluster_id": "703137fa7094",
+      "path_shape": "/news/{slug}",
+      "dom_shape": null,
+      "size": 1,
+      "representative": "https://example.gov/news/2025-a",
+      "fetched_members": 0
+    },
+    {
+      "cluster_id": "fc0fe8836cc8",
+      "path_shape": "/p/{slug}",
+      "dom_shape": "L=header,nav,main,footer;h1=1;h2=1;submit_form=0;data_table=0",
+      "size": 1,
+      "representative": "https://example.gov/p/p-1",
+      "fetched_members": 1
+    }
+  ],
+  "components": [],
+  "documents": [],
+  "vendors": [],
+  "roles": [],
+  "states": [],
+  "discovery_limits": [
+    "roles_and_states: a fetch-only crawler sees one anonymous role and one default state; authenticated roles and interactive states are not inventoried",
+    "client_rendered_navigation_not_followed: links created by JavaScript are not discovered",
+    "robots_excluded: 0 urls",
+    "rate_limit: at most 2 requests per second (500 ms between requests), one request at a time",
+    "max_fetch_reached: stopped after 3 pages with 8 discovered pages not fetched",
+    "partial: true",
+    "remaining_work: 8 discovered pages were not fetched (max_fetch 3)"
+  ]
+}

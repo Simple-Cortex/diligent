@@ -1,0 +1,12 @@
+{
+  "capture_sets": [
+    "fixtures/a11y/captures/047fe0-passed-example-1",
+    "fixtures/a11y/captures/24afc2-failed-example-1",
+    "fixtures/a11y/captures/2ee8b8-failed-example-1"
+  ],
+  "run_id": "run-2026-10-18-0a1b2c",
+  "missing_reasons": [
+    "role",
+    "state"
+  ]
+}

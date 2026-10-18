@@ -1,0 +1,44 @@
+{
+  "description": "Expected metrics for the content fixtures. Counts are exact and were cross-checked with an independent regular-expression tokenizer. Flesch scores depend on the syllable heuristic, so they are ranges. The plain passage must stay inside grade 6 to 8.",
+  "cases": {
+    "plain.txt": {
+      "role": "plain passage, target grade 6 to 8",
+      "words": 106,
+      "sentences": 8,
+      "long_sentence_count": 0,
+      "passive_voice_count": 0,
+      "passive_voice_share": [0.0, 0.0],
+      "flesch_kincaid_grade": [6.0, 8.0],
+      "flesch_reading_ease": [60.0, 70.0],
+      "acronyms_undefined": []
+    },
+    "dense_regulatory.txt": {
+      "role": "dense regulatory passage, two very long sentences",
+      "words": 109,
+      "sentences": 2,
+      "long_sentence_count": 2,
+      "passive_voice_count": 1,
+      "passive_voice_share": [0.5, 0.5],
+      "mean_sentence_length": [54.5, 54.5],
+      "flesch_kincaid_grade": [24.0, 34.0],
+      "flesch_reading_ease": [-30.0, 0.0],
+      "acronyms_undefined": []
+    },
+    "passive_heavy.txt": {
+      "role": "passive-heavy passage, six of eight sentences passive",
+      "words": 76,
+      "sentences": 8,
+      "long_sentence_count": 0,
+      "passive_voice_count": 6,
+      "passive_voice_share": [0.75, 0.75],
+      "acronyms_undefined": []
+    },
+    "undefined_acronyms.txt": {
+      "role": "acronyms: FCC and VPAT are defined, PDF and FAQ are allowlisted, five are not",
+      "words": 58,
+      "sentences": 6,
+      "long_sentence_count": 0,
+      "acronyms_undefined": ["ADA", "WCAG", "DOJ", "IRS", "SSA"]
+    }
+  }
+}

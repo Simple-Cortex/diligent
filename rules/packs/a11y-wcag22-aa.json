@@ -10,7 +10,9 @@
     {
       "rule_id": "A11Y-2.4.11",
       "obligation_id": "OBL-A11Y-2.4.11",
-      "check_ids": [],
+      "check_ids": [
+        "BRW-FOCUS-OBSCURED"
+      ],
       "version": "0.1.0",
       "lifecycle": "research",
       "obligation": "Meet WCAG 2.2 success criterion 2.4.11 Focus not obscured, minimum at level AA as a product target.",
@@ -44,7 +46,7 @@
       },
       "channel_support": {
         "source": "unsupported",
-        "browser": "unsupported",
+        "browser": "assisted",
         "network": "unsupported",
         "model": "unsupported",
         "human": "unsupported",
@@ -169,7 +171,9 @@
     {
       "rule_id": "A11Y-2.5.8",
       "obligation_id": "OBL-A11Y-2.5.8",
-      "check_ids": [],
+      "check_ids": [
+        "BRW-TARGET-SIZE"
+      ],
       "version": "0.1.0",
       "lifecycle": "research",
       "obligation": "Meet WCAG 2.2 success criterion 2.5.8 Target size, minimum at level AA as a product target.",
@@ -203,7 +207,7 @@
       },
       "channel_support": {
         "source": "unsupported",
-        "browser": "unsupported",
+        "browser": "assisted",
         "network": "unsupported",
         "model": "unsupported",
         "human": "unsupported",

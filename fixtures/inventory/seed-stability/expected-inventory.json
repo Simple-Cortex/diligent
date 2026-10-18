@@ -1,0 +1,1877 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-18-0a1b2c",
+  "audit_id": "fixture",
+  "generated_by": "diligent-inventory/0.2.0",
+  "routes": [
+    {
+      "url": "https://example.gov/",
+      "cluster_id": "8f306e3de160",
+      "sources": [
+        "link",
+        "start"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/",
+      "title": "Home",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/about",
+      "cluster_id": "f1e9a4008e24",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 404,
+      "final_url": "https://example.gov/about",
+      "title": null,
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-001",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-001",
+      "title": "Item 1",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-002",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-002",
+      "title": "Item 2",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-003",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-003",
+      "title": "Item 3",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-004",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-004",
+      "title": "Item 4",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-005",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-005",
+      "title": "Item 5",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-006",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-006",
+      "title": "Item 6",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-007",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-007",
+      "title": "Item 7",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-008",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-008",
+      "title": "Item 8",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-009",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-009",
+      "title": "Item 9",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-010",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-010",
+      "title": "Item 10",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-011",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-011",
+      "title": "Item 11",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-012",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-012",
+      "title": "Item 12",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-013",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-013",
+      "title": "Item 13",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-014",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-014",
+      "title": "Item 14",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-015",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-015",
+      "title": "Item 15",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-016",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-016",
+      "title": "Item 16",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-017",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-017",
+      "title": "Item 17",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-018",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-018",
+      "title": "Item 18",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-019",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-019",
+      "title": "Item 19",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-020",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-020",
+      "title": "Item 20",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-021",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-021",
+      "title": "Item 21",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-022",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-022",
+      "title": "Item 22",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-023",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-023",
+      "title": "Item 23",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-024",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-024",
+      "title": "Item 24",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-025",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-025",
+      "title": "Item 25",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-026",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-026",
+      "title": "Item 26",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-027",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-027",
+      "title": "Item 27",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-028",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-028",
+      "title": "Item 28",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-029",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-029",
+      "title": "Item 29",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-030",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-030",
+      "title": "Item 30",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-031",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-031",
+      "title": "Item 31",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-032",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-032",
+      "title": "Item 32",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-033",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-033",
+      "title": "Item 33",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-034",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-034",
+      "title": "Item 34",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-035",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-035",
+      "title": "Item 35",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-036",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-036",
+      "title": "Item 36",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-037",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-037",
+      "title": "Item 37",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-038",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-038",
+      "title": "Item 38",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-039",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-039",
+      "title": "Item 39",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-040",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-040",
+      "title": "Item 40",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-041",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-041",
+      "title": "Item 41",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-042",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-042",
+      "title": "Item 42",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-043",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-043",
+      "title": "Item 43",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-044",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-044",
+      "title": "Item 44",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-045",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-045",
+      "title": "Item 45",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-046",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-046",
+      "title": "Item 46",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-047",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-047",
+      "title": "Item 47",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-048",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-048",
+      "title": "Item 48",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-049",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-049",
+      "title": "Item 49",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-050",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-050",
+      "title": "Item 50",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-051",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-051",
+      "title": "Item 51",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-052",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-052",
+      "title": "Item 52",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-053",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-053",
+      "title": "Item 53",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-054",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-054",
+      "title": "Item 54",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-055",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-055",
+      "title": "Item 55",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-056",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-056",
+      "title": "Item 56",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-057",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-057",
+      "title": "Item 57",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-058",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-058",
+      "title": "Item 58",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-059",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-059",
+      "title": "Item 59",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-060",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-060",
+      "title": "Item 60",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-061",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-061",
+      "title": "Item 61",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-062",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-062",
+      "title": "Item 62",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-063",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-063",
+      "title": "Item 63",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-064",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-064",
+      "title": "Item 64",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-065",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-065",
+      "title": "Item 65",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-066",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-066",
+      "title": "Item 66",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-067",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-067",
+      "title": "Item 67",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-068",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-068",
+      "title": "Item 68",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-069",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-069",
+      "title": "Item 69",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-070",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-070",
+      "title": "Item 70",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-071",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-071",
+      "title": "Item 71",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-072",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-072",
+      "title": "Item 72",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-073",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-073",
+      "title": "Item 73",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-074",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-074",
+      "title": "Item 74",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-075",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-075",
+      "title": "Item 75",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-076",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-076",
+      "title": "Item 76",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-077",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-077",
+      "title": "Item 77",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-078",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-078",
+      "title": "Item 78",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-079",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-079",
+      "title": "Item 79",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-080",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-080",
+      "title": "Item 80",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-081",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-081",
+      "title": "Item 81",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-082",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-082",
+      "title": "Item 82",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-083",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-083",
+      "title": "Item 83",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-084",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-084",
+      "title": "Item 84",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-085",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-085",
+      "title": "Item 85",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-086",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-086",
+      "title": "Item 86",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-087",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-087",
+      "title": "Item 87",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-088",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-088",
+      "title": "Item 88",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-089",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-089",
+      "title": "Item 89",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-090",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-090",
+      "title": "Item 90",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-091",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-091",
+      "title": "Item 91",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-092",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-092",
+      "title": "Item 92",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-093",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-093",
+      "title": "Item 93",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-094",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-094",
+      "title": "Item 94",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-095",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-095",
+      "title": "Item 95",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-096",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-096",
+      "title": "Item 96",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-097",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-097",
+      "title": "Item 97",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-098",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-098",
+      "title": "Item 98",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-099",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-099",
+      "title": "Item 99",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-100",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-100",
+      "title": "Item 100",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-101",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-101",
+      "title": "Item 101",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-102",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-102",
+      "title": "Item 102",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-103",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-103",
+      "title": "Item 103",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-104",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-104",
+      "title": "Item 104",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-105",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-105",
+      "title": "Item 105",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-106",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-106",
+      "title": "Item 106",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-107",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-107",
+      "title": "Item 107",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-108",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-108",
+      "title": "Item 108",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-109",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-109",
+      "title": "Item 109",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-110",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-110",
+      "title": "Item 110",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-111",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-111",
+      "title": "Item 111",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-112",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-112",
+      "title": "Item 112",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-113",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-113",
+      "title": "Item 113",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-114",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-114",
+      "title": "Item 114",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-115",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-115",
+      "title": "Item 115",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-116",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-116",
+      "title": "Item 116",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-117",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-117",
+      "title": "Item 117",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-118",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-118",
+      "title": "Item 118",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-119",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-119",
+      "title": "Item 119",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/items/p-120",
+      "cluster_id": "e3783f7a15aa",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/items/p-120",
+      "title": "Item 120",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    }
+  ],
+  "templates": [
+    {
+      "cluster_id": "e3783f7a15aa",
+      "path_shape": "/items/{slug}",
+      "dom_shape": "L=header,nav,main,footer;h1=1;h2=1;submit_form=0;data_table=0",
+      "size": 120,
+      "representative": "https://example.gov/items/p-001",
+      "fetched_members": 120
+    },
+    {
+      "cluster_id": "8f306e3de160",
+      "path_shape": "/",
+      "dom_shape": "L=header,nav,main,footer;h1=1;h2=0;submit_form=0;data_table=0",
+      "size": 1,
+      "representative": "https://example.gov/",
+      "fetched_members": 1
+    },
+    {
+      "cluster_id": "f1e9a4008e24",
+      "path_shape": "/about",
+      "dom_shape": "L=;h1=0;h2=0;submit_form=0;data_table=0",
+      "size": 1,
+      "representative": "https://example.gov/about",
+      "fetched_members": 1
+    }
+  ],
+  "components": [],
+  "documents": [],
+  "vendors": [],
+  "roles": [],
+  "states": [],
+  "discovery_limits": [
+    "roles_and_states: a fetch-only crawler sees one anonymous role and one default state; authenticated roles and interactive states are not inventoried",
+    "client_rendered_navigation_not_followed: links created by JavaScript are not discovered",
+    "robots_excluded: 0 urls",
+    "rate_limit: at most 2 requests per second (500 ms between requests), one request at a time",
+    "partial: false"
+  ]
+}

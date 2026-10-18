@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example Agency: sample page for craft signals</title>
+<style>
+body { margin: 0; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.5; color: #1b1b1b; background: #fff; }
+main { padding: 16px; }
+h1, h2, h3, h4, p, ul { margin: 0 0 16px 0; }
+p { max-width: 560px; }
+
+</style>
+</head>
+<body>
+<main>
+<h1>Form</h1>
+<form action="https://example.gov/submit" method="post">
+<p><input type="text" name="q1" placeholder="Your answer"></p>
+<p><label for="em">Email</label> <input id="em" name="email" type="email"></p>
+<p><label for="ph">Phone</label> <input id="ph" name="phone" type="tel" required></p>
+<p><label for="cv">Case number</label> <input id="cv" name="case" type="text" aria-invalid="true"></p>
+<p><label for="dt">Date of birth</label> <input id="dt" name="dob" type="date"></p>
+<p><label for="up">Upload</label> <input id="up" name="doc" type="file"></p>
+<p><label for="f0">Field 0</label> <input id="f0" name="f0" type="text"></p>
+<p><label for="f1">Field 1</label> <input id="f1" name="f1" type="text"></p>
+<p><label for="f2">Field 2</label> <input id="f2" name="f2" type="text"></p>
+<p><label for="f3">Field 3</label> <input id="f3" name="f3" type="text"></p>
+<p><label for="f4">Field 4</label> <input id="f4" name="f4" type="text"></p>
+
+<button type="submit">Send</button>
+</form>
+</main>
+</body>
+</html>

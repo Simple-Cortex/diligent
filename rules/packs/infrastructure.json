@@ -9,7 +9,10 @@
     {
       "rule_id": "INFRA-01",
       "obligation_id": "OBL-INFRA-01",
-      "check_ids": [],
+      "check_ids": [
+        "INFRA-01-https-cert",
+        "INFRA-01-https-redirect"
+      ],
       "version": "0.1.0",
       "lifecycle": "research",
       "obligation": "HTTPS across public websites/services.",
@@ -45,7 +48,7 @@
       "channel_support": {
         "source": "unsupported",
         "browser": "unsupported",
-        "network": "unsupported",
+        "network": "automated",
         "model": "unsupported",
         "human": "unsupported",
         "documentary": "unsupported"
@@ -84,7 +87,10 @@
     {
       "rule_id": "INFRA-02",
       "obligation_id": "OBL-INFRA-02",
-      "check_ids": [],
+      "check_ids": [
+        "INFRA-02-hsts",
+        "INFRA-02-hsts-preload"
+      ],
       "version": "0.1.0",
       "lifecycle": "research",
       "obligation": "HSTS in applicable scope.",
@@ -120,7 +126,7 @@
       "channel_support": {
         "source": "unsupported",
         "browser": "unsupported",
-        "network": "unsupported",
+        "network": "automated",
         "model": "unsupported",
         "human": "unsupported",
         "documentary": "documentary"
@@ -155,7 +161,10 @@
     {
       "rule_id": "INFRA-03",
       "obligation_id": "OBL-INFRA-03",
-      "check_ids": [],
+      "check_ids": [
+        "INFRA-03-dmarc",
+        "INFRA-03-spf"
+      ],
       "version": "0.1.0",
       "lifecycle": "research",
       "obligation": "Protect mail-enabled domains.",
@@ -190,7 +199,7 @@
       "channel_support": {
         "source": "unsupported",
         "browser": "unsupported",
-        "network": "unsupported",
+        "network": "automated",
         "model": "unsupported",
         "human": "unsupported",
         "documentary": "documentary"
@@ -512,7 +521,9 @@
     {
       "rule_id": "INFRA-08",
       "obligation_id": "OBL-INFRA-08",
-      "check_ids": [],
+      "check_ids": [
+        "INFRA-08-vdp"
+      ],
       "version": "0.1.0",
       "lifecycle": "research",
       "obligation": "Vulnerability disclosure intake and response.",
@@ -548,7 +559,7 @@
       "channel_support": {
         "source": "unsupported",
         "browser": "unsupported",
-        "network": "unsupported",
+        "network": "assisted",
         "model": "unsupported",
         "human": "unsupported",
         "documentary": "documentary"
@@ -802,7 +813,9 @@
     {
       "rule_id": "INFRA-12",
       "obligation_id": "OBL-INFRA-12",
-      "check_ids": [],
+      "check_ids": [
+        "INFRA-12-security-headers"
+      ],
       "version": "0.1.0",
       "lifecycle": "research",
       "obligation": "Secure configuration and browser protections.",
@@ -837,7 +850,7 @@
       "channel_support": {
         "source": "unsupported",
         "browser": "unsupported",
-        "network": "unsupported",
+        "network": "assisted",
         "model": "unsupported",
         "human": "unsupported",
         "documentary": "unsupported"

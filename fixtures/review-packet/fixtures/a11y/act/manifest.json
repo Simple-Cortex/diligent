@@ -1,0 +1,22 @@
+{
+  "cases": [
+    {
+      "rule_id": "aaa111",
+      "case": "passed-1",
+      "check_id": "BRW-ONE",
+      "skipped_reason": null
+    },
+    {
+      "rule_id": "aaa111",
+      "case": "failed-1",
+      "check_id": "BRW-ONE",
+      "skipped_reason": null
+    },
+    {
+      "rule_id": "aaa111",
+      "case": "skipped",
+      "check_id": "BRW-ONE",
+      "skipped_reason": "no file"
+    }
+  ]
+}

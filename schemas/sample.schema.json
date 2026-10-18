@@ -1,0 +1,245 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Simple-Cortex/diligent/schemas/sample.schema.json",
+  "title": "Sample",
+  "description": "SAMPLE.json: a WCAG-EM 2.0 structured and random sample of discovered pages, with the seed, method, coverage counts and remaining work. A sample never supports a whole-site conformance claim.",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^run-\\d{4}-\\d{2}-\\d{2}-[0-9a-f]{6}$"
+    },
+    "audit_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "method": {
+      "type": "string",
+      "const": "wcag-em-2.0"
+    },
+    "algorithm": {
+      "type": "string",
+      "const": "diligent-sampler/1"
+    },
+    "seed": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The seed string. The PRNG state is the first 8 bytes of its SHA-256, big-endian."
+    },
+    "prng": {
+      "type": "string",
+      "const": "diligent-xorshift64star/1"
+    },
+    "structured": {
+      "type": "array",
+      "description": "Selected in this order; the first reason wins for a URL: home, template, unique, form, process, document, vendor.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "cluster_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{12}$",
+            "description": "Template cluster; null for documents."
+          },
+          "reason": {
+            "type": "string",
+            "pattern": "^(home|unique|form|document|replay|template:[0-9a-f]{12}|process:.+|vendor:.+)$"
+          }
+        },
+        "required": [
+          "url",
+          "cluster_id",
+          "reason"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "random": {
+      "type": "array",
+      "description": "Drawn without replacement, in draw order, from discovered pages outside the structured sample.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "cluster_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{12}$"
+          },
+          "in_structured_cluster": {
+            "type": "boolean",
+            "description": "The page's template is represented in the structured sample. An unfetched page counts when a structured page has the same path shape."
+          }
+        },
+        "required": [
+          "url",
+          "cluster_id",
+          "in_structured_cluster"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "processes": {
+      "type": "array",
+      "description": "Caller-supplied multi-step tasks. Processes are never inferred.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "consequence": {
+            "type": "string",
+            "enum": [
+              "high",
+              "normal"
+            ]
+          },
+          "steps": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "complete": {
+            "type": "boolean",
+            "description": "True only when every step was fetched with a status below 400."
+          },
+          "missing": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "required": [
+          "name",
+          "consequence",
+          "steps",
+          "complete",
+          "missing"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "description": "Counts. `discovered` is the denominator for the page counts; `clustered` is the number of template clusters.",
+      "properties": {
+        "discovered": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "fetched": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "clustered": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sampled_structured": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sampled_random": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "excluded_by_robots": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "unreachable": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "off_scope": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "documents": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "discovered",
+        "fetched",
+        "clustered",
+        "sampled_structured",
+        "sampled_random",
+        "excluded_by_robots",
+        "unreachable",
+        "off_scope",
+        "documents"
+      ],
+      "additionalProperties": false
+    },
+    "structured_coverage_estimate": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Share of random pages whose template is in the structured sample; null when no random pages were drawn. This estimates how well the structured sample represents the discovered pages; it is not a conformance claim."
+    },
+    "statement": {
+      "type": "string",
+      "const": "A sample never supports a whole-site conformance claim. Results apply to the sampled pages and processes."
+    },
+    "partial": {
+      "type": "boolean"
+    },
+    "remaining_work": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Namespaced vendor or local fields. Unknown top-level fields are rejected; put them here."
+    }
+  },
+  "required": [
+    "schema_version",
+    "run_id",
+    "audit_id",
+    "method",
+    "algorithm",
+    "seed",
+    "prng",
+    "structured",
+    "random",
+    "processes",
+    "coverage",
+    "structured_coverage_estimate",
+    "statement",
+    "partial",
+    "remaining_work"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-18-0a1b2c",
+  "audit_id": "fixture",
+  "generated_by": "diligent-inventory/0.2.0",
+  "routes": [
+    {
+      "url": "https://example.gov/",
+      "cluster_id": null,
+      "sources": [
+        "start"
+      ],
+      "fetched": false,
+      "status": null,
+      "final_url": null,
+      "title": null,
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": "off_scope_redirect"
+    }
+  ],
+  "templates": [],
+  "components": [],
+  "documents": [],
+  "vendors": [],
+  "roles": [],
+  "states": [],
+  "discovery_limits": [
+    "roles_and_states: a fetch-only crawler sees one anonymous role and one default state; authenticated roles and interactive states are not inventoried",
+    "client_rendered_navigation_not_followed: links created by JavaScript are not discovered",
+    "robots_excluded: 0 urls",
+    "rate_limit: at most 2 requests per second (500 ms between requests), one request at a time",
+    "redirect_scheme_downgrade_not_followed: http://www.example.gov/",
+    "partial: false"
+  ]
+}

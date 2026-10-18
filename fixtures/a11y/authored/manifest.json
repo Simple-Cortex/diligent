@@ -1,0 +1,1228 @@
+{
+  "description": "Authored accessibility fixtures for the diligent-assess browser checks (WO-G section 3, F2). Each entry names the state the check must record for that check_id. viewports and modes tell the bless example which extra captures to record.",
+  "cases": [
+    {
+      "case_id": "brw-reflow-320--reflows-pass",
+      "path": "BRW-REFLOW-320/reflows-pass.html",
+      "check_id": "BRW-REFLOW-320",
+      "expected": "pass",
+      "viewports": [
+        "320"
+      ],
+      "note": "Content wraps and the image scales down; no horizontal overflow at 320."
+    },
+    {
+      "case_id": "brw-reflow-320--fixed-1000px-block-fail",
+      "path": "BRW-REFLOW-320/fixed-1000px-block-fail.html",
+      "check_id": "BRW-REFLOW-320",
+      "expected": "fail",
+      "viewports": [
+        "320"
+      ],
+      "note": "The only culprit is a plain div, not a reflow exception candidate."
+    },
+    {
+      "case_id": "brw-reflow-320--wide-data-table-needs-review",
+      "path": "BRW-REFLOW-320/wide-data-table-needs-review.html",
+      "check_id": "BRW-REFLOW-320",
+      "expected": "needs_review",
+      "viewports": [
+        "320"
+      ],
+      "note": "Every culprit is a data table with headers, a two-dimensional layout exception candidate."
+    },
+    {
+      "case_id": "brw-reflow-320--image-in-scroll-container-pass",
+      "path": "BRW-REFLOW-320/image-in-scroll-container-pass.html",
+      "check_id": "BRW-REFLOW-320",
+      "expected": "pass",
+      "viewports": [
+        "320"
+      ],
+      "note": "Regression: the image is wider than 320 but its overflow is contained, so the document does not scroll."
+    },
+    {
+      "case_id": "brw-reflow-320--not-captured-not-tested",
+      "path": "BRW-REFLOW-320/not-captured-not-tested.html",
+      "check_id": "BRW-REFLOW-320",
+      "expected": "not_tested",
+      "note": "No viewports key, so only the 1280 snapshot exists and the check cannot run."
+    },
+    {
+      "case_id": "brw-target-size--icons-1px-apart-fail",
+      "path": "BRW-TARGET-SIZE/icons-1px-apart-fail.html",
+      "check_id": "BRW-TARGET-SIZE",
+      "expected": "fail",
+      "note": "Undersized and the 24px circle reaches the neighbouring box. Deviation: the work order says 4px apart, but 4px apart does not intersect the circle (see fixture notes)."
+    },
+    {
+      "case_id": "brw-target-size--icons-24px-clearance-pass",
+      "path": "BRW-TARGET-SIZE/icons-24px-clearance-pass.html",
+      "check_id": "BRW-TARGET-SIZE",
+      "expected": "pass",
+      "note": "Undersized, but the spacing exception applies with 24px clearance."
+    },
+    {
+      "case_id": "brw-target-size--icons-4px-apart-pass",
+      "path": "BRW-TARGET-SIZE/icons-4px-apart-pass.html",
+      "check_id": "BRW-TARGET-SIZE",
+      "expected": "pass",
+      "note": "Regression: 4px apart is the work order's fail case, but the 24px circle does not reach the neighbouring box (10 + 4 > 12), so the spacing exception holds."
+    },
+    {
+      "case_id": "brw-target-size--inline-link-not-tested",
+      "path": "BRW-TARGET-SIZE/inline-link-not-tested.html",
+      "check_id": "BRW-TARGET-SIZE",
+      "expected": "not_tested",
+      "note": "Inline exemption: the only target is a link inside a sentence."
+    },
+    {
+      "case_id": "brw-target-size--button-24x24-pass",
+      "path": "BRW-TARGET-SIZE/button-24x24-pass.html",
+      "check_id": "BRW-TARGET-SIZE",
+      "expected": "pass",
+      "note": "Meets the minimum size."
+    },
+    {
+      "case_id": "brw-target-size--button-23x24-touching-fail",
+      "path": "BRW-TARGET-SIZE/button-23x24-touching-fail.html",
+      "check_id": "BRW-TARGET-SIZE",
+      "expected": "fail",
+      "note": "Width 23 is undersized and the touching neighbour is inside the 24px circle. Deviation: a lone 23x24 button would pass by spacing, so a touching neighbour is added."
+    },
+    {
+      "case_id": "brw-target-size--lone-20px-icon-pass",
+      "path": "BRW-TARGET-SIZE/lone-20px-icon-pass.html",
+      "check_id": "BRW-TARGET-SIZE",
+      "expected": "pass",
+      "note": "Regression: undersized but no other target nearby, so the spacing exception holds."
+    },
+    {
+      "case_id": "brw-target-size--equivalent-link-needs-review",
+      "path": "BRW-TARGET-SIZE/equivalent-link-needs-review.html",
+      "check_id": "BRW-TARGET-SIZE",
+      "expected": "needs_review",
+      "note": "The 20px link is undersized and touches the 24px link, but both share one href, so an equivalent control exists."
+    },
+    {
+      "case_id": "brw-focus-obscured--fixed-header-covers-fully-needs-review",
+      "path": "BRW-FOCUS-OBSCURED/fixed-header-covers-fully-needs-review.html",
+      "check_id": "BRW-FOCUS-OBSCURED",
+      "expected": "needs_review",
+      "note": "The focused link lies entirely inside the fixed header's box."
+    },
+    {
+      "case_id": "brw-focus-obscured--fixed-header-covers-partially-needs-review",
+      "path": "BRW-FOCUS-OBSCURED/fixed-header-covers-partially-needs-review.html",
+      "check_id": "BRW-FOCUS-OBSCURED",
+      "expected": "needs_review",
+      "note": "The fixed header covers the top 10px of the 20px link."
+    },
+    {
+      "case_id": "brw-focus-obscured--sticky-header-clear-pass",
+      "path": "BRW-FOCUS-OBSCURED/sticky-header-clear-pass.html",
+      "check_id": "BRW-FOCUS-OBSCURED",
+      "expected": "pass",
+      "note": "A sticky header exists but sits above the link in normal flow, so it never intersects the focused box."
+    },
+    {
+      "case_id": "brw-focus-obscured--no-sticky-not-tested",
+      "path": "BRW-FOCUS-OBSCURED/no-sticky-not-tested.html",
+      "check_id": "BRW-FOCUS-OBSCURED",
+      "expected": "not_tested",
+      "note": "Deviation: the work order lists this as pass, but section 4 item 13 gives not_tested when no fixed or sticky element exists (see fixture notes)."
+    },
+    {
+      "case_id": "brw-non-text-contrast--border-2-5-to-1-fail",
+      "path": "BRW-NON-TEXT-CONTRAST/border-2-5-to-1-fail.html",
+      "check_id": "BRW-NON-TEXT-CONTRAST",
+      "expected": "fail",
+      "note": "Border #a3a3a3 on white is about 2.5:1 and the background matches the page."
+    },
+    {
+      "case_id": "brw-non-text-contrast--border-3-to-1-pass",
+      "path": "BRW-NON-TEXT-CONTRAST/border-3-to-1-pass.html",
+      "check_id": "BRW-NON-TEXT-CONTRAST",
+      "expected": "pass",
+      "note": "Border #949494 on white is about 3.03:1."
+    },
+    {
+      "case_id": "brw-non-text-contrast--background-contrast-weak-border-pass",
+      "path": "BRW-NON-TEXT-CONTRAST/background-contrast-weak-border-pass.html",
+      "check_id": "BRW-NON-TEXT-CONTRAST",
+      "expected": "pass",
+      "note": "The control fill differs from the page by about 3:1, so the weak border does not matter."
+    },
+    {
+      "case_id": "brw-non-text-contrast--oklch-border-needs-review",
+      "path": "BRW-NON-TEXT-CONTRAST/oklch-border-needs-review.html",
+      "check_id": "BRW-NON-TEXT-CONTRAST",
+      "expected": "needs_review",
+      "note": "Deviation: the work order names hsl(), but Chrome serialises hsl() as rgb() in computed style. oklch() is kept as written, so the colour is unparseable."
+    },
+    {
+      "case_id": "brw-non-text-contrast--hsl-border-normalised-pass",
+      "path": "BRW-NON-TEXT-CONTRAST/hsl-border-normalised-pass.html",
+      "check_id": "BRW-NON-TEXT-CONTRAST",
+      "expected": "pass",
+      "note": "Regression: Chrome computes hsl(0 0% 50%) as rgb(128,128,128), about 3.95:1, so it parses and passes."
+    },
+    {
+      "case_id": "brw-non-text-contrast--gradient-behind-control-needs-review",
+      "path": "BRW-NON-TEXT-CONTRAST/gradient-behind-control-needs-review.html",
+      "check_id": "BRW-NON-TEXT-CONTRAST",
+      "expected": "needs_review",
+      "note": "A background-image on an ancestor makes the backdrop unresolvable."
+    },
+    {
+      "case_id": "brw-non-text-contrast--disabled-not-tested",
+      "path": "BRW-NON-TEXT-CONTRAST/disabled-not-tested.html",
+      "check_id": "BRW-NON-TEXT-CONTRAST",
+      "expected": "not_tested",
+      "note": "Disabled controls are exempt."
+    },
+    {
+      "case_id": "brw-text-spacing-style--clipped-overflow-hidden-needs-review",
+      "path": "BRW-TEXT-SPACING-STYLE/clipped-overflow-hidden-needs-review.html",
+      "check_id": "BRW-TEXT-SPACING-STYLE",
+      "expected": "needs_review",
+      "modes": [
+        "text-spacing"
+      ],
+      "note": "Fixed height with overflow hidden; the text grows past the box under the spacing overrides. The paragraph with a non-important style attribute supplies the pass row for part one."
+    },
+    {
+      "case_id": "brw-text-spacing-style--overflow-auto-pass",
+      "path": "BRW-TEXT-SPACING-STYLE/overflow-auto-pass.html",
+      "check_id": "BRW-TEXT-SPACING-STYLE",
+      "expected": "pass",
+      "modes": [
+        "text-spacing"
+      ],
+      "note": "Same box with overflow auto: text is reachable by scrolling, so nothing is clipped."
+    },
+    {
+      "case_id": "brw-text-spacing-style--important-below-metric-fail",
+      "path": "BRW-TEXT-SPACING-STYLE/important-below-metric-fail.html",
+      "check_id": "BRW-TEXT-SPACING-STYLE",
+      "expected": "fail",
+      "note": "!important at 0.05em is below 0.12em."
+    },
+    {
+      "case_id": "brw-text-spacing-style--important-meets-metric-pass",
+      "path": "BRW-TEXT-SPACING-STYLE/important-meets-metric-pass.html",
+      "check_id": "BRW-TEXT-SPACING-STYLE",
+      "expected": "pass",
+      "note": "Regression: every !important value is exactly at the metric, which meets it."
+    },
+    {
+      "case_id": "brw-text-spacing-style--no-important-pass",
+      "path": "BRW-TEXT-SPACING-STYLE/no-important-pass.html",
+      "check_id": "BRW-TEXT-SPACING-STYLE",
+      "expected": "pass",
+      "note": "Without !important the user can override, so the style passes."
+    },
+    {
+      "case_id": "brw-text-spacing-style--inherit-important-pass",
+      "path": "BRW-TEXT-SPACING-STYLE/inherit-important-pass.html",
+      "check_id": "BRW-TEXT-SPACING-STYLE",
+      "expected": "pass",
+      "note": "Regression: a CSS-wide keyword with !important does not lock spacing."
+    },
+    {
+      "case_id": "brw-text-spacing-style--no-style-attributes-not-tested",
+      "path": "BRW-TEXT-SPACING-STYLE/no-style-attributes-not-tested.html",
+      "check_id": "BRW-TEXT-SPACING-STYLE",
+      "expected": "not_tested",
+      "note": "No style attributes and no text-spacing snapshot."
+    },
+    {
+      "case_id": "brw-text-contrast--text-over-background-image-needs-review",
+      "path": "BRW-TEXT-CONTRAST/text-over-background-image-needs-review.html",
+      "check_id": "BRW-TEXT-CONTRAST",
+      "expected": "needs_review",
+      "note": "A background-image makes the effective background unresolvable."
+    },
+    {
+      "case_id": "brw-text-contrast--translucent-text-composite-pass",
+      "path": "BRW-TEXT-CONTRAST/translucent-text-composite-pass.html",
+      "check_id": "BRW-TEXT-CONTRAST",
+      "expected": "pass",
+      "note": "Composites to #333 on white, about 12.6:1."
+    },
+    {
+      "case_id": "brw-text-contrast--ancestor-opacity-needs-review",
+      "path": "BRW-TEXT-CONTRAST/ancestor-opacity-needs-review.html",
+      "check_id": "BRW-TEXT-CONTRAST",
+      "expected": "needs_review",
+      "note": "Ancestor opacity below 1 makes the result unresolvable."
+    },
+    {
+      "case_id": "brw-text-contrast--large-bold-18-66px-fail",
+      "path": "BRW-TEXT-CONTRAST/large-bold-18-66px-fail.html",
+      "check_id": "BRW-TEXT-CONTRAST",
+      "expected": "fail",
+      "note": "18.66px bold is below 14pt (18.666px), so normal text needs 4.5:1 and #929292 on white is about 3.1:1."
+    },
+    {
+      "case_id": "brw-text-contrast--large-bold-18-67px-pass",
+      "path": "BRW-TEXT-CONTRAST/large-bold-18-67px-pass.html",
+      "check_id": "BRW-TEXT-CONTRAST",
+      "expected": "pass",
+      "note": "Large text needs 3:1 and #929292 on white is about 3.1:1."
+    },
+    {
+      "case_id": "brw-text-contrast--exact-4-5-to-1-pass",
+      "path": "BRW-TEXT-CONTRAST/exact-4-5-to-1-pass.html",
+      "check_id": "BRW-TEXT-CONTRAST",
+      "expected": "pass",
+      "note": "Regression: #767676 on white is about 4.54:1."
+    },
+    {
+      "case_id": "brw-text-contrast--oklch-colour-needs-review",
+      "path": "BRW-TEXT-CONTRAST/oklch-colour-needs-review.html",
+      "check_id": "BRW-TEXT-CONTRAST",
+      "expected": "needs_review",
+      "note": "Computed style keeps oklch(), which parse_css_color does not read."
+    },
+    {
+      "case_id": "brw-text-contrast--no-text-not-tested",
+      "path": "BRW-TEXT-CONTRAST/no-text-not-tested.html",
+      "check_id": "BRW-TEXT-CONTRAST",
+      "expected": "not_tested",
+      "note": "No text nodes with content."
+    },
+    {
+      "case_id": "brw-focus-cycle--returns-to-first-pass",
+      "path": "BRW-FOCUS-CYCLE/returns-to-first-pass.html",
+      "check_id": "BRW-FOCUS-CYCLE",
+      "expected": "pass",
+      "note": "Tab walks the links and returns to the start."
+    },
+    {
+      "case_id": "brw-focus-cycle--focusout-refocus-group-needs-review",
+      "path": "BRW-FOCUS-CYCLE/focusout-refocus-group-needs-review.html",
+      "check_id": "BRW-FOCUS-CYCLE",
+      "expected": "needs_review",
+      "note": "A focusout handler returns focus to the group's first link, so Tab lands on an earlier stop other than the first (RepeatOf). Timing sensitive."
+    },
+    {
+      "case_id": "brw-focus-cycle--no-focusable-not-tested",
+      "path": "BRW-FOCUS-CYCLE/no-focusable-not-tested.html",
+      "check_id": "BRW-FOCUS-CYCLE",
+      "expected": "not_tested",
+      "note": "NoFocusable."
+    },
+    {
+      "case_id": "brw-focus-cycle--stop-limit-needs-review",
+      "path": "BRW-FOCUS-CYCLE/stop-limit-needs-review.html",
+      "check_id": "BRW-FOCUS-CYCLE",
+      "expected": "needs_review",
+      "note": "More than 200 stops, so the walk ends at StopLimit."
+    },
+    {
+      "case_id": "brw-focus-visible--default-ring-pass",
+      "path": "BRW-FOCUS-VISIBLE/default-ring-pass.html",
+      "check_id": "BRW-FOCUS-VISIBLE",
+      "expected": "pass",
+      "note": "Added fixture. Browser default focus indicators."
+    },
+    {
+      "case_id": "brw-focus-visible--outline-removed-fail",
+      "path": "BRW-FOCUS-VISIBLE/outline-removed-fail.html",
+      "check_id": "BRW-FOCUS-VISIBLE",
+      "expected": "fail",
+      "note": "Added fixture. The only ACT fail case needs an unserved stylesheet. Outline removed with nothing replacing it."
+    },
+    {
+      "case_id": "brw-focus-visible--nothing-focusable-not-tested",
+      "path": "BRW-FOCUS-VISIBLE/nothing-focusable-not-tested.html",
+      "check_id": "BRW-FOCUS-VISIBLE",
+      "expected": "not_tested",
+      "note": "Added fixture. No focus stops."
+    },
+    {
+      "case_id": "brw-element-lang-valid--valid-tags-pass",
+      "path": "BRW-ELEMENT-LANG-VALID/valid-tags-pass.html",
+      "check_id": "BRW-ELEMENT-LANG-VALID",
+      "expected": "pass",
+      "note": "Added fixture. Valid primary subtags with and without a region."
+    },
+    {
+      "case_id": "brw-element-lang-valid--unknown-primary-subtag-fail",
+      "path": "BRW-ELEMENT-LANG-VALID/unknown-primary-subtag-fail.html",
+      "check_id": "BRW-ELEMENT-LANG-VALID",
+      "expected": "fail",
+      "note": "Added fixture. qq is not an ISO 639 language code."
+    },
+    {
+      "case_id": "brw-element-lang-valid--underscore-tag-fail",
+      "path": "BRW-ELEMENT-LANG-VALID/underscore-tag-fail.html",
+      "check_id": "BRW-ELEMENT-LANG-VALID",
+      "expected": "fail",
+      "note": "Added fixture. An underscore is not valid BCP 47."
+    },
+    {
+      "case_id": "brw-element-lang-valid--mixed-case-tag-pass",
+      "path": "BRW-ELEMENT-LANG-VALID/mixed-case-tag-pass.html",
+      "check_id": "BRW-ELEMENT-LANG-VALID",
+      "expected": "pass",
+      "note": "Added fixture. Regression: language tags are case-insensitive."
+    },
+    {
+      "case_id": "brw-element-lang-valid--no-lang-attributes-not-tested",
+      "path": "BRW-ELEMENT-LANG-VALID/no-lang-attributes-not-tested.html",
+      "check_id": "BRW-ELEMENT-LANG-VALID",
+      "expected": "not_tested",
+      "note": "Added fixture. The html element is excluded."
+    },
+    {
+      "case_id": "brw-bypass-blocks--repeated-nav-without-bypass-fail",
+      "path": "BRW-BYPASS-BLOCKS/repeated-nav-without-bypass-fail.html",
+      "check_id": "BRW-BYPASS-BLOCKS",
+      "expected": "fail",
+      "note": "Added fixture. A nav landmark exists, but there is no skip link, no main landmark and no heading."
+    },
+    {
+      "case_id": "brw-fed-banner--federal-good-pass",
+      "path": "BRW-FED-BANNER/federal-good.html",
+      "check_id": "BRW-FED-BANNER",
+      "expected": "pass",
+      "note": "Shared good page: a USWDS-style banner first on the page, full width, a named flag, and a toggle whose panel mentions .gov and https."
+    },
+    {
+      "case_id": "brw-fed-banner--no-banner-needs-review",
+      "path": "BRW-FED-BANNER/no-banner-needs-review.html",
+      "check_id": "BRW-FED-BANNER",
+      "expected": "needs_review",
+      "note": "No banner element and no banner text anywhere: needs_review with \"no banner rendered\"."
+    },
+    {
+      "case_id": "brw-fed-banner--banner-after-header-needs-review",
+      "path": "BRW-FED-BANNER/banner-after-header-needs-review.html",
+      "check_id": "BRW-FED-BANNER",
+      "expected": "needs_review",
+      "note": "Visible content sits above the banner, so it is not the first visible block."
+    },
+    {
+      "case_id": "brw-fed-banner--banner-half-width-needs-review",
+      "path": "BRW-FED-BANNER/banner-half-width-needs-review.html",
+      "check_id": "BRW-FED-BANNER",
+      "expected": "needs_review",
+      "note": "The banner spans half the viewport, below the 80% criterion."
+    },
+    {
+      "case_id": "brw-fed-banner--banner-flag-without-alt-needs-review",
+      "path": "BRW-FED-BANNER/banner-flag-without-alt-needs-review.html",
+      "check_id": "BRW-FED-BANNER",
+      "expected": "needs_review",
+      "note": "The flag image has an empty alt, so no named flag was found."
+    },
+    {
+      "case_id": "brw-fed-banner--banner-no-toggle-needs-review",
+      "path": "BRW-FED-BANNER/banner-no-toggle-needs-review.html",
+      "check_id": "BRW-FED-BANNER",
+      "expected": "needs_review",
+      "note": "The explanation is not behind an aria-expanded control with aria-controls."
+    },
+    {
+      "case_id": "brw-fed-banner--banner-panel-without-https-needs-review",
+      "path": "BRW-FED-BANNER/banner-panel-without-https-needs-review.html",
+      "check_id": "BRW-FED-BANNER",
+      "expected": "needs_review",
+      "note": "The controlled panel mentions .gov but not https."
+    },
+    {
+      "case_id": "brw-fed-banner--banner-hidden-needs-review",
+      "path": "BRW-FED-BANNER/banner-hidden-needs-review.html",
+      "check_id": "BRW-FED-BANNER",
+      "expected": "needs_review",
+      "note": "The banner is in the markup but display:none, so it is not visible."
+    },
+    {
+      "case_id": "brw-fed-banner--banner-svg-flag-pass",
+      "path": "BRW-FED-BANNER/banner-svg-flag-pass.html",
+      "check_id": "BRW-FED-BANNER",
+      "expected": "pass",
+      "note": "Regression near-miss: the flag is an inline svg with role img and a name, which counts."
+    },
+    {
+      "case_id": "brw-fed-banner--banner-text-split-no-class-pass",
+      "path": "BRW-FED-BANNER/banner-text-split-no-class-pass.html",
+      "check_id": "BRW-FED-BANNER",
+      "expected": "pass",
+      "note": "Regression near-miss: no usa-banner class and the sentence is split across inline elements; the block holding it is found by its text."
+    },
+    {
+      "case_id": "brw-fed-identifier--federal-good-pass",
+      "path": "BRW-FED-BANNER/federal-good.html",
+      "check_id": "BRW-FED-IDENTIFIER",
+      "expected": "pass",
+      "note": "Shared good page: every required link has a working address, the USA.gov link points to www.usa.gov and the parent agency is named."
+    },
+    {
+      "case_id": "brw-fed-identifier--identifier-links-missing-needs-review",
+      "path": "BRW-FED-IDENTIFIER/identifier-links-missing-needs-review.html",
+      "check_id": "BRW-FED-IDENTIFIER",
+      "expected": "needs_review",
+      "note": "The identifier has only About and Privacy; the other required links and the agency statement are missing."
+    },
+    {
+      "case_id": "brw-fed-identifier--identifier-placeholder-hrefs-needs-review",
+      "path": "BRW-FED-IDENTIFIER/identifier-placeholder-hrefs-needs-review.html",
+      "check_id": "BRW-FED-IDENTIFIER",
+      "expected": "needs_review",
+      "note": "Every link is present but its address is # or javascript:."
+    },
+    {
+      "case_id": "brw-fed-identifier--no-identifier-or-footer-needs-review",
+      "path": "BRW-FED-IDENTIFIER/no-identifier-or-footer-needs-review.html",
+      "check_id": "BRW-FED-IDENTIFIER",
+      "expected": "needs_review",
+      "note": "No usa-identifier, no contentinfo landmark and no footer: FED-13 needs_review and the other rules not_tested."
+    },
+    {
+      "case_id": "brw-fed-identifier--identifier-usagov-other-host-needs-review",
+      "path": "BRW-FED-IDENTIFIER/identifier-usagov-other-host-needs-review.html",
+      "check_id": "BRW-FED-IDENTIFIER",
+      "expected": "needs_review",
+      "note": "Regression near-miss: the link is named USA.gov but points to another host."
+    },
+    {
+      "case_id": "brw-fed-identifier--identifier-plain-footer-pass",
+      "path": "BRW-FED-IDENTIFIER/identifier-plain-footer-pass.html",
+      "check_id": "BRW-FED-IDENTIFIER",
+      "expected": "pass",
+      "note": "Regression near-miss: no USWDS classes; the identifier is the page footer and still passes."
+    },
+    {
+      "case_id": "brw-fed-search--federal-good-pass",
+      "path": "BRW-FED-BANNER/federal-good.html",
+      "check_id": "BRW-FED-SEARCH",
+      "expected": "pass",
+      "note": "Shared good page: a role=search form with a labelled search input."
+    },
+    {
+      "case_id": "brw-fed-search--home-search-pass",
+      "path": "BRW-FED-SEARCH/home-search-pass.html",
+      "check_id": "BRW-FED-SEARCH",
+      "expected": "pass",
+      "serve_as": "/",
+      "note": "Home page (path rewritten to /) with a labelled search form."
+    },
+    {
+      "case_id": "brw-fed-search--home-no-search-fail",
+      "path": "BRW-FED-SEARCH/home-no-search-fail.html",
+      "check_id": "BRW-FED-SEARCH",
+      "expected": "fail",
+      "serve_as": "/",
+      "note": "Home page (path rewritten to /) with no search control anywhere."
+    },
+    {
+      "case_id": "brw-fed-search--inner-no-search-needs-review",
+      "path": "BRW-FED-SEARCH/inner-no-search-needs-review.html",
+      "check_id": "BRW-FED-SEARCH",
+      "expected": "needs_review",
+      "note": "An inner page with no search control: the site may offer it elsewhere."
+    },
+    {
+      "case_id": "brw-fed-search--home-unnamed-search-input-needs-review",
+      "path": "BRW-FED-SEARCH/home-unnamed-search-input-needs-review.html",
+      "check_id": "BRW-FED-SEARCH",
+      "expected": "needs_review",
+      "serve_as": "/",
+      "note": "A search input with no label, aria-label, title or placeholder has no accessible name."
+    },
+    {
+      "case_id": "brw-fed-search--home-search-in-closed-dialog-needs-review",
+      "path": "BRW-FED-SEARCH/home-search-in-closed-dialog-needs-review.html",
+      "check_id": "BRW-FED-SEARCH",
+      "expected": "needs_review",
+      "serve_as": "/",
+      "note": "Regression near-miss: the only search control sits in a closed dialog, in the markup but not visible; needs_review, not fail."
+    },
+    {
+      "case_id": "brw-fed-search--search-text-input-aria-label-pass",
+      "path": "BRW-FED-SEARCH/search-text-input-aria-label-pass.html",
+      "check_id": "BRW-FED-SEARCH",
+      "expected": "pass",
+      "note": "Regression near-miss: a plain text input named by aria-label inside a form that mentions search."
+    },
+    {
+      "case_id": "brw-fed-dap--no-dap-fail",
+      "path": "BRW-FED-DAP/no-dap-fail.html",
+      "check_id": "BRW-FED-DAP",
+      "expected": "fail",
+      "note": "No DAP script in the page and none in the network log."
+    },
+    {
+      "case_id": "brw-fed-dap--dap-script-blocked-needs-review",
+      "path": "BRW-FED-DAP/dap-script-blocked-needs-review.html",
+      "check_id": "BRW-FED-DAP",
+      "expected": "needs_review",
+      "note": "The page references the DAP script but the recorder origin policy blocks the request, so it is not observed loading."
+    },
+    {
+      "case_id": "brw-fed-dap--dap-script-mixed-case-needs-review",
+      "path": "BRW-FED-DAP/dap-script-mixed-case-needs-review.html",
+      "check_id": "BRW-FED-DAP",
+      "expected": "needs_review",
+      "note": "Regression near-miss: the same script with different casing and query order is still recognised as the DAP script."
+    },
+    {
+      "case_id": "brw-fed-dap--dap-mentioned-not-loaded-fail",
+      "path": "BRW-FED-DAP/dap-mentioned-not-loaded-fail.html",
+      "check_id": "BRW-FED-DAP",
+      "expected": "fail",
+      "note": "Regression near-miss: the DAP host and file name appear only as text and a link, not as a script."
+    },
+    {
+      "case_id": "brw-fed-privacy-link--federal-good-pass",
+      "path": "BRW-FED-BANNER/federal-good.html",
+      "check_id": "BRW-FED-PRIVACY-LINK",
+      "expected": "pass",
+      "note": "Shared good page: a Privacy policy link in the identifier."
+    },
+    {
+      "case_id": "brw-fed-privacy-link--home-no-privacy-link-fail",
+      "path": "BRW-FED-PRIVACY-LINK/home-no-privacy-link-fail.html",
+      "check_id": "BRW-FED-PRIVACY-LINK",
+      "expected": "fail",
+      "serve_as": "/",
+      "note": "Home page (path rewritten to /) with no link naming privacy."
+    },
+    {
+      "case_id": "brw-fed-privacy-link--inner-no-privacy-link-needs-review",
+      "path": "BRW-FED-PRIVACY-LINK/inner-no-privacy-link-needs-review.html",
+      "check_id": "BRW-FED-PRIVACY-LINK",
+      "expected": "needs_review",
+      "note": "An inner page with no privacy link: the site may link it from the home page only."
+    },
+    {
+      "case_id": "brw-fed-privacy-link--home-privacy-button-needs-review",
+      "path": "BRW-FED-PRIVACY-LINK/home-privacy-button-needs-review.html",
+      "check_id": "BRW-FED-PRIVACY-LINK",
+      "expected": "needs_review",
+      "serve_as": "/",
+      "note": "Regression near-miss: a button named Privacy is not a link with an address; needs_review, not fail."
+    },
+    {
+      "case_id": "brw-fed-privacy-link--home-privacy-placeholder-href-needs-review",
+      "path": "BRW-FED-PRIVACY-LINK/home-privacy-placeholder-href-needs-review.html",
+      "check_id": "BRW-FED-PRIVACY-LINK",
+      "expected": "needs_review",
+      "serve_as": "/",
+      "note": "A Privacy link whose address is # does not reach a policy."
+    },
+    {
+      "case_id": "brw-fed-privacy-link--privacy-in-body-pass",
+      "path": "BRW-FED-PRIVACY-LINK/privacy-in-body-pass.html",
+      "check_id": "BRW-FED-PRIVACY-LINK",
+      "expected": "pass",
+      "note": "Regression near-miss: the privacy link is in the page body, not the footer; location body."
+    },
+    {
+      "case_id": "brw-fed-privacy-link--home-privacy-icon-link-aria-label-pass",
+      "path": "BRW-FED-PRIVACY-LINK/home-privacy-icon-link-aria-label-pass.html",
+      "check_id": "BRW-FED-PRIVACY-LINK",
+      "expected": "pass",
+      "serve_as": "/",
+      "note": "Regression near-miss: an icon-only link named by aria-label on the home page."
+    },
+    {
+      "case_id": "brw-fed-accessibility-statement--federal-good-pass",
+      "path": "BRW-FED-BANNER/federal-good.html",
+      "check_id": "BRW-FED-ACCESSIBILITY-STATEMENT",
+      "expected": "pass",
+      "note": "Shared good page: an Accessibility statement link in the identifier."
+    },
+    {
+      "case_id": "brw-fed-accessibility-statement--home-no-accessibility-link-fail",
+      "path": "BRW-FED-ACCESSIBILITY-STATEMENT/home-no-accessibility-link-fail.html",
+      "check_id": "BRW-FED-ACCESSIBILITY-STATEMENT",
+      "expected": "fail",
+      "serve_as": "/",
+      "note": "Home page (path rewritten to /) with no link naming accessibility."
+    },
+    {
+      "case_id": "brw-fed-accessibility-statement--inner-no-accessibility-link-needs-review",
+      "path": "BRW-FED-ACCESSIBILITY-STATEMENT/inner-no-accessibility-link-needs-review.html",
+      "check_id": "BRW-FED-ACCESSIBILITY-STATEMENT",
+      "expected": "needs_review",
+      "note": "An inner page with no accessibility link."
+    },
+    {
+      "case_id": "brw-fed-accessibility-statement--home-accessibility-fragment-only-fail",
+      "path": "BRW-FED-ACCESSIBILITY-STATEMENT/home-accessibility-fragment-only-fail.html",
+      "check_id": "BRW-FED-ACCESSIBILITY-STATEMENT",
+      "expected": "fail",
+      "serve_as": "/",
+      "note": "The only link naming accessibility points to a fragment of the same page, which cannot reach a statement."
+    },
+    {
+      "case_id": "brw-fed-accessibility-statement--home-accessibility-button-needs-review",
+      "path": "BRW-FED-ACCESSIBILITY-STATEMENT/home-accessibility-button-needs-review.html",
+      "check_id": "BRW-FED-ACCESSIBILITY-STATEMENT",
+      "expected": "needs_review",
+      "serve_as": "/",
+      "note": "Regression near-miss: a button named Accessibility is not a link with an address."
+    },
+    {
+      "case_id": "brw-fed-accessibility-statement--accessibility-in-header-pass",
+      "path": "BRW-FED-ACCESSIBILITY-STATEMENT/accessibility-in-header-pass.html",
+      "check_id": "BRW-FED-ACCESSIBILITY-STATEMENT",
+      "expected": "pass",
+      "note": "Regression near-miss: the statement link is in the header navigation, not the footer."
+    },
+    {
+      "case_id": "brw-fed-title-criteria--federal-good-pass",
+      "path": "BRW-FED-BANNER/federal-good.html",
+      "check_id": "BRW-FED-TITLE-CRITERIA",
+      "expected": "pass",
+      "note": "Shared good page: a 46 character title. Uniqueness is not evaluated without an inventory."
+    },
+    {
+      "case_id": "brw-fed-title-criteria--short-title-needs-review",
+      "path": "BRW-FED-TITLE-CRITERIA/short-title-needs-review.html",
+      "check_id": "BRW-FED-TITLE-CRITERIA",
+      "expected": "needs_review",
+      "note": "A 4 character title is below the pending 20 character minimum."
+    },
+    {
+      "case_id": "brw-fed-title-criteria--no-title-needs-review",
+      "path": "BRW-FED-TITLE-CRITERIA/no-title-needs-review.html",
+      "check_id": "BRW-FED-TITLE-CRITERIA",
+      "expected": "needs_review",
+      "note": "The page has no title element."
+    },
+    {
+      "case_id": "brw-fed-title-criteria--empty-title-needs-review",
+      "path": "BRW-FED-TITLE-CRITERIA/empty-title-needs-review.html",
+      "check_id": "BRW-FED-TITLE-CRITERIA",
+      "expected": "needs_review",
+      "note": "The title element is empty."
+    },
+    {
+      "case_id": "brw-fed-title-criteria--padded-title-19-needs-review",
+      "path": "BRW-FED-TITLE-CRITERIA/padded-title-19-needs-review.html",
+      "check_id": "BRW-FED-TITLE-CRITERIA",
+      "expected": "needs_review",
+      "note": "Regression near-miss: 19 characters inside heavy whitespace padding; the padding does not count."
+    },
+    {
+      "case_id": "brw-fed-title-criteria--title-exactly-20-pass",
+      "path": "BRW-FED-TITLE-CRITERIA/title-exactly-20-pass.html",
+      "check_id": "BRW-FED-TITLE-CRITERIA",
+      "expected": "pass",
+      "note": "Regression near-miss: exactly 20 characters passes."
+    },
+    {
+      "case_id": "brw-fed-meta-description-criteria--federal-good-pass",
+      "path": "BRW-FED-BANNER/federal-good.html",
+      "check_id": "BRW-FED-META-DESCRIPTION-CRITERIA",
+      "expected": "pass",
+      "note": "Shared good page: one description of more than 50 characters."
+    },
+    {
+      "case_id": "brw-fed-meta-description-criteria--short-description-needs-review",
+      "path": "BRW-FED-META-DESCRIPTION-CRITERIA/short-description-needs-review.html",
+      "check_id": "BRW-FED-META-DESCRIPTION-CRITERIA",
+      "expected": "needs_review",
+      "note": "A 15 character description is below the pending 50 character minimum."
+    },
+    {
+      "case_id": "brw-fed-meta-description-criteria--no-description-needs-review",
+      "path": "BRW-FED-META-DESCRIPTION-CRITERIA/no-description-needs-review.html",
+      "check_id": "BRW-FED-META-DESCRIPTION-CRITERIA",
+      "expected": "needs_review",
+      "note": "The page has no meta description."
+    },
+    {
+      "case_id": "brw-fed-meta-description-criteria--two-descriptions-needs-review",
+      "path": "BRW-FED-META-DESCRIPTION-CRITERIA/two-descriptions-needs-review.html",
+      "check_id": "BRW-FED-META-DESCRIPTION-CRITERIA",
+      "expected": "needs_review",
+      "note": "Two meta description elements."
+    },
+    {
+      "case_id": "brw-fed-meta-description-criteria--description-49-needs-review",
+      "path": "BRW-FED-META-DESCRIPTION-CRITERIA/description-49-needs-review.html",
+      "check_id": "BRW-FED-META-DESCRIPTION-CRITERIA",
+      "expected": "needs_review",
+      "note": "Regression near-miss: 49 characters is one short."
+    },
+    {
+      "case_id": "brw-fed-meta-description-criteria--description-50-padded-pass",
+      "path": "BRW-FED-META-DESCRIPTION-CRITERIA/description-50-padded-pass.html",
+      "check_id": "BRW-FED-META-DESCRIPTION-CRITERIA",
+      "expected": "pass",
+      "note": "Regression near-miss: exactly 50 characters once the padding is trimmed."
+    },
+    {
+      "case_id": "brw-fed-meta-description-criteria--open-graph-description-only-needs-review",
+      "path": "BRW-FED-META-DESCRIPTION-CRITERIA/open-graph-description-only-needs-review.html",
+      "check_id": "BRW-FED-META-DESCRIPTION-CRITERIA",
+      "expected": "needs_review",
+      "note": "Regression near-miss: only an Open Graph description, which is not meta name=description."
+    },
+    {
+      "case_id": "brw-fed-contact--federal-good-pass",
+      "path": "BRW-FED-BANNER/federal-good.html",
+      "check_id": "BRW-FED-CONTACT",
+      "expected": "pass",
+      "note": "Shared good page: a Contact us link in the header navigation."
+    },
+    {
+      "case_id": "brw-fed-contact--no-contact-needs-review",
+      "path": "BRW-FED-CONTACT/no-contact-needs-review.html",
+      "check_id": "BRW-FED-CONTACT",
+      "expected": "needs_review",
+      "note": "No control named contact, help or ask."
+    },
+    {
+      "case_id": "brw-fed-contact--words-inside-words-needs-review",
+      "path": "BRW-FED-CONTACT/words-inside-words-needs-review.html",
+      "check_id": "BRW-FED-CONTACT",
+      "expected": "needs_review",
+      "note": "Regression near-miss: help, ask and contact appear only inside longer words."
+    },
+    {
+      "case_id": "brw-fed-contact--get-help-button-pass",
+      "path": "BRW-FED-CONTACT/get-help-button-pass.html",
+      "check_id": "BRW-FED-CONTACT",
+      "expected": "pass",
+      "note": "Regression near-miss: a button named Get help counts."
+    },
+    {
+      "case_id": "brw-fed-contact--ask-link-pass",
+      "path": "BRW-FED-CONTACT/ask-link-pass.html",
+      "check_id": "BRW-FED-CONTACT",
+      "expected": "pass",
+      "note": "A link named Ask a question counts."
+    },
+    {
+      "case_id": "brw-fed-language-access--federal-good-pass",
+      "path": "BRW-FED-BANNER/federal-good.html",
+      "check_id": "BRW-FED-LANGUAGE-ACCESS",
+      "expected": "pass",
+      "note": "Shared good page: an Español link with hreflang and lang."
+    },
+    {
+      "case_id": "brw-fed-language-access--no-language-entry-needs-review",
+      "path": "BRW-FED-LANGUAGE-ACCESS/no-language-entry-needs-review.html",
+      "check_id": "BRW-FED-LANGUAGE-ACCESS",
+      "expected": "needs_review",
+      "note": "No language link, no hreflang and no language name."
+    },
+    {
+      "case_id": "brw-fed-language-access--language-name-only-pass",
+      "path": "BRW-FED-LANGUAGE-ACCESS/language-name-only-pass.html",
+      "check_id": "BRW-FED-LANGUAGE-ACCESS",
+      "expected": "pass",
+      "note": "A link named for a language with no hreflang or lang attribute."
+    },
+    {
+      "case_id": "brw-fed-language-access--lang-attribute-differs-pass",
+      "path": "BRW-FED-LANGUAGE-ACCESS/lang-attribute-differs-pass.html",
+      "check_id": "BRW-FED-LANGUAGE-ACCESS",
+      "expected": "pass",
+      "note": "A link whose lang attribute differs from the document language."
+    },
+    {
+      "case_id": "brw-fed-language-access--lang-attribute-same-as-document-needs-review",
+      "path": "BRW-FED-LANGUAGE-ACCESS/lang-attribute-same-as-document-needs-review.html",
+      "check_id": "BRW-FED-LANGUAGE-ACCESS",
+      "expected": "needs_review",
+      "note": "Regression near-miss: lang en-US on a link in an en document is the same language."
+    },
+    {
+      "case_id": "brw-fed-language-access--deutsche-bahn-needs-review",
+      "path": "BRW-FED-LANGUAGE-ACCESS/deutsche-bahn-needs-review.html",
+      "check_id": "BRW-FED-LANGUAGE-ACCESS",
+      "expected": "needs_review",
+      "note": "Regression near-miss: Deutsche is not the language name Deutsch."
+    },
+    {
+      "case_id": "brw-fed-mobile-viewport--federal-good-pass",
+      "path": "BRW-FED-BANNER/federal-good.html",
+      "check_id": "BRW-FED-MOBILE-VIEWPORT",
+      "expected": "pass",
+      "viewports": [
+        "320"
+      ],
+      "note": "Shared good page at 320 CSS px: it wraps and has a viewport meta."
+    },
+    {
+      "case_id": "brw-fed-mobile-viewport--fixed-width-overflow-needs-review",
+      "path": "BRW-FED-MOBILE-VIEWPORT/fixed-width-overflow-needs-review.html",
+      "check_id": "BRW-FED-MOBILE-VIEWPORT",
+      "expected": "needs_review",
+      "viewports": [
+        "320"
+      ],
+      "note": "The document scrolls horizontally at 320."
+    },
+    {
+      "case_id": "brw-fed-mobile-viewport--no-viewport-meta-needs-review",
+      "path": "BRW-FED-MOBILE-VIEWPORT/no-viewport-meta-needs-review.html",
+      "check_id": "BRW-FED-MOBILE-VIEWPORT",
+      "expected": "needs_review",
+      "viewports": [
+        "320"
+      ],
+      "note": "The page has no meta viewport."
+    },
+    {
+      "case_id": "brw-fed-mobile-viewport--not-captured-not-tested",
+      "path": "BRW-FED-MOBILE-VIEWPORT/not-captured-not-tested.html",
+      "check_id": "BRW-FED-MOBILE-VIEWPORT",
+      "expected": "not_tested",
+      "note": "No viewports key, so only the 1280 snapshot exists and the check cannot run."
+    },
+    {
+      "case_id": "brw-fed-mobile-viewport--wide-pre-in-scroll-container-pass",
+      "path": "BRW-FED-MOBILE-VIEWPORT/wide-pre-in-scroll-container-pass.html",
+      "check_id": "BRW-FED-MOBILE-VIEWPORT",
+      "expected": "pass",
+      "viewports": [
+        "320"
+      ],
+      "note": "Regression near-miss: a wide pre inside an overflow-x container; the document itself does not scroll."
+    },
+    {
+      "case_id": "craft-content-readability-fk-grade--dense-regulatory-text",
+      "path": "CRAFT-CONTENT/dense-regulatory-text.html",
+      "check_id": "content.readability.fk_grade",
+      "expected": "lead",
+      "note": "Long polysyllabic passive sentences: above grade 8, above 20 words a sentence, above 20% passive."
+    },
+    {
+      "case_id": "craft-content-readability-fk-grade--plain-text",
+      "path": "CRAFT-CONTENT/plain-text.html",
+      "check_id": "content.readability.fk_grade",
+      "expected": "within_practice",
+      "note": "Short active sentences in plain words."
+    },
+    {
+      "case_id": "craft-content-readability-mean-sentence-length--dense-regulatory-text",
+      "path": "CRAFT-CONTENT/dense-regulatory-text.html",
+      "check_id": "content.readability.mean_sentence_length",
+      "expected": "lead",
+      "note": "Long polysyllabic passive sentences: above grade 8, above 20 words a sentence, above 20% passive."
+    },
+    {
+      "case_id": "craft-content-readability-mean-sentence-length--plain-text",
+      "path": "CRAFT-CONTENT/plain-text.html",
+      "check_id": "content.readability.mean_sentence_length",
+      "expected": "within_practice",
+      "note": "Short active sentences in plain words."
+    },
+    {
+      "case_id": "craft-content-readability-passive-share--dense-regulatory-text",
+      "path": "CRAFT-CONTENT/dense-regulatory-text.html",
+      "check_id": "content.readability.passive_share",
+      "expected": "lead",
+      "note": "Long polysyllabic passive sentences: above grade 8, above 20 words a sentence, above 20% passive."
+    },
+    {
+      "case_id": "craft-content-readability-passive-share--plain-text",
+      "path": "CRAFT-CONTENT/plain-text.html",
+      "check_id": "content.readability.passive_share",
+      "expected": "within_practice",
+      "note": "Short active sentences in plain words."
+    },
+    {
+      "case_id": "craft-content-acronyms-undefined--undefined-acronyms",
+      "path": "CRAFT-CONTENT/undefined-acronyms.html",
+      "check_id": "content.acronyms_undefined",
+      "expected": "lead",
+      "note": "FCC, SBA, NPRM and OMB are used without an expansion."
+    },
+    {
+      "case_id": "craft-content-acronyms-undefined--defined-acronyms",
+      "path": "CRAFT-CONTENT/defined-acronyms.html",
+      "check_id": "content.acronyms_undefined",
+      "expected": "within_practice",
+      "note": "Regression near-miss: FCC is expanded at first use."
+    },
+    {
+      "case_id": "craft-content-link-text-generic--generic-links",
+      "path": "CRAFT-CONTENT/generic-links.html",
+      "check_id": "content.link_text_generic",
+      "expected": "lead",
+      "note": "Click here, read more and a bare URL."
+    },
+    {
+      "case_id": "craft-content-link-text-generic--descriptive-links",
+      "path": "CRAFT-CONTENT/descriptive-links.html",
+      "check_id": "content.link_text_generic",
+      "expected": "within_practice",
+      "note": "Regression near-miss: Read more about parking permits is not generic."
+    },
+    {
+      "case_id": "craft-content-heading-density--headings-and-text",
+      "path": "CRAFT-CONTENT/headings-and-text.html",
+      "check_id": "content.heading_density",
+      "expected": "informational",
+      "note": "Words per heading, a number with no threshold."
+    },
+    {
+      "case_id": "craft-craft-body-font-size-floor--body-text-14px",
+      "path": "CRAFT-CRAFT/body-text-14px.html",
+      "check_id": "craft.body_font_size_floor",
+      "expected": "lead",
+      "note": "Body text at 14 px, below the 16 px floor."
+    },
+    {
+      "case_id": "craft-craft-body-font-size-floor--body-text-16px",
+      "path": "CRAFT-CRAFT/body-text-16px.html",
+      "check_id": "craft.body_font_size_floor",
+      "expected": "within_practice",
+      "note": "Body text at 16 px."
+    },
+    {
+      "case_id": "craft-craft-line-length-ch--lines-150-characters",
+      "path": "CRAFT-CRAFT/lines-150-characters.html",
+      "check_id": "craft.line_length_ch",
+      "expected": "lead",
+      "note": "A 1200 px wide paragraph of 16 px text is about 150 ch."
+    },
+    {
+      "case_id": "craft-craft-line-length-ch--lines-70-characters",
+      "path": "CRAFT-CRAFT/lines-70-characters.html",
+      "check_id": "craft.line_length_ch",
+      "expected": "within_practice",
+      "note": "A 560 px wide paragraph is about 70 ch."
+    },
+    {
+      "case_id": "craft-craft-font-family-count--five-font-families",
+      "path": "CRAFT-CRAFT/five-font-families.html",
+      "check_id": "craft.font_family_count",
+      "expected": "lead",
+      "note": "Six distinct first families."
+    },
+    {
+      "case_id": "craft-craft-font-family-count--two-font-families",
+      "path": "CRAFT-CRAFT/two-font-families.html",
+      "check_id": "craft.font_family_count",
+      "expected": "within_practice",
+      "note": "Two families."
+    },
+    {
+      "case_id": "craft-craft-spacing-grid-share--off-grid-spacing",
+      "path": "CRAFT-CRAFT/off-grid-spacing.html",
+      "check_id": "craft.spacing_grid_share",
+      "expected": "lead",
+      "note": "Margins and paddings of 5, 6, 7, 9, 10, 13, 14 and 22 px."
+    },
+    {
+      "case_id": "craft-craft-spacing-grid-share--on-grid-spacing",
+      "path": "CRAFT-CRAFT/on-grid-spacing.html",
+      "check_id": "craft.spacing_grid_share",
+      "expected": "within_practice",
+      "note": "Margins and paddings that are multiples of 4 px."
+    },
+    {
+      "case_id": "craft-craft-border-radius-distinct--six-radii",
+      "path": "CRAFT-CRAFT/six-radii.html",
+      "check_id": "craft.border_radius_distinct",
+      "expected": "lead",
+      "note": "Six distinct radii."
+    },
+    {
+      "case_id": "craft-craft-border-radius-distinct--two-radii",
+      "path": "CRAFT-CRAFT/two-radii.html",
+      "check_id": "craft.border_radius_distinct",
+      "expected": "within_practice",
+      "note": "Two distinct radii."
+    },
+    {
+      "case_id": "craft-craft-heading-hierarchy-skips--heading-skips-h1-to-h4",
+      "path": "CRAFT-CRAFT/heading-skips-h1-to-h4.html",
+      "check_id": "craft.heading_hierarchy_skips",
+      "expected": "lead",
+      "note": "h1 to h4 skips two levels."
+    },
+    {
+      "case_id": "craft-craft-heading-hierarchy-skips--heading-order-ok",
+      "path": "CRAFT-CRAFT/heading-order-ok.html",
+      "check_id": "craft.heading_hierarchy_skips",
+      "expected": "within_practice",
+      "note": "Levels step down one at a time and back up freely."
+    },
+    {
+      "case_id": "craft-craft-contrast-margin--contrast-4-6-to-1",
+      "path": "CRAFT-CRAFT/contrast-4-6-to-1.html",
+      "check_id": "craft.contrast_margin",
+      "expected": "lead",
+      "note": "#757575 on white is about 4.6:1, within 10% of 4.5."
+    },
+    {
+      "case_id": "craft-craft-contrast-margin--contrast-black-on-white",
+      "path": "CRAFT-CRAFT/contrast-black-on-white.html",
+      "check_id": "craft.contrast_margin",
+      "expected": "within_practice",
+      "note": "21:1."
+    },
+    {
+      "case_id": "craft-craft-reduced-motion-persists--animation-persists-under-reduced-motion",
+      "path": "CRAFT-CRAFT/animation-persists-under-reduced-motion.html",
+      "check_id": "craft.reduced_motion_persists",
+      "expected": "lead",
+      "modes": [
+        "reduced-motion"
+      ],
+      "note": "Animation and transition apply with no media query guard."
+    },
+    {
+      "case_id": "craft-craft-reduced-motion-persists--animation-guarded-by-media-query",
+      "path": "CRAFT-CRAFT/animation-guarded-by-media-query.html",
+      "check_id": "craft.reduced_motion_persists",
+      "expected": "within_practice",
+      "modes": [
+        "reduced-motion"
+      ],
+      "note": "Regression near-miss: motion only for no-preference."
+    },
+    {
+      "case_id": "craft-craft-svg-icons-unnamed--unnamed-inline-svg",
+      "path": "CRAFT-CRAFT/unnamed-inline-svg.html",
+      "check_id": "craft.svg_icons_unnamed",
+      "expected": "informational",
+      "note": "A visible svg with no name and no aria-hidden."
+    },
+    {
+      "case_id": "craft-form-placeholder-only-labels--all-patterns-missing",
+      "path": "CRAFT-FORM/all-patterns-missing.html",
+      "check_id": "form.placeholder_only_labels",
+      "expected": "lead",
+      "note": "One form with every pattern missing: placeholder-only input, identity fields without autocomplete, an unmarked required field, an invalid field with no summary, nine inputs with no steps, a single date input and an upload with no guidance."
+    },
+    {
+      "case_id": "craft-form-autocomplete-missing-identity--all-patterns-missing",
+      "path": "CRAFT-FORM/all-patterns-missing.html",
+      "check_id": "form.autocomplete_missing_identity",
+      "expected": "lead",
+      "note": "One form with every pattern missing: placeholder-only input, identity fields without autocomplete, an unmarked required field, an invalid field with no summary, nine inputs with no steps, a single date input and an upload with no guidance."
+    },
+    {
+      "case_id": "craft-form-required-marking--all-patterns-missing",
+      "path": "CRAFT-FORM/all-patterns-missing.html",
+      "check_id": "form.required_marking",
+      "expected": "lead",
+      "note": "One form with every pattern missing: placeholder-only input, identity fields without autocomplete, an unmarked required field, an invalid field with no summary, nine inputs with no steps, a single date input and an upload with no guidance."
+    },
+    {
+      "case_id": "craft-form-error-summary-pattern--all-patterns-missing",
+      "path": "CRAFT-FORM/all-patterns-missing.html",
+      "check_id": "form.error_summary_pattern",
+      "expected": "lead",
+      "note": "One form with every pattern missing: placeholder-only input, identity fields without autocomplete, an unmarked required field, an invalid field with no summary, nine inputs with no steps, a single date input and an upload with no guidance."
+    },
+    {
+      "case_id": "craft-form-step-indicator--all-patterns-missing",
+      "path": "CRAFT-FORM/all-patterns-missing.html",
+      "check_id": "form.step_indicator",
+      "expected": "lead",
+      "note": "One form with every pattern missing: placeholder-only input, identity fields without autocomplete, an unmarked required field, an invalid field with no summary, nine inputs with no steps, a single date input and an upload with no guidance."
+    },
+    {
+      "case_id": "craft-form-memorable-date-inputs--all-patterns-missing",
+      "path": "CRAFT-FORM/all-patterns-missing.html",
+      "check_id": "form.memorable_date_inputs",
+      "expected": "lead",
+      "note": "One form with every pattern missing: placeholder-only input, identity fields without autocomplete, an unmarked required field, an invalid field with no summary, nine inputs with no steps, a single date input and an upload with no guidance."
+    },
+    {
+      "case_id": "craft-form-upload-guidance--all-patterns-missing",
+      "path": "CRAFT-FORM/all-patterns-missing.html",
+      "check_id": "form.upload_guidance",
+      "expected": "lead",
+      "note": "One form with every pattern missing: placeholder-only input, identity fields without autocomplete, an unmarked required field, an invalid field with no summary, nine inputs with no steps, a single date input and an upload with no guidance."
+    },
+    {
+      "case_id": "craft-form-placeholder-only-labels--all-patterns-present",
+      "path": "CRAFT-FORM/all-patterns-present.html",
+      "check_id": "form.placeholder_only_labels",
+      "expected": "within_practice",
+      "note": "The same patterns done well."
+    },
+    {
+      "case_id": "craft-form-autocomplete-missing-identity--all-patterns-present",
+      "path": "CRAFT-FORM/all-patterns-present.html",
+      "check_id": "form.autocomplete_missing_identity",
+      "expected": "within_practice",
+      "note": "The same patterns done well."
+    },
+    {
+      "case_id": "craft-form-required-marking--all-patterns-present",
+      "path": "CRAFT-FORM/all-patterns-present.html",
+      "check_id": "form.required_marking",
+      "expected": "within_practice",
+      "note": "The same patterns done well."
+    },
+    {
+      "case_id": "craft-form-error-summary-pattern--all-patterns-present",
+      "path": "CRAFT-FORM/all-patterns-present.html",
+      "check_id": "form.error_summary_pattern",
+      "expected": "within_practice",
+      "note": "The same patterns done well."
+    },
+    {
+      "case_id": "craft-form-step-indicator--all-patterns-present",
+      "path": "CRAFT-FORM/all-patterns-present.html",
+      "check_id": "form.step_indicator",
+      "expected": "within_practice",
+      "note": "The same patterns done well."
+    },
+    {
+      "case_id": "craft-form-memorable-date-inputs--all-patterns-present",
+      "path": "CRAFT-FORM/all-patterns-present.html",
+      "check_id": "form.memorable_date_inputs",
+      "expected": "within_practice",
+      "note": "The same patterns done well."
+    },
+    {
+      "case_id": "craft-form-upload-guidance--all-patterns-present",
+      "path": "CRAFT-FORM/all-patterns-present.html",
+      "check_id": "form.upload_guidance",
+      "expected": "within_practice",
+      "note": "The same patterns done well."
+    },
+    {
+      "case_id": "craft-form-step-indicator--short-form-no-steps",
+      "path": "CRAFT-FORM/short-form-no-steps.html",
+      "check_id": "form.step_indicator",
+      "expected": "informational",
+      "note": "A short form needs no step indicator: informational."
+    },
+    {
+      "case_id": "craft-perf-transfer-bytes--large-image",
+      "path": "CRAFT-PERF/large-image.html",
+      "check_id": "perf.transfer_bytes",
+      "expected": "informational",
+      "note": "A page with a 300 KB image that loads in a lab run. Asserts the state, never the value."
+    },
+    {
+      "case_id": "craft-perf-lcp-ms--large-image",
+      "path": "CRAFT-PERF/large-image.html",
+      "check_id": "perf.lcp_ms",
+      "expected": "within_practice",
+      "note": "A page with a 300 KB image that loads in a lab run. Asserts the state, never the value."
+    },
+    {
+      "case_id": "craft-perf-cls--large-image",
+      "path": "CRAFT-PERF/large-image.html",
+      "check_id": "perf.cls",
+      "expected": "within_practice",
+      "note": "A page with a 300 KB image that loads in a lab run. Asserts the state, never the value."
+    },
+    {
+      "case_id": "craft-perf-inp-ms--large-image",
+      "path": "CRAFT-PERF/large-image.html",
+      "check_id": "perf.inp_ms",
+      "expected": "not_tested",
+      "note": "A page with a 300 KB image that loads in a lab run. Asserts the state, never the value."
+    }
+  ]
+}

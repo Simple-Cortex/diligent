@@ -1,0 +1,185 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-17-a1b2c3",
+  "audit_id": "fixture-audit",
+  "profile_id": "fixture-profile",
+  "evaluated_at": "2026-10-17T12:00:00Z",
+  "obligations": [
+    {
+      "obligation_id": "OBL-FX-01",
+      "rule_id": "FX-01",
+      "pack_id": "fixture-pack",
+      "authority_id": "AX1",
+      "mandatory": true,
+      "state": "applicable",
+      "temporal_state": "effective",
+      "effective_date": null,
+      "predicate_trace": [
+        {
+          "path": "0.0",
+          "op": "fact",
+          "expr": "federal_executive_agency",
+          "result": "true",
+          "fact": "federal_executive_agency",
+          "fact_state": "known",
+          "reason": null
+        },
+        {
+          "path": "0.1",
+          "op": "fact",
+          "expr": "public_facing",
+          "result": "true",
+          "fact": "public_facing",
+          "fact_state": "known",
+          "reason": null
+        },
+        {
+          "path": "0",
+          "op": "all",
+          "expr": "federal_executive_agency && public_facing",
+          "result": "true",
+          "fact": null,
+          "fact_state": null,
+          "reason": null
+        }
+      ],
+      "facts_used": [
+        "federal_executive_agency",
+        "public_facing"
+      ],
+      "exclusion": null
+    },
+    {
+      "obligation_id": "OBL-FX-02",
+      "rule_id": "FX-02",
+      "pack_id": "fixture-pack",
+      "authority_id": "AX1",
+      "mandatory": false,
+      "state": "applicable",
+      "temporal_state": "effective",
+      "effective_date": null,
+      "predicate_trace": [
+        {
+          "path": "0.0",
+          "op": "fact",
+          "expr": "federal_executive_agency",
+          "result": "true",
+          "fact": "federal_executive_agency",
+          "fact_state": "known",
+          "reason": null
+        },
+        {
+          "path": "0.1.0",
+          "op": "fact",
+          "expr": "is_principal_agency_site",
+          "result": "true",
+          "fact": "is_principal_agency_site",
+          "fact_state": "known",
+          "reason": null
+        },
+        {
+          "path": "0.1.1",
+          "op": "fact",
+          "expr": "is_secondary_site",
+          "result": "false",
+          "fact": "is_secondary_site",
+          "fact_state": "known",
+          "reason": null
+        },
+        {
+          "path": "0.1",
+          "op": "any",
+          "expr": "is_principal_agency_site || is_secondary_site",
+          "result": "true",
+          "fact": null,
+          "fact_state": null,
+          "reason": null
+        },
+        {
+          "path": "0",
+          "op": "all",
+          "expr": "federal_executive_agency && (is_principal_agency_site || is_secondary_site)",
+          "result": "true",
+          "fact": null,
+          "fact_state": null,
+          "reason": null
+        }
+      ],
+      "facts_used": [
+        "federal_executive_agency",
+        "is_principal_agency_site",
+        "is_secondary_site"
+      ],
+      "exclusion": null
+    },
+    {
+      "obligation_id": "OBL-FX-03",
+      "rule_id": "FX-03",
+      "pack_id": "fixture-pack",
+      "authority_id": "AX1",
+      "mandatory": true,
+      "state": "applicable",
+      "temporal_state": "effective",
+      "effective_date": null,
+      "predicate_trace": [
+        {
+          "path": "0",
+          "op": "in",
+          "expr": "adopted_wcag_version in ['2.1', '2.2']",
+          "result": "true",
+          "fact": "adopted_wcag_version",
+          "fact_state": "known",
+          "reason": null
+        }
+      ],
+      "facts_used": [
+        "adopted_wcag_version"
+      ],
+      "exclusion": null
+    },
+    {
+      "obligation_id": "OBL-FX-04",
+      "rule_id": "FX-04",
+      "pack_id": "fixture-pack",
+      "authority_id": "AX1",
+      "mandatory": true,
+      "state": "applicable",
+      "temporal_state": "effective",
+      "effective_date": null,
+      "predicate_trace": [
+        {
+          "path": "0.0",
+          "op": "fact",
+          "expr": "public_facing",
+          "result": "true",
+          "fact": "public_facing",
+          "fact_state": "known",
+          "reason": null
+        },
+        {
+          "path": "0.1",
+          "op": "gte",
+          "expr": "page_count >= 10",
+          "result": "true",
+          "fact": "page_count",
+          "fact_state": "known",
+          "reason": null
+        },
+        {
+          "path": "0",
+          "op": "all",
+          "expr": "public_facing && page_count >= 10",
+          "result": "true",
+          "fact": null,
+          "fact_state": null,
+          "reason": null
+        }
+      ],
+      "facts_used": [
+        "page_count",
+        "public_facing"
+      ],
+      "exclusion": null
+    }
+  ]
+}

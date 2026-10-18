@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-18-0a1b2c",
+  "audit_id": "fixture",
+  "method": "wcag-em-2.0",
+  "algorithm": "diligent-sampler/1",
+  "seed": "run-2026-10-18-0a1b2c",
+  "prng": "diligent-xorshift64star/1",
+  "structured": [
+    {
+      "url": "https://example.gov/",
+      "cluster_id": "8f306e3de160",
+      "reason": "home"
+    },
+    {
+      "url": "https://example.gov/about",
+      "cluster_id": "f497ef0b0c31",
+      "reason": "unique"
+    },
+    {
+      "url": "https://example.gov/news/2025-a",
+      "cluster_id": "703137fa7094",
+      "reason": "unique"
+    },
+    {
+      "url": "https://example.gov/p/p-1",
+      "cluster_id": "fc0fe8836cc8",
+      "reason": "unique"
+    }
+  ],
+  "random": [
+    {
+      "url": "https://example.gov/p/p-2",
+      "cluster_id": "80aa9dbb24e5",
+      "in_structured_cluster": true
+    },
+    {
+      "url": "https://example.gov/p/p-6",
+      "cluster_id": "80aa9dbb24e5",
+      "in_structured_cluster": true
+    },
+    {
+      "url": "https://example.gov/p/p-7",
+      "cluster_id": "80aa9dbb24e5",
+      "in_structured_cluster": true
+    }
+  ],
+  "processes": [],
+  "coverage": {
+    "discovered": 11,
+    "fetched": 3,
+    "clustered": 5,
+    "sampled_structured": 4,
+    "sampled_random": 3,
+    "excluded_by_robots": 0,
+    "unreachable": 0,
+    "off_scope": 0,
+    "documents": 0
+  },
+  "structured_coverage_estimate": 1.0,
+  "statement": "A sample never supports a whole-site conformance claim. Results apply to the sampled pages and processes.",
+  "partial": true,
+  "remaining_work": [
+    "8 discovered pages were not fetched (max_fetch 3)"
+  ]
+}

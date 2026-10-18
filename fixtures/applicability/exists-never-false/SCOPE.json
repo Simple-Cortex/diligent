@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "audit_id": "fixture-audit",
+  "run_id": "run-2026-10-17-a1b2c3",
+  "profile_id": "fixture-profile",
+  "modes": [
+    "source"
+  ],
+  "facts": [
+    {
+      "fact_id": "present_fact",
+      "group": "system",
+      "label": "present fact",
+      "value": "x",
+      "state": "known",
+      "evidence_refs": [],
+      "provided_by": "fixture",
+      "observed_at": null,
+      "valid_until": null,
+      "question": null,
+      "owner_role": null,
+      "affected_obligations": [],
+      "effect_on_assessment": null
+    },
+    {
+      "fact_id": "unknown_fact",
+      "group": "system",
+      "label": "unknown fact",
+      "value": null,
+      "state": "unknown",
+      "evidence_refs": [],
+      "provided_by": "fixture",
+      "observed_at": null,
+      "valid_until": null,
+      "question": "What is the value of unknown_fact?",
+      "owner_role": "product_owner",
+      "affected_obligations": [
+        "OBL-FIXTURE"
+      ],
+      "effect_on_assessment": "Rules that use this fact stay unknown."
+    },
+    {
+      "fact_id": "null_fact",
+      "group": "system",
+      "label": "null fact",
+      "value": null,
+      "state": "known",
+      "evidence_refs": [],
+      "provided_by": "fixture",
+      "observed_at": null,
+      "valid_until": null,
+      "question": null,
+      "owner_role": null,
+      "affected_obligations": [],
+      "effect_on_assessment": null
+    },
+    {
+      "fact_id": "disputed_fact",
+      "group": "system",
+      "label": "disputed fact",
+      "value": "y",
+      "state": "disputed",
+      "evidence_refs": [],
+      "provided_by": "fixture",
+      "observed_at": null,
+      "valid_until": null,
+      "question": "What is the value of disputed_fact?",
+      "owner_role": "product_owner",
+      "affected_obligations": [
+        "OBL-FIXTURE"
+      ],
+      "effect_on_assessment": "Rules that use this fact stay unknown."
+    }
+  ],
+  "permissions": {},
+  "processing_boundary": {},
+  "source_deployment_relationship": null
+}

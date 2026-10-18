@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-18-0a1b2c",
+  "audit_id": "fixture",
+  "method": "wcag-em-2.0",
+  "algorithm": "diligent-sampler/1",
+  "seed": "run-2026-10-18-0a1b2c",
+  "prng": "diligent-xorshift64star/1",
+  "structured": [
+    {
+      "url": "https://example.gov/",
+      "cluster_id": "847f2218bc5f",
+      "reason": "home"
+    },
+    {
+      "url": "https://example.gov/section/page-01",
+      "cluster_id": "cf2554926697",
+      "reason": "template:cf2554926697"
+    }
+  ],
+  "random": [
+    {
+      "url": "https://example.gov/section/page-05",
+      "cluster_id": "bac5def0d361",
+      "in_structured_cluster": true
+    },
+    {
+      "url": "https://example.gov/section/page-06",
+      "cluster_id": "bac5def0d361",
+      "in_structured_cluster": true
+    },
+    {
+      "url": "https://example.gov/section/page-04",
+      "cluster_id": "bac5def0d361",
+      "in_structured_cluster": true
+    }
+  ],
+  "processes": [],
+  "coverage": {
+    "discovered": 13,
+    "fetched": 4,
+    "clustered": 3,
+    "sampled_structured": 2,
+    "sampled_random": 3,
+    "excluded_by_robots": 0,
+    "unreachable": 0,
+    "off_scope": 0,
+    "documents": 0
+  },
+  "structured_coverage_estimate": 1.0,
+  "statement": "A sample never supports a whole-site conformance claim. Results apply to the sampled pages and processes.",
+  "partial": true,
+  "remaining_work": [
+    "time budget of 60 s reached after 6 fetches"
+  ]
+}

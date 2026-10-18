@@ -17,6 +17,8 @@ Overall outcomes:
 
 Keep compliance status, accessibility status, security risk, and design quality separate. A high design score cannot average away a mandatory failure. A release decision has its own `release_policy_id`, owner, status, and rationale, and never rewrites an observed failure into conformance.
 
+Corroboration by a second engine is optional, enabled per profile, and never authoritative. A profile lists the corroborators it allows under `corroboration.browser`; the default is none. A corroborator can only agree, say nothing, or disagree. A disagreement moves the result to `needs_review` and keeps the original state in the record, so the gate treats it as a review item. A corroborator never creates a `pass` or a `fail`.
+
 ## 2. Aggregation algorithm
 
 1. Validate run artifacts, versions, and evidence references. Invalid artifacts give an execution error and an incomplete assessment, never a pass.
@@ -28,7 +30,7 @@ Keep compliance status, accessibility status, security risk, and design quality 
 7. Otherwise, if the selected profile is wholly excluded with evidence, the status is `not_applicable`.
 8. Otherwise the status is `pass_for_declared_scope`, with explicit scope and coverage statements.
 
-Recommendations and UX hypotheses do not enter the regulatory gate unless separately mapped to an applicable binding obligation. A parent obligation is not closed by one passing child while other evidence remains missing. In 0.1.1 every rule is at the research lifecycle, so a clean `pass_for_declared_scope` requires that the declared scope contains no required unsupported check.
+Recommendations and UX hypotheses do not enter the regulatory gate unless separately mapped to an applicable binding obligation. A parent obligation is not closed by one passing child while other evidence remains missing. In 0.2.0 every rule is at the research lifecycle, so a clean `pass_for_declared_scope` requires that the declared scope contains no required unsupported check.
 
 Exit codes for `gate`: 0 pass for declared scope, 1 mandatory failure, 2 incomplete, 3 invalid configuration or execution failure. Reporting commands may exit 0 when a report was written while the assessment stays non-passing. Document this for CI users. No option may relabel failed or missing checks as passing. A baseline-comparison option may filter display noise but retains pre-existing mandatory failures in the totals.
 
@@ -59,8 +61,13 @@ A suppression needs a reason, owner, scope, date, and review or expiration condi
 7. Repair plan and verification status, including introduced regressions.
 8. Exceptions, accepted risk, and the separate release decision.
 9. Source, rule, model, and tool versions and evidence freshness.
+10. Craft and clarity (not legal obligations), from `SIGNALS.jsonl`. It opens with the sentence "These are not legal obligations. They are practice signals, labelled lab, static or field, for a person to weigh."
 
-Write plain language first, then technical detail. Never describe a model-generated hypothesis as an observed user failure. Do not show an attractive overall percentage that conceals mandatory failures or untested obligations. Report coverage as counts with denominators. In 0.1.1 state in the first lines that no automated website checks ran.
+Section 4 shows accessibility results under the three WCAG mappings, read from each rule's `wcag_mappings` in the locked rule packs: `legal_floor` (WCAG 2.0 A/AA), `title_ii_target` (2.1) and `recommended` (2.2). Each mapping is its own row with its own counts for selected obligations, confirmed failures and unresolved items. The rows are never added, averaged or merged, and a pack that cannot be read or differs from its lock is named instead of skipped.
+
+Signals are the advisory counterpart of results. A signal records a measured practice number or a lead for a person to look at, with a threshold, its cited source and a confidence of `high`, `medium` or `low`. Signal states are `lead`, `within_practice`, `informational` and `not_tested`, and every signal carries `normative: false` and a label of `lab`, `static` or `field`. Signals live in `SIGNALS.jsonl`, never in `RESULTS.jsonl` or `APPLICABILITY.json`, and the gate does not read the file, so a `needs_review` style lead cannot make an audit incomplete and a clean set of signals cannot make one pass. Section 10 groups them by family, shows leads first with value, unit, threshold rule, source and confidence, then within-practice counts and informational numbers. It says "aligned with" and never "required". A missing file reads as "not available", and an invalid file is named without blocking the report.
+
+Write plain language first, then technical detail. Never describe a model-generated hypothesis as an observed user failure. Do not show an attractive overall percentage that conceals mandatory failures or untested obligations. Report coverage as counts with denominators. In 0.2.0 state in the first lines which automated checks ran, or that none did (the Node package alone runs none; the `diligent-rs` companion binary runs the checks the matrix marks).
 
 ## 5. Model-assisted review
 
@@ -77,7 +84,7 @@ A model must never invent a source, turn an inference into a direct observation,
 | Finding support | `../prompts/finding-support.md` | `supported`, `contradicted`, `insufficient_evidence` | Independent review where required; keep contradictions |
 | Repair comparison | `../prompts/repair-preference.md` | an option id or `no_supported_choice` | Deterministic checks and task verification after implementation |
 
-Content question coverage and task barrier review are also defined as bounded tasks in the blueprint but are not shipped as prompts in 0.1.1. Route them to a human reviewer through the review queue.
+Content question coverage and task barrier review are also defined as bounded tasks in the blueprint but are not shipped as prompts in 0.2.0. Route them to a human reviewer through the review queue.
 
 ### Frozen request and response
 
@@ -96,6 +103,6 @@ A request carries `task_id`, `task_version`, `rule_refs`, `evidence_refs`, `evid
 
 ### Calibration and escalation
 
-No task is calibrated in 0.1.1. Before enabling any automation for a task: build a task-specific dataset with independent expert labels and adjudicated disagreements, split by service, site, or template family; publish class counts, precision, recall, false-negative rate, calibration, abstention rate, and uncertainty intervals; and derive thresholds from documented error costs and held-out evidence. Do not use one threshold for every rule or severity. Do not treat several opinions that share evidence or lineage as independent votes. Zero observed misses in a small set is not proof of zero risk.
+No task is calibrated in 0.2.0. Before enabling any automation for a task: build a task-specific dataset with independent expert labels and adjudicated disagreements, split by service, site, or template family; publish class counts, precision, recall, false-negative rate, calibration, abstention rate, and uncertainty intervals; and derive thresholds from documented error costs and held-out evidence. Do not use one threshold for every rule or severity. Do not treat several opinions that share evidence or lineage as independent votes. Zero observed misses in a small set is not proof of zero risk.
 
 Escalate to a human when evidence is missing, outputs disagree materially, authority applicability is disputed, consequences are high, a repair changes approved legal or program language, or an example is outside the validated domain. Drift after a model, prompt, rule, extraction, or domain change returns the affected task to review-only.

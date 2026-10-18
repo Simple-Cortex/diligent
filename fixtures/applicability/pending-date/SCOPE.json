@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "audit_id": "fixture-audit",
+  "run_id": "run-2026-01-01-000000",
+  "profile_id": "fixture-profile",
+  "modes": [
+    "source"
+  ],
+  "facts": [
+    {
+      "fact_id": "public_facing",
+      "group": "system",
+      "label": "public facing",
+      "value": true,
+      "state": "known",
+      "evidence_refs": [
+        "ev-001"
+      ],
+      "provided_by": "fixture",
+      "observed_at": null,
+      "valid_until": null,
+      "question": null,
+      "owner_role": null,
+      "affected_obligations": [],
+      "effect_on_assessment": null
+    }
+  ],
+  "permissions": {},
+  "processing_boundary": {},
+  "source_deployment_relationship": null
+}

@@ -1,0 +1,249 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-18-0a1b2c",
+  "audit_id": "fixture",
+  "generated_by": "diligent-inventory/0.2.0",
+  "routes": [
+    {
+      "url": "https://example.gov/",
+      "cluster_id": "847f2218bc5f",
+      "sources": [
+        "start"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/",
+      "title": "Home",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/section/page-01",
+      "cluster_id": "cf2554926697",
+      "sources": [
+        "sitemap",
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/section/page-01",
+      "title": "Page 1",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/section/page-02",
+      "cluster_id": "cf2554926697",
+      "sources": [
+        "sitemap",
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/section/page-02",
+      "title": "Page 2",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/section/page-03",
+      "cluster_id": "cf2554926697",
+      "sources": [
+        "sitemap",
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/section/page-03",
+      "title": "Page 3",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/section/page-04",
+      "cluster_id": "bac5def0d361",
+      "sources": [
+        "sitemap",
+        "link"
+      ],
+      "fetched": false,
+      "status": null,
+      "final_url": null,
+      "title": null,
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/section/page-05",
+      "cluster_id": "bac5def0d361",
+      "sources": [
+        "sitemap"
+      ],
+      "fetched": false,
+      "status": null,
+      "final_url": null,
+      "title": null,
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/section/page-06",
+      "cluster_id": "bac5def0d361",
+      "sources": [
+        "sitemap"
+      ],
+      "fetched": false,
+      "status": null,
+      "final_url": null,
+      "title": null,
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/section/page-07",
+      "cluster_id": "bac5def0d361",
+      "sources": [
+        "sitemap"
+      ],
+      "fetched": false,
+      "status": null,
+      "final_url": null,
+      "title": null,
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/section/page-08",
+      "cluster_id": "bac5def0d361",
+      "sources": [
+        "sitemap"
+      ],
+      "fetched": false,
+      "status": null,
+      "final_url": null,
+      "title": null,
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/section/page-09",
+      "cluster_id": "bac5def0d361",
+      "sources": [
+        "sitemap"
+      ],
+      "fetched": false,
+      "status": null,
+      "final_url": null,
+      "title": null,
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/section/page-10",
+      "cluster_id": "bac5def0d361",
+      "sources": [
+        "sitemap"
+      ],
+      "fetched": false,
+      "status": null,
+      "final_url": null,
+      "title": null,
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/section/page-11",
+      "cluster_id": "bac5def0d361",
+      "sources": [
+        "sitemap"
+      ],
+      "fetched": false,
+      "status": null,
+      "final_url": null,
+      "title": null,
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/section/page-12",
+      "cluster_id": "bac5def0d361",
+      "sources": [
+        "sitemap"
+      ],
+      "fetched": false,
+      "status": null,
+      "final_url": null,
+      "title": null,
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    }
+  ],
+  "templates": [
+    {
+      "cluster_id": "bac5def0d361",
+      "path_shape": "/section/{slug}",
+      "dom_shape": null,
+      "size": 9,
+      "representative": "https://example.gov/section/page-04",
+      "fetched_members": 0
+    },
+    {
+      "cluster_id": "cf2554926697",
+      "path_shape": "/section/{slug}",
+      "dom_shape": "L=header,main,footer;h1=1;h2=0;submit_form=0;data_table=0",
+      "size": 3,
+      "representative": "https://example.gov/section/page-01",
+      "fetched_members": 3
+    },
+    {
+      "cluster_id": "847f2218bc5f",
+      "path_shape": "/",
+      "dom_shape": "L=header,main,footer;h1=1;h2=0;submit_form=0;data_table=0",
+      "size": 1,
+      "representative": "https://example.gov/",
+      "fetched_members": 1
+    }
+  ],
+  "components": [],
+  "documents": [],
+  "vendors": [],
+  "roles": [],
+  "states": [],
+  "discovery_limits": [
+    "roles_and_states: a fetch-only crawler sees one anonymous role and one default state; authenticated roles and interactive states are not inventoried",
+    "client_rendered_navigation_not_followed: links created by JavaScript are not discovered",
+    "robots_excluded: 0 urls",
+    "rate_limit: at most 0.1 requests per second (10000 ms between requests), one request at a time",
+    "request_interval: 10000 ms between requests, set by robots.txt Crawl-delay 10 s (longer than the 500 ms from --rps 2)",
+    "crawl_delay: robots.txt asks for 10 seconds between requests",
+    "time_budget_reached: stopped after 6 requests (50000 ms of 60000 ms) with 9 discovered pages not fetched",
+    "partial: true",
+    "remaining_work: time budget of 60 s reached after 6 fetches"
+  ]
+}

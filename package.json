@@ -1,6 +1,6 @@
 {
   "name": "diligent",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "An agent skill that audits U.S. government websites and digital services for accessibility and federal web obligations, with evidence-bound findings and a deterministic gate.",
   "type": "module",
   "license": "MIT",
@@ -34,14 +34,20 @@
     "scripts/lib/schema.mjs",
     "scripts/lib/scope-facts.mjs",
     "scripts/lib/status.mjs",
+    "scripts/lib/orchestrate/*.mjs",
     "scripts/init.mjs",
     "scripts/status.mjs",
     "scripts/gate.mjs",
     "scripts/report.mjs",
+    "scripts/audit.mjs",
+    "scripts/release-gate.mjs",
+    "scripts/e2e-smoke.mjs",
+    "scripts/e2e-replay.mjs",
     "scripts/validate-rules.mjs",
     "scripts/validate-skill.mjs",
     "scripts/install.mjs",
     "scripts/prepack.mjs",
+    "scripts/review-packet.mjs",
     "scripts/check.mjs",
     "scripts/test.mjs",
     "schemas/*.json",
@@ -50,6 +56,7 @@
     "profiles/*.json",
     "prompts/*.md",
     "references/*.md",
+    "references/facts/*.json",
     "skills/*/SKILL.md",
     "docs/supported-checks.md",
     "docs/known-limitations.md",
@@ -71,6 +78,9 @@
     "report": "node scripts/report.mjs",
     "install-skill": "node scripts/install.mjs",
     "prepack": "node scripts/prepack.mjs",
-    "test:packed-artifact": "node --test tests/packed-artifact.test.mjs"
+    "test:packed-artifact": "node --test tests/packed-artifact.test.mjs",
+    "release:gate": "node scripts/release-gate.mjs",
+    "smoke": "node scripts/e2e-smoke.mjs",
+    "replay": "node scripts/e2e-replay.mjs"
   }
 }

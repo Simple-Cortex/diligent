@@ -1,0 +1,7 @@
+{
+  "gate_exit": 1,
+  "minimum": { "results": 250, "signals": 120, "evidence": 25, "review_items": 20 },
+  "failing_result_checks": ["BRW-BYPASS-BLOCKS", "BRW-FED-DAP", "BRW-REFLOW-320", "BRW-TEXT-CONTRAST"],
+  "gate_failing_checks": ["BRW-BYPASS-BLOCKS", "BRW-TEXT-CONTRAST"],
+  "note": "Six recorded captures replayed with the example facts. Four checks record a fail in RESULTS.jsonl. The bypass-blocks and text-contrast failures belong to mandatory applicable obligations, so they are the two failures the gate lists; the others are advisory or on non-mandatory obligations."
+}

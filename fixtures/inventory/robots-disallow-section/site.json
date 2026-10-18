@@ -1,0 +1,49 @@
+{
+  "https://example.gov/robots.txt": {
+    "headers": {
+      "content-type": "text/plain"
+    },
+    "body": "User-agent: badbot\nDisallow: /\n\nUser-agent: *\nDisallow: /private/\nAllow: /private/public-faq\nDisallow: /*.json$\nCrawl-delay: 5\n"
+  },
+  "https://example.gov/": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Home</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Home</h1><p>Links.</p><a href=\"/about\">About</a> <a href=\"/private/records\">Records</a> <a href=\"/private/public-faq\">FAQ</a> <a href=\"/public/info\">Info</a> <a href=\"/data.json\">JSON</a> <a href=\"/data.json?x=1\">JSON q</a> </main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/about": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>About</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>About</h1><p>About.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/private/records": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Records</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Records</h1><p>Secret.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/private/public-faq": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>FAQ</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>FAQ</h1><p>Public.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/public/info": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Info</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Info</h1><p>Info.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/data.json": {
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": "{}"
+  }
+}

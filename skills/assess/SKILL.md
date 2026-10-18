@@ -17,4 +17,6 @@ Stage `assess` of the Diligent chain. The root skill (`../../SKILL.md`) routes; 
 2. `../../references/evidence.md`
 3. `../../prompts/` for the bounded model tasks
 
+**Executable path:** `diligent audit --url <https://host/>` assesses every collected page and the origin's network checks with `diligent-rs`, merges the rows, writes one review item per `needs_review` result, then runs the gate; see `../../references/workflow.md` section 4a.
+
 **Block only when** evidence or lock references are invalid. Invalid artifacts produce an execution error and an incomplete assessment, never a pass.

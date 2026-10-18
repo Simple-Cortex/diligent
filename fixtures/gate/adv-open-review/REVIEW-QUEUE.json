@@ -1,0 +1,1 @@
+{"schema_version":"1.0.0","run_id":"run-2026-10-17-abc123","items":[{"item_id":"rq-1","kind":"human","task":"Manual review needed","owner_role":"accessibility_lead","blocking_reason":"Needs human sign-off","obligation_id":"OBL-A11Y-1.1.1","status":"open","evidence_refs":[],"resolution_evidence_refs":[]}]}

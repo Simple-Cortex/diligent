@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "fixture-profile",
+  "title": "Fixture profile",
+  "jurisdiction": "US-federal",
+  "status": "draft",
+  "selected_packs": [
+    "fixture-pack"
+  ],
+  "required_facts": [],
+  "claim_boundary": "Fixture only; not a compliance claim."
+}

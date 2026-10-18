@@ -1,0 +1,80 @@
+{
+  "https://example.gov/robots.txt": {
+    "headers": {
+      "content-type": "text/plain"
+    },
+    "body": "User-agent: *\nDisallow:\nSitemap: https://example.gov/sitemap_index.xml\nSitemap: http://10.0.0.5/sitemap.xml\n"
+  },
+  "https://example.gov/sitemap_index.xml": {
+    "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><sitemapindex xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"><sitemap><loc>https://example.gov/sitemap-a.xml.gz</loc></sitemap><sitemap><loc>https://example.gov/sitemap-b.xml</loc></sitemap><sitemap><loc>https://example.gov/sitemap_index.xml</loc></sitemap><sitemap><loc>https://other.example/sitemap.xml</loc></sitemap></sitemapindex>"
+  },
+  "https://example.gov/sitemap-a.xml.gz": {
+    "headers": {
+      "content-type": "application/x-gzip"
+    },
+    "body_file": "sitemap-a.xml",
+    "gzip": true
+  },
+  "https://example.gov/sitemap-b.xml": {
+    "headers": {
+      "content-type": "application/xml"
+    },
+    "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"><url><loc>https://example.gov/b/p-1</loc></url><url><loc>https://example.gov/b/p-2</loc></url><url><loc>https://example.gov/b/p-3</loc></url><url><loc>https://other.example/x</loc></url><url><loc>not a url</loc></url><url><lastmod>2026-01-01</lastmod></url></urlset>"
+  },
+  "https://example.gov/": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Home</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Home</h1><p>No links.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/a/p-1": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Page p-1</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Page p-1</h1><p>x</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/a/p-2": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Page p-2</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Page p-2</h1><p>x</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/a/p-3": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Page p-3</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Page p-3</h1><p>x</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/a/p-4": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Page p-4</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Page p-4</h1><p>x</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/b/p-1": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Page p-1</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Page p-1</h1><p>x</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/b/p-2": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Page p-2</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Page p-2</h1><p>x</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/b/p-3": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Page p-3</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Page p-3</h1><p>x</p></main><footer>Footer</footer></body></html>"
+  }
+}

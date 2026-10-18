@@ -1,0 +1,63 @@
+{
+  "origin": "https://www.example.gov/",
+  "captured_at": "2026-10-17T12:00:00.000Z",
+  "run_id": "run-2026-10-17-0a1b2c",
+  "responses": {
+    "http://www.example.gov/": {
+      "status": 301,
+      "headers": {
+        "Location": "https://www.example.gov/"
+      }
+    },
+    "https://www.example.gov/": {
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Strict-Transport-Security": "max-age=86400",
+        "Content-Security-Policy": "default-src 'self'; frame-ancestors 'none'",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "X-Frame-Options": "DENY",
+        "Set-Cookie": "session=abc123; Secure; HttpOnly"
+      },
+      "body": "<!doctype html><html><head><title>Example Agency</title><script async src=\"https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=EX\"></script></head><body><nav><a href=\"/about\">About</a> <a href=\"/privacy\">Privacy Policy</a></nav></body></html>"
+    },
+    "https://www.example.gov/vulnerability-disclosure-policy": {
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/html"
+      },
+      "body": "<html><body><h1>Vulnerability Disclosure Policy</h1><p>Report issues to security@example.gov.</p></body></html>"
+    },
+    "https://www.example.gov/.well-known/security.txt": {
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/plain"
+      },
+      "body": "Contact: mailto:security@example.gov\nExpires: 2027-01-01T00:00:00.000Z\nPolicy: https://www.example.gov/vulnerability-disclosure-policy\n"
+    },
+    "https://www.example.gov/robots.txt": {
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/plain"
+      },
+      "body": "User-agent: *\nDisallow: /private/\nSitemap: https://www.example.gov/sitemap.xml\n"
+    },
+    "https://www.example.gov/sitemap.xml": {
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/xml"
+      },
+      "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"><url><loc>https://www.example.gov/</loc></url><url><loc>https://www.example.gov/about</loc></url></urlset>"
+    }
+  },
+  "dns": {
+    "example.gov": [
+      "v=spf1 include:_spf.example.gov -all",
+      "google-site-verification=abc"
+    ],
+    "_dmarc.example.gov": [
+      "v=DMARC1; p=reject; rua=mailto:dmarc@example.gov"
+    ]
+  }
+}

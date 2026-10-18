@@ -1,0 +1,40 @@
+[workspace]
+resolver = "2"
+members = ["crates/*"]
+
+[workspace.package]
+version = "0.2.0"
+edition = "2021"
+rust-version = "1.85.0"
+license = "MIT"
+repository = "https://github.com/Simple-Cortex/diligent"
+authors = ["Mohsin Amjed"]
+
+[workspace.dependencies]
+diligent-rules = { path = "crates/diligent-rules" }
+diligent-assess = { path = "crates/diligent-assess" }
+diligent-source = { path = "crates/diligent-source" }
+diligent-infra = { path = "crates/diligent-infra" }
+diligent-runtime = { path = "crates/diligent-runtime" }
+diligent-capture = { path = "crates/diligent-capture" }
+diligent-netpolicy = { path = "crates/diligent-netpolicy" }
+diligent-inventory = { path = "crates/diligent-inventory" }
+diligent-evidence = { path = "crates/diligent-evidence" }
+chromiumoxide = { version = "=0.9.1" }
+tokio = { version = "=1.53.3", features = ["rt-multi-thread", "macros", "time", "fs", "io-util", "net", "sync"] }
+futures = "=0.3.34"
+async-trait = "=0.1.92"
+sha2 = "=0.11.1"
+scraper = "0.27.0"
+walkdir = "2.5.0"
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = { version = "1.0.154", features = ["preserve_order"] }
+jsonschema = { version = "0.59.0", default-features = false }
+thiserror = "2.0.21"
+regex = { version = "1.13.1", default-features = false, features = ["std", "perf"] }
+unicode-normalization = "0.1.26"
+reqwest = { version = "=0.13.5", default-features = false, features = ["rustls", "http2"] }
+hickory-resolver = "=0.26.3"
+url = "=2.5.8"
+roxmltree = "=0.21.1"
+flate2 = { version = "=1.1.2", default-features = false, features = ["rust_backend"] }

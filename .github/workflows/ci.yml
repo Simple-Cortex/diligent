@@ -1,3 +1,7 @@
+# Public CI. The release staging step copies this file to .github/workflows/ci.yml
+# in the public clone, replacing the private ci.yml. See docs/public-release-procedure.md.
+# It runs Node checks first, then builds the binary. It does not run `cargo test`
+# (recorded captures do not ship) and does not run the end-to-end smoke.
 name: CI
 
 on:
@@ -7,36 +11,8 @@ on:
     branches: [main]
 
 jobs:
-  test:
-    name: test (node ${{ matrix.node }})
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        # 20 is the floor declared in package.json engines. Keep it until that changes.
-        node: ['20', '22']
-    steps:
-      - uses: actions/checkout@v5
-
-      - uses: actions/setup-node@v5
-        with:
-          node-version: ${{ matrix.node }}
-
-      # No dependencies: the project is intentionally zero-install.
-      - name: Validate authorities, rule packs and profiles
-        run: npm run validate
-
-      - name: Run unit and fixture tests
-        run: npm test
-
-      - name: Verify packed artifact installs and runs
-        run: npm run test:packed-artifact
-
-      - name: Validate skill frontmatter, paths and versions
-        run: node scripts/validate-skill.mjs
-
-  package:
-    name: package
+  check:
+    name: check (node 22, rust stable)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -45,9 +21,34 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Run prepack check
-        run: npm run prepack
+      # No dependencies are required; install only if a lockfile resolves them.
+      - name: Install
+        run: npm ci || npm install
 
-      # The tarball must contain exactly the runtime-manifest include set, no more and no less.
-      - name: Verify tarball contents equal the manifest include set
-        run: node scripts/prepack.mjs --tarball
+      - name: Validate authorities, rule packs and profiles
+        run: npm run validate
+
+      - name: Validate the skill
+        run: node scripts/validate-skill.mjs
+
+      # Run before any cargo build so the real-binary replay test skips
+      # instead of running without recorded captures.
+      - name: Node tests
+        run: npm test
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+
+      - name: Cache cargo
+        uses: Swatinem/rust-cache@v2
+
+      - name: Check formatting
+        run: cargo fmt --all --check
+
+      - name: Clippy
+        run: cargo clippy --workspace --all-targets -- -D warnings
+
+      - name: Build the binary
+        run: cargo build -p diligent-cli --locked

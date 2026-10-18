@@ -1,0 +1,246 @@
+{
+  "description": "Diligent-authored fixtures for static checks that have no W3C ACT rule. Each entry names the aggregate state (worst of the check findings) expected for the check. `select` picks the first finding whose observed object contains those keys; `observed` is then compared as a subset; `count` is the number of findings the check must record.",
+  "entries": [
+    {
+      "path": "heading-order/pass.html",
+      "check_id": "SRC-HEADING-ORDER",
+      "expected": "pass"
+    },
+    {
+      "path": "heading-order/skipped-level.html",
+      "check_id": "SRC-HEADING-ORDER",
+      "expected": "needs_review",
+      "observed": {
+        "issue": "skipped_level"
+      }
+    },
+    {
+      "path": "heading-order/multiple-h1.html",
+      "check_id": "SRC-HEADING-ORDER",
+      "expected": "needs_review",
+      "observed": {
+        "issue": "multiple_h1"
+      }
+    },
+    {
+      "path": "heading-order/none.html",
+      "check_id": "SRC-HEADING-ORDER",
+      "expected": "not_tested"
+    },
+    {
+      "path": "aria-ref/pass.html",
+      "check_id": "SRC-ARIA-REF",
+      "expected": "pass"
+    },
+    {
+      "path": "aria-ref/missing-target.html",
+      "check_id": "SRC-ARIA-REF",
+      "expected": "fail",
+      "observed": {
+        "attribute": "aria-describedby",
+        "missing_ids": [
+          "nope"
+        ]
+      }
+    },
+    {
+      "path": "aria-ref/none.html",
+      "check_id": "SRC-ARIA-REF",
+      "expected": "not_tested"
+    },
+    {
+      "path": "tabindex-positive/pass.html",
+      "check_id": "SRC-TABINDEX-POSITIVE",
+      "expected": "pass"
+    },
+    {
+      "path": "tabindex-positive/positive.html",
+      "check_id": "SRC-TABINDEX-POSITIVE",
+      "expected": "fail",
+      "observed": {
+        "tabindex": 3
+      }
+    },
+    {
+      "path": "tabindex-positive/none.html",
+      "check_id": "SRC-TABINDEX-POSITIVE",
+      "expected": "not_tested"
+    },
+    {
+      "path": "table-headers/th.html",
+      "check_id": "SRC-TABLE-HEADERS",
+      "expected": "pass"
+    },
+    {
+      "path": "table-headers/scope.html",
+      "check_id": "SRC-TABLE-HEADERS",
+      "expected": "pass"
+    },
+    {
+      "path": "table-headers/no-headers.html",
+      "check_id": "SRC-TABLE-HEADERS",
+      "expected": "needs_review"
+    },
+    {
+      "path": "table-headers/missing-headers-id.html",
+      "check_id": "SRC-TABLE-HEADERS",
+      "expected": "fail",
+      "observed": {
+        "missing_header_ids": [
+          "ghost"
+        ]
+      }
+    },
+    {
+      "path": "table-headers/layout-role.html",
+      "check_id": "SRC-TABLE-HEADERS",
+      "expected": "not_tested"
+    },
+    {
+      "path": "banner/usa-banner.html",
+      "check_id": "SRC-BANNER-PRESENT",
+      "expected": "needs_review",
+      "observed": {
+        "present": true,
+        "usa_banner_class": true,
+        "official_site_text": true
+      }
+    },
+    {
+      "path": "banner/text-only.html",
+      "check_id": "SRC-BANNER-PRESENT",
+      "expected": "needs_review",
+      "observed": {
+        "present": true,
+        "usa_banner_class": false,
+        "official_site_text": true
+      }
+    },
+    {
+      "path": "banner/absent.html",
+      "check_id": "SRC-BANNER-PRESENT",
+      "expected": "needs_review",
+      "observed": {
+        "present": false,
+        "usa_banner_class": false,
+        "official_site_text": false
+      }
+    },
+    {
+      "path": "identifier/complete.html",
+      "check_id": "SRC-IDENTIFIER-LINKS",
+      "expected": "needs_review",
+      "count": 8
+    },
+    {
+      "path": "identifier/complete.html",
+      "check_id": "SRC-IDENTIFIER-LINKS",
+      "expected": "needs_review",
+      "select": {
+        "required_link": "USA.gov"
+      },
+      "observed": {
+        "present": true
+      }
+    },
+    {
+      "path": "identifier/complete.html",
+      "check_id": "SRC-IDENTIFIER-LINKS",
+      "expected": "needs_review",
+      "select": {
+        "required_link": "No FEAR"
+      },
+      "observed": {
+        "present": true
+      }
+    },
+    {
+      "path": "identifier/partial.html",
+      "check_id": "SRC-IDENTIFIER-LINKS",
+      "expected": "needs_review",
+      "select": {
+        "required_link": "USA.gov"
+      },
+      "observed": {
+        "present": false
+      }
+    },
+    {
+      "path": "identifier/partial.html",
+      "check_id": "SRC-IDENTIFIER-LINKS",
+      "expected": "needs_review",
+      "select": {
+        "required_link": "Privacy"
+      },
+      "observed": {
+        "present": true
+      }
+    },
+    {
+      "path": "identifier/absent.html",
+      "check_id": "SRC-IDENTIFIER-LINKS",
+      "expected": "not_tested",
+      "count": 1
+    },
+    {
+      "path": "meta-description/long.html",
+      "check_id": "SRC-META-DESCRIPTION",
+      "expected": "needs_review",
+      "observed": {
+        "present": true,
+        "meets_pending_minimum": true
+      }
+    },
+    {
+      "path": "meta-description/short.html",
+      "check_id": "SRC-META-DESCRIPTION",
+      "expected": "needs_review",
+      "observed": {
+        "present": true,
+        "meets_pending_minimum": false
+      }
+    },
+    {
+      "path": "meta-description/absent.html",
+      "check_id": "SRC-META-DESCRIPTION",
+      "expected": "needs_review",
+      "observed": {
+        "present": false
+      }
+    },
+    {
+      "path": "link-name/generic.html",
+      "check_id": "SRC-LINK-NAME",
+      "expected": "needs_review",
+      "observed": {
+        "generic_text": true
+      }
+    },
+    {
+      "path": "link-name/specific.html",
+      "check_id": "SRC-LINK-NAME",
+      "expected": "pass",
+      "observed": {
+        "generic_text": false
+      }
+    },
+    {
+      "path": "labelledby-cycle/self-reference.html",
+      "check_id": "SRC-CONTROL-NAME",
+      "expected": "fail",
+      "note": "aria-labelledby points at the control itself; terminates with an empty name"
+    },
+    {
+      "path": "labelledby-cycle/two-node-cycle.html",
+      "check_id": "SRC-IMG-ALT-PRESENT",
+      "expected": "fail",
+      "note": "two images reference each other; terminates with no name"
+    },
+    {
+      "path": "labelledby-cycle/two-node-cycle.html",
+      "check_id": "SRC-LINK-NAME",
+      "expected": "fail",
+      "note": "image inside the link references the link; terminates with an empty link name"
+    }
+  ]
+}

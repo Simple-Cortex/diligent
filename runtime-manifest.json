@@ -1,6 +1,6 @@
 {
   "$schema": "diligent-runtime-manifest/v1",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Authority for installed skill files. Everything listed here is included in the runtime skill package. Everything not listed is excluded.",
   "include": [
     "SKILL.md",
@@ -17,14 +17,20 @@
     "scripts/lib/schema.mjs",
     "scripts/lib/scope-facts.mjs",
     "scripts/lib/status.mjs",
+    "scripts/lib/orchestrate/*.mjs",
     "scripts/init.mjs",
     "scripts/status.mjs",
     "scripts/gate.mjs",
     "scripts/report.mjs",
+    "scripts/audit.mjs",
+    "scripts/release-gate.mjs",
+    "scripts/e2e-smoke.mjs",
+    "scripts/e2e-replay.mjs",
     "scripts/validate-rules.mjs",
     "scripts/validate-skill.mjs",
     "scripts/install.mjs",
     "scripts/prepack.mjs",
+    "scripts/review-packet.mjs",
     "scripts/check.mjs",
     "scripts/test.mjs",
     "schemas/*.json",
@@ -33,6 +39,7 @@
     "profiles/*.json",
     "prompts/*.md",
     "references/*.md",
+    "references/facts/*.json",
     "skills/*/SKILL.md",
     "docs/supported-checks.md",
     "docs/known-limitations.md",
@@ -61,7 +68,7 @@
     "rust": {
       "binary": "diligent-rs",
       "install": "cargo install --path crates/diligent-cli",
-      "status": "scaffold",
+      "status": "companion",
       "protocol_version": "1"
     }
   },

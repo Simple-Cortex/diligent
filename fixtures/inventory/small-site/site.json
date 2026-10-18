@@ -1,0 +1,98 @@
+{
+  "https://example.gov/robots.txt": {
+    "headers": {
+      "content-type": "text/plain"
+    },
+    "body": "User-agent: *\nDisallow:\n\nSitemap: https://example.gov/sitemap.xml\n"
+  },
+  "https://example.gov/sitemap.xml": {
+    "headers": {
+      "content-type": "application/xml"
+    },
+    "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"><url><loc>https://example.gov/</loc><lastmod>2026-09-01</lastmod></url><url><loc>https://example.gov/about</loc><lastmod>2026-08-01</lastmod></url><url><loc>https://example.gov/contact</loc></url><url><loc>https://example.gov/news/2025-update</loc><lastmod>2026-07-15</lastmod></url><url><loc>https://example.gov/news/2025-recap</loc><lastmod>2026-07-20</lastmod></url><url><loc>https://example.gov/programs/p-102</loc></url><url><loc>https://example.gov/programs/p-103</loc></url><url><loc>https://example.gov/data/q2-2025</loc><lastmod>2026-06-30</lastmod></url><url><loc>https://example.gov/reports/annual.pdf</loc></url></urlset>"
+  },
+  "https://example.gov/": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Example agency</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Example agency</h1><h2>News</h2><h2>Programs</h2><a href=\"/about\">About</a> <a href=\"/contact\">Contact</a> <a href=\"/news/2024-budget\">Budget</a> <a href=\"/news/2024-hearing\">Hearing</a> <a href=\"/programs/p-101\">Program 101</a> <a href=\"/data/q1-2025\">Q1 data</a> <a href=\"/reports/annual.pdf\">Annual report</a> <a href=\"https://analytics.vendor.example/embed\">Vendor widget</a> <a href=\"javascript:void(0)\">Script link</a> <a href=\"#main\">Skip</a> </main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/about": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>About</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>About</h1><p>About us.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/contact": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Contact</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Contact</h1><form action=\"/send\" method=\"post\"><label>Name <input name=\"n\"></label><button type=\"submit\">Send</button></form></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/news/2024-budget": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Budget 2024</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Budget 2024</h1><h2>Summary</h2><p>Text.</p><h2>Details</h2><p>More text.</p><a href=\"/news/2025-update\">Next</a> </main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/news/2024-hearing": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Hearing 2024</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Hearing 2024</h1><h2>Summary</h2><p>Text.</p><h2>Details</h2><p>More text.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/news/2025-update": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Update 2025</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Update 2025</h1><h2>Summary</h2><p>Text.</p><h2>Details</h2><p>More text.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/news/2025-recap": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Recap 2025</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Recap 2025</h1><h2>Summary</h2><p>Text.</p><h2>Details</h2><p>More text.</p></main><aside>Related</aside><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/programs/p-101": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Program 101</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Program 101</h1><h2>Eligibility</h2><p>Who can apply.</p><a href=\"/programs/p-102\">Next</a> </main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/programs/p-102": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Program 102</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Program 102</h1><h2>Eligibility</h2><p>Who can apply.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/programs/p-103": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Program 103</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Program 103</h1><h2>Eligibility</h2><p>Who can apply.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/data/q1-2025": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Q1 2025</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Q1 2025</h1><table><thead><tr><th>Item</th><th>Value</th></tr></thead><tbody><tr><td>a</td><td>1</td></tr></tbody></table><a href=\"/data/q2-2025\">Q2</a> </main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/data/q2-2025": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Q2 2025</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Q2 2025</h1><table><thead><tr><th>Item</th><th>Value</th></tr></thead><tbody><tr><td>a</td><td>1</td></tr></tbody></table></main><footer>Footer</footer></body></html>"
+  }
+}

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Diligent runtime fixture: basic</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body { font: 16px/1.5 sans-serif; margin: 1rem; }
+  .skip { position: absolute; left: -999px; }
+  .skip:focus { left: 0; background: #fff; outline: 2px solid #000; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header><nav aria-label="Primary">
+  <a href="/one.html">One</a>
+  <a href="/two.html">Two</a>
+  <a href="/three.html">Three</a>
+</nav></header>
+<main id="main">
+  <h1>Basic fixture</h1>
+  <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="40" height="40">
+  <form action="/submit" method="post" onsubmit="return false">
+    <label for="name">Name</label>
+    <input id="name" type="text" name="name">
+    <input id="unlabelled" type="text" name="mystery">
+    <button type="button">Send</button>
+  </form>
+</main>
+<footer><p>Footer text</p></footer>
+</body>
+</html>

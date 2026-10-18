@@ -10,13 +10,29 @@ belongs here and what stays in the development log.
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-10-18
+
+Engine preview: the first release with automated website checks. They run in a companion binary, `diligent-rs`, that you install separately. The Node package still runs no checks by itself. Every rule stays at the `research` lifecycle, so an automated result is evidence for a person to weigh, not a legal conclusion.
+
 ### Added
 
-These ship as 0.2 with the separately installed native engine and are not in the 0.1.1 package.
+- `diligent audit --url <https://host/>` runs the whole chain against a live site: scope with the facts you supply, applicability, inventory, sampling, collection, assessment, network checks, gate and report. It requires the companion binary, never downloads it, limits network access to the origin you name, and exits with the gate's code.
+- `diligent audit --replay <replay.json>` audits recorded captures offline with the real binary, with no Chrome and no network. The run records that it was a replay.
+- The `diligent-rs` companion binary is built in CI for macOS (Apple silicon and Intel) and Linux x86-64, with a `SHA256SUMS` file. Windows is not built. Chrome or Chromium is needed for browser checks. `docs/install.md` explains downloading, verifying and placing it, and the Rust source is now in the public repository.
+- `diligent-rs checks list [--json]` prints every browser check, signal, source check and network check the build knows, with the rules each informs.
+- `diligent-rs assess` runs 28 deterministic checks over captured pages without a browser: 17 accessibility checks (contrast, focus, ARIA, labels in names, target size, reflow, text spacing, bypass blocks, table headers, element language) and 11 federal public web checks (official-website banner, identifier and its links, search, Digital Analytics Program script, privacy and accessibility links, title and description, contact, language access, 320 px viewport). The matching cells in `docs/supported-checks.md` move from `unsupported` to `automated` or `assisted`. Checks that inform pending standards never fail.
+- `diligent-rs collect` captures pages with headless Chrome at four viewports and four media modes, including lab Core Web Vitals and computed styles. `diligent-rs infra` runs network checks on an origin (HTTPS, certificate, HSTS, SPF, DMARC, disclosure files, robots.txt, sitemap, security headers, DAP script, privacy link, `.gov` suffix), and `diligent-rs source scan` checks static HTML.
+- `diligent-rs inventory` reads robots.txt and sitemaps, crawls same-origin links, clusters pages into templates, and writes `INVENTORY.json` and `SAMPLE.json`: a structured and a seeded random sample with the seed, coverage counts and remaining work. A sample never supports a whole-site conformance claim.
+- A content-addressed evidence store (`diligent-rs evidence ingest | verify | resume-plan`) with an append-only index, reuse logs and tombstones. `collect` resumes interrupted runs and reuses earlier work only when its cache key and versions match and every object still re-hashes.
+- Optional axe-core corroboration (`--corroborate axe`, off by default, vendored 4.14.0 under MPL-2.0). Agreement changes nothing. A disagreement moves the result to `needs_review`, and violations the checks missed become `needs_review` leads. Profiles gain an optional `corroboration.browser` list.
+- Advisory signals in `SIGNALS.jsonl` (30 signals): plain readings of text, type, spacing, colour margin, motion, form patterns and lab Core Web Vitals. Signals cite a practice source and a confidence, are never normative, and never change a result or the gate. `diligent report` shows them in a new section 10, "Craft and clarity (not legal obligations)", and shows accessibility results under the three separate WCAG mappings.
+- Browser worker protocol 1.3.0 (additive over 1.0), which adds the axe-core and performance captures.
+- `npm run release:gate` runs every release check in order, including an end-to-end smoke against a local site and an offline replay of six recorded captures. `scripts/review-packet.mjs` writes a review packet per rule that any check informs and promotes reviewed rules to `draft`.
 
-- `diligent-rs applicability` evaluates every selected rule's predicate against SCOPE.json facts with three-valued logic and writes a schema-valid APPLICABILITY.json with a per-rule trace. Predicates are parsed from the shipped string grammar or a structured object form; unknown operators are rejected.
-- `diligent-rs collect` drives headless Chrome over the DevTools Protocol (new `diligent-runtime` browser worker with a versioned JSON Lines protocol) and writes content-addressed DOM, accessibility, focus-order, screenshot and network captures with a `manifest.jsonl` at four viewports and four media modes.
-- `diligent-rs infra --url <https://host/> --out <dir>` runs deterministic network checks on an origin (HTTPS redirect and certificate, HSTS, SPF, DMARC, vulnerability-disclosure files, robots.txt, sitemap, security headers, DAP script, privacy link, `.gov` suffix) and writes `RESULTS.jsonl`, `EVIDENCE.jsonl`, and content-addressed response bodies.
+### Changed
+
+- The runtime manifest reports the Rust engine as a companion (`status: "companion"`) instead of a scaffold.
+- `docs/supported-checks.md` and `docs/known-limitations.md` describe the Node package and the companion binary separately, and add rows for platforms, Chrome, replay, sampling and lab performance.
 
 ## [0.1.1] - 2026-10-18
 

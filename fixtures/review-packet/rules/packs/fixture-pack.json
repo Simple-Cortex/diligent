@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "fixture-pack",
+  "pack_version": "0.0.1",
+  "profile_ids": [],
+  "rules": [
+    {
+      "rule_id": "FX-1",
+      "obligation_id": "OBL-FX-1",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Fixture obligation FX-1",
+      "authority": {
+        "authority_id": "A01",
+        "section": "Clause FX-1",
+        "modality": "shall",
+        "incorporated_standard": null
+      },
+      "blind_spots": [
+        "Adequacy needs a person"
+      ],
+      "source_review_status": "research",
+      "baseline_test_id": "05"
+    },
+    {
+      "rule_id": "FX-2",
+      "obligation_id": "OBL-FX-2",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Fixture obligation FX-2",
+      "authority": {
+        "authority_id": "A01",
+        "section": "Clause FX-2",
+        "modality": "should",
+        "incorporated_standard": null
+      },
+      "blind_spots": [
+        "Adequacy needs a person"
+      ],
+      "source_review_status": "in_review"
+    },
+    {
+      "rule_id": "FX-3",
+      "obligation_id": "OBL-FX-3",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "draft",
+      "obligation": "Fixture obligation FX-3",
+      "authority": {
+        "authority_id": "A01",
+        "section": "Clause FX-3",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "blind_spots": [
+        "Adequacy needs a person"
+      ],
+      "source_review_status": "reviewed"
+    },
+    {
+      "rule_id": "FX-4",
+      "obligation_id": "OBL-FX-4",
+      "check_ids": [],
+      "version": "0.1.0",
+      "lifecycle": "research",
+      "obligation": "Fixture obligation FX-4",
+      "authority": {
+        "authority_id": "A02",
+        "section": "Clause FX-4",
+        "modality": "may",
+        "incorporated_standard": null
+      },
+      "blind_spots": [
+        "Adequacy needs a person"
+      ],
+      "source_review_status": "research",
+      "baseline_test_id": "12"
+    }
+  ]
+}

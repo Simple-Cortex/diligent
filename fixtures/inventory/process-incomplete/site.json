@@ -1,0 +1,30 @@
+{
+  "https://example.gov/": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Home</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Home</h1><p>Start.</p><a href=\"/apply/start\">Apply</a> <a href=\"/contact\">Contact</a> </main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/apply/start": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Apply: start</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Apply: start</h1><p>Step 1.</p><a href=\"/apply/details\">Next</a> </main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/apply/details": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Apply: details</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Apply: details</h1><form action=\"/send\" method=\"post\"><label>Name <input name=\"n\"></label><button type=\"submit\">Send</button></form></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/contact": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Contact</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Contact</h1><form action=\"/send\" method=\"post\"><label>Name <input name=\"n\"></label><button type=\"submit\">Send</button></form></main><footer>Footer</footer></body></html>"
+  }
+}

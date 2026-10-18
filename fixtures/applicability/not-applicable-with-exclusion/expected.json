@@ -1,0 +1,165 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-17-a1b2c3",
+  "audit_id": "fixture-audit",
+  "profile_id": "fixture-profile",
+  "evaluated_at": "2026-10-17T12:00:00Z",
+  "obligations": [
+    {
+      "obligation_id": "OBL-FX-01",
+      "rule_id": "FX-01",
+      "pack_id": "fixture-pack",
+      "authority_id": "AX1",
+      "mandatory": true,
+      "state": "not_applicable",
+      "temporal_state": "effective",
+      "effective_date": null,
+      "predicate_trace": [
+        {
+          "path": "0.0",
+          "op": "fact",
+          "expr": "federal_executive_agency",
+          "result": "false",
+          "fact": "federal_executive_agency",
+          "fact_state": "known",
+          "reason": null
+        },
+        {
+          "path": "0.1",
+          "op": "fact",
+          "expr": "public_facing",
+          "result": "true",
+          "fact": "public_facing",
+          "fact_state": "known",
+          "reason": null
+        },
+        {
+          "path": "0",
+          "op": "all",
+          "expr": "federal_executive_agency && public_facing",
+          "result": "false",
+          "fact": null,
+          "fact_state": null,
+          "reason": null
+        }
+      ],
+      "facts_used": [
+        "federal_executive_agency",
+        "public_facing"
+      ],
+      "exclusion": {
+        "citation": "AX1 1.1",
+        "predicate_facts": [
+          "federal_executive_agency",
+          "public_facing"
+        ],
+        "evidence_refs": [
+          "ev-intake-001",
+          "ev-letter-002",
+          "ev-site-003"
+        ]
+      }
+    },
+    {
+      "obligation_id": "OBL-FX-02",
+      "rule_id": "FX-02",
+      "pack_id": "fixture-pack",
+      "authority_id": "AX1",
+      "mandatory": true,
+      "state": "applicable",
+      "temporal_state": "effective",
+      "effective_date": null,
+      "predicate_trace": [
+        {
+          "path": "0.0",
+          "op": "fact",
+          "expr": "federal_executive_agency",
+          "result": "false",
+          "fact": "federal_executive_agency",
+          "fact_state": "known",
+          "reason": null
+        },
+        {
+          "path": "0.1",
+          "op": "fact",
+          "expr": "public_facing",
+          "result": "true",
+          "fact": "public_facing",
+          "fact_state": "known",
+          "reason": null
+        },
+        {
+          "path": "0",
+          "op": "any",
+          "expr": "federal_executive_agency || public_facing",
+          "result": "true",
+          "fact": null,
+          "fact_state": null,
+          "reason": null
+        }
+      ],
+      "facts_used": [
+        "federal_executive_agency",
+        "public_facing"
+      ],
+      "exclusion": null
+    },
+    {
+      "obligation_id": "OBL-FX-03",
+      "rule_id": "FX-03",
+      "pack_id": "fixture-pack",
+      "authority_id": "AX1",
+      "mandatory": true,
+      "state": "applicable",
+      "temporal_state": "effective",
+      "effective_date": null,
+      "predicate_trace": [
+        {
+          "path": "0.0",
+          "op": "fact",
+          "expr": "federal_executive_agency",
+          "result": "false",
+          "fact": "federal_executive_agency",
+          "fact_state": "known",
+          "reason": null
+        },
+        {
+          "path": "0",
+          "op": "not",
+          "expr": "!federal_executive_agency",
+          "result": "true",
+          "fact": null,
+          "fact_state": null,
+          "reason": null
+        }
+      ],
+      "facts_used": [
+        "federal_executive_agency"
+      ],
+      "exclusion": null
+    },
+    {
+      "obligation_id": "OBL-FX-04",
+      "rule_id": "FX-04",
+      "pack_id": "fixture-pack",
+      "authority_id": "AX1",
+      "mandatory": true,
+      "state": "unknown",
+      "temporal_state": "effective",
+      "effective_date": null,
+      "predicate_trace": [
+        {
+          "path": "0",
+          "op": "fact",
+          "expr": "false",
+          "result": "false",
+          "fact": null,
+          "fact_state": null,
+          "reason": "no_facts"
+        }
+      ],
+      "facts_used": [],
+      "exclusion": null
+    }
+  ]
+}

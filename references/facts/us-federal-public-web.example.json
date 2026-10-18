@@ -1,0 +1,9 @@
+{
+  "federal_executive_agency": true,
+  "public_facing": true,
+  "section508_covered": true,
+  "electronic_content_in_scope": true,
+  "ada_title2_covered": false,
+  "ada_title2_content_in_scope": false,
+  "adopted_wcag_version": "2.0"
+}

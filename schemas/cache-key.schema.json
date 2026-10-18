@@ -1,0 +1,326 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Simple-Cortex/diligent/schemas/cache-key.schema.json",
+  "title": "Evidence cache key record",
+  "description": "One line of an evidence store's keys.jsonl: the evidence-relevant inputs of a unit of work, the hash that identifies them, and the objects they select.",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "key_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "sha256 of the canonical JSON of key: keys sorted recursively, no whitespace, integral numbers as integers, nulls kept."
+    },
+    "key": {
+      "type": "object",
+      "properties": {
+        "deployment": {
+          "type": "object",
+          "properties": {
+            "commit": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "deployment_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "commit",
+            "deployment_id"
+          ],
+          "additionalProperties": false
+        },
+        "route": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "state": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "viewport": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "width": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "height": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "dpr": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "width",
+            "height",
+            "dpr"
+          ],
+          "additionalProperties": false
+        },
+        "media": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "locale": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rule_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "engine_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "protocol_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "collector": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "deployment",
+        "route",
+        "role",
+        "state",
+        "viewport",
+        "media",
+        "locale",
+        "rule_version",
+        "engine_version",
+        "protocol_version",
+        "collector",
+        "kind"
+      ],
+      "additionalProperties": false,
+      "description": "Every field is present; a missing value is an explicit null."
+    },
+    "missing_reasons": {
+      "type": "object",
+      "properties": {
+        "role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "state": {
+          "type": "string",
+          "minLength": 1
+        },
+        "locale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "deployment": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false,
+      "description": "A reason for each of role, state, locale and deployment that is null in key."
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "complete",
+        "partial",
+        "invalidated"
+      ]
+    },
+    "sha256s": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      },
+      "description": "Hashes of the objects this key selects."
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Namespaced vendor or local fields. Unknown top-level fields are rejected; put them here."
+    }
+  },
+  "required": [
+    "schema_version",
+    "key_hash",
+    "key",
+    "missing_reasons",
+    "status",
+    "sha256s",
+    "run_id",
+    "created_at"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "key": {
+            "properties": {
+              "role": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "role"
+            ]
+          }
+        },
+        "required": [
+          "key"
+        ]
+      },
+      "then": {
+        "properties": {
+          "missing_reasons": {
+            "required": [
+              "role"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "key": {
+            "properties": {
+              "state": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "state"
+            ]
+          }
+        },
+        "required": [
+          "key"
+        ]
+      },
+      "then": {
+        "properties": {
+          "missing_reasons": {
+            "required": [
+              "state"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "key": {
+            "properties": {
+              "locale": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "locale"
+            ]
+          }
+        },
+        "required": [
+          "key"
+        ]
+      },
+      "then": {
+        "properties": {
+          "missing_reasons": {
+            "required": [
+              "locale"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "key": {
+            "properties": {
+              "deployment": {
+                "properties": {
+                  "commit": {
+                    "type": "null"
+                  },
+                  "deployment_id": {
+                    "type": "null"
+                  }
+                },
+                "required": [
+                  "commit",
+                  "deployment_id"
+                ]
+              }
+            },
+            "required": [
+              "deployment"
+            ]
+          }
+        },
+        "required": [
+          "key"
+        ]
+      },
+      "then": {
+        "properties": {
+          "missing_reasons": {
+            "required": [
+              "deployment"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": false
+}

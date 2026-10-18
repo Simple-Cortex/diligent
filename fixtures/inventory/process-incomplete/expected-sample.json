@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-18-0a1b2c",
+  "audit_id": "fixture",
+  "method": "wcag-em-2.0",
+  "algorithm": "diligent-sampler/1",
+  "seed": "run-2026-10-18-0a1b2c",
+  "prng": "diligent-xorshift64star/1",
+  "structured": [
+    {
+      "url": "https://example.gov/",
+      "cluster_id": "8f306e3de160",
+      "reason": "home"
+    },
+    {
+      "url": "https://example.gov/about",
+      "cluster_id": "f1e9a4008e24",
+      "reason": "unique"
+    },
+    {
+      "url": "https://example.gov/apply/confirm",
+      "cluster_id": "d7cbce8ee024",
+      "reason": "unique"
+    },
+    {
+      "url": "https://example.gov/apply/details",
+      "cluster_id": "d1c95e14b1eb",
+      "reason": "unique"
+    },
+    {
+      "url": "https://example.gov/apply/start",
+      "cluster_id": "5e1f32d7a967",
+      "reason": "unique"
+    },
+    {
+      "url": "https://example.gov/contact",
+      "cluster_id": "973adae283cd",
+      "reason": "unique"
+    }
+  ],
+  "random": [],
+  "processes": [
+    {
+      "name": "apply-permit",
+      "consequence": "high",
+      "steps": [
+        "https://example.gov/apply/start",
+        "https://example.gov/apply/details",
+        "https://example.gov/apply/confirm"
+      ],
+      "complete": false,
+      "missing": [
+        "https://example.gov/apply/confirm"
+      ]
+    },
+    {
+      "name": "contact-us",
+      "consequence": "normal",
+      "steps": [
+        "https://example.gov/contact"
+      ],
+      "complete": true,
+      "missing": []
+    }
+  ],
+  "coverage": {
+    "discovered": 6,
+    "fetched": 6,
+    "clustered": 6,
+    "sampled_structured": 6,
+    "sampled_random": 0,
+    "excluded_by_robots": 0,
+    "unreachable": 0,
+    "off_scope": 0,
+    "documents": 0
+  },
+  "structured_coverage_estimate": null,
+  "statement": "A sample never supports a whole-site conformance claim. Results apply to the sampled pages and processes.",
+  "partial": true,
+  "remaining_work": [
+    "process apply-permit: step https://example.gov/apply/confirm not completed (status 404)"
+  ]
+}

@@ -199,3 +199,26 @@ test('gate --help documents the exit codes', async () => {
   assert.equal(result.code, 0);
   assert.match(result.stdout, /2\s+incomplete/);
 });
+
+test('SIGNALS.jsonl never reaches the gate: ASSESSMENT.json is byte-identical with and without it, even when it is garbage', async () => {
+  for (const name of ['mandatory-fail', 'pass-declared-scope', 'incomplete-untested']) {
+    await scenario(name, async dir => {
+      const first = await gate(dir);
+      const without = await readFile(join(dir, 'ASSESSMENT.json'));
+      const valid = { schema_version: '1.0.0', signal_id: 'sig-0123456789ab', signal_key: 'craft.font_family_count', family: 'craft', instance_id: 'page-1', state: 'lead', value: 5, unit: null, observed: 'Five families.', threshold: null, label: 'static', normative: false, evidence_refs: [], limitations: ['Practice.'], executed_at: FIXED_NOW, engine_version: '0.2.0', run_id: 'run-2026-10-17-abc123', extensions: {} };
+      for (const body of [`${JSON.stringify(valid)}\n`, `${JSON.stringify({ ...valid, state: 'needs_review' })}\nnot json\n\u0000\n`, '']) {
+        await writeFile(join(dir, 'SIGNALS.jsonl'), body);
+        const again = await gate(dir);
+        assert.equal(again.code, first.code, `${name}: exit code unchanged`);
+        assert.equal(again.stdout, first.stdout, `${name}: gate output unchanged`);
+        assert.deepEqual(await readFile(join(dir, 'ASSESSMENT.json')), without, `${name}: ASSESSMENT.json byte-identical`);
+      }
+    });
+  }
+});
+
+test('guard: the gate and the status arithmetic never mention SIGNALS', async () => {
+  for (const file of ['scripts/gate.mjs', 'scripts/lib/status.mjs']) {
+    assert.doesNotMatch(await readFile(join(ROOT, file), 'utf8'), /SIGNALS/, `${file} must not read SIGNALS.jsonl`);
+  }
+});

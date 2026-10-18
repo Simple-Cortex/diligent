@@ -9,7 +9,9 @@
     {
       "rule_id": "FED-01",
       "obligation_id": "OBL-FED-01",
-      "check_ids": [],
+      "check_ids": [
+        "FED-01-gov-domain"
+      ],
       "version": "0.1.0",
       "lifecycle": "research",
       "obligation": "Appropriate government domain and domain governance.",
@@ -45,7 +47,7 @@
       "channel_support": {
         "source": "unsupported",
         "browser": "unsupported",
-        "network": "unsupported",
+        "network": "automated",
         "model": "unsupported",
         "human": "unsupported",
         "documentary": "documentary"
@@ -157,7 +159,9 @@
     {
       "rule_id": "FED-03",
       "obligation_id": "OBL-FED-03",
-      "check_ids": [],
+      "check_ids": [
+        "BRW-FED-IDENTIFIER"
+      ],
       "version": "0.1.0",
       "lifecycle": "research",
       "obligation": "Clear parent agency attribution.",
@@ -191,7 +195,7 @@
       },
       "channel_support": {
         "source": "unsupported",
-        "browser": "unsupported",
+        "browser": "assisted",
         "network": "unsupported",
         "model": "unsupported",
         "human": "unsupported",
@@ -230,7 +234,10 @@
     {
       "rule_id": "FED-04",
       "obligation_id": "OBL-FED-04",
-      "check_ids": [],
+      "check_ids": [
+        "BRW-FED-IDENTIFIER",
+        "SRC-IDENTIFIER-LINKS"
+      ],
       "version": "0.1.0",
       "lifecycle": "research",
       "obligation": "About information and applicable organizational disclosures.",
@@ -267,8 +274,8 @@
         "automatic_pass_scope": "none_in_0.1.0"
       },
       "channel_support": {
-        "source": "unsupported",
-        "browser": "unsupported",
+        "source": "assisted",
+        "browser": "assisted",
         "network": "unsupported",
         "model": "unsupported",
         "human": "unsupported",
@@ -304,7 +311,11 @@
     {
       "rule_id": "FED-05",
       "obligation_id": "OBL-FED-05",
-      "check_ids": [],
+      "check_ids": [
+        "BRW-FED-IDENTIFIER",
+        "BRW-FED-ACCESSIBILITY-STATEMENT",
+        "SRC-IDENTIFIER-LINKS"
+      ],
       "version": "0.1.0",
       "lifecycle": "research",
       "obligation": "Accessible accessibility statement and feedback path.",
@@ -338,8 +349,8 @@
         "automatic_pass_scope": "none_in_0.1.0"
       },
       "channel_support": {
-        "source": "unsupported",
-        "browser": "unsupported",
+        "source": "assisted",
+        "browser": "automated",
         "network": "unsupported",
         "model": "unsupported",
         "human": "unsupported",
@@ -378,7 +389,12 @@
     {
       "rule_id": "FED-06",
       "obligation_id": "OBL-FED-06",
-      "check_ids": [],
+      "check_ids": [
+        "BRW-FED-IDENTIFIER",
+        "BRW-FED-PRIVACY-LINK",
+        "SRC-IDENTIFIER-LINKS",
+        "FED-06-privacy-link"
+      ],
       "version": "0.1.0",
       "lifecycle": "research",
       "obligation": "Privacy policy and collection-context notices.",
@@ -413,9 +429,9 @@
         "automatic_pass_scope": "none_in_0.1.0"
       },
       "channel_support": {
-        "source": "unsupported",
-        "browser": "unsupported",
-        "network": "unsupported",
+        "source": "assisted",
+        "browser": "automated",
+        "network": "assisted",
         "model": "unsupported",
         "human": "unsupported",
         "documentary": "documentary"
@@ -450,7 +466,10 @@
     {
       "rule_id": "FED-07",
       "obligation_id": "OBL-FED-07",
-      "check_ids": [],
+      "check_ids": [
+        "BRW-FED-IDENTIFIER",
+        "SRC-IDENTIFIER-LINKS"
+      ],
       "version": "0.1.0",
       "lifecycle": "research",
       "obligation": "FOIA access and electronic reading-room duties.",
@@ -485,8 +504,8 @@
         "automatic_pass_scope": "none_in_0.1.0"
       },
       "channel_support": {
-        "source": "unsupported",
-        "browser": "unsupported",
+        "source": "assisted",
+        "browser": "assisted",
         "network": "unsupported",
         "model": "unsupported",
         "human": "unsupported",
@@ -521,7 +540,10 @@
     {
       "rule_id": "FED-08",
       "obligation_id": "OBL-FED-08",
-      "check_ids": [],
+      "check_ids": [
+        "BRW-FED-IDENTIFIER",
+        "SRC-IDENTIFIER-LINKS"
+      ],
       "version": "0.1.0",
       "lifecycle": "research",
       "obligation": "No FEAR Act data link/content.",
@@ -556,8 +578,8 @@
         "automatic_pass_scope": "none_in_0.1.0"
       },
       "channel_support": {
-        "source": "unsupported",
-        "browser": "unsupported",
+        "source": "assisted",
+        "browser": "assisted",
         "network": "unsupported",
         "model": "unsupported",
         "human": "unsupported",
@@ -593,7 +615,10 @@
     {
       "rule_id": "FED-09",
       "obligation_id": "OBL-FED-09",
-      "check_ids": [],
+      "check_ids": [
+        "BRW-FED-IDENTIFIER",
+        "SRC-IDENTIFIER-LINKS"
+      ],
       "version": "0.1.0",
       "lifecycle": "research",
       "obligation": "Budget/performance information.",
@@ -629,8 +654,8 @@
         "automatic_pass_scope": "none_in_0.1.0"
       },
       "channel_support": {
-        "source": "unsupported",
-        "browser": "unsupported",
+        "source": "assisted",
+        "browser": "assisted",
         "network": "unsupported",
         "model": "unsupported",
         "human": "unsupported",
@@ -665,7 +690,10 @@
     {
       "rule_id": "FED-10",
       "obligation_id": "OBL-FED-10",
-      "check_ids": [],
+      "check_ids": [
+        "BRW-FED-IDENTIFIER",
+        "SRC-IDENTIFIER-LINKS"
+      ],
       "version": "0.1.0",
       "lifecycle": "research",
       "obligation": "Inspector General reporting access.",
@@ -700,8 +728,8 @@
         "automatic_pass_scope": "none_in_0.1.0"
       },
       "channel_support": {
-        "source": "unsupported",
-        "browser": "unsupported",
+        "source": "assisted",
+        "browser": "assisted",
         "network": "unsupported",
         "model": "unsupported",
         "human": "unsupported",
@@ -774,7 +802,7 @@
       "channel_support": {
         "source": "unsupported",
         "browser": "unsupported",
-        "network": "unsupported",
+        "network": "assisted",
         "model": "unsupported",
         "human": "unsupported",
         "documentary": "documentary"
@@ -810,7 +838,9 @@
     {
       "rule_id": "FED-12",
       "obligation_id": "OBL-FED-12",
-      "check_ids": [],
+      "check_ids": [
+        "BRW-FED-CONTACT"
+      ],
       "version": "0.1.0",
       "lifecycle": "research",
       "obligation": "Contact/help and policy access.",
@@ -845,7 +875,7 @@
       },
       "channel_support": {
         "source": "unsupported",
-        "browser": "unsupported",
+        "browser": "assisted",
         "network": "unsupported",
         "model": "unsupported",
         "human": "human",
@@ -883,7 +913,10 @@
     {
       "rule_id": "FED-13",
       "obligation_id": "OBL-FED-13",
-      "check_ids": [],
+      "check_ids": [
+        "BRW-FED-IDENTIFIER",
+        "SRC-IDENTIFIER-LINKS"
+      ],
       "version": "0.1.0",
       "lifecycle": "research",
       "obligation": "Appropriate government-wide support link.",
@@ -919,8 +952,8 @@
         "automatic_pass_scope": "none_in_0.1.0"
       },
       "channel_support": {
-        "source": "unsupported",
-        "browser": "unsupported",
+        "source": "assisted",
+        "browser": "assisted",
         "network": "unsupported",
         "model": "unsupported",
         "human": "unsupported",
@@ -1171,7 +1204,9 @@
     {
       "rule_id": "FED-17",
       "obligation_id": "OBL-FED-17",
-      "check_ids": [],
+      "check_ids": [
+        "BRW-FED-SEARCH"
+      ],
       "version": "0.1.0",
       "lifecycle": "research",
       "obligation": "Public content can be searched.",
@@ -1205,7 +1240,7 @@
       },
       "channel_support": {
         "source": "unsupported",
-        "browser": "unsupported",
+        "browser": "automated",
         "network": "unsupported",
         "model": "unsupported",
         "human": "unsupported",
@@ -1244,7 +1279,10 @@
     {
       "rule_id": "FED-18",
       "obligation_id": "OBL-FED-18",
-      "check_ids": [],
+      "check_ids": [
+        "FED-18-robots",
+        "FED-18-sitemap"
+      ],
       "version": "0.1.0",
       "lifecycle": "research",
       "obligation": "Public information is discoverable externally.",
@@ -1280,7 +1318,7 @@
       "channel_support": {
         "source": "unsupported",
         "browser": "unsupported",
-        "network": "unsupported",
+        "network": "assisted",
         "model": "unsupported",
         "human": "unsupported",
         "documentary": "unsupported"
@@ -1610,7 +1648,9 @@
     {
       "rule_id": "FED-23",
       "obligation_id": "OBL-FED-23",
-      "check_ids": [],
+      "check_ids": [
+        "BRW-FED-MOBILE-VIEWPORT"
+      ],
       "version": "0.1.0",
       "lifecycle": "research",
       "obligation": "Functional and usable on common mobile devices.",
@@ -1645,7 +1685,7 @@
       },
       "channel_support": {
         "source": "unsupported",
-        "browser": "unsupported",
+        "browser": "assisted",
         "network": "unsupported",
         "model": "unsupported",
         "human": "human",
@@ -1900,7 +1940,10 @@
     {
       "rule_id": "FED-27",
       "obligation_id": "OBL-FED-27",
-      "check_ids": [],
+      "check_ids": [
+        "BRW-FED-DAP",
+        "FED-27-dap"
+      ],
       "version": "0.1.0",
       "lifecycle": "research",
       "obligation": "Digital Analytics Program use where applicable.",
@@ -1937,8 +1980,8 @@
       },
       "channel_support": {
         "source": "unsupported",
-        "browser": "unsupported",
-        "network": "unsupported",
+        "browser": "automated",
+        "network": "assisted",
         "model": "unsupported",
         "human": "unsupported",
         "documentary": "documentary"
@@ -2043,7 +2086,9 @@
     {
       "rule_id": "FED-29",
       "obligation_id": "OBL-FED-29",
-      "check_ids": [],
+      "check_ids": [
+        "BRW-FED-LANGUAGE-ACCESS"
+      ],
       "version": "0.1.0",
       "lifecycle": "research",
       "obligation": "Language access under current applicable authority.",
@@ -2078,7 +2123,7 @@
       },
       "channel_support": {
         "source": "unsupported",
-        "browser": "unsupported",
+        "browser": "assisted",
         "network": "unsupported",
         "model": "unsupported",
         "human": "human",
@@ -2260,7 +2305,10 @@
     {
       "rule_id": "FED-32",
       "obligation_id": "OBL-FED-32",
-      "check_ids": [],
+      "check_ids": [
+        "BRW-FED-BANNER",
+        "SRC-BANNER-PRESENT"
+      ],
       "version": "0.1.0",
       "lifecycle": "research",
       "obligation": "Federal government banner (pending GSA standard). Readiness finding unless independently required by adopted agency or contract authority.",
@@ -2299,8 +2347,8 @@
         "automatic_pass_scope": "none_in_0.1.0"
       },
       "channel_support": {
-        "source": "unsupported",
-        "browser": "unsupported",
+        "source": "assisted",
+        "browser": "assisted",
         "network": "unsupported",
         "model": "unsupported",
         "human": "human",
@@ -2338,7 +2386,10 @@
     {
       "rule_id": "FED-33",
       "obligation_id": "OBL-FED-33",
-      "check_ids": [],
+      "check_ids": [
+        "BRW-FED-TITLE-CRITERIA",
+        "SRC-TITLE"
+      ],
       "version": "0.1.0",
       "lifecycle": "research",
       "obligation": "HTML page title (pending GSA standard). Readiness finding unless independently required by adopted agency or contract authority.",
@@ -2378,8 +2429,8 @@
         "automatic_pass_scope": "none_in_0.1.0"
       },
       "channel_support": {
-        "source": "unsupported",
-        "browser": "unsupported",
+        "source": "assisted",
+        "browser": "automated",
         "network": "unsupported",
         "model": "unsupported",
         "human": "unsupported",
@@ -2417,7 +2468,10 @@
     {
       "rule_id": "FED-34",
       "obligation_id": "OBL-FED-34",
-      "check_ids": [],
+      "check_ids": [
+        "BRW-FED-META-DESCRIPTION-CRITERIA",
+        "SRC-META-DESCRIPTION"
+      ],
       "version": "0.1.0",
       "lifecycle": "research",
       "obligation": "Meta page description (pending GSA standard). Readiness finding unless independently required by adopted agency or contract authority.",
@@ -2457,8 +2511,8 @@
         "automatic_pass_scope": "none_in_0.1.0"
       },
       "channel_support": {
-        "source": "unsupported",
-        "browser": "unsupported",
+        "source": "assisted",
+        "browser": "automated",
         "network": "unsupported",
         "model": "unsupported",
         "human": "unsupported",

@@ -7,7 +7,7 @@ description: "Use when auditing, fixing, or assessing a U.S. government website 
 
 Resolve scope and authority first, collect evidence second, assess third, and propose repairs last. Never certify, and never turn a missing check into a pass.
 
-**Version 0.1.1 is a contracts-and-gate release. It ships zero automated website checks.** It routes the work, defines the artifacts and schemas, holds the authority registry and rule packs, and computes a deterministic gate from results that an agent or a human supplies. Say this whenever a user could be misled. Read `docs/supported-checks.md` for the exact matrix.
+**The installable Diligent 0.2.0 package ships zero automated website checks; with the separately installed `diligent-rs` companion binary, `diligent audit` runs the Source, Browser and Network checks the supported-checks matrix marks automated or assisted.** It routes the work, defines the artifacts and schemas, holds the authority registry and rule packs, and computes a deterministic gate from results that an agent or a human supplies. With the separately installed `diligent-rs` companion binary, `diligent audit` also runs the Source, Browser and Network checks that the matrix marks automated or assisted, on macOS and Linux with Chrome. Every rule stays at the `research` lifecycle, craft signals are advisory, and a sampled audit never supports a whole-site claim. Say this whenever a user could be misled. Read `docs/supported-checks.md` for the exact matrix.
 
 ## Start and route
 
@@ -35,7 +35,7 @@ The default activity is a read-only audit. Applying code changes is a separate r
 | `verify` | Retest on a changed snapshot by a context that did not write the repair | `references/remediation.md`, `references/evidence.md` |
 | `report` | Readable rendering of the recorded assessment facts | `references/assessment.md` |
 
-Utilities that the CLI runs in 0.1.1: `node <skill-dir>/bin/diligent.mjs init`, `status`, `gate`, `report`, and `rules validate`. Every other command is an agent-performed phase guided by the files above; the CLI prints a clear "not executable in 0.1.1" message for them. `resume` re-enters unfinished work only when inputs and versions are unchanged. The complete input, reads, outputs, and blocker protocol for every command is normative in `references/workflow.md`.
+Utilities that the CLI runs in 0.2.0: `node <skill-dir>/bin/diligent.mjs init`, `status`, `gate`, `report`, and `rules validate`, and `audit` when the companion binary is installed (it never downloads the binary; the install guide is in the public repository). Every other command is an agent-performed phase guided by the files above; the CLI prints a clear "not executable in 0.2.0" message for them. `resume` re-enters unfinished work only when inputs and versions are unchanged. The complete input, reads, outputs, and blocker protocol for every command is normative in `references/workflow.md`.
 
 Pipeline states: `initialized`, `discovered`, `scoped`, `planned`, `collecting`, `assessed`, `proposed`, `verified`, `reported`. Reporting is allowed from any incomplete state. Repair planning and verification are optional, and their absence must be visible.
 
@@ -48,7 +48,7 @@ All durable artifacts are workspace-relative and live under one audit id.
 .diligent/<audit-id>/PROJECT-CONTEXT.json    AGENCY-PROFILE.json    REGULATORY-DISCOVERY.json
 .diligent/<audit-id>/DESIGN-SYSTEM.json      RESOURCE-CATALOG.json
 .diligent/<audit-id>/AUTHORITIES.lock.json   RULES.lock.json        APPLICABILITY.json
-.diligent/<audit-id>/INVENTORY.json          AUDIT-PLAN.json
+.diligent/<audit-id>/INVENTORY.json          SAMPLE.json            AUDIT-PLAN.json
 .diligent/<audit-id>/EVIDENCE.jsonl          RESULTS.jsonl          FINDINGS.json
 .diligent/<audit-id>/REVIEW-QUEUE.json       REPAIRS.json           EXCEPTIONS.json
 .diligent/<audit-id>/VERIFICATION.json       COMPONENT-BASELINE.json
@@ -120,7 +120,7 @@ Inspect the repository, runtime, and supplied documents before asking. Present a
 | Rationalization | Reality |
 | --- | --- |
 | "The page looks accessible, so mark it pass" | Looks are not evidence. Without a recorded observation the result is `not_tested`. |
-| "No automated check failed, so it passes" | In 0.1.1 no automated check exists. Silence is not a pass. |
+| "No automated check failed, so it passes" | Automated checks cover only part of the matrix, and the Node package runs none without the companion. Silence is not a pass. |
 | "It is a `.gov` site, so the federal profile applies" | A hostname does not select a jurisdiction or an agency. Resolve the facts. |
 | "The accessibility statement exists, so the obligation is met" | Presence is not accuracy. Compare to the deployed behavior and ask for owner evidence. |
 | "The vendor says it is conformant" | A vendor report is evidence about a product, not about the deployed configuration. Retest. |

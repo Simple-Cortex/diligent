@@ -2,20 +2,22 @@
 
 A maintained register of what Diligent does not do and what has not been tested. "Observed" means a recorded informal trace exists. It is not "supported". Where there is no evidence the entry says `unmeasured`.
 
-Last updated: 2026-10-18, for version 0.1.1.
+Last updated: 2026-10-18, for version 0.2.0.
 
-**The installable 0.1.1 package ships zero automated website checks.** References in this register and in `supported-checks.md` to automated or assisted network checks describe the `diligent-rs` native companion engine, which is built from source in the development repository and is not yet distributed.
+**The installable Node package runs zero automated website checks by itself.** Automated and assisted Source, Browser and Network checks come from the `diligent-rs` companion binary, which is installed separately, runs on macOS and Linux only, and needs Chrome or Chromium for browser checks. Every rule stays at the `research` lifecycle and craft signals are advisory.
 
 ## Product scope
 
 | Limitation | Impact | Status |
 | --- | --- | --- |
-| **Zero automated website checks.** Every rule is `unsupported`, `human`, or `documentary` | The tool cannot find or clear an accessibility or compliance issue by itself. All findings come from evidence an agent or person supplies | By design for 0.1.1. See `supported-checks.md` |
+| **No automated checks without the companion binary.** Every rule is `unsupported`, `human`, or `documentary` in the Node package alone | Without `diligent-rs` the tool cannot find or clear an accessibility or compliance issue by itself. Findings come from evidence an agent or person supplies | By design. See `supported-checks.md` for the 48 rules with an automated or assisted cell |
+| Automated results are leads at the `research` lifecycle | No rule is source-reviewed, so an automated pass or failure is evidence for a person to weigh, not a legal conclusion. Axe-core corroboration can only move a result to `needs_review` | By design for 0.2.0 |
+| A sampled audit does not cover the whole site | The structured and random samples cover the pages they name. A pass or a failure applies to the declared scope only, and the omitted pages are recorded in `SAMPLE.json` | Permanent |
 | No certification. The tool never certifies, authorizes, or approves anything | A result is never a statement of legal compliance, an authorization to operate, or an approved privacy assessment | Permanent |
 | Rules are cataloged, not source-reviewed | No rule has `source_review_status` of `reviewed`. Rule text, sections, and modality words are derived from research notes and must be checked against the sources | Research lifecycle for all 159 rules |
 | Clause locators are mostly unatomized | Many rules cite an authority without an exact section. A mandatory conclusion needs the exact clause | Open for source review |
 | Modality is derived from a class label | The `shall`, `must`, and `should` words are mapped from L, P, C, and R labels, not copied from each source clause | Open for source review |
-| Applicability predicates are not evaluated by shipped code beyond the gate's recorded states | An agent evaluates predicates by following `references/applicability.md`. Unknown stays unknown | Evaluator is future work |
+| Applicability predicates are evaluated only by the companion binary | `diligent audit` evaluates them with three-valued logic over the facts you supply. Without the binary an agent evaluates predicates by following `references/applicability.md`. Unknown stays unknown | Node-only evaluator is not planned |
 | Several primary sources are not fully source-verified | The vulnerability disclosure and HTTPS and email directives are still cited by CISA in 2024 to 2026 documents and no rescission was found, so their records are `active`, but their directive text was not re-fetched. The asset visibility directive and the federal HTTPS standard remain `unverified` | Verify before enabling exact timing or header checks |
 | State-law WCAG versions are not encoded | Secondary sources conflict on whether Colorado, California, New York, Texas, Minnesota, and Illinois require WCAG 2.0, 2.1, or 2.2. No rule hard-codes a state version | Ask the entity, cite its own statute, and record the adopted version as `adopted_wcag_version` |
 | Dates are only those a source states | Offsets such as the 60-day and 240-day milestones are not turned into calendar dates | By design |
@@ -44,9 +46,10 @@ Last updated: 2026-10-18, for version 0.1.1.
 
 | Engine | Tested | Status |
 | --- | --- | --- |
-| Node.js CLI | Unit and fixture tests for the gate, status, init, report, and rule validation | Supported. Authoritative in 0.1.1 |
-| Rust workspace | Scaffold with tests of the same contracts | `diligent-rs` is built from source in the development repository and is not distributed. The 0.1.1 package does not use it |
-| Browser worker | Part of `diligent-rs`, not distributed | Not available in the 0.1.1 package |
+| Node.js CLI | Unit and fixture tests for the gate, status, init, report, rule validation, and the `audit` orchestration | Supported. Authoritative for the gate and the report in 0.2.0 |
+| Rust workspace | Unit, fixture and end-to-end tests, including an offline replay of recorded captures | Ships as the `diligent-rs` companion binary, built in CI for macOS (Apple silicon and Intel) and Linux x86-64. Windows is not built. `diligent audit` requires it and never downloads it |
+| Browser worker | Part of `diligent-rs`; exercised against recorded captures and a local test site | Requires Chrome or Chromium on macOS or Linux. Not available on Windows |
+| Offline replay (`diligent audit --replay`) | Runs the real binary over recorded captures with no Chrome and no network | Audits only what was recorded. Discovery, collection and network checks are skipped, the sample is marked partial, and the result says it was a replay. It is not a live audit of the site |
 | Document and PDF analysis | Not implemented | Not available |
 
 ## Hosts
@@ -55,6 +58,14 @@ Last updated: 2026-10-18, for version 0.1.1.
 | --- | --- | --- |
 | Agent Skills hosts | Skill discovery and the CLI exercised informally during development; no formal evaluation on any host | `unmeasured` as a supported host. The manual fallback in `references/workflow.md` applies |
 | Generic agent with file access | No evaluation run | `unmeasured`. Manual fallback available |
+
+## Lab performance
+
+| Limitation | Impact | Status |
+| --- | --- | --- |
+| Core Web Vitals in `SIGNALS.jsonl` are lab values: one unthrottled headless load on the machine that ran `collect`. LCP, CLS, FCP, TTFB, transfer size and long tasks are not field measurements | They can differ a lot from what visitors see on slow networks and devices, and they vary between runs. The signals are labelled `lab` and are advisory | Observed as a design limit |
+| Infra checks skip http origins | `diligent audit` runs the network checks only on an https origin. On an http origin, such as a local smoke site, the infra stage is skipped with an event and a run warning, so the HTTPS redirect, certificate, HSTS and security header obligations are untested there | Not available |
+| INP is not measured | INP needs real user interaction. Importing field data from CrUX is not implemented, so `perf.inp_ms` is always `not_tested` | Not available |
 
 ## Review modes
 

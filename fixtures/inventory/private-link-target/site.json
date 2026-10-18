@@ -1,0 +1,16 @@
+{
+  "https://example.gov/": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Home</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Home</h1><p>Links.</p><a href=\"http://10.0.0.5/admin\">Internal admin</a> <a href=\"http://localhost:8080/x\">Localhost</a> <a href=\"https://münchen.example/\">IDN vendor</a> <a href=\"https://cdn.vendor.example/lib.js\">Vendor</a> <a href=\"data:text/html,hi\">Data</a> <a href=\"/about\">About</a> </main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/about": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>About</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>About</h1><p>x</p></main><footer>Footer</footer></body></html>"
+  }
+}

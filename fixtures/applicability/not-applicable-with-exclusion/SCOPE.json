@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "audit_id": "fixture-audit",
+  "run_id": "run-2026-10-17-a1b2c3",
+  "profile_id": "fixture-profile",
+  "modes": [
+    "source"
+  ],
+  "facts": [
+    {
+      "fact_id": "federal_executive_agency",
+      "group": "system",
+      "label": "federal executive agency",
+      "value": false,
+      "state": "known",
+      "evidence_refs": [
+        "ev-intake-001",
+        "ev-letter-002"
+      ],
+      "provided_by": "fixture",
+      "observed_at": null,
+      "valid_until": null,
+      "question": null,
+      "owner_role": null,
+      "affected_obligations": [],
+      "effect_on_assessment": null
+    },
+    {
+      "fact_id": "public_facing",
+      "group": "system",
+      "label": "public facing",
+      "value": true,
+      "state": "known",
+      "evidence_refs": [
+        "ev-site-003",
+        "ev-intake-001"
+      ],
+      "provided_by": "fixture",
+      "observed_at": null,
+      "valid_until": null,
+      "question": null,
+      "owner_role": null,
+      "affected_obligations": [],
+      "effect_on_assessment": null
+    }
+  ],
+  "permissions": {},
+  "processing_boundary": {},
+  "source_deployment_relationship": null
+}

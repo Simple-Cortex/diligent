@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-17-a1b2c3",
+  "audit_id": "fixture-audit",
+  "profile_id": "fixture-profile",
+  "evaluated_at": "2026-10-17T12:00:00Z",
+  "obligations": [
+    {
+      "obligation_id": "OBL-FX-01",
+      "rule_id": "FX-01",
+      "pack_id": "fixture-pack",
+      "authority_id": "AX1",
+      "mandatory": true,
+      "state": "unknown",
+      "temporal_state": "effective",
+      "effective_date": null,
+      "predicate_trace": [
+        {
+          "path": "0",
+          "op": "date_before",
+          "expr": "date_before(launch_date, '2026-06-01')",
+          "result": "unknown",
+          "fact": "launch_date",
+          "fact_state": "known",
+          "reason": "invalid_date"
+        }
+      ],
+      "facts_used": [
+        "launch_date"
+      ],
+      "exclusion": null
+    },
+    {
+      "obligation_id": "OBL-FX-02",
+      "rule_id": "FX-02",
+      "pack_id": "fixture-pack",
+      "authority_id": "AX1",
+      "mandatory": true,
+      "state": "applicable",
+      "temporal_state": "effective",
+      "effective_date": null,
+      "predicate_trace": [
+        {
+          "path": "0",
+          "op": "date_on_or_after",
+          "expr": "date_on_or_after(report_date, '2026-03-01')",
+          "result": "true",
+          "fact": "report_date",
+          "fact_state": "known",
+          "reason": null
+        }
+      ],
+      "facts_used": [
+        "report_date"
+      ],
+      "exclusion": null
+    },
+    {
+      "obligation_id": "OBL-FX-03",
+      "rule_id": "FX-03",
+      "pack_id": "fixture-pack",
+      "authority_id": "AX1",
+      "mandatory": true,
+      "state": "not_applicable",
+      "temporal_state": "effective",
+      "effective_date": null,
+      "predicate_trace": [
+        {
+          "path": "0",
+          "op": "date_before",
+          "expr": "date_before(report_date, '2026-03-01')",
+          "result": "false",
+          "fact": "report_date",
+          "fact_state": "known",
+          "reason": null
+        }
+      ],
+      "facts_used": [
+        "report_date"
+      ],
+      "exclusion": {
+        "citation": "AX1 1.1",
+        "predicate_facts": [
+          "report_date"
+        ],
+        "evidence_refs": [
+          "ev-020"
+        ]
+      }
+    },
+    {
+      "obligation_id": "OBL-FX-04",
+      "rule_id": "FX-04",
+      "pack_id": "fixture-pack",
+      "authority_id": "AX1",
+      "mandatory": true,
+      "state": "unknown",
+      "temporal_state": "effective",
+      "effective_date": null,
+      "predicate_trace": [
+        {
+          "path": "0",
+          "op": "date_before",
+          "expr": "date_before(deadline_number, '2026-03-01')",
+          "result": "unknown",
+          "fact": "deadline_number",
+          "fact_state": "known",
+          "reason": "type_mismatch"
+        }
+      ],
+      "facts_used": [
+        "deadline_number"
+      ],
+      "exclusion": null
+    }
+  ]
+}

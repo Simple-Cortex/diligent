@@ -1,0 +1,13 @@
+[package]
+name = "diligent-netpolicy"
+description = "Address policy shared by the infra checks and the browser worker: which hosts a scan must never contact."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[lib]
+
+[dependencies]

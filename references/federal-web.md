@@ -2,7 +2,7 @@
 
 A routed catalog of federal identity, content, privacy, collection, records, security, identity, and hosting obligations. Rows come from the `federal-public-web`, `privacy-collection`, and `infrastructure` rule packs.
 
-**No row here has an executable check in Diligent 0.1.1.** Every rule is at the `research` lifecycle. Registry authority ids (A01 and so on) resolve in `../authorities/registry.json`. Rows marked with a primary authority that is not source-verified say so in the pack's `source_caveat`.
+**Whether a row has an executable check is stated only in `../docs/supported-checks.md`.** Rows with an automated or assisted Source, Browser or Network cell run in the `diligent-rs` companion binary, not in the Node package, and their results are advisory. Every rule is at the `research` lifecycle. Registry authority ids (A01 and so on) resolve in `../authorities/registry.json`. Rows marked with a primary authority that is not source-verified say so in the pack's `source_caveat`.
 
 Labels and channels are defined in `accessibility.md` section 1. Required placement varies between principal agency sites, secondary sites, and major entry points. Link to authoritative agency pages instead of duplicating policy content. Use the Digital.gov required-content index as an index only; the controlling law or policy decides a disputed applicability.
 

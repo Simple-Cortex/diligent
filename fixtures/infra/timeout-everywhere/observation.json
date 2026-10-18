@@ -1,0 +1,10 @@
+{
+  "origin": "https://www.example.gov/",
+  "captured_at": "2026-10-17T12:00:00.000Z",
+  "run_id": "run-2026-10-17-0a1b2c",
+  "default_error": "timeout",
+  "dns_errors": {
+    "example.gov": "timeout",
+    "_dmarc.example.gov": "timeout"
+  }
+}

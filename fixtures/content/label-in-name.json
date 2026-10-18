@@ -1,0 +1,23 @@
+{
+  "description": "Label-in-name cases (TC-02, WCAG 2.5.3). expected is one of match, prefix, contained, no_match, ambiguous. ambiguous means string comparison cannot decide and a human or model reviewer must look.",
+  "cases": [
+    { "id": "exact", "visible": "Search", "accessible": "Search", "expected": "match" },
+    { "id": "case-and-space", "visible": "Sign  In", "accessible": "sign in", "expected": "match" },
+    { "id": "trailing-colon", "visible": "Email address:", "accessible": "Email address", "expected": "match" },
+    { "id": "trailing-ellipsis", "visible": "Search…", "accessible": "Search", "expected": "match" },
+    { "id": "quoted", "visible": "“Subscribe”", "accessible": "Subscribe", "expected": "match" },
+    { "id": "fullwidth-forms", "visible": "Ｓｅａｒｃｈ", "accessible": "Search", "expected": "match" },
+    { "id": "prefix-extension", "visible": "Search", "accessible": "Search the site", "expected": "prefix" },
+    { "id": "contained-run", "visible": "Search", "accessible": "Site search", "expected": "contained" },
+    { "id": "contained-phrase", "visible": "sign in", "accessible": "Please sign in now", "expected": "contained" },
+    { "id": "different-word", "visible": "Submit", "accessible": "Send", "expected": "no_match" },
+    { "id": "empty-accessible-name", "visible": "Submit", "accessible": "", "expected": "no_match" },
+    { "id": "icon-button-with-aria-label", "visible": "", "accessible": "Search", "expected": "ambiguous" },
+    { "id": "emoji-only", "visible": "🔍", "accessible": "Search", "expected": "ambiguous" },
+    { "id": "symbol-only-close", "visible": "×", "accessible": "Close", "expected": "ambiguous" },
+    { "id": "mixed-script-visible", "visible": "Search поиск", "accessible": "Search", "expected": "ambiguous" },
+    { "id": "cyrillic-lookalike", "visible": "сontact", "accessible": "contact", "expected": "ambiguous" },
+    { "id": "partial-word-only", "visible": "Submit", "accessible": "Resubmit", "expected": "ambiguous" },
+    { "id": "digits", "visible": "3", "accessible": "3 items in cart", "expected": "prefix" }
+  ]
+}

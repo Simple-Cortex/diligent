@@ -1,0 +1,18 @@
+[
+  {
+    "name": "apply-permit",
+    "consequence": "high",
+    "steps": [
+      "https://example.gov/apply/start",
+      "https://example.gov/apply/details",
+      "https://example.gov/apply/confirm"
+    ]
+  },
+  {
+    "name": "contact-us",
+    "consequence": "normal",
+    "steps": [
+      "https://example.gov/contact"
+    ]
+  }
+]

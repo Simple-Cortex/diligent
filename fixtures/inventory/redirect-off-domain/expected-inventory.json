@@ -1,0 +1,175 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-18-0a1b2c",
+  "audit_id": "fixture",
+  "generated_by": "diligent-inventory/0.2.0",
+  "routes": [
+    {
+      "url": "https://example.gov/",
+      "cluster_id": "8f306e3de160",
+      "sources": [
+        "link",
+        "start"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/",
+      "title": "Home",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/about",
+      "cluster_id": "f1e9a4008e24",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 404,
+      "final_url": "https://example.gov/about",
+      "title": null,
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/down",
+      "cluster_id": null,
+      "sources": [
+        "link"
+      ],
+      "fetched": false,
+      "status": null,
+      "final_url": null,
+      "title": null,
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": "timeout"
+    },
+    {
+      "url": "https://example.gov/go",
+      "cluster_id": null,
+      "sources": [
+        "link"
+      ],
+      "fetched": false,
+      "status": null,
+      "final_url": null,
+      "title": null,
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": "off_domain"
+    },
+    {
+      "url": "https://example.gov/loop",
+      "cluster_id": null,
+      "sources": [
+        "link"
+      ],
+      "fetched": false,
+      "status": null,
+      "final_url": null,
+      "title": null,
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": "too_many_redirects"
+    },
+    {
+      "url": "https://example.gov/missing",
+      "cluster_id": "2c1082625774",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 404,
+      "final_url": "https://example.gov/missing",
+      "title": null,
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/moved",
+      "cluster_id": "2802d3d5aca1",
+      "sources": [
+        "link"
+      ],
+      "fetched": true,
+      "status": 200,
+      "final_url": "https://example.gov/new-home",
+      "title": "New home",
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": null
+    },
+    {
+      "url": "https://example.gov/to-www",
+      "cluster_id": null,
+      "sources": [
+        "link"
+      ],
+      "fetched": false,
+      "status": null,
+      "final_url": null,
+      "title": null,
+      "has_form": false,
+      "lastmod": null,
+      "excluded_by_robots": false,
+      "unreachable": "off_scope_redirect"
+    }
+  ],
+  "templates": [
+    {
+      "cluster_id": "8f306e3de160",
+      "path_shape": "/",
+      "dom_shape": "L=header,nav,main,footer;h1=1;h2=0;submit_form=0;data_table=0",
+      "size": 1,
+      "representative": "https://example.gov/",
+      "fetched_members": 1
+    },
+    {
+      "cluster_id": "f1e9a4008e24",
+      "path_shape": "/about",
+      "dom_shape": "L=;h1=0;h2=0;submit_form=0;data_table=0",
+      "size": 1,
+      "representative": "https://example.gov/about",
+      "fetched_members": 1
+    },
+    {
+      "cluster_id": "2c1082625774",
+      "path_shape": "/missing",
+      "dom_shape": "L=;h1=0;h2=0;submit_form=0;data_table=0",
+      "size": 1,
+      "representative": "https://example.gov/missing",
+      "fetched_members": 1
+    },
+    {
+      "cluster_id": "2802d3d5aca1",
+      "path_shape": "/moved",
+      "dom_shape": "L=header,nav,main,footer;h1=1;h2=0;submit_form=0;data_table=0",
+      "size": 1,
+      "representative": "https://example.gov/moved",
+      "fetched_members": 1
+    }
+  ],
+  "components": [],
+  "documents": [],
+  "vendors": [],
+  "roles": [],
+  "states": [],
+  "discovery_limits": [
+    "roles_and_states: a fetch-only crawler sees one anonymous role and one default state; authenticated roles and interactive states are not inventoried",
+    "client_rendered_navigation_not_followed: links created by JavaScript are not discovered",
+    "robots_excluded: 0 urls",
+    "rate_limit: at most 2 requests per second (500 ms between requests), one request at a time",
+    "partial: false"
+  ]
+}

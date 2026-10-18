@@ -1,33 +1,35 @@
 # Supported checks
 
-**The installable Diligent 0.1.1 package ships zero automated website checks.** Every rule below is at the `research` lifecycle and none is published. A rule listed here is a cataloged obligation, not an executable test. The "automated" and "assisted" Network cells and the counts of 5 (federal-public-web), 5 (infrastructure), and 10 (total) in this document refer to the `diligent-rs` native companion engine. That engine is built from source in the development repository and is not yet distributed, so none of those checks runs from the 0.1.1 package.
+**The installable Diligent 0.2.0 package ships zero automated website checks; with the separately installed `diligent-rs` companion binary, `diligent audit` runs the Source, Browser and Network checks the matrix below marks automated or assisted.** Every rule below is at the `research` lifecycle and none is published. A rule listed here is a cataloged obligation with, where marked, an executable check whose results are advisory until the rule is reviewed and published. The summary counts of 16 (a11y-wcag20-aa), 5 (a11y-wcag21-aa), 2 (a11y-wcag22-aa), 20 (federal-public-web), 5 (infrastructure), and 48 (total) are rules with at least one automated or assisted Source, Browser or Network cell. They need the companion binary, which runs on macOS and Linux, and the Browser cells need Chrome or Chromium. Without the binary, every cell reads as unsupported and the assessment stays incomplete.
 
-What 0.1.1 does ship: the router, the artifact chain and schemas, the authority registry, the rule-pack format and seven research packs, and a deterministic gate that computes an overall status from results an agent or human supplies. The gate can only report `fail` when supplied results show a confirmed failure of an applicable mandatory obligation. It cannot report a pass for anything that was not observed and recorded.
+What the 0.2.0 package ships: the router, the artifact chain and schemas, the authority registry, the rule-pack format and seven research packs, and a deterministic gate that computes an overall status from results an agent, a person or the companion binary supplies. The companion binary adds 28 browser checks over captured pages (17 accessibility checks and 11 federal public web checks), source checks over static HTML, network checks on an origin, inventory and sampling, an evidence store, and optional axe-core corroboration that can only move a result to `needs_review`. The gate can only report `fail` when results show a confirmed failure of an applicable mandatory obligation. It cannot report a pass for anything that was not observed and recorded. A sampled audit covers the sample only and never supports a whole-site claim.
 
 ## Channel support values
 
 | Value | Meaning in this matrix |
 | --- | --- |
-| `automated` | A shipped check produces the result. None in the 0.1.1 package |
-| `assisted` | A shipped check produces a lead that a person or model must confirm. None in the 0.1.1 package |
+| `automated` | A check in the `diligent-rs` companion produces the result. The Node package alone has none |
+| `assisted` | A check in the `diligent-rs` companion produces a lead that a person or model must confirm. The Node package alone has none |
 | `human` | The rule routes the question to a qualified person through the review queue |
 | `documentary` | The rule routes the question to organizational evidence the owner supplies |
-| `unsupported` | No supported path in the 0.1.1 package. A required unsupported check keeps the assessment incomplete |
+| `unsupported` | No supported path in 0.2.0. A required unsupported check keeps the assessment incomplete |
 
-Channels are source, browser, network, model, human, and documentary. A cell shows `unsupported` for a channel the audit specification proposes but the 0.1.1 package does not implement. A Network cell marked `automated` or `assisted` is implemented only by the `diligent-rs` companion engine.
+Channels are source, browser, network, model, human, and documentary. A cell shows `unsupported` for a channel the audit specification proposes but 0.2.0 does not implement. A Source, Browser or Network cell marked `automated` or `assisted` is implemented only by the `diligent-rs` companion binary.
 
 ## Summary
 
 | Pack | Rules | Human route | Documentary route | Automated or assisted (`diligent-rs` only) |
 | --- | --- | --- | --- | --- |
-| a11y-wcag20-aa | 38 | 29 | 3 | 0 |
-| a11y-wcag21-aa | 12 | 7 | 0 | 0 |
-| a11y-wcag22-aa | 6 | 3 | 0 | 0 |
-| federal-public-web | 42 | 20 | 27 | 5 |
+| a11y-wcag20-aa | 38 | 29 | 3 | 16 |
+| a11y-wcag21-aa | 12 | 7 | 0 | 5 |
+| a11y-wcag22-aa | 6 | 3 | 0 | 2 |
+| federal-public-web | 42 | 20 | 27 | 20 |
 | privacy-collection | 17 | 0 | 16 | 0 |
 | infrastructure | 26 | 2 | 18 | 5 |
 | ux-service | 18 | 18 | 0 | 0 |
-| total | 159 |  |  | 10 |
+| total | 159 |  |  | 48 |
+
+Craft, content, form and lab-performance signals are advisory and are not rows in this matrix. They are written to `SIGNALS.jsonl`, shown in section 10 of the report as "Craft and clarity (not legal obligations)", and never enter `RESULTS.jsonl`, the assessment status or the gate. Each signal carries a threshold with a cited source and a confidence, and a person weighs it.
 
 ## Matrix
 
@@ -35,96 +37,96 @@ Every rule in every pack, with its support in each channel.
 
 | Pack | Rule | Outcome | Source | Browser | Network | Model | Human | Documentary |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| a11y-wcag20-aa | A11Y-1.1.1 | Meet WCAG 2.0 success criterion 1.1.1 Non-text content at level A where the... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
+| a11y-wcag20-aa | A11Y-1.1.1 | Meet WCAG 2.0 success criterion 1.1.1 Non-text content at level A where the... | automated | automated | unsupported | unsupported | human | unsupported |
 | a11y-wcag20-aa | A11Y-1.2.1 | Meet WCAG 2.0 success criterion 1.2.1 Audio/video only at level A where the... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
 | a11y-wcag20-aa | A11Y-1.2.2 | Meet WCAG 2.0 success criterion 1.2.2 Prerecorded captions at level A where the... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
 | a11y-wcag20-aa | A11Y-1.2.3 | Meet WCAG 2.0 success criterion 1.2.3 Description or media alternative at level A... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
 | a11y-wcag20-aa | A11Y-1.2.4 | Meet WCAG 2.0 success criterion 1.2.4 Live captions at level AA where the incorporated... | unsupported | unsupported | unsupported | unsupported | human | documentary |
 | a11y-wcag20-aa | A11Y-1.2.5 | Meet WCAG 2.0 success criterion 1.2.5 Prerecorded audio description at level AA where... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
-| a11y-wcag20-aa | A11Y-1.3.1 | Meet WCAG 2.0 success criterion 1.3.1 Relationships at level A where the incorporated... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
+| a11y-wcag20-aa | A11Y-1.3.1 | Meet WCAG 2.0 success criterion 1.3.1 Relationships at level A where the incorporated... | automated | automated | unsupported | unsupported | human | unsupported |
 | a11y-wcag20-aa | A11Y-1.3.2 | Meet WCAG 2.0 success criterion 1.3.2 Meaningful sequence at level A where the... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
 | a11y-wcag20-aa | A11Y-1.3.3 | Meet WCAG 2.0 success criterion 1.3.3 Sensory characteristics at level A where the... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
 | a11y-wcag20-aa | A11Y-1.4.1 | Meet WCAG 2.0 success criterion 1.4.1 Color at level A where the incorporated standard... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
-| a11y-wcag20-aa | A11Y-1.4.2 | Meet WCAG 2.0 success criterion 1.4.2 Audio control at level A where the incorporated... | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
-| a11y-wcag20-aa | A11Y-1.4.3 | Meet WCAG 2.0 success criterion 1.4.3 Text contrast at level AA where the incorporated... | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
-| a11y-wcag20-aa | A11Y-1.4.4 | Meet WCAG 2.0 success criterion 1.4.4 Resize text at level AA where the incorporated... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
+| a11y-wcag20-aa | A11Y-1.4.2 | Meet WCAG 2.0 success criterion 1.4.2 Audio control at level A where the incorporated... | automated | unsupported | unsupported | unsupported | unsupported | unsupported |
+| a11y-wcag20-aa | A11Y-1.4.3 | Meet WCAG 2.0 success criterion 1.4.3 Text contrast at level AA where the incorporated... | unsupported | automated | unsupported | unsupported | unsupported | unsupported |
+| a11y-wcag20-aa | A11Y-1.4.4 | Meet WCAG 2.0 success criterion 1.4.4 Resize text at level AA where the incorporated... | automated | unsupported | unsupported | unsupported | human | unsupported |
 | a11y-wcag20-aa | A11Y-1.4.5 | Meet WCAG 2.0 success criterion 1.4.5 Images of text at level AA where the... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
 | a11y-wcag20-aa | A11Y-2.1.1 | Meet WCAG 2.0 success criterion 2.1.1 Keyboard at level A where the incorporated... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
-| a11y-wcag20-aa | A11Y-2.1.2 | Meet WCAG 2.0 success criterion 2.1.2 No keyboard trap at level A where the... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
-| a11y-wcag20-aa | A11Y-2.2.1 | Meet WCAG 2.0 success criterion 2.2.1 Timing at level A where the incorporated... | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
+| a11y-wcag20-aa | A11Y-2.1.2 | Meet WCAG 2.0 success criterion 2.1.2 No keyboard trap at level A where the... | unsupported | assisted | unsupported | unsupported | human | unsupported |
+| a11y-wcag20-aa | A11Y-2.2.1 | Meet WCAG 2.0 success criterion 2.2.1 Timing at level A where the incorporated... | automated | unsupported | unsupported | unsupported | unsupported | documentary |
 | a11y-wcag20-aa | A11Y-2.2.2 | Meet WCAG 2.0 success criterion 2.2.2 Moving/updating content at level A where the... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
 | a11y-wcag20-aa | A11Y-2.3.1 | Meet WCAG 2.0 success criterion 2.3.1 Flashes at level A where the incorporated... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
-| a11y-wcag20-aa | A11Y-2.4.1 | Meet WCAG 2.0 success criterion 2.4.1 Bypass blocks at level A where the incorporated... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
-| a11y-wcag20-aa | A11Y-2.4.2 | Meet WCAG 2.0 success criterion 2.4.2 Page title at level A where the incorporated... | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
-| a11y-wcag20-aa | A11Y-2.4.3 | Meet WCAG 2.0 success criterion 2.4.3 Focus order at level A where the incorporated... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
-| a11y-wcag20-aa | A11Y-2.4.4 | Meet WCAG 2.0 success criterion 2.4.4 Link purpose at level A where the incorporated... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
+| a11y-wcag20-aa | A11Y-2.4.1 | Meet WCAG 2.0 success criterion 2.4.1 Bypass blocks at level A where the incorporated... | unsupported | automated | unsupported | unsupported | human | unsupported |
+| a11y-wcag20-aa | A11Y-2.4.2 | Meet WCAG 2.0 success criterion 2.4.2 Page title at level A where the incorporated... | automated | unsupported | unsupported | unsupported | unsupported | unsupported |
+| a11y-wcag20-aa | A11Y-2.4.3 | Meet WCAG 2.0 success criterion 2.4.3 Focus order at level A where the incorporated... | automated | unsupported | unsupported | unsupported | human | unsupported |
+| a11y-wcag20-aa | A11Y-2.4.4 | Meet WCAG 2.0 success criterion 2.4.4 Link purpose at level A where the incorporated... | automated | assisted | unsupported | unsupported | human | unsupported |
 | a11y-wcag20-aa | A11Y-2.4.5 | Meet WCAG 2.0 success criterion 2.4.5 Multiple ways at level AA where the incorporated... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
 | a11y-wcag20-aa | A11Y-2.4.6 | Meet WCAG 2.0 success criterion 2.4.6 Headings/labels at level AA where the... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
-| a11y-wcag20-aa | A11Y-2.4.7 | Meet WCAG 2.0 success criterion 2.4.7 Visible focus at level AA where the incorporated... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
-| a11y-wcag20-aa | A11Y-3.1.1 | Meet WCAG 2.0 success criterion 3.1.1 Page language at level A where the incorporated... | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
-| a11y-wcag20-aa | A11Y-3.1.2 | Meet WCAG 2.0 success criterion 3.1.2 Language changes at level AA where the... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
+| a11y-wcag20-aa | A11Y-2.4.7 | Meet WCAG 2.0 success criterion 2.4.7 Visible focus at level AA where the incorporated... | unsupported | automated | unsupported | unsupported | human | unsupported |
+| a11y-wcag20-aa | A11Y-3.1.1 | Meet WCAG 2.0 success criterion 3.1.1 Page language at level A where the incorporated... | automated | unsupported | unsupported | unsupported | unsupported | unsupported |
+| a11y-wcag20-aa | A11Y-3.1.2 | Meet WCAG 2.0 success criterion 3.1.2 Language changes at level AA where the... | unsupported | automated | unsupported | unsupported | human | unsupported |
 | a11y-wcag20-aa | A11Y-3.2.1 | Meet WCAG 2.0 success criterion 3.2.1 Focus behavior at level A where the incorporated... | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
 | a11y-wcag20-aa | A11Y-3.2.2 | Meet WCAG 2.0 success criterion 3.2.2 Input behavior at level A where the incorporated... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
 | a11y-wcag20-aa | A11Y-3.2.3 | Meet WCAG 2.0 success criterion 3.2.3 Consistent navigation at level AA where the... | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
 | a11y-wcag20-aa | A11Y-3.2.4 | Meet WCAG 2.0 success criterion 3.2.4 Consistent identification at level AA where the... | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
 | a11y-wcag20-aa | A11Y-3.3.1 | Meet WCAG 2.0 success criterion 3.3.1 Error identification at level A where the... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
-| a11y-wcag20-aa | A11Y-3.3.2 | Meet WCAG 2.0 success criterion 3.3.2 Labels/instructions at level A where the... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
+| a11y-wcag20-aa | A11Y-3.3.2 | Meet WCAG 2.0 success criterion 3.3.2 Labels/instructions at level A where the... | automated | unsupported | unsupported | unsupported | human | unsupported |
 | a11y-wcag20-aa | A11Y-3.3.3 | Meet WCAG 2.0 success criterion 3.3.3 Error suggestions at level AA where the... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
 | a11y-wcag20-aa | A11Y-3.3.4 | Meet WCAG 2.0 success criterion 3.3.4 Error prevention at level AA where the... | unsupported | unsupported | unsupported | unsupported | human | documentary |
 | a11y-wcag20-aa | A11Y-4.1.1 | Meet WCAG 2.0 success criterion 4.1.1 Parsing at level A where the incorporated... | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
-| a11y-wcag20-aa | A11Y-4.1.2 | Meet WCAG 2.0 success criterion 4.1.2 Name/role/value at level A where the... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
+| a11y-wcag20-aa | A11Y-4.1.2 | Meet WCAG 2.0 success criterion 4.1.2 Name/role/value at level A where the... | automated | automated | unsupported | unsupported | human | unsupported |
 | a11y-wcag21-aa | A11Y-1.3.4 | Meet WCAG 2.1 success criterion 1.3.4 Orientation at level AA where WCAG 2.1 is the... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
-| a11y-wcag21-aa | A11Y-1.3.5 | Meet WCAG 2.1 success criterion 1.3.5 Input purpose at level AA where WCAG 2.1 is the... | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
-| a11y-wcag21-aa | A11Y-1.4.10 | Meet WCAG 2.1 success criterion 1.4.10 Reflow at level AA where WCAG 2.1 is the... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
-| a11y-wcag21-aa | A11Y-1.4.11 | Meet WCAG 2.1 success criterion 1.4.11 Non-text contrast at level AA where WCAG 2.1 is... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
-| a11y-wcag21-aa | A11Y-1.4.12 | Meet WCAG 2.1 success criterion 1.4.12 Text spacing at level AA where WCAG 2.1 is the... | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
+| a11y-wcag21-aa | A11Y-1.3.5 | Meet WCAG 2.1 success criterion 1.3.5 Input purpose at level AA where WCAG 2.1 is the... | automated | unsupported | unsupported | unsupported | unsupported | unsupported |
+| a11y-wcag21-aa | A11Y-1.4.10 | Meet WCAG 2.1 success criterion 1.4.10 Reflow at level AA where WCAG 2.1 is the... | unsupported | assisted | unsupported | unsupported | human | unsupported |
+| a11y-wcag21-aa | A11Y-1.4.11 | Meet WCAG 2.1 success criterion 1.4.11 Non-text contrast at level AA where WCAG 2.1 is... | unsupported | assisted | unsupported | unsupported | human | unsupported |
+| a11y-wcag21-aa | A11Y-1.4.12 | Meet WCAG 2.1 success criterion 1.4.12 Text spacing at level AA where WCAG 2.1 is the... | unsupported | automated | unsupported | unsupported | unsupported | unsupported |
 | a11y-wcag21-aa | A11Y-1.4.13 | Meet WCAG 2.1 success criterion 1.4.13 Hover/focus content at level AA where WCAG 2.1... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
 | a11y-wcag21-aa | A11Y-2.1.4 | Meet WCAG 2.1 success criterion 2.1.4 Character shortcuts at level A where WCAG 2.1 is... | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
 | a11y-wcag21-aa | A11Y-2.5.1 | Meet WCAG 2.1 success criterion 2.5.1 Pointer gestures at level A where WCAG 2.1 is... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
 | a11y-wcag21-aa | A11Y-2.5.2 | Meet WCAG 2.1 success criterion 2.5.2 Pointer cancellation at level A where WCAG 2.1... | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
-| a11y-wcag21-aa | A11Y-2.5.3 | Meet WCAG 2.1 success criterion 2.5.3 Label in name at level A where WCAG 2.1 is the... | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
+| a11y-wcag21-aa | A11Y-2.5.3 | Meet WCAG 2.1 success criterion 2.5.3 Label in name at level A where WCAG 2.1 is the... | unsupported | automated | unsupported | unsupported | unsupported | unsupported |
 | a11y-wcag21-aa | A11Y-2.5.4 | Meet WCAG 2.1 success criterion 2.5.4 Motion actuation at level A where WCAG 2.1 is... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
 | a11y-wcag21-aa | A11Y-4.1.3 | Meet WCAG 2.1 success criterion 4.1.3 Status messages at level AA where WCAG 2.1 is... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
-| a11y-wcag22-aa | A11Y-2.4.11 | Meet WCAG 2.2 success criterion 2.4.11 Focus not obscured, minimum at level AA as a... | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
+| a11y-wcag22-aa | A11Y-2.4.11 | Meet WCAG 2.2 success criterion 2.4.11 Focus not obscured, minimum at level AA as a... | unsupported | assisted | unsupported | unsupported | unsupported | unsupported |
 | a11y-wcag22-aa | A11Y-2.5.7 | Meet WCAG 2.2 success criterion 2.5.7 Dragging at level AA as a product target. | unsupported | unsupported | unsupported | unsupported | human | unsupported |
-| a11y-wcag22-aa | A11Y-2.5.8 | Meet WCAG 2.2 success criterion 2.5.8 Target size, minimum at level AA as a product... | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
+| a11y-wcag22-aa | A11Y-2.5.8 | Meet WCAG 2.2 success criterion 2.5.8 Target size, minimum at level AA as a product... | unsupported | assisted | unsupported | unsupported | unsupported | unsupported |
 | a11y-wcag22-aa | A11Y-3.2.6 | Meet WCAG 2.2 success criterion 3.2.6 Consistent help at level A as a product target. | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
 | a11y-wcag22-aa | A11Y-3.3.7 | Meet WCAG 2.2 success criterion 3.3.7 Redundant entry at level A as a product target. | unsupported | unsupported | unsupported | unsupported | human | unsupported |
 | a11y-wcag22-aa | A11Y-3.3.8 | Meet WCAG 2.2 success criterion 3.3.8 Accessible authentication at level AA as a... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
 | federal-public-web | FED-01 | Appropriate government domain and domain governance. | unsupported | unsupported | automated | unsupported | unsupported | documentary |
 | federal-public-web | FED-02 | Clear official government identity. | unsupported | unsupported | unsupported | unsupported | human | unsupported |
-| federal-public-web | FED-03 | Clear parent agency attribution. | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
-| federal-public-web | FED-04 | About information and applicable organizational disclosures. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
-| federal-public-web | FED-05 | Accessible accessibility statement and feedback path. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
-| federal-public-web | FED-06 | Privacy policy and collection-context notices. | unsupported | unsupported | assisted | unsupported | unsupported | documentary |
-| federal-public-web | FED-07 | FOIA access and electronic reading-room duties. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
-| federal-public-web | FED-08 | No FEAR Act data link/content. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
-| federal-public-web | FED-09 | Budget/performance information. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
-| federal-public-web | FED-10 | Inspector General reporting access. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
+| federal-public-web | FED-03 | Clear parent agency attribution. | unsupported | assisted | unsupported | unsupported | unsupported | unsupported |
+| federal-public-web | FED-04 | About information and applicable organizational disclosures. | assisted | assisted | unsupported | unsupported | unsupported | documentary |
+| federal-public-web | FED-05 | Accessible accessibility statement and feedback path. | assisted | automated | unsupported | unsupported | unsupported | documentary |
+| federal-public-web | FED-06 | Privacy policy and collection-context notices. | assisted | automated | assisted | unsupported | unsupported | documentary |
+| federal-public-web | FED-07 | FOIA access and electronic reading-room duties. | assisted | assisted | unsupported | unsupported | unsupported | documentary |
+| federal-public-web | FED-08 | No FEAR Act data link/content. | assisted | assisted | unsupported | unsupported | unsupported | documentary |
+| federal-public-web | FED-09 | Budget/performance information. | assisted | assisted | unsupported | unsupported | unsupported | documentary |
+| federal-public-web | FED-10 | Inspector General reporting access. | assisted | assisted | unsupported | unsupported | unsupported | documentary |
 | federal-public-web | FED-11 | Public vulnerability reporting policy. | unsupported | unsupported | assisted | unsupported | unsupported | documentary |
-| federal-public-web | FED-12 | Contact/help and policy access. | unsupported | unsupported | unsupported | unsupported | human | unsupported |
-| federal-public-web | FED-13 | Appropriate government-wide support link. | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
+| federal-public-web | FED-12 | Contact/help and policy access. | unsupported | assisted | unsupported | unsupported | human | unsupported |
+| federal-public-web | FED-13 | Appropriate government-wide support link. | assisted | assisted | unsupported | unsupported | unsupported | unsupported |
 | federal-public-web | FED-14 | Consistent appearance across a service. | unsupported | unsupported | unsupported | unsupported | human | unsupported |
 | federal-public-web | FED-15 | Appropriate federal design-system/website-standard adoption. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
 | federal-public-web | FED-16 | User-centered design informed by evidence. | unsupported | unsupported | unsupported | unsupported | human | documentary |
-| federal-public-web | FED-17 | Public content can be searched. | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
+| federal-public-web | FED-17 | Public content can be searched. | unsupported | automated | unsupported | unsupported | unsupported | unsupported |
 | federal-public-web | FED-18 | Public information is discoverable externally. | unsupported | unsupported | assisted | unsupported | unsupported | unsupported |
 | federal-public-web | FED-19 | Search results are usable. | unsupported | unsupported | unsupported | unsupported | human | unsupported |
 | federal-public-web | FED-20 | Authoritative, current, nonduplicative content. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
 | federal-public-web | FED-21 | Plain writing in covered public material. | unsupported | unsupported | unsupported | unsupported | human | unsupported |
 | federal-public-web | FED-22 | Accurate policies, claims, eligibility and deadlines. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
-| federal-public-web | FED-23 | Functional and usable on common mobile devices. | unsupported | unsupported | unsupported | unsupported | human | unsupported |
+| federal-public-web | FED-23 | Functional and usable on common mobile devices. | unsupported | assisted | unsupported | unsupported | human | unsupported |
 | federal-public-web | FED-24 | Digital forms/services and signature alternatives. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
 | federal-public-web | FED-25 | Access for people unable to use digital services. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
 | federal-public-web | FED-26 | Shared services and appropriate customization. | unsupported | unsupported | unsupported | unsupported | human | documentary |
-| federal-public-web | FED-27 | Digital Analytics Program use where applicable. | unsupported | unsupported | assisted | unsupported | unsupported | documentary |
+| federal-public-web | FED-27 | Digital Analytics Program use where applicable. | unsupported | automated | assisted | unsupported | unsupported | documentary |
 | federal-public-web | FED-28 | Experience measurement and service improvement. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
-| federal-public-web | FED-29 | Language access under current applicable authority. | unsupported | unsupported | unsupported | unsupported | human | documentary |
+| federal-public-web | FED-29 | Language access under current applicable authority. | unsupported | assisted | unsupported | unsupported | human | documentary |
 | federal-public-web | FED-30 | Complete task states and recovery. | unsupported | unsupported | unsupported | unsupported | human | unsupported |
 | federal-public-web | FED-31 | Honest visual priority and task flow. | unsupported | unsupported | unsupported | unsupported | human | unsupported |
-| federal-public-web | FED-32 | Federal government banner (pending GSA standard). Readiness finding unless... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
-| federal-public-web | FED-33 | HTML page title (pending GSA standard). Readiness finding unless independently... | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
-| federal-public-web | FED-34 | Meta page description (pending GSA standard). Readiness finding unless independently... | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
+| federal-public-web | FED-32 | Federal government banner (pending GSA standard). Readiness finding unless... | assisted | assisted | unsupported | unsupported | human | unsupported |
+| federal-public-web | FED-33 | HTML page title (pending GSA standard). Readiness finding unless independently... | assisted | automated | unsupported | unsupported | unsupported | unsupported |
+| federal-public-web | FED-34 | Meta page description (pending GSA standard). Readiness finding unless independently... | assisted | automated | unsupported | unsupported | unsupported | unsupported |
 | federal-public-web | FED-35 | Correctly scope public and covered non-public electronic content. | unsupported | unsupported | unsupported | unsupported | human | documentary |
 | federal-public-web | FED-36 | Evaluate applicable functional performance criteria and software requirements. | unsupported | unsupported | unsupported | unsupported | human | documentary |
 | federal-public-web | FED-37 | Accessible documentation/support. | unsupported | unsupported | unsupported | unsupported | human | documentary |
@@ -205,6 +207,10 @@ No baseline test exists for these 18 rules, because the Baseline covers WCAG 2.0
 | --- | --- |
 | a11y-wcag21-aa | A11Y-1.3.4, 1.3.5, 1.4.10, 1.4.11, 1.4.12, 1.4.13, 2.1.4, 2.5.1, 2.5.2, 2.5.3, 2.5.4, 4.1.3 |
 | a11y-wcag22-aa | A11Y-2.4.11, 2.5.7, 2.5.8, 3.2.6, 3.3.7, 3.3.8 |
+
+## Corroboration
+
+The matrix describes deterministic checks only. The `diligent-rs` companion engine can also run axe-core in the browser worker as optional corroboration, off by default and enabled per profile. It adds no cell to this matrix: it never produces a `pass` or `fail`, and any disagreement with a deterministic result becomes a `needs_review` item. See [a11y-browser-checks.md](a11y-browser-checks.md).
 
 ## How this matrix changes
 

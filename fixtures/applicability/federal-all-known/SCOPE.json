@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0.0",
+  "audit_id": "fixture-audit",
+  "run_id": "run-2026-10-17-a1b2c3",
+  "profile_id": "fixture-profile",
+  "modes": [
+    "source"
+  ],
+  "facts": [
+    {
+      "fact_id": "federal_executive_agency",
+      "group": "system",
+      "label": "federal executive agency",
+      "value": true,
+      "state": "known",
+      "evidence_refs": [
+        "ev-001"
+      ],
+      "provided_by": "fixture",
+      "observed_at": null,
+      "valid_until": null,
+      "question": null,
+      "owner_role": null,
+      "affected_obligations": [],
+      "effect_on_assessment": null
+    },
+    {
+      "fact_id": "public_facing",
+      "group": "system",
+      "label": "public facing",
+      "value": true,
+      "state": "known",
+      "evidence_refs": [],
+      "provided_by": "fixture",
+      "observed_at": null,
+      "valid_until": null,
+      "question": null,
+      "owner_role": null,
+      "affected_obligations": [],
+      "effect_on_assessment": null
+    },
+    {
+      "fact_id": "is_principal_agency_site",
+      "group": "system",
+      "label": "is principal agency site",
+      "value": true,
+      "state": "known",
+      "evidence_refs": [],
+      "provided_by": "fixture",
+      "observed_at": null,
+      "valid_until": null,
+      "question": null,
+      "owner_role": null,
+      "affected_obligations": [],
+      "effect_on_assessment": null
+    },
+    {
+      "fact_id": "is_secondary_site",
+      "group": "system",
+      "label": "is secondary site",
+      "value": false,
+      "state": "known",
+      "evidence_refs": [],
+      "provided_by": "fixture",
+      "observed_at": null,
+      "valid_until": null,
+      "question": null,
+      "owner_role": null,
+      "affected_obligations": [],
+      "effect_on_assessment": null
+    },
+    {
+      "fact_id": "adopted_wcag_version",
+      "group": "system",
+      "label": "adopted wcag version",
+      "value": "2.2",
+      "state": "known",
+      "evidence_refs": [],
+      "provided_by": "fixture",
+      "observed_at": null,
+      "valid_until": null,
+      "question": null,
+      "owner_role": null,
+      "affected_obligations": [],
+      "effect_on_assessment": null
+    },
+    {
+      "fact_id": "page_count",
+      "group": "system",
+      "label": "page count",
+      "value": 25,
+      "state": "known",
+      "evidence_refs": [],
+      "provided_by": "fixture",
+      "observed_at": null,
+      "valid_until": null,
+      "question": null,
+      "owner_role": null,
+      "affected_obligations": [],
+      "effect_on_assessment": null
+    }
+  ],
+  "permissions": {},
+  "processing_boundary": {},
+  "source_deployment_relationship": null
+}

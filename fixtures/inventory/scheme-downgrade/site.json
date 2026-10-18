@@ -1,0 +1,13 @@
+{
+  "https://example.gov/": {
+    "status": 302,
+    "location": "http://www.example.gov/"
+  },
+  "http://www.example.gov/": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Plaintext home</title></head><body><header><p>Example agency</p></header><nav><a href=\"/\">Home</a> <a href=\"/about\">About</a></nav><main><h1>Plaintext home</h1><p>Must not be trusted.</p></main><footer>Footer</footer></body></html>"
+  }
+}

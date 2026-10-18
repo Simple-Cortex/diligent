@@ -1,0 +1,109 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-17-a1b2c3",
+  "audit_id": "fixture-audit",
+  "profile_id": "fixture-profile",
+  "evaluated_at": "2026-10-17T12:00:00Z",
+  "obligations": [
+    {
+      "obligation_id": "OBL-FX-01",
+      "rule_id": "FX-01",
+      "pack_id": "fixture-pack",
+      "authority_id": "AX1",
+      "mandatory": true,
+      "state": "unknown",
+      "temporal_state": "effective",
+      "effective_date": null,
+      "predicate_trace": [
+        {
+          "path": "0",
+          "op": "fact",
+          "expr": "public_facing",
+          "result": "unknown",
+          "fact": "public_facing",
+          "fact_state": "disputed",
+          "reason": null
+        }
+      ],
+      "facts_used": [
+        "public_facing"
+      ],
+      "exclusion": null
+    },
+    {
+      "obligation_id": "OBL-FX-02",
+      "rule_id": "FX-02",
+      "pack_id": "fixture-pack",
+      "authority_id": "AX1",
+      "mandatory": true,
+      "state": "unknown",
+      "temporal_state": "effective",
+      "effective_date": null,
+      "predicate_trace": [
+        {
+          "path": "0",
+          "op": "eq",
+          "expr": "public_facing == true",
+          "result": "unknown",
+          "fact": "public_facing",
+          "fact_state": "disputed",
+          "reason": null
+        }
+      ],
+      "facts_used": [
+        "public_facing"
+      ],
+      "exclusion": null
+    },
+    {
+      "obligation_id": "OBL-FX-03",
+      "rule_id": "FX-03",
+      "pack_id": "fixture-pack",
+      "authority_id": "AX1",
+      "mandatory": true,
+      "state": "unknown",
+      "temporal_state": "effective",
+      "effective_date": null,
+      "predicate_trace": [
+        {
+          "path": "0",
+          "op": "in",
+          "expr": "adopted_wcag_version in ['2.2']",
+          "result": "unknown",
+          "fact": "adopted_wcag_version",
+          "fact_state": "unknown",
+          "reason": null
+        }
+      ],
+      "facts_used": [
+        "adopted_wcag_version"
+      ],
+      "exclusion": null
+    },
+    {
+      "obligation_id": "OBL-FX-04",
+      "rule_id": "FX-04",
+      "pack_id": "fixture-pack",
+      "authority_id": "AX1",
+      "mandatory": false,
+      "state": "unknown",
+      "temporal_state": "effective",
+      "effective_date": null,
+      "predicate_trace": [
+        {
+          "path": "0",
+          "op": "fact",
+          "expr": "site_has_search",
+          "result": "unknown",
+          "fact": "site_has_search",
+          "fact_state": "unknown",
+          "reason": null
+        }
+      ],
+      "facts_used": [
+        "site_has_search"
+      ],
+      "exclusion": null
+    }
+  ]
+}

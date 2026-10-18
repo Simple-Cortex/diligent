@@ -71,7 +71,7 @@ Every accessibility rule records which WCAG versions contain its criterion, in `
 | 2.1 AA | `title_ii_target` | ADA Title II (28 CFR Part 35 Subpart H) and HHS Section 504 (45 CFR Part 84 Subpart I) bind WCAG 2.1 AA |
 | 2.2 AA | `recommended` | OMB M-23-22 directs agencies to the most current WCAG, which is 2.2. Guidance, not a legal binding |
 
-A criterion present in 2.0 appears in all three mappings, a 2.1-only criterion in 2.1 and 2.2, and a 2.2-only criterion in 2.2 only. A report always shows all three and never blends them into one score or one pass. A failure against the 2.2 mapping alone is a recommendation finding, not a legal failure. Criterion 4.1.1 Parsing was removed in WCAG 2.2, so its 2.2 mapping is advisory only.
+A criterion present in 2.0 appears in all three mappings, a 2.1-only criterion in 2.1 and 2.2, and a 2.2-only criterion in 2.2 only. A report always shows all three and never blends them into one score or one pass. A failure against the 2.2 mapping alone is a recommendation finding, not a legal failure. Criterion 4.1.1 Parsing was removed in WCAG 2.2, so its 2.2 mapping is advisory only. The report shows the three mappings as separate rows in section 4 (see `assessment.md`).
 
 ## 5. Authority and conflicts
 

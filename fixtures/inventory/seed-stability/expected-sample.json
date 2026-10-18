@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-18-0a1b2c",
+  "audit_id": "fixture",
+  "method": "wcag-em-2.0",
+  "algorithm": "diligent-sampler/1",
+  "seed": "alpha",
+  "prng": "diligent-xorshift64star/1",
+  "structured": [
+    {
+      "url": "https://example.gov/",
+      "cluster_id": "8f306e3de160",
+      "reason": "home"
+    },
+    {
+      "url": "https://example.gov/items/p-001",
+      "cluster_id": "e3783f7a15aa",
+      "reason": "template:e3783f7a15aa"
+    },
+    {
+      "url": "https://example.gov/about",
+      "cluster_id": "f1e9a4008e24",
+      "reason": "unique"
+    }
+  ],
+  "random": [
+    {
+      "url": "https://example.gov/items/p-077",
+      "cluster_id": "e3783f7a15aa",
+      "in_structured_cluster": true
+    },
+    {
+      "url": "https://example.gov/items/p-005",
+      "cluster_id": "e3783f7a15aa",
+      "in_structured_cluster": true
+    },
+    {
+      "url": "https://example.gov/items/p-099",
+      "cluster_id": "e3783f7a15aa",
+      "in_structured_cluster": true
+    },
+    {
+      "url": "https://example.gov/items/p-076",
+      "cluster_id": "e3783f7a15aa",
+      "in_structured_cluster": true
+    },
+    {
+      "url": "https://example.gov/items/p-042",
+      "cluster_id": "e3783f7a15aa",
+      "in_structured_cluster": true
+    },
+    {
+      "url": "https://example.gov/items/p-102",
+      "cluster_id": "e3783f7a15aa",
+      "in_structured_cluster": true
+    },
+    {
+      "url": "https://example.gov/items/p-016",
+      "cluster_id": "e3783f7a15aa",
+      "in_structured_cluster": true
+    }
+  ],
+  "processes": [],
+  "coverage": {
+    "discovered": 122,
+    "fetched": 122,
+    "clustered": 3,
+    "sampled_structured": 3,
+    "sampled_random": 7,
+    "excluded_by_robots": 0,
+    "unreachable": 0,
+    "off_scope": 0,
+    "documents": 0
+  },
+  "structured_coverage_estimate": 1.0,
+  "statement": "A sample never supports a whole-site conformance claim. Results apply to the sampled pages and processes.",
+  "partial": false,
+  "remaining_work": []
+}

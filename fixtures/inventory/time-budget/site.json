@@ -1,0 +1,105 @@
+{
+  "https://example.gov/robots.txt": {
+    "headers": {
+      "content-type": "text/plain"
+    },
+    "body": "User-agent: *\nDisallow:\nCrawl-delay: 10\n"
+  },
+  "https://example.gov/": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Home</title></head><body><header><p>Example agency</p></header><main><h1>Home</h1><p>Text.</p><a href=\"/section/page-01\">/section/page-01</a> <a href=\"/section/page-02\">/section/page-02</a> <a href=\"/section/page-03\">/section/page-03</a> <a href=\"/section/page-04\">/section/page-04</a></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/sitemap.xml": {
+    "headers": {
+      "content-type": "application/xml"
+    },
+    "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"><url><loc>https://example.gov/section/page-01</loc></url><url><loc>https://example.gov/section/page-02</loc></url><url><loc>https://example.gov/section/page-03</loc></url><url><loc>https://example.gov/section/page-04</loc></url><url><loc>https://example.gov/section/page-05</loc></url><url><loc>https://example.gov/section/page-06</loc></url><url><loc>https://example.gov/section/page-07</loc></url><url><loc>https://example.gov/section/page-08</loc></url><url><loc>https://example.gov/section/page-09</loc></url><url><loc>https://example.gov/section/page-10</loc></url><url><loc>https://example.gov/section/page-11</loc></url><url><loc>https://example.gov/section/page-12</loc></url></urlset>"
+  },
+  "https://example.gov/section/page-01": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Page 1</title></head><body><header><p>Example agency</p></header><main><h1>Page 1</h1><p>Text.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/section/page-02": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Page 2</title></head><body><header><p>Example agency</p></header><main><h1>Page 2</h1><p>Text.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/section/page-03": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Page 3</title></head><body><header><p>Example agency</p></header><main><h1>Page 3</h1><p>Text.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/section/page-04": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Page 4</title></head><body><header><p>Example agency</p></header><main><h1>Page 4</h1><p>Text.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/section/page-05": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Page 5</title></head><body><header><p>Example agency</p></header><main><h1>Page 5</h1><p>Text.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/section/page-06": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Page 6</title></head><body><header><p>Example agency</p></header><main><h1>Page 6</h1><p>Text.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/section/page-07": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Page 7</title></head><body><header><p>Example agency</p></header><main><h1>Page 7</h1><p>Text.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/section/page-08": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Page 8</title></head><body><header><p>Example agency</p></header><main><h1>Page 8</h1><p>Text.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/section/page-09": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Page 9</title></head><body><header><p>Example agency</p></header><main><h1>Page 9</h1><p>Text.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/section/page-10": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Page 10</title></head><body><header><p>Example agency</p></header><main><h1>Page 10</h1><p>Text.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/section/page-11": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Page 11</title></head><body><header><p>Example agency</p></header><main><h1>Page 11</h1><p>Text.</p></main><footer>Footer</footer></body></html>"
+  },
+  "https://example.gov/section/page-12": {
+    "status": 200,
+    "headers": {
+      "content-type": "text/html; charset=utf-8"
+    },
+    "body": "<!doctype html><html lang=\"en\"><head><title>Page 12</title></head><body><header><p>Example agency</p></header><main><h1>Page 12</h1><p>Text.</p></main><footer>Footer</footer></body></html>"
+  }
+}

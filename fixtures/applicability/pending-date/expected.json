@@ -1,0 +1,210 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-17-ffffff",
+  "audit_id": "fixture-audit",
+  "profile_id": "fixture-profile",
+  "evaluated_at": "2026-10-17T12:00:00Z",
+  "obligations": [
+    {
+      "obligation_id": "OBL-FX-01",
+      "rule_id": "FX-01",
+      "pack_id": "fixture-pack",
+      "authority_id": "AX1",
+      "mandatory": true,
+      "state": "pending_effective_date",
+      "temporal_state": "pending",
+      "effective_date": "2027-04-26",
+      "predicate_trace": [
+        {
+          "path": "0",
+          "op": "fact",
+          "expr": "public_facing",
+          "result": "true",
+          "fact": "public_facing",
+          "fact_state": "known",
+          "reason": null
+        },
+        {
+          "path": "t.0",
+          "op": "transition",
+          "expr": "enforcement: 2028-04-26",
+          "result": "unknown",
+          "fact": null,
+          "fact_state": null,
+          "reason": null
+        }
+      ],
+      "facts_used": [
+        "public_facing"
+      ],
+      "exclusion": null
+    },
+    {
+      "obligation_id": "OBL-FX-02",
+      "rule_id": "FX-02",
+      "pack_id": "fixture-pack",
+      "authority_id": "AX1",
+      "mandatory": true,
+      "state": "applicable",
+      "temporal_state": "effective",
+      "effective_date": "2026-10-17",
+      "predicate_trace": [
+        {
+          "path": "0",
+          "op": "fact",
+          "expr": "public_facing",
+          "result": "true",
+          "fact": "public_facing",
+          "fact_state": "known",
+          "reason": null
+        }
+      ],
+      "facts_used": [
+        "public_facing"
+      ],
+      "exclusion": null
+    },
+    {
+      "obligation_id": "OBL-FX-03",
+      "rule_id": "FX-03",
+      "pack_id": "fixture-pack",
+      "authority_id": "AX1",
+      "mandatory": false,
+      "state": "applicable",
+      "temporal_state": "effective",
+      "effective_date": "2026-01-01",
+      "predicate_trace": [
+        {
+          "path": "0",
+          "op": "fact",
+          "expr": "public_facing",
+          "result": "true",
+          "fact": "public_facing",
+          "fact_state": "known",
+          "reason": null
+        }
+      ],
+      "facts_used": [
+        "public_facing"
+      ],
+      "exclusion": null
+    },
+    {
+      "obligation_id": "OBL-FX-04",
+      "rule_id": "FX-04",
+      "pack_id": "fixture-pack",
+      "authority_id": "AX1",
+      "mandatory": true,
+      "state": "unknown",
+      "temporal_state": "unknown",
+      "effective_date": null,
+      "predicate_trace": [
+        {
+          "path": "0",
+          "op": "fact",
+          "expr": "public_facing",
+          "result": "true",
+          "fact": "public_facing",
+          "fact_state": "known",
+          "reason": null
+        }
+      ],
+      "facts_used": [
+        "public_facing"
+      ],
+      "exclusion": null
+    },
+    {
+      "obligation_id": "OBL-FX-05",
+      "rule_id": "FX-05",
+      "pack_id": "fixture-pack",
+      "authority_id": "AX1",
+      "mandatory": true,
+      "state": "unknown",
+      "temporal_state": "unknown",
+      "effective_date": null,
+      "predicate_trace": [
+        {
+          "path": "0",
+          "op": "fact",
+          "expr": "public_facing",
+          "result": "true",
+          "fact": "public_facing",
+          "fact_state": "known",
+          "reason": null
+        }
+      ],
+      "facts_used": [
+        "public_facing"
+      ],
+      "exclusion": null
+    },
+    {
+      "obligation_id": "OBL-FX-06",
+      "rule_id": "FX-06",
+      "pack_id": "fixture-pack",
+      "authority_id": "AX1",
+      "mandatory": true,
+      "state": "applicable",
+      "temporal_state": "effective",
+      "effective_date": null,
+      "predicate_trace": [
+        {
+          "path": "0",
+          "op": "fact",
+          "expr": "public_facing",
+          "result": "true",
+          "fact": "public_facing",
+          "fact_state": "known",
+          "reason": null
+        }
+      ],
+      "facts_used": [
+        "public_facing"
+      ],
+      "exclusion": null
+    },
+    {
+      "obligation_id": "OBL-FX-07",
+      "rule_id": "FX-07",
+      "pack_id": "fixture-pack",
+      "authority_id": "AX1",
+      "mandatory": true,
+      "state": "not_applicable",
+      "temporal_state": "pending",
+      "effective_date": "2027-04-26",
+      "predicate_trace": [
+        {
+          "path": "0.0",
+          "op": "fact",
+          "expr": "public_facing",
+          "result": "true",
+          "fact": "public_facing",
+          "fact_state": "known",
+          "reason": null
+        },
+        {
+          "path": "0",
+          "op": "not",
+          "expr": "!public_facing",
+          "result": "false",
+          "fact": null,
+          "fact_state": null,
+          "reason": null
+        }
+      ],
+      "facts_used": [
+        "public_facing"
+      ],
+      "exclusion": {
+        "citation": "AX1 1.1",
+        "predicate_facts": [
+          "public_facing"
+        ],
+        "evidence_refs": [
+          "ev-001"
+        ]
+      }
+    }
+  ]
+}
