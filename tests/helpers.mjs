@@ -1,10 +1,13 @@
 import { execFile } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 import { cp, mkdtemp, realpath, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+/** The real package version; tests assert against this, never a literal. */
+export const VERSION = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')).version;
 export const FIXED_NOW = '2026-10-17T00:00:00.000Z';
 
 /** Run a node script from the package; never throws on a non-zero exit. */

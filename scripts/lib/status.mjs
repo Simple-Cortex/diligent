@@ -3,9 +3,11 @@
  * Pure functions: no I/O, no clocks (the caller passes `now`).
  */
 
+import { DILIGENT_VERSION } from './cli.mjs';
+
 export const CLAIM_BOUNDARY =
   'This is an engineering assessment for the declared scope only. It is not a government certification, ' +
-  'not a legal conclusion, and not a claim about the whole site. Diligent 0.1.0 runs no automated website checks.';
+  'not a legal conclusion, and not a claim about the whole site. ' + `Diligent ${DILIGENT_VERSION} runs no automated website checks.`;
 
 const OPEN_RESULT_STATES = new Set(['not_tested', 'blocked', 'error', 'needs_review']);
 const EXECUTED_STATES = new Set(['pass', 'fail', 'needs_review']);

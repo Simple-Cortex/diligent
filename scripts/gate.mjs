@@ -10,7 +10,7 @@ import {
   UsageError, advanceRun, appendEvent, atomicWriteJson, latestRun, loadArtifact, locateAuditDir,
   nowIso, pathExists, sha256File, validateData
 } from './lib/artifacts.mjs';
-import { parseArgs, runMain } from './lib/cli.mjs';
+import { DILIGENT_VERSION, parseArgs, runMain } from './lib/cli.mjs';
 import { CLAIM_BOUNDARY, aggregate, exitCodeFor } from './lib/status.mjs';
 
 const HELP = `Usage: diligent gate <audit-id> [--root <workspace>] [--dir <audit-directory>] [--json] [--now <iso-time>]
@@ -57,7 +57,7 @@ async function main() {
   const loaded = {};
   for (const name of names) loaded[name] = await loadArtifact(dir, name);
 
-  const limitations = ['Diligent 0.1.0 runs no automated website checks. Results come only from human or documentary input.'];
+  const limitations = [`Diligent ${DILIGENT_VERSION} runs no automated website checks. Results come only from human or documentary input.`];
   const unresolved = [];
   const invalid = names.filter(name => loaded[name].exists && !loaded[name].ok);
 

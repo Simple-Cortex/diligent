@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "registry_version": "0.1.0",
+  "registry_version": "0.1.1",
   "authorities": [
     {
       "authority_id": "A01",
@@ -26,7 +26,7 @@
       "issuer": "U.S. Department of Justice",
       "kind": "regulation",
       "official_url": "https://www.ada.gov/resources/small-entity-compliance-guide/",
-      "version_url": null,
+      "version_url": "https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web",
       "publication_date": null,
       "effective_date": null,
       "transition_dates": [
@@ -43,10 +43,10 @@
       "supersedes": null,
       "superseded_by": null,
       "scope_note": "State and local public entities. WCAG 2.1 AA with defined exceptions. Existing ADA duties continue before the compliance dates.",
-      "source_verified_at": "2026-10-15",
+      "source_verified_at": "2026-10-17",
       "source_review_status": "research",
       "content_sha256": null,
-      "notes": "Dates as stated in current Department of Justice guidance per the blueprint. Follow the guide links to the regulation and the 2026 interim final rule before relying on them."
+      "notes": "Dates reflect the DOJ interim final rule 91 FR 20902, published and effective 2026-04-20, which moved the compliance dates from 2026-04-24 and 2027-04-26 to 2027-04-26 and 2028-04-26 (see A68). The technical standard stays WCAG 2.1 AA. DOJ has signalled it may revisit the standard; no final rule was found on 2026-10-17. UNVERIFIED, secondary sources only: a National Federation of the Blind suit against DOJ and HHS under the Administrative Procedure Act, filed 2026-05-21 in D. Md.; no ruling found. The official_url is DOJ's small entity guide; the Federal Register link in version_url is the primary source for the dates."
     },
     {
       "authority_id": "A03",
@@ -101,7 +101,7 @@
       "source_verified_at": "2026-10-15",
       "source_review_status": "research",
       "content_sha256": null,
-      "notes": "Archived government page preserves the original text; archive placement alone does not mean the policy is revoked. This memo rescinded M-17-06, which must not be used as the current umbrella authority. Current Digital.gov policy index: https://digital.gov/resources/delivering-digital-first-public-experience"
+      "notes": "Archived government page preserves the original text; archive placement alone does not mean the policy is revoked. This memo rescinded M-17-06, which must not be used as the current umbrella authority. Current Digital.gov policy index: https://digital.gov/resources/delivering-digital-first-public-experience Hard must items to encode individually: site-wide search on public sites, do not block crawlers or archivers, HTTPS everywhere with preload, mobile-friendly public sites, Digital Analytics Program participation, .gov or .mil domains, plain language."
     },
     {
       "authority_id": "A06",
@@ -224,14 +224,14 @@
       "publication_date": null,
       "effective_date": null,
       "transition_dates": [],
-      "status": "unverified",
+      "status": "active",
       "supersedes": null,
       "superseded_by": null,
       "scope_note": "Vulnerability disclosure policy and processes for covered federal civilian executive branch systems, with directive-specific exclusions.",
       "source_verified_at": null,
       "source_review_status": "research",
       "content_sha256": null,
-      "notes": "Direct retrieval of some CISA pages was restricted during research. Not source-verified. Verify directive text and status before enabling exact timing or header checks."
+      "notes": "Status raised from unverified: CISA documents from 2024 to 2026 still cite BOD 20-01, and BOD 26-04 (A64) does not revoke it. The directive text itself was not re-fetched, so source_verified_at stays empty and exact timing checks stay disabled. security.txt at /.well-known/security.txt is CISA guidance, not a mandate under this directive. The mandated route is a vulnerability disclosure policy at /vulnerability-disclosure-policy on the primary .gov site."
     },
     {
       "authority_id": "A13",
@@ -243,18 +243,18 @@
       "publication_date": null,
       "effective_date": null,
       "transition_dates": [],
-      "status": "unverified",
+      "status": "active",
       "supersedes": null,
       "superseded_by": null,
       "scope_note": "HTTPS, HSTS, and covered email-domain protections for covered federal civilian executive branch systems.",
       "source_verified_at": null,
       "source_review_status": "research",
       "content_sha256": null,
-      "notes": "Direct retrieval of some CISA pages was restricted during research. Not source-verified. Verify directive text and status before enabling exact timing or header checks."
+      "notes": "Status raised from unverified: no rescission of BOD 18-01 was found, and BOD 26-04 (A64) does not revoke it. CISA has no explicit in-effect statement for it, and the directive text was not re-fetched, so source_verified_at stays empty and exact header and timing checks stay disabled."
     },
     {
       "authority_id": "A14",
-      "title": "CISA directive index, BOD 22-01 (known exploited vulnerabilities), BOD 23-01 (asset visibility)",
+      "title": "CISA directive index and BOD 23-01 (asset visibility); BOD 22-01 (known exploited vulnerabilities) revoked",
       "issuer": "Cybersecurity and Infrastructure Security Agency",
       "kind": "binding_policy",
       "official_url": "https://www.cisa.gov/news-events/directives",
@@ -264,12 +264,14 @@
       "transition_dates": [],
       "status": "unverified",
       "supersedes": null,
-      "superseded_by": null,
-      "scope_note": "Known exploited vulnerability remediation and asset and vulnerability coverage for covered federal civilian executive branch systems.",
+      "superseded_by": [
+        "A64"
+      ],
+      "scope_note": "Directive index and asset and vulnerability visibility under BOD 23-01 for covered federal civilian executive branch systems. BOD 22-01 (known exploited vulnerabilities) was revoked by BOD 26-04 on 2026-06-10 and is not an active obligation. Supersession is partial: A64 supersedes the BOD 22-01 portion only.",
       "source_verified_at": null,
       "source_review_status": "research",
       "content_sha256": null,
-      "notes": "Some direct directive pages blocked automated retrieval during research. Not source-verified. Related pages: https://www.cisa.gov/news-events/directives/bod-22-01-reducing-significant-risk-known-exploited-vulnerabilities and https://www.cisa.gov/news-events/directives/bod-23-01-improving-asset-visibility-and-vulnerability-detection-federal-networks"
+      "notes": "BOD 22-01 is revoked per the CISA directives index (BOD 26-04, 2026-06-10); do not cite it as an active obligation. Whether BOD 23-01 remains in effect was not verified, so status stays unverified. Related page: https://www.cisa.gov/news-events/directives/bod-23-01-improving-asset-visibility-and-vulnerability-detection-federal-networks"
     },
     {
       "authority_id": "A15",
@@ -866,21 +868,22 @@
     },
     {
       "authority_id": "A48",
-      "title": "Access Board ICT Testing Baseline",
+      "title": "Access Board ICT Testing Baseline for Web, version 3.1",
       "issuer": "U.S. Access Board",
       "kind": "guidance",
       "official_url": "https://ictbaseline.access-board.gov/",
-      "version_url": null,
-      "publication_date": null,
+      "version_url": "https://ictbaseline.access-board.gov/allwebbaselines.html",
+      "publication_date": "2024-04-01",
       "effective_date": null,
       "transition_dates": [],
       "status": "active",
       "supersedes": null,
       "superseded_by": null,
-      "scope_note": "Test portfolio and consistent evaluation methods. Does not replace scope and human review.",
-      "source_verified_at": "2026-10-15",
+      "scope_note": "Test portfolio and consistent evaluation methods for Revised Section 508 (WCAG 2.0 A/AA). 24 web baseline tests, numbered 01 to 24. Does not replace scope and human review. Individual tests cite WCAG 2.2 Understanding articles for clarity only.",
+      "source_verified_at": "2026-10-17",
       "source_review_status": "research",
-      "content_sha256": null
+      "content_sha256": null,
+      "notes": "Version 3.1 published 2024-04-01; the older Trusted Tester citation of 3.0 is stale. The Baseline for Electronic Documents is a separate record (A69). Rule-to-test mapping lives in each accessibility rule's baseline_test_id."
     },
     {
       "authority_id": "A49",
@@ -895,10 +898,11 @@
       "status": "active",
       "supersedes": null,
       "superseded_by": null,
-      "scope_note": "Required, pending, draft, and research status as displayed on the research date. The catalog showed no standards in its required group; three were pending.",
-      "source_verified_at": "2026-10-15",
+      "scope_note": "Required, pending, draft, and research status as displayed on the research date. As of 2026-10-17 the catalog lists zero required standards. Pending (published 2024-09-26, no compliance dates): government banner (A50), HTML page title (A51), meta page description (A52). Draft: contact page, content timeliness indicator, site search. Research: external link, language selector, page-level feedback.",
+      "source_verified_at": "2026-10-17",
       "source_review_status": "research",
-      "content_sha256": null
+      "content_sha256": null,
+      "notes": "Standards hub moved to https://standards.digital.gov/ from designsystem.digital.gov. Draft and research items have no authority record or rule in 0.1.1. Nothing has changed status since the March 2025 update. Pending standards apply to executive-branch public sites on .gov or .mil."
     },
     {
       "authority_id": "A50",
@@ -914,10 +918,10 @@
       "supersedes": null,
       "superseded_by": null,
       "scope_note": "Top of every page, official-site text and dropdown information for .gov and .mil with HTTPS. Public executive-branch .gov and .mil services.",
-      "source_verified_at": "2026-10-15",
+      "source_verified_at": "2026-10-17",
       "source_review_status": "research",
       "content_sha256": null,
-      "notes": "The retrieved page supplied no compliance timeline. Do not invent a deadline."
+      "notes": "The retrieved page supplied no compliance timeline. Do not invent a deadline. Acceptance criteria: banner on every page, on its own line, with the flag, official-site text, and an expandable explanation of .gov and HTTPS."
     },
     {
       "authority_id": "A51",
@@ -933,10 +937,10 @@
       "supersedes": null,
       "superseded_by": null,
       "scope_note": "Every page has a unique title of at least 20 characters under this pending standard, distinct from WCAG 2.4.2.",
-      "source_verified_at": "2026-10-15",
+      "source_verified_at": "2026-10-17",
       "source_review_status": "research",
       "content_sha256": null,
-      "notes": "The retrieved page supplied no compliance timeline. Do not invent a deadline."
+      "notes": "The retrieved page supplied no compliance timeline. Do not invent a deadline. Acceptance criteria: unique title of at least 20 characters on every page."
     },
     {
       "authority_id": "A52",
@@ -952,10 +956,10 @@
       "supersedes": null,
       "superseded_by": null,
       "scope_note": "Every page has a unique description of at least 50 characters under this pending standard. Accuracy is assessed separately.",
-      "source_verified_at": "2026-10-15",
+      "source_verified_at": "2026-10-17",
       "source_review_status": "research",
       "content_sha256": null,
-      "notes": "The retrieved page supplied no compliance timeline. Do not invent a deadline."
+      "notes": "The retrieved page supplied no compliance timeline. Do not invent a deadline. Acceptance criteria: unique description of at least 50 characters on every page."
     },
     {
       "authority_id": "A53",
@@ -1101,6 +1105,197 @@
       "source_verified_at": "2026-10-15",
       "source_review_status": "research",
       "content_sha256": null
+    },
+    {
+      "authority_id": "A61",
+      "title": "HHS Section 504 web and mobile accessibility rule (45 CFR Part 84 Subpart I)",
+      "issuer": "U.S. Department of Health and Human Services",
+      "kind": "regulation",
+      "official_url": "https://www.federalregister.gov/documents/2026/05/11/2026-09266/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web",
+      "version_url": "https://www.federalregister.gov/documents/2026/05/11/2026-09266/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web",
+      "publication_date": "2024-05-09",
+      "effective_date": null,
+      "transition_dates": [
+        {
+          "label": "Compliance date for recipients with 15 or more employees",
+          "date": "2027-05-11"
+        },
+        {
+          "label": "Compliance date for recipients with fewer than 15 employees",
+          "date": "2028-05-10"
+        }
+      ],
+      "status": "active",
+      "supersedes": null,
+      "superseded_by": null,
+      "scope_note": "Web content and mobile apps of recipients of HHS financial assistance. WCAG 2.1 AA. Activation requires that the entity receives HHS financial assistance; headcount band selects the date.",
+      "source_verified_at": "2026-10-17",
+      "source_review_status": "research",
+      "content_sha256": null,
+      "notes": "Final rule 89 FR 40066, published 2024-05-09. Dates moved by HHS interim final rule 91 FR 25496 (document 2026-09266, published 2026-05-11) from 2026-05-11 and 2027-05-10. The official_url is the interim final rule. One blog claims HHS was not extended; the Federal Register shows it was. Challenged in the UNVERIFIED National Federation of the Blind suit noted at A02. No web-specific Section 504 rule from the Department of Education or other agencies was found; that means not found, not nonexistent."
+    },
+    {
+      "authority_id": "A62",
+      "title": "OMB Memorandum M-25-21, Accelerating Federal Use of AI through Innovation, Governance, and Public Trust",
+      "issuer": "Office of Management and Budget",
+      "kind": "binding_policy",
+      "official_url": "https://www.whitehouse.gov/wp-content/uploads/2025/02/M-25-21-Accelerating-Federal-Use-of-AI-through-Innovation-Governance-and-Public-Trust.pdf",
+      "version_url": null,
+      "publication_date": "2025-04-03",
+      "effective_date": null,
+      "transition_dates": [],
+      "status": "active",
+      "supersedes": null,
+      "superseded_by": null,
+      "scope_note": "Federal agency AI governance, strategy, use-case inventory, and minimum practices for high-impact AI. An AI feature on an audited service triggers an evidence request against this memo.",
+      "source_verified_at": "2026-10-17",
+      "source_review_status": "research",
+      "content_sha256": null,
+      "notes": "Supersedes OMB M-24-10, which has no registry record. Verified in the memo text: CFO Act agency AI strategy within 180 days; governance board within 90 days; annual use-case inventory; compliance plans every two years; generative AI policy within 270 days. High-impact AI minimum practices within 365 days: pre-deployment testing, impact assessment, ongoing monitoring, human oversight, timely human review and appeal, and an end-user feedback option. Whether a feature is high-impact needs human judgment."
+    },
+    {
+      "authority_id": "A63",
+      "title": "OMB Memorandum M-25-22, Driving Efficient Acquisition of Artificial Intelligence in Government",
+      "issuer": "Office of Management and Budget",
+      "kind": "binding_policy",
+      "official_url": "https://www.whitehouse.gov/wp-content/uploads/2025/02/M-25-22-Driving-Efficient-Acquisition-of-Artificial-Intelligence-in-Government.pdf",
+      "version_url": null,
+      "publication_date": "2025-04-03",
+      "effective_date": null,
+      "transition_dates": [],
+      "status": "active",
+      "supersedes": null,
+      "superseded_by": null,
+      "scope_note": "Agency acquisition of AI systems and services.",
+      "source_verified_at": "2026-10-17",
+      "source_review_status": "research",
+      "content_sha256": null,
+      "notes": "Supersedes OMB M-24-18, which has no registry record. Effective dates conflict across secondary sources and are UNVERIFIED; none is encoded. Read the memo text before dating any acquisition obligation."
+    },
+    {
+      "authority_id": "A64",
+      "title": "CISA Binding Operational Directive 26-04",
+      "issuer": "Cybersecurity and Infrastructure Security Agency",
+      "kind": "binding_policy",
+      "official_url": "https://www.cisa.gov/news-events/directives",
+      "version_url": null,
+      "publication_date": "2026-06-10",
+      "effective_date": null,
+      "transition_dates": [],
+      "status": "active",
+      "supersedes": [
+        "A14"
+      ],
+      "superseded_by": null,
+      "scope_note": "Revokes BOD 19-02 and BOD 22-01. Does not revoke BOD 18-01 or BOD 20-01.",
+      "source_verified_at": "2026-10-17",
+      "source_review_status": "research",
+      "content_sha256": null,
+      "notes": "Listed on the CISA directives index, issued 2026-06-10. The directive's own page was not fetched, so its substantive requirements are not encoded. BOD 19-02 has no registry record; BOD 22-01 is carried in A14. BOD 25-01 (cloud baselines) is not site-relevant."
+    },
+    {
+      "authority_id": "A65",
+      "title": "W3C Accessibility Conformance Testing (ACT) Rules Format 1.1",
+      "issuer": "W3C",
+      "kind": "technical_standard",
+      "official_url": "https://www.w3.org/TR/act-rules-format-1.1/",
+      "version_url": null,
+      "publication_date": "2026-02-05",
+      "effective_date": null,
+      "transition_dates": [],
+      "status": "active",
+      "supersedes": null,
+      "superseded_by": null,
+      "scope_note": "Format for accessibility test rules, with applicability and expectations. Diligent adopts its semantics and ACT test cases as fixtures. Does not add WCAG requirements.",
+      "source_verified_at": "2026-10-17",
+      "source_review_status": "research",
+      "content_sha256": null,
+      "notes": "W3C Recommendation, 2026-02-05. The overview page is A53."
+    },
+    {
+      "authority_id": "A66",
+      "title": "ITI Voluntary Product Accessibility Template (VPAT) 2.5Rev",
+      "issuer": "Information Technology Industry Council",
+      "kind": "guidance",
+      "official_url": "https://www.itic.org/policy/accessibility/vpat",
+      "version_url": null,
+      "publication_date": "2025-04-24",
+      "effective_date": null,
+      "transition_dates": [],
+      "status": "active",
+      "supersedes": null,
+      "superseded_by": null,
+      "scope_note": "Template for an Accessibility Conformance Report with 508, EU, and WCAG editions. Evidence of vendor claims, not certification of the deployed service.",
+      "source_verified_at": "2026-10-17",
+      "source_review_status": "research",
+      "content_sha256": null,
+      "notes": "Version 2.5Rev released 2025-04-24."
+    },
+    {
+      "authority_id": "A67",
+      "title": "GSA OpenACR schema openacr-0.1.0",
+      "issuer": "General Services Administration",
+      "kind": "technical_standard",
+      "official_url": "https://github.com/GSA/openacr",
+      "version_url": "https://raw.githubusercontent.com/GSA/openacr/main/schema/openacr-0.1.0.json",
+      "publication_date": null,
+      "effective_date": null,
+      "transition_dates": [],
+      "status": "active",
+      "supersedes": null,
+      "superseded_by": null,
+      "scope_note": "Machine-readable ACR format (YAML validated against JSON Schema draft-07). Diligent plans to emit OpenACR from reports.",
+      "source_verified_at": "2026-10-17",
+      "source_review_status": "research",
+      "content_sha256": null,
+      "notes": "Repository is not archived and was updated 2026-10-12, but the last commit on main is dated 2024-03-12, so activity is low. Whether the schema tracks VPAT 2.5Rev is UNVERIFIED. npm package version 0.3.8."
+    },
+    {
+      "authority_id": "A68",
+      "title": "DOJ interim final rule 91 FR 20902, extension of ADA Title II web rule compliance dates",
+      "issuer": "U.S. Department of Justice",
+      "kind": "regulation",
+      "official_url": "https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web",
+      "version_url": "https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web",
+      "publication_date": "2026-04-20",
+      "effective_date": "2026-04-20",
+      "transition_dates": [
+        {
+          "label": "Compliance date for public entities with a population of 50,000 or more",
+          "date": "2027-04-26"
+        },
+        {
+          "label": "Compliance date for smaller public entities and special district governments",
+          "date": "2028-04-26"
+        }
+      ],
+      "status": "active",
+      "supersedes": null,
+      "superseded_by": null,
+      "scope_note": "Moves the 28 CFR Part 35 Subpart H compliance dates to 2027-04-26 (population 50,000 or more) and 2028-04-26 (under 50,000 and special district governments). The technical standard stays WCAG 2.1 AA.",
+      "source_verified_at": "2026-10-17",
+      "source_review_status": "research",
+      "content_sha256": null,
+      "notes": "Published and effective 2026-04-20. Comments closed 2026-06-22. Original dates were 2026-04-24 and 2027-04-26. DOJ signalled it may revisit the technical standard; no final rule found as of 2026-10-17. Parent rule is A02."
+    },
+    {
+      "authority_id": "A69",
+      "title": "Access Board ICT Testing Baseline for Electronic Documents, version 1.0",
+      "issuer": "U.S. Access Board",
+      "kind": "guidance",
+      "official_url": "https://ictbaseline.access-board.gov/document-baselines/",
+      "version_url": null,
+      "publication_date": "2024-09-30",
+      "effective_date": null,
+      "transition_dates": [],
+      "status": "active",
+      "supersedes": null,
+      "superseded_by": null,
+      "scope_note": "Baseline tests for electronic documents under Revised Section 508. Companion to A48. Individual document tests are not mapped to rules in 0.1.1.",
+      "source_verified_at": "2026-10-17",
+      "source_review_status": "research",
+      "content_sha256": null,
+      "notes": "Version 1.0 published 2024-09-30. Maintained by the ICT Testing Baseline Working Group."
     }
   ]
 }

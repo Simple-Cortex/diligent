@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "pack_id": "a11y-wcag22-aa",
-  "pack_version": "0.1.0",
+  "pack_version": "0.1.1",
   "profile_ids": [
     "us-federal-public-web",
     "us-state-local-ada-title-ii"
@@ -76,7 +76,15 @@
         "proposed_procedure": "Ensure focused components are not entirely hidden by author-created content. Test sticky headers/footers, overlays, and scrolling.",
         "blueprint_test_channels": "B",
         "modality_basis": "Recommended product target unless made binding by an applicable adoption (blueprint 4.6). Distinguish from the incorporated federal minimum."
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.2",
+          "level": "AA",
+          "criterion": "2.4.11",
+          "role": "recommended"
+        }
+      ]
     },
     {
       "rule_id": "A11Y-2.5.7",
@@ -148,7 +156,15 @@
         "proposed_procedure": "Supply a single-pointer method without dragging unless a specified exception applies; keyboard support alone is insufficient for this criterion.",
         "blueprint_test_channels": "B H",
         "modality_basis": "Recommended product target unless made binding by an applicable adoption (blueprint 4.6). Distinguish from the incorporated federal minimum."
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.2",
+          "level": "AA",
+          "criterion": "2.5.7",
+          "role": "recommended"
+        }
+      ]
     },
     {
       "rule_id": "A11Y-2.5.8",
@@ -219,7 +235,15 @@
         "proposed_procedure": "Evaluate 24×24 CSS px targets or qualifying spacing/exceptions. Use the actual geometry rules; 44×44 is not the universal AA minimum.",
         "blueprint_test_channels": "B",
         "modality_basis": "Recommended product target unless made binding by an applicable adoption (blueprint 4.6). Distinguish from the incorporated federal minimum."
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.2",
+          "level": "AA",
+          "criterion": "2.5.8",
+          "role": "recommended"
+        }
+      ]
     },
     {
       "rule_id": "A11Y-3.2.6",
@@ -290,7 +314,15 @@
         "proposed_procedure": "Compare repeated help mechanisms' relative order across pages. Do not claim this criterion requires a chatbot.",
         "blueprint_test_channels": "B",
         "modality_basis": "Recommended product target unless made binding by an applicable adoption (blueprint 4.6). Distinguish from the incorporated federal minimum."
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "3.2.6",
+          "role": "recommended"
+        }
+      ]
     },
     {
       "rule_id": "A11Y-3.3.7",
@@ -364,7 +396,15 @@
         "proposed_procedure": "Identify repeated information within the same process. Offer qualifying reuse/selection, subject to security, validity, and essential exceptions.",
         "blueprint_test_channels": "B H",
         "modality_basis": "Recommended product target unless made binding by an applicable adoption (blueprint 4.6). Distinguish from the incorporated federal minimum."
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "3.3.7",
+          "role": "recommended"
+        }
+      ]
     },
     {
       "rule_id": "A11Y-3.3.8",
@@ -438,7 +478,15 @@
         "proposed_procedure": "Assess cognitive-function tests and permitted alternatives/mechanisms/exceptions. Test password-manager support, paste, and actual recovery flows.",
         "blueprint_test_channels": "B H",
         "modality_basis": "Recommended product target unless made binding by an applicable adoption (blueprint 4.6). Distinguish from the incorporated federal minimum."
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.2",
+          "level": "AA",
+          "criterion": "3.3.8",
+          "role": "recommended"
+        }
+      ]
     }
   ],
   "extensions": {

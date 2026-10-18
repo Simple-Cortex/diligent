@@ -1,7 +1,10 @@
 /** Tiny argument parser shared by the scripts. No dependencies. */
-import { realpathSync } from 'node:fs';
+import { readFileSync, realpathSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { UsageError } from './artifacts.mjs';
+
+/** The package version, read once at load from package.json. Every user-visible version string uses this. */
+export const DILIGENT_VERSION = JSON.parse(readFileSync(new URL('../../package.json', import.meta.url), 'utf8')).version;
 
 /** True when the module at `metaUrl` is the process entry point (works across symlinks and platforms). */
 export function isMain(metaUrl) {

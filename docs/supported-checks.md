@@ -1,33 +1,33 @@
 # Supported checks
 
-**0 automated checks ship in Diligent 0.1.0.** Every rule below is at the `research` lifecycle and none is published. A rule listed here is a cataloged obligation, not an executable test.
+**The installable Diligent 0.1.1 package ships zero automated website checks.** Every rule below is at the `research` lifecycle and none is published. A rule listed here is a cataloged obligation, not an executable test. The "automated" and "assisted" Network cells and the counts of 5 (federal-public-web), 5 (infrastructure), and 10 (total) in this document refer to the `diligent-rs` native companion engine. That engine is built from source in the development repository and is not yet distributed, so none of those checks runs from the 0.1.1 package.
 
-What 0.1.0 does ship: the router, the artifact chain and schemas, the authority registry, the rule-pack format and seven research packs, and a deterministic gate that computes an overall status from results an agent or human supplies. The gate can only report `fail` when supplied results show a confirmed failure of an applicable mandatory obligation. It cannot report a pass for anything that was not observed and recorded.
+What 0.1.1 does ship: the router, the artifact chain and schemas, the authority registry, the rule-pack format and seven research packs, and a deterministic gate that computes an overall status from results an agent or human supplies. The gate can only report `fail` when supplied results show a confirmed failure of an applicable mandatory obligation. It cannot report a pass for anything that was not observed and recorded.
 
 ## Channel support values
 
 | Value | Meaning in this matrix |
 | --- | --- |
-| `automated` | A shipped check produces the result. None in 0.1.0 |
-| `assisted` | A shipped check produces a lead that a person or model must confirm. None in 0.1.0 |
+| `automated` | A shipped check produces the result. None in the 0.1.1 package |
+| `assisted` | A shipped check produces a lead that a person or model must confirm. None in the 0.1.1 package |
 | `human` | The rule routes the question to a qualified person through the review queue |
 | `documentary` | The rule routes the question to organizational evidence the owner supplies |
-| `unsupported` | No supported path in 0.1.0. A required unsupported check keeps the assessment incomplete |
+| `unsupported` | No supported path in the 0.1.1 package. A required unsupported check keeps the assessment incomplete |
 
-Channels are source, browser, network, model, human, and documentary. A cell shows `unsupported` for a channel the blueprint proposes but 0.1.0 does not implement.
+Channels are source, browser, network, model, human, and documentary. A cell shows `unsupported` for a channel the audit specification proposes but the 0.1.1 package does not implement. A Network cell marked `automated` or `assisted` is implemented only by the `diligent-rs` companion engine.
 
 ## Summary
 
-| Pack | Rules | Human route | Documentary route | Automated or assisted |
+| Pack | Rules | Human route | Documentary route | Automated or assisted (`diligent-rs` only) |
 | --- | --- | --- | --- | --- |
 | a11y-wcag20-aa | 38 | 29 | 3 | 0 |
 | a11y-wcag21-aa | 12 | 7 | 0 | 0 |
 | a11y-wcag22-aa | 6 | 3 | 0 | 0 |
-| federal-public-web | 42 | 20 | 27 | 0 |
+| federal-public-web | 42 | 20 | 27 | 5 |
 | privacy-collection | 17 | 0 | 16 | 0 |
-| infrastructure | 26 | 2 | 18 | 0 |
+| infrastructure | 26 | 2 | 18 | 5 |
 | ux-service | 18 | 18 | 0 | 0 |
-| total | 159 | | | 0 |
+| total | 159 |  |  | 10 |
 
 ## Matrix
 
@@ -91,24 +91,24 @@ Every rule in every pack, with its support in each channel.
 | a11y-wcag22-aa | A11Y-3.2.6 | Meet WCAG 2.2 success criterion 3.2.6 Consistent help at level A as a product target. | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
 | a11y-wcag22-aa | A11Y-3.3.7 | Meet WCAG 2.2 success criterion 3.3.7 Redundant entry at level A as a product target. | unsupported | unsupported | unsupported | unsupported | human | unsupported |
 | a11y-wcag22-aa | A11Y-3.3.8 | Meet WCAG 2.2 success criterion 3.3.8 Accessible authentication at level AA as a... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
-| federal-public-web | FED-01 | Appropriate government domain and domain governance. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
+| federal-public-web | FED-01 | Appropriate government domain and domain governance. | unsupported | unsupported | automated | unsupported | unsupported | documentary |
 | federal-public-web | FED-02 | Clear official government identity. | unsupported | unsupported | unsupported | unsupported | human | unsupported |
 | federal-public-web | FED-03 | Clear parent agency attribution. | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
 | federal-public-web | FED-04 | About information and applicable organizational disclosures. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
 | federal-public-web | FED-05 | Accessible accessibility statement and feedback path. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
-| federal-public-web | FED-06 | Privacy policy and collection-context notices. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
+| federal-public-web | FED-06 | Privacy policy and collection-context notices. | unsupported | unsupported | assisted | unsupported | unsupported | documentary |
 | federal-public-web | FED-07 | FOIA access and electronic reading-room duties. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
 | federal-public-web | FED-08 | No FEAR Act data link/content. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
 | federal-public-web | FED-09 | Budget/performance information. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
 | federal-public-web | FED-10 | Inspector General reporting access. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
-| federal-public-web | FED-11 | Public vulnerability reporting policy. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
+| federal-public-web | FED-11 | Public vulnerability reporting policy. | unsupported | unsupported | assisted | unsupported | unsupported | documentary |
 | federal-public-web | FED-12 | Contact/help and policy access. | unsupported | unsupported | unsupported | unsupported | human | unsupported |
 | federal-public-web | FED-13 | Appropriate government-wide support link. | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
 | federal-public-web | FED-14 | Consistent appearance across a service. | unsupported | unsupported | unsupported | unsupported | human | unsupported |
 | federal-public-web | FED-15 | Appropriate federal design-system/website-standard adoption. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
 | federal-public-web | FED-16 | User-centered design informed by evidence. | unsupported | unsupported | unsupported | unsupported | human | documentary |
 | federal-public-web | FED-17 | Public content can be searched. | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
-| federal-public-web | FED-18 | Public information is discoverable externally. | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
+| federal-public-web | FED-18 | Public information is discoverable externally. | unsupported | unsupported | assisted | unsupported | unsupported | unsupported |
 | federal-public-web | FED-19 | Search results are usable. | unsupported | unsupported | unsupported | unsupported | human | unsupported |
 | federal-public-web | FED-20 | Authoritative, current, nonduplicative content. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
 | federal-public-web | FED-21 | Plain writing in covered public material. | unsupported | unsupported | unsupported | unsupported | human | unsupported |
@@ -117,7 +117,7 @@ Every rule in every pack, with its support in each channel.
 | federal-public-web | FED-24 | Digital forms/services and signature alternatives. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
 | federal-public-web | FED-25 | Access for people unable to use digital services. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
 | federal-public-web | FED-26 | Shared services and appropriate customization. | unsupported | unsupported | unsupported | unsupported | human | documentary |
-| federal-public-web | FED-27 | Digital Analytics Program use where applicable. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
+| federal-public-web | FED-27 | Digital Analytics Program use where applicable. | unsupported | unsupported | assisted | unsupported | unsupported | documentary |
 | federal-public-web | FED-28 | Experience measurement and service improvement. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
 | federal-public-web | FED-29 | Language access under current applicable authority. | unsupported | unsupported | unsupported | unsupported | human | documentary |
 | federal-public-web | FED-30 | Complete task states and recovery. | unsupported | unsupported | unsupported | unsupported | human | unsupported |
@@ -150,18 +150,18 @@ Every rule in every pack, with its support in each channel.
 | privacy-collection | PRIV-15 | FOIA proactive electronic disclosure. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
 | privacy-collection | PRIV-16 | Open-data/data-catalog obligations when applicable. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
 | privacy-collection | PRIV-17 | Information-quality correction process. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
-| infrastructure | INFRA-01 | HTTPS across public websites/services. | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
-| infrastructure | INFRA-02 | HSTS in applicable scope. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
-| infrastructure | INFRA-03 | Protect mail-enabled domains. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
+| infrastructure | INFRA-01 | HTTPS across public websites/services. | unsupported | unsupported | automated | unsupported | unsupported | unsupported |
+| infrastructure | INFRA-02 | HSTS in applicable scope. | unsupported | unsupported | automated | unsupported | unsupported | documentary |
+| infrastructure | INFRA-03 | Protect mail-enabled domains. | unsupported | unsupported | automated | unsupported | unsupported | documentary |
 | infrastructure | INFRA-04 | System categorization, selected controls, authorization. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
 | infrastructure | INFRA-05 | Appropriate cloud-service assurance. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
 | infrastructure | INFRA-06 | Asset/software/hardware inventory. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
 | infrastructure | INFRA-07 | Known exploited vulnerabilities and vulnerability cadence. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
-| infrastructure | INFRA-08 | Vulnerability disclosure intake and response. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
+| infrastructure | INFRA-08 | Vulnerability disclosure intake and response. | unsupported | unsupported | assisted | unsupported | unsupported | documentary |
 | infrastructure | INFRA-09 | Server-side authorization. | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
 | infrastructure | INFRA-10 | Session and credential protection. | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
 | infrastructure | INFRA-11 | Injection, unsafe rendering and request handling. | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
-| infrastructure | INFRA-12 | Secure configuration and browser protections. | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
+| infrastructure | INFRA-12 | Secure configuration and browser protections. | unsupported | unsupported | assisted | unsupported | unsupported | unsupported |
 | infrastructure | INFRA-13 | Safe upload processing. | unsupported | unsupported | unsupported | unsupported | unsupported | unsupported |
 | infrastructure | INFRA-14 | Secret and key management. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
 | infrastructure | INFRA-15 | Cryptography meets applicable standards. | unsupported | unsupported | unsupported | unsupported | unsupported | documentary |
@@ -194,6 +194,17 @@ Every rule in every pack, with its support in each channel.
 | ux-service | UX-016 | Do charts/tables support correct interpretation? Check definitions, units, uncertainty... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
 | ux-service | UX-017 | Are people informed about consequences and choices? Check consent, fees, destructive... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
 | ux-service | UX-018 | Is the complete outcome achievable across channels/vendors? Follow handoffs and return... | unsupported | unsupported | unsupported | unsupported | human | unsupported |
+
+## Baseline coverage
+
+Every WCAG 2.0 rule in `a11y-wcag20-aa` carries a `baseline_test_id` for the ICT Testing Baseline for Web v3.1. This is a mapping for reporting, not a check. Baseline tests 03 Non-Interference and 20 Conforming Alternate Version are aggregate tests and are not a primary mapping for any rule; related tests appear in `extensions.baseline_related_test_ids`.
+
+No baseline test exists for these 18 rules, because the Baseline covers WCAG 2.0 only. They have no `baseline_test_id`.
+
+| Pack | Rules without a baseline test |
+| --- | --- |
+| a11y-wcag21-aa | A11Y-1.3.4, 1.3.5, 1.4.10, 1.4.11, 1.4.12, 1.4.13, 2.1.4, 2.5.1, 2.5.2, 2.5.3, 2.5.4, 4.1.3 |
+| a11y-wcag22-aa | A11Y-2.4.11, 2.5.7, 2.5.8, 3.2.6, 3.3.7, 3.3.8 |
 
 ## How this matrix changes
 

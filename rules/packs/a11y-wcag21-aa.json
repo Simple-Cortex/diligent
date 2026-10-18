@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "pack_id": "a11y-wcag21-aa",
-  "pack_version": "0.1.0",
+  "pack_version": "0.1.1",
   "profile_ids": [
     "us-federal-public-web",
     "us-state-local-ada-title-ii"
@@ -88,7 +88,21 @@
         "blueprint_test_channels": "B H",
         "modality_basis": "Conditional legal baseline for ADA Title II and for any agency or contract adopting WCAG 2.1; recommended beyond the federal WCAG 2.0 minimum.",
         "temporal_note": "The specific Title II compliance dates are future dates. Existing ADA duties continue before those dates. The dates are from current Department of Justice guidance as stated in the blueprint and must be re-verified at source review."
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.1",
+          "level": "AA",
+          "criterion": "1.3.4",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "AA",
+          "criterion": "1.3.4",
+          "role": "recommended"
+        }
+      ]
     },
     {
       "rule_id": "A11Y-1.3.5",
@@ -171,7 +185,21 @@
         "blueprint_test_channels": "S B",
         "modality_basis": "Conditional legal baseline for ADA Title II and for any agency or contract adopting WCAG 2.1; recommended beyond the federal WCAG 2.0 minimum.",
         "temporal_note": "The specific Title II compliance dates are future dates. Existing ADA duties continue before those dates. The dates are from current Department of Justice guidance as stated in the blueprint and must be re-verified at source review."
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.1",
+          "level": "AA",
+          "criterion": "1.3.5",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "AA",
+          "criterion": "1.3.5",
+          "role": "recommended"
+        }
+      ]
     },
     {
       "rule_id": "A11Y-1.4.10",
@@ -254,7 +282,21 @@
         "blueprint_test_channels": "B H",
         "modality_basis": "Conditional legal baseline for ADA Title II and for any agency or contract adopting WCAG 2.1; recommended beyond the federal WCAG 2.0 minimum.",
         "temporal_note": "The specific Title II compliance dates are future dates. Existing ADA duties continue before those dates. The dates are from current Department of Justice guidance as stated in the blueprint and must be re-verified at source review."
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.1",
+          "level": "AA",
+          "criterion": "1.4.10",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "AA",
+          "criterion": "1.4.10",
+          "role": "recommended"
+        }
+      ]
     },
     {
       "rule_id": "A11Y-1.4.11",
@@ -341,7 +383,21 @@
         "blueprint_test_channels": "B H",
         "modality_basis": "Conditional legal baseline for ADA Title II and for any agency or contract adopting WCAG 2.1; recommended beyond the federal WCAG 2.0 minimum.",
         "temporal_note": "The specific Title II compliance dates are future dates. Existing ADA duties continue before those dates. The dates are from current Department of Justice guidance as stated in the blueprint and must be re-verified at source review."
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.1",
+          "level": "AA",
+          "criterion": "1.4.11",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "AA",
+          "criterion": "1.4.11",
+          "role": "recommended"
+        }
+      ]
     },
     {
       "rule_id": "A11Y-1.4.12",
@@ -423,7 +479,21 @@
         "blueprint_test_channels": "B",
         "modality_basis": "Conditional legal baseline for ADA Title II and for any agency or contract adopting WCAG 2.1; recommended beyond the federal WCAG 2.0 minimum.",
         "temporal_note": "The specific Title II compliance dates are future dates. Existing ADA duties continue before those dates. The dates are from current Department of Justice guidance as stated in the blueprint and must be re-verified at source review."
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.1",
+          "level": "AA",
+          "criterion": "1.4.12",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "AA",
+          "criterion": "1.4.12",
+          "role": "recommended"
+        }
+      ]
     },
     {
       "rule_id": "A11Y-1.4.13",
@@ -506,7 +576,21 @@
         "blueprint_test_channels": "B H",
         "modality_basis": "Conditional legal baseline for ADA Title II and for any agency or contract adopting WCAG 2.1; recommended beyond the federal WCAG 2.0 minimum.",
         "temporal_note": "The specific Title II compliance dates are future dates. Existing ADA duties continue before those dates. The dates are from current Department of Justice guidance as stated in the blueprint and must be re-verified at source review."
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.1",
+          "level": "AA",
+          "criterion": "1.4.13",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "AA",
+          "criterion": "1.4.13",
+          "role": "recommended"
+        }
+      ]
     },
     {
       "rule_id": "A11Y-2.1.4",
@@ -589,7 +673,21 @@
         "blueprint_test_channels": "S B",
         "modality_basis": "Conditional legal baseline for ADA Title II and for any agency or contract adopting WCAG 2.1; recommended beyond the federal WCAG 2.0 minimum.",
         "temporal_note": "The specific Title II compliance dates are future dates. Existing ADA duties continue before those dates. The dates are from current Department of Justice guidance as stated in the blueprint and must be re-verified at source review."
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "2.1.4",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "2.1.4",
+          "role": "recommended"
+        }
+      ]
     },
     {
       "rule_id": "A11Y-2.5.1",
@@ -672,7 +770,21 @@
         "blueprint_test_channels": "B H",
         "modality_basis": "Conditional legal baseline for ADA Title II and for any agency or contract adopting WCAG 2.1; recommended beyond the federal WCAG 2.0 minimum.",
         "temporal_note": "The specific Title II compliance dates are future dates. Existing ADA duties continue before those dates. The dates are from current Department of Justice guidance as stated in the blueprint and must be re-verified at source review."
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "2.5.1",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "2.5.1",
+          "role": "recommended"
+        }
+      ]
     },
     {
       "rule_id": "A11Y-2.5.2",
@@ -755,7 +867,21 @@
         "blueprint_test_channels": "S B",
         "modality_basis": "Conditional legal baseline for ADA Title II and for any agency or contract adopting WCAG 2.1; recommended beyond the federal WCAG 2.0 minimum.",
         "temporal_note": "The specific Title II compliance dates are future dates. Existing ADA duties continue before those dates. The dates are from current Department of Justice guidance as stated in the blueprint and must be re-verified at source review."
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "2.5.2",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "2.5.2",
+          "role": "recommended"
+        }
+      ]
     },
     {
       "rule_id": "A11Y-2.5.3",
@@ -837,7 +963,21 @@
         "blueprint_test_channels": "B",
         "modality_basis": "Conditional legal baseline for ADA Title II and for any agency or contract adopting WCAG 2.1; recommended beyond the federal WCAG 2.0 minimum.",
         "temporal_note": "The specific Title II compliance dates are future dates. Existing ADA duties continue before those dates. The dates are from current Department of Justice guidance as stated in the blueprint and must be re-verified at source review."
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "2.5.3",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "2.5.3",
+          "role": "recommended"
+        }
+      ]
     },
     {
       "rule_id": "A11Y-2.5.4",
@@ -921,7 +1061,21 @@
         "blueprint_test_channels": "S B H",
         "modality_basis": "Conditional legal baseline for ADA Title II and for any agency or contract adopting WCAG 2.1; recommended beyond the federal WCAG 2.0 minimum.",
         "temporal_note": "The specific Title II compliance dates are future dates. Existing ADA duties continue before those dates. The dates are from current Department of Justice guidance as stated in the blueprint and must be re-verified at source review."
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "2.5.4",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "2.5.4",
+          "role": "recommended"
+        }
+      ]
     },
     {
       "rule_id": "A11Y-4.1.3",
@@ -1004,7 +1158,21 @@
         "blueprint_test_channels": "B H",
         "modality_basis": "Conditional legal baseline for ADA Title II and for any agency or contract adopting WCAG 2.1; recommended beyond the federal WCAG 2.0 minimum.",
         "temporal_note": "The specific Title II compliance dates are future dates. Existing ADA duties continue before those dates. The dates are from current Department of Justice guidance as stated in the blueprint and must be re-verified at source review."
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.1",
+          "level": "AA",
+          "criterion": "4.1.3",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "AA",
+          "criterion": "4.1.3",
+          "role": "recommended"
+        }
+      ]
     }
   ],
   "extensions": {

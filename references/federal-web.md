@@ -2,7 +2,7 @@
 
 A routed catalog of federal identity, content, privacy, collection, records, security, identity, and hosting obligations. Rows come from the `federal-public-web`, `privacy-collection`, and `infrastructure` rule packs.
 
-**No row here has an executable check in Diligent 0.1.0.** Every rule is at the `research` lifecycle. Registry authority ids (A01 and so on) resolve in `../authorities/registry.json`. Rows marked with a primary authority that is not source-verified say so in the pack's `source_caveat`.
+**No row here has an executable check in Diligent 0.1.1.** Every rule is at the `research` lifecycle. Registry authority ids (A01 and so on) resolve in `../authorities/registry.json`. Rows marked with a primary authority that is not source-verified say so in the pack's `source_caveat`.
 
 Labels and channels are defined in `accessibility.md` section 1. Required placement varies between principal agency sites, secondary sites, and major entry points. Link to authoritative agency pages instead of duplicating policy content. Use the Digital.gov required-content index as an index only; the controlling law or policy decides a disputed applicability.
 
@@ -53,7 +53,25 @@ These rows define audit objectives. Their tests go beyond detecting a class name
 
 The catalog retrieved on the research date says there are no standards in its "required" group. The three below are pending; their pages say a compliance timeline will be provided. Contact page, content timeliness and site search are draft; external links, language selector and page-level feedback are research. This status does not cancel obligations already imposed by IDEA, Section 508 or another source.
 
-The research date is 2026-10-15. Do not invent a deadline for any pending standard.
+The research date is 2026-10-15 and the hub was re-checked on 2026-10-17. Do not invent a deadline for any pending standard.
+
+### Federal website standards status
+
+**None of these standards is required yet.** As of 2026-10-17 the hub at standards.digital.gov lists no required standard. Pending standards were published 2024-09-26 and give no compliance dates. Rules carry `standards_status`; flip it to `required` and add a date only when the hub does.
+
+| Standard | Hub status | Rule | Acceptance criteria |
+| --- | --- | --- | --- |
+| Government banner | pending | FED-32 | On every page, on its own line, with the flag, official-site text, and an expandable explanation of .gov and HTTPS |
+| HTML page title | pending | FED-33 | Unique on every page, at least 20 characters |
+| Meta page description | pending | FED-34 | Unique on every page, at least 50 characters |
+| Contact page | draft | none | Not encoded |
+| Content timeliness indicator | draft | none | Not encoded |
+| Site search | draft | none | Not encoded; site search on public sites is separately a must item in OMB M-23-22 |
+| External link | research | none | Not encoded |
+| Language selector | research | none | Not encoded |
+| Page-level feedback | research | none | Not encoded |
+
+The pending standards apply to executive-branch public sites on .gov or .mil.
 
 | Rule | Source row | Pending standard | Deterministic acceptance checks to prepare | Gate treatment |
 | --- | --- | --- | --- | --- |

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "pack_id": "infrastructure",
-  "pack_version": "0.1.0",
+  "pack_version": "0.1.1",
   "profile_ids": [
     "us-federal-public-web"
   ],
@@ -440,7 +440,7 @@
       "lifecycle": "research",
       "obligation": "Known exploited vulnerabilities and vulnerability cadence.",
       "authority": {
-        "authority_id": "A14",
+        "authority_id": "A64",
         "section": "unatomized: clause locator pending source review",
         "modality": "must",
         "incorporated_standard": null
@@ -478,7 +478,8 @@
       },
       "blind_spots": [
         "CVSS alone is not exploitability",
-        "Reachability and mitigation need confirmation"
+        "Reachability and mitigation need confirmation",
+        "BOD 22-01, the basis for this rule, was revoked by BOD 26-04 on 2026-06-10; re-establish the obligation from current CISA text before treating KEV due dates as binding"
       ],
       "fixtures": {
         "positive": [],
@@ -496,12 +497,16 @@
       "severity_default": "high",
       "source_verified_at": null,
       "source_review_status": "research",
+      "notes": "Successor to the BOD 22-01 known-exploited-vulnerabilities requirement; BOD 22-01 revoked by BOD 26-04 on 2026-06-10; substantive clause locator pending source review.",
       "extensions": {
         "source_row_id": "SEC-07",
         "class_label": "P/C/O, A14",
         "proposed_procedure": "S/N/O: join exact products/versions to current KEV entries and required due dates; confirm exposure, reachability and mitigation. CVSS alone is not exploitability.",
         "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
-        "source_caveat": "Primary authority is not source-verified; verify directive or memo text before enabling exact timing or header checks."
+        "source_caveat": "Primary authority is now A64 (BOD 26-04), which revoked BOD 22-01 (carried in A14). A64's substantive requirements are not encoded and the clause is not source-verified; verify current CISA directive or catalog terms before enabling any check.",
+        "additional_authority_ids": [
+          "A14"
+        ]
       }
     },
     {

@@ -20,7 +20,7 @@ profiles/*.json against their schemas, then cross-checks:
   - every profile selected_packs entry exists
   - authority supersedes / superseded_by references exist
   - a rule with lifecycle "published" needs non-empty positive and negative
-    fixtures and source_review_status "reviewed" (nothing in 0.1.0 may be published)
+    fixtures and source_review_status "reviewed" (nothing in this release may be published)
 Exit 0 when valid, 3 when anything is invalid or when no data was found.`;
 
 export async function validateRules(dataRoot) {

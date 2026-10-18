@@ -28,7 +28,7 @@ Keep compliance status, accessibility status, security risk, and design quality 
 7. Otherwise, if the selected profile is wholly excluded with evidence, the status is `not_applicable`.
 8. Otherwise the status is `pass_for_declared_scope`, with explicit scope and coverage statements.
 
-Recommendations and UX hypotheses do not enter the regulatory gate unless separately mapped to an applicable binding obligation. A parent obligation is not closed by one passing child while other evidence remains missing. In 0.1.0 every rule is at the research lifecycle, so a clean `pass_for_declared_scope` requires that the declared scope contains no required unsupported check.
+Recommendations and UX hypotheses do not enter the regulatory gate unless separately mapped to an applicable binding obligation. A parent obligation is not closed by one passing child while other evidence remains missing. In 0.1.1 every rule is at the research lifecycle, so a clean `pass_for_declared_scope` requires that the declared scope contains no required unsupported check.
 
 Exit codes for `gate`: 0 pass for declared scope, 1 mandatory failure, 2 incomplete, 3 invalid configuration or execution failure. Reporting commands may exit 0 when a report was written while the assessment stays non-passing. Document this for CI users. No option may relabel failed or missing checks as passing. A baseline-comparison option may filter display noise but retains pre-existing mandatory failures in the totals.
 
@@ -60,7 +60,7 @@ A suppression needs a reason, owner, scope, date, and review or expiration condi
 8. Exceptions, accepted risk, and the separate release decision.
 9. Source, rule, model, and tool versions and evidence freshness.
 
-Write plain language first, then technical detail. Never describe a model-generated hypothesis as an observed user failure. Do not show an attractive overall percentage that conceals mandatory failures or untested obligations. Report coverage as counts with denominators. In 0.1.0 state in the first lines that no automated website checks ran.
+Write plain language first, then technical detail. Never describe a model-generated hypothesis as an observed user failure. Do not show an attractive overall percentage that conceals mandatory failures or untested obligations. Report coverage as counts with denominators. In 0.1.1 state in the first lines that no automated website checks ran.
 
 ## 5. Model-assisted review
 
@@ -77,7 +77,7 @@ A model must never invent a source, turn an inference into a direct observation,
 | Finding support | `../prompts/finding-support.md` | `supported`, `contradicted`, `insufficient_evidence` | Independent review where required; keep contradictions |
 | Repair comparison | `../prompts/repair-preference.md` | an option id or `no_supported_choice` | Deterministic checks and task verification after implementation |
 
-Content question coverage and task barrier review are also defined as bounded tasks in the blueprint but are not shipped as prompts in 0.1.0. Route them to a human reviewer through the review queue.
+Content question coverage and task barrier review are also defined as bounded tasks in the blueprint but are not shipped as prompts in 0.1.1. Route them to a human reviewer through the review queue.
 
 ### Frozen request and response
 
@@ -96,6 +96,6 @@ A request carries `task_id`, `task_version`, `rule_refs`, `evidence_refs`, `evid
 
 ### Calibration and escalation
 
-No task is calibrated in 0.1.0. Before enabling any automation for a task: build a task-specific dataset with independent expert labels and adjudicated disagreements, split by service, site, or template family; publish class counts, precision, recall, false-negative rate, calibration, abstention rate, and uncertainty intervals; and derive thresholds from documented error costs and held-out evidence. Do not use one threshold for every rule or severity. Do not treat several opinions that share evidence or lineage as independent votes. Zero observed misses in a small set is not proof of zero risk.
+No task is calibrated in 0.1.1. Before enabling any automation for a task: build a task-specific dataset with independent expert labels and adjudicated disagreements, split by service, site, or template family; publish class counts, precision, recall, false-negative rate, calibration, abstention rate, and uncertainty intervals; and derive thresholds from documented error costs and held-out evidence. Do not use one threshold for every rule or severity. Do not treat several opinions that share evidence or lineage as independent votes. Zero observed misses in a small set is not proof of zero risk.
 
 Escalate to a human when evidence is missing, outputs disagree materially, authority applicability is disputed, consequences are high, a repair changes approved legal or program language, or an example is outside the validated domain. Drift after a model, prompt, rule, extraction, or domain change returns the affected task to review-only.

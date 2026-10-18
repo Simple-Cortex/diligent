@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "pack_id": "a11y-wcag20-aa",
-  "pack_version": "0.1.0",
+  "pack_version": "0.1.1",
   "profile_ids": [
     "us-federal-public-web",
     "us-state-local-ada-title-ii"
@@ -87,8 +87,32 @@
             "condition": "ada_title2_covered",
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
+        ],
+        "baseline_related_test_ids": [
+          "07"
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "A",
+          "criterion": "1.1.1",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "1.1.1",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "1.1.1",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "06"
     },
     {
       "rule_id": "A11Y-1.2.1",
@@ -170,7 +194,28 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "A",
+          "criterion": "1.2.1",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "1.2.1",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "1.2.1",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "16"
     },
     {
       "rule_id": "A11Y-1.2.2",
@@ -252,7 +297,28 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "A",
+          "criterion": "1.2.2",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "1.2.2",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "1.2.2",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "17"
     },
     {
       "rule_id": "A11Y-1.2.3",
@@ -333,7 +399,28 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "A",
+          "criterion": "1.2.3",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "1.2.3",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "1.2.3",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "17"
     },
     {
       "rule_id": "A11Y-1.2.4",
@@ -415,7 +502,28 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "AA",
+          "criterion": "1.2.4",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "AA",
+          "criterion": "1.2.4",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "AA",
+          "criterion": "1.2.4",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "17"
     },
     {
       "rule_id": "A11Y-1.2.5",
@@ -496,7 +604,28 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "AA",
+          "criterion": "1.2.5",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "AA",
+          "criterion": "1.2.5",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "AA",
+          "criterion": "1.2.5",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "17"
     },
     {
       "rule_id": "A11Y-1.3.1",
@@ -577,8 +706,33 @@
             "condition": "ada_title2_covered",
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
+        ],
+        "baseline_related_test_ids": [
+          "10",
+          "12"
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "A",
+          "criterion": "1.3.1",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "1.3.1",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "1.3.1",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "13"
     },
     {
       "rule_id": "A11Y-1.3.2",
@@ -660,7 +814,28 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "A",
+          "criterion": "1.3.2",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "1.3.2",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "1.3.2",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "18"
     },
     {
       "rule_id": "A11Y-1.3.3",
@@ -741,7 +916,28 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "A",
+          "criterion": "1.3.3",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "1.3.3",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "1.3.3",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "07"
     },
     {
       "rule_id": "A11Y-1.4.1",
@@ -822,8 +1018,32 @@
             "condition": "ada_title2_covered",
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
+        ],
+        "baseline_related_test_ids": [
+          "05"
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "A",
+          "criterion": "1.4.1",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "1.4.1",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "1.4.1",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "07"
     },
     {
       "rule_id": "A11Y-1.4.2",
@@ -902,8 +1122,32 @@
             "condition": "ada_title2_covered",
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
+        ],
+        "baseline_related_test_ids": [
+          "03"
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "A",
+          "criterion": "1.4.2",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "1.4.2",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "1.4.2",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "21"
     },
     {
       "rule_id": "A11Y-1.4.3",
@@ -987,7 +1231,28 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "AA",
+          "criterion": "1.4.3",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "AA",
+          "criterion": "1.4.3",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "AA",
+          "criterion": "1.4.3",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "08"
     },
     {
       "rule_id": "A11Y-1.4.4",
@@ -1068,7 +1333,28 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "AA",
+          "criterion": "1.4.4",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "AA",
+          "criterion": "1.4.4",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "AA",
+          "criterion": "1.4.4",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "22"
     },
     {
       "rule_id": "A11Y-1.4.5",
@@ -1151,7 +1437,28 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "AA",
+          "criterion": "1.4.5",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "AA",
+          "criterion": "1.4.5",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "AA",
+          "criterion": "1.4.5",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "06"
     },
     {
       "rule_id": "A11Y-2.1.1",
@@ -1232,7 +1539,28 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "A",
+          "criterion": "2.1.1",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "2.1.1",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "2.1.1",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "01"
     },
     {
       "rule_id": "A11Y-2.1.2",
@@ -1312,8 +1640,32 @@
             "condition": "ada_title2_covered",
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
+        ],
+        "baseline_related_test_ids": [
+          "03"
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "A",
+          "criterion": "2.1.2",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "2.1.2",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "2.1.2",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "01"
     },
     {
       "rule_id": "A11Y-2.2.1",
@@ -1395,7 +1747,28 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "A",
+          "criterion": "2.2.1",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "2.2.1",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "2.2.1",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "21"
     },
     {
       "rule_id": "A11Y-2.2.2",
@@ -1475,8 +1848,32 @@
             "condition": "ada_title2_covered",
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
+        ],
+        "baseline_related_test_ids": [
+          "03"
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "A",
+          "criterion": "2.2.2",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "2.2.2",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "2.2.2",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "21"
     },
     {
       "rule_id": "A11Y-2.3.1",
@@ -1556,8 +1953,32 @@
             "condition": "ada_title2_covered",
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
+        ],
+        "baseline_related_test_ids": [
+          "03"
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "A",
+          "criterion": "2.3.1",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "2.3.1",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "2.3.1",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "09"
     },
     {
       "rule_id": "A11Y-2.4.1",
@@ -1639,7 +2060,28 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "A",
+          "criterion": "2.4.1",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "2.4.1",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "2.4.1",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "04"
     },
     {
       "rule_id": "A11Y-2.4.2",
@@ -1721,7 +2163,28 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "A",
+          "criterion": "2.4.2",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "2.4.2",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "2.4.2",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "11"
     },
     {
       "rule_id": "A11Y-2.4.3",
@@ -1802,7 +2265,28 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "A",
+          "criterion": "2.4.3",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "2.4.3",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "2.4.3",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "02"
     },
     {
       "rule_id": "A11Y-2.4.4",
@@ -1885,7 +2369,28 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "A",
+          "criterion": "2.4.4",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "2.4.4",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "2.4.4",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "14"
     },
     {
       "rule_id": "A11Y-2.4.5",
@@ -1966,7 +2471,28 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "AA",
+          "criterion": "2.4.5",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "AA",
+          "criterion": "2.4.5",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "AA",
+          "criterion": "2.4.5",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "23"
     },
     {
       "rule_id": "A11Y-2.4.6",
@@ -2046,8 +2572,32 @@
             "condition": "ada_title2_covered",
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
+        ],
+        "baseline_related_test_ids": [
+          "10"
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "AA",
+          "criterion": "2.4.6",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "AA",
+          "criterion": "2.4.6",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "AA",
+          "criterion": "2.4.6",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "13"
     },
     {
       "rule_id": "A11Y-2.4.7",
@@ -2130,7 +2680,28 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "AA",
+          "criterion": "2.4.7",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "AA",
+          "criterion": "2.4.7",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "AA",
+          "criterion": "2.4.7",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "02"
     },
     {
       "rule_id": "A11Y-3.1.1",
@@ -2212,7 +2783,28 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "A",
+          "criterion": "3.1.1",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "3.1.1",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "3.1.1",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "15"
     },
     {
       "rule_id": "A11Y-3.1.2",
@@ -2295,7 +2887,28 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "AA",
+          "criterion": "3.1.2",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "AA",
+          "criterion": "3.1.2",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "AA",
+          "criterion": "3.1.2",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "15"
     },
     {
       "rule_id": "A11Y-3.2.1",
@@ -2375,7 +2988,28 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "A",
+          "criterion": "3.2.1",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "3.2.1",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "3.2.1",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "02"
     },
     {
       "rule_id": "A11Y-3.2.2",
@@ -2456,7 +3090,28 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "A",
+          "criterion": "3.2.2",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "3.2.2",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "3.2.2",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "10"
     },
     {
       "rule_id": "A11Y-3.2.3",
@@ -2537,7 +3192,28 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "AA",
+          "criterion": "3.2.3",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "AA",
+          "criterion": "3.2.3",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "AA",
+          "criterion": "3.2.3",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "04"
     },
     {
       "rule_id": "A11Y-3.2.4",
@@ -2619,7 +3295,28 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "AA",
+          "criterion": "3.2.4",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "AA",
+          "criterion": "3.2.4",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "AA",
+          "criterion": "3.2.4",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "04"
     },
     {
       "rule_id": "A11Y-3.3.1",
@@ -2702,7 +3399,28 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "A",
+          "criterion": "3.3.1",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "3.3.1",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "3.3.1",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "10"
     },
     {
       "rule_id": "A11Y-3.3.2",
@@ -2787,7 +3505,28 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "A",
+          "criterion": "3.3.2",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "3.3.2",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "3.3.2",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "10"
     },
     {
       "rule_id": "A11Y-3.3.3",
@@ -2871,7 +3610,28 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "AA",
+          "criterion": "3.3.3",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "AA",
+          "criterion": "3.3.3",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "AA",
+          "criterion": "3.3.3",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "10"
     },
     {
       "rule_id": "A11Y-3.3.4",
@@ -2955,7 +3715,28 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "AA",
+          "criterion": "3.3.4",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "AA",
+          "criterion": "3.3.4",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "AA",
+          "criterion": "3.3.4",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "10"
     },
     {
       "rule_id": "A11Y-4.1.1",
@@ -3005,7 +3786,8 @@
         "documentary": "unsupported"
       },
       "blind_spots": [
-        "Accessibility-tree correctness does not prove screen-reader experience"
+        "Accessibility-tree correctness does not prove screen-reader experience",
+        "WCAG 2.2 removed 4.1.1 Parsing as obsolete; the 2.2 mapping is advisory only, so a 2.2-only target must not fail this rule"
       ],
       "fixtures": {
         "positive": [],
@@ -3025,7 +3807,7 @@
       "source_review_status": "research",
       "extensions": {
         "source_row_id": "WCAG-2.0-4.1.1",
-        "wcag_level": "A, older profiles",
+        "wcag_level": "A",
         "understanding_url": "https://www.w3.org/WAI/WCAG22/Understanding/parsing.html",
         "proposed_procedure": "Retain for standards that still incorporate it. Assess the applicable version/errata; distinguish parsing defects from actual name/role or relationship failures.",
         "blueprint_test_channels": "S B",
@@ -3037,8 +3819,30 @@
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
         ],
-        "note": "Retain only for standards that still incorporate it. WCAG 2.2 removes it. Distinguish parsing defects from actual name, role, or relationship failures."
-      }
+        "note": "Retain only for standards that still incorporate it. WCAG 2.2 removes it. Distinguish parsing defects from actual name, role, or relationship failures.",
+        "wcag_level_note": "Level A in WCAG 2.0 and 2.1; removed in WCAG 2.2."
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "A",
+          "criterion": "4.1.1",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "4.1.1",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "4.1.1",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "24"
     },
     {
       "rule_id": "A11Y-4.1.2",
@@ -3119,12 +3923,38 @@
             "condition": "ada_title2_covered",
             "note": "WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion; applies to state and local entities from the Title II compliance dates."
           }
+        ],
+        "baseline_related_test_ids": [
+          "12",
+          "19"
         ]
-      }
+      },
+      "wcag_mappings": [
+        {
+          "version": "2.0",
+          "level": "A",
+          "criterion": "4.1.2",
+          "role": "legal_floor"
+        },
+        {
+          "version": "2.1",
+          "level": "A",
+          "criterion": "4.1.2",
+          "role": "title_ii_target"
+        },
+        {
+          "version": "2.2",
+          "level": "A",
+          "criterion": "4.1.2",
+          "role": "recommended"
+        }
+      ],
+      "baseline_test_id": "05"
     }
   ],
   "extensions": {
     "title": "WCAG 2.0 A/AA",
-    "notes": "The 38 WCAG 2.0 level A and AA success criteria, the incorporated Section 508 baseline (also reaching state and local entities through WCAG 2.1 AA under ADA Title II). Research lifecycle. No automated checks ship in 0.1.0."
+    "notes": "The 38 WCAG 2.0 level A and AA success criteria, the incorporated Section 508 baseline (also reaching state and local entities through WCAG 2.1 AA under ADA Title II). Research lifecycle. No automated checks ship in 0.1.0.",
+    "baseline_mapping_source": "ICT Testing Baseline for Web v3.1 (A48), test headings and accessibility requirements read on 2026-10-17. One primary test per rule in baseline_test_id; other tests that also cover the criterion are in extensions.baseline_related_test_ids. Mapping is research-grade until source review."
   }
 }

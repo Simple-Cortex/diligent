@@ -7,7 +7,7 @@ import { join } from 'node:path';
 import {
   UsageError, advanceRun, appendEvent, atomicWrite, latestRun, loadArtifact, locateAuditDir, pathExists, sha256File
 } from './lib/artifacts.mjs';
-import { isMain, parseArgs, runMain } from './lib/cli.mjs';
+import { DILIGENT_VERSION, isMain, parseArgs, runMain } from './lib/cli.mjs';
 
 const HELP = `Usage: diligent report <audit-id> [--root <workspace>] [--dir <audit-directory>] [--stdout]
 
@@ -129,7 +129,7 @@ export function renderReport({ auditId, assessment, run, brief, findings, applic
   out.push('');
   out.push(bullet(unresolvedLines(assessment.unresolved.filter(item => SECTION_4_KINDS.has(item.kind)))));
   out.push('');
-  out.push(`Unsupported applicable obligations: ${assessment.counts.unsupported} of ${assessment.denominators.unsupported}. Diligent 0.1.0 ships no automated website checks; a skipped or unsupported check is never reported as a pass.`);
+  out.push(`Unsupported applicable obligations: ${assessment.counts.unsupported} of ${assessment.denominators.unsupported}. Diligent ${DILIGENT_VERSION} ships no automated website checks; a skipped or unsupported check is never reported as a pass.`);
   out.push('');
 
   // 5

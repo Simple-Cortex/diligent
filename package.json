@@ -1,6 +1,6 @@
 {
   "name": "diligent",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "An agent skill that audits U.S. government websites and digital services for accessibility and federal web obligations, with evidence-bound findings and a deterministic gate.",
   "type": "module",
   "license": "MIT",

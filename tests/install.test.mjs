@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { lstat, mkdir, readFile, readlink, readdir, stat, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { includedFiles, loadManifest } from '../scripts/lib/manifest.mjs';
-import { ROOT, run, withTemp } from './helpers.mjs';
+import { ROOT, VERSION, run, withTemp } from './helpers.mjs';
 
 const install = (args, opts) => run('scripts/install.mjs', args, opts);
 
@@ -21,7 +21,7 @@ test('--yes installs exactly the runtime-manifest include set and nothing else',
     await stat(join(dest, 'bin', 'diligent.mjs'));
     await stat(join(dest, 'schemas', 'run.schema.json'));
     const version = await run('bin/diligent.mjs', ['--version'], { cwd: dest }).then(() => import('node:child_process').then(({ execFileSync }) => execFileSync(process.execPath, [join(dest, 'bin', 'diligent.mjs'), '--version'], { encoding: 'utf8' })));
-    assert.equal(version.trim(), '0.1.0');
+    assert.equal(version.trim(), VERSION);
   });
 });
 
@@ -63,11 +63,11 @@ test('it refuses to overwrite a newer installed version without --force', async 
     await writeFile(join(dest, 'package.json'), JSON.stringify({ name: 'diligent', version: '9.9.9' }));
     const refused = await install(['--dest', dest, '--yes']);
     assert.equal(refused.code, 2);
-    assert.match(refused.stderr, /newer than 0\.1\.0/);
+    assert.ok(refused.stderr.includes(`newer than ${VERSION}`));
     assert.equal(JSON.parse(await readFile(join(dest, 'package.json'), 'utf8')).version, '9.9.9');
     const forced = await install(['--dest', dest, '--yes', '--force']);
     assert.equal(forced.code, 0, forced.stderr);
-    assert.equal(JSON.parse(await readFile(join(dest, 'package.json'), 'utf8')).version, '0.1.0');
+    assert.equal(JSON.parse(await readFile(join(dest, 'package.json'), 'utf8')).version, VERSION);
   });
 });
 
@@ -99,7 +99,7 @@ test('--dry-run changes nothing', async () => {
     const dest = join(tmp, 'diligent');
     const result = await install(['--dest', dest, '--dry-run']);
     assert.equal(result.code, 0);
-    assert.match(result.stdout, /Would install Diligent 0\.1\.0/);
+    assert.ok(result.stdout.includes(`Would install Diligent ${VERSION}`));
     await assert.rejects(() => stat(dest));
   });
 });

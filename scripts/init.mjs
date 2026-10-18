@@ -6,7 +6,7 @@ import {
   ARTIFACTS, PACKAGE_ROOT, SCHEMA_VERSION, UsageError, appendEvent, assertAuditId, atomicWriteJson,
   newRunId, nowIso, pathExists, resolveRoot, sha256File, validateData
 } from './lib/artifacts.mjs';
-import { parseArgs, runMain } from './lib/cli.mjs';
+import { DILIGENT_VERSION, parseArgs, runMain } from './lib/cli.mjs';
 import { buildInitialFacts } from './lib/scope-facts.mjs';
 import { detectEngine } from './lib/engine.mjs';
 import { isUnsupported, loadPack, loadProfile, loadRegistry } from './lib/data.mjs';
@@ -31,7 +31,7 @@ Options:
   --force          replace an existing audit's artifacts (runs/ history and EVENTS.jsonl are kept)
   --json           machine-readable summary
 
-Diligent 0.1.0 ships zero automated website checks.`;
+Diligent ${DILIGENT_VERSION} ships zero automated website checks.`;
 
 async function readPackageVersion() {
   return JSON.parse(await readFile(join(PACKAGE_ROOT, 'package.json'), 'utf8')).version;
@@ -108,7 +108,7 @@ async function main() {
     requested_scope: { modes, profile_id: profileId, detail: 'none supplied; see SCOPE.json' },
     engine, tool_versions: toolVersions, started_at: startedAt, ended_at: null, snapshot_refs: [],
     pipeline_state: 'initialized', execution_status: 'initialized', assessment_complete: false, budgets: {},
-    warnings: ['Diligent 0.1.0 ships zero automated website checks. Every applicable obligation is untested until a human or documentary check supplies a result.']
+    warnings: [`Diligent ${DILIGENT_VERSION} ships zero automated website checks. Every applicable obligation is untested until a human or documentary check supplies a result.`]
   };
   const scope = {
     schema_version: SCHEMA_VERSION, audit_id: auditId, run_id: runId, profile_id: profileId, modes, facts,
@@ -202,7 +202,7 @@ async function main() {
   const summary = {
     audit_id: auditId, run_id: runId, directory: dir, profile_id: profileId, modes, engine: engine.name,
     unresolved_facts: unresolved, next_step: 'run discovery; see skills/discover',
-    notice: 'Diligent 0.1.0 ships zero automated website checks.'
+    notice: `Diligent ${DILIGENT_VERSION} ships zero automated website checks.`
   };
   if (options.json) console.log(JSON.stringify(summary, null, 2));
   else {

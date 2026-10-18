@@ -10,7 +10,7 @@ Diligent is not a government service, does not issue certifications, and is not 
 scope and authority -> applicability -> evidence -> results -> findings -> repair plan -> independent verification
 ```
 
-**Version 0.1.0 is a contracts-and-gate release. It ships zero automated website checks.** It defines the workflow, the artifact formats, the authority registry, the rule packs, and a deterministic gate. It does not find or clear accessibility issues by itself. Read [What 0.1.0 does and does not do](#what-010-does-and-does-not-do) before you rely on it.
+**Version 0.1.1 is a contracts-and-gate release. It ships zero automated website checks.** It defines the workflow, the artifact formats, the authority registry, the rule packs, and a deterministic gate. It does not find or clear accessibility issues by itself. Read [What 0.1.1 does and does not do](#what-011-does-and-does-not-do) before you rely on it.
 
 ---
 
@@ -95,7 +95,7 @@ docs/                        supported checks, known limitations, changelog poli
 
 **The gate.** `diligent gate` recomputes the assessment from the recorded artifacts. Exit 0 means pass for the declared scope, 1 a confirmed mandatory failure, 2 incomplete, and 3 an invalid configuration. It never reads prose and never guesses.
 
-## What 0.1.0 does and does not do
+## What 0.1.1 does and does not do
 
 It does:
 
@@ -108,7 +108,7 @@ It does:
 It does not:
 
 - Run any automated check of a website. **There are zero.** Every rule is `unsupported`, `human`, or `documentary`. See [`docs/supported-checks.md`](docs/supported-checks.md).
-- Certify, declare compliance, or issue a pass for a site. A clean result in 0.1.0 can only mean that the supplied results show no failure for the declared scope and nothing required was left untested.
+- Certify, declare compliance, or issue a pass for a site. A clean result in 0.1.1 can only mean that the supplied results show no failure for the declared scope and nothing required was left untested.
 - Verify that any rule matches its source text. Rules are cataloged for review, not reviewed.
 - Include state, local, tribal, territorial, sector, or agency overlay packs.
 - Calibrate any model. Model tasks are review-only.

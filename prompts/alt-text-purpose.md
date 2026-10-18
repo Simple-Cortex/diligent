@@ -3,7 +3,7 @@
 **Task id:** `alt-text-purpose`  
 **Task version:** 1.0.0  
 **Source:** Blueprint task MODEL-01 (alternative adequacy), WCAG 1.1.1  
-**Mode:** review only. No task in Diligent 0.1.0 is calibrated, so no output of this task is a result by itself.
+**Mode:** review only. No task in Diligent 0.1.1 is calibrated, so no output of this task is a result by itself.
 
 ## Purpose
 

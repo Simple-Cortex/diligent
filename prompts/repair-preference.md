@@ -3,7 +3,7 @@
 **Task id:** `repair-preference`  
 **Task version:** 1.0.0  
 **Source:** Blueprint task MODEL-04 (repair comparison)  
-**Mode:** review only. No task in Diligent 0.1.0 is calibrated, so no output of this task is a result by itself.
+**Mode:** review only. No task in Diligent 0.1.1 is calibrated, so no output of this task is a result by itself.
 
 ## Purpose
 

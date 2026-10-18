@@ -8,6 +8,7 @@ import { readFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { detectEngine } from '../scripts/lib/engine.mjs';
+import { DILIGENT_VERSION } from '../scripts/lib/cli.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -26,7 +27,7 @@ const AGENT_PHASES = ['discover', 'scope', 'inventory', 'plan', 'collect', 'asse
 function usage() {
   return `diligent: audit a U.S. government website for accessibility and federal web obligations
 
-Version 0.1.0 is a contracts-and-gate release. It ships zero automated website checks.
+Version ${DILIGENT_VERSION} is a contracts-and-gate release. It ships zero automated website checks.
 
 Usage:
   diligent [--json] <command> [arguments]
@@ -43,7 +44,7 @@ CLI commands (implemented):
   check                      run all checks
   test                       run the unit and fixture tests
 
-Agent-performed phases (guided by skills/<phase>/SKILL.md, no CLI implementation in 0.1.0):
+Agent-performed phases (guided by skills/<phase>/SKILL.md, no CLI implementation in ${DILIGENT_VERSION}):
   ${AGENT_PHASES.join(', ')}
 
 Global options:
@@ -91,7 +92,7 @@ async function main(argv) {
   }
   if (command in UTILITIES) return runScript(UTILITIES[command], [...rest, ...(json ? ['--json'] : [])]);
   if (AGENT_PHASES.includes(command)) {
-    const message = `${command} is an agent-performed phase in 0.1.0 and has no executable implementation. Read ${command === 'resume' ? 'references/workflow.md' : `skills/${command}/SKILL.md`}.`;
+    const message = `${command} is an agent-performed phase in ${DILIGENT_VERSION} and has no executable implementation. Read ${command === 'resume' ? 'references/workflow.md' : `skills/${command}/SKILL.md`}.`;
     if (json) console.log(JSON.stringify({ command, status: 'not_implemented', exit_code: 3, message, engine: detectEngine() }, null, 2));
     else console.error(message);
     return 3;

@@ -2,14 +2,14 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { chmod, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { ROOT, run, withTemp } from './helpers.mjs';
+import { ROOT, VERSION, run, withTemp } from './helpers.mjs';
 
 const bin = (args, opts) => run('bin/diligent.mjs', args, opts);
 
 test('--version prints the package version; --json adds the engine envelope', async () => {
   const plain = await bin(['--version']);
   assert.equal(plain.code, 0);
-  assert.equal(plain.stdout.trim(), '0.1.0');
+  assert.equal(plain.stdout.trim(), VERSION);
   const json = JSON.parse((await bin(['--version', '--json'])).stdout);
   assert.equal(json.name, 'diligent');
   assert.equal(json.engine.name, 'node-fallback');
@@ -28,7 +28,7 @@ for (const phase of ['discover', 'scope', 'inventory', 'plan', 'collect', 'asses
   test(`${phase} is an agent-performed phase: exit 3 with the documented message`, async () => {
     const result = await bin([phase]);
     assert.equal(result.code, 3);
-    assert.equal(result.stderr.trim(), `${phase} is an agent-performed phase in 0.1.0 and has no executable implementation. Read skills/${phase}/SKILL.md.`);
+    assert.equal(result.stderr.trim(), `${phase} is an agent-performed phase in ${VERSION} and has no executable implementation. Read skills/${phase}/SKILL.md.`);
   });
 }
 
@@ -69,7 +69,7 @@ test('a native diligent-rs reporting protocol 1 is detected but nothing is deleg
     const json = JSON.parse((await bin(['--version', '--json'], { env: { DILIGENT_RS_BIN: fake } })).stdout);
     assert.equal(json.engine.name, 'native-rust');
     assert.equal(json.engine.native_available, true);
-    assert.equal(json.engine.executed_by, 'node', 'Node still executes every command in 0.1.0');
+    assert.equal(json.engine.executed_by, 'node', 'Node still executes every command in this release');
     await writeFile(fake, '#!/bin/sh\necho 2\n');
     const mismatch = JSON.parse((await bin(['--version', '--json'], { env: { DILIGENT_RS_BIN: fake } })).stdout);
     assert.equal(mismatch.engine.name, 'node-fallback');

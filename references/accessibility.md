@@ -2,7 +2,7 @@
 
 A routed catalog of the accessibility obligations in the `a11y-*` rule packs. It lists every WCAG 2.0, 2.1, and 2.2 level A and AA success criterion, and the Section 508 content, support, and procurement rows. Read the family you need; do not load the whole catalog into a prompt.
 
-**No row here has an executable check in Diligent 0.1.0.** Every rule is at the `research` lifecycle. A row names the proposed test and the channels that could establish it. It does not claim a check exists. See `../docs/supported-checks.md`.
+**No row here has an executable check in Diligent 0.1.1.** Every rule is at the `research` lifecycle. A row names the proposed test and the channels that could establish it. It does not claim a check exists. See `../docs/supported-checks.md`.
 
 ## 1. How to apply the catalog
 
@@ -170,7 +170,7 @@ A routed catalog of the accessibility obligations in the `a11y-*` rule packs. It
 
 | Rule | Criterion | Level | Label | Channels | Proposed test and repair approach |
 | --- | --- | --- | --- | --- | --- |
-| A11Y-4.1.1 | 4.1.1 Parsing (WCAG 2.0) | A, older profiles | L | S B | Retain for standards that still incorporate it. Assess the applicable version/errata; distinguish parsing defects from actual name/role or relationship failures. |
+| A11Y-4.1.1 | 4.1.1 Parsing (WCAG 2.0) | A in 2.0 and 2.1; removed in 2.2 | L | S B | Retain for standards that still incorporate it. Assess the applicable version/errata; distinguish parsing defects from actual name/role or relationship failures. |
 | A11Y-4.1.2 | 4.1.2 Name/role/value (WCAG 2.0) | A | L | S B H | Inspect computed accessibility properties and changes. Test custom controls, expanded state, labels, and values against actual behavior. |
 | A11Y-4.1.3 | 4.1.3 Status messages (WCAG 2.1) | AA | C | B H | Observe asynchronous status/error/progress updates without focus moves. Use suitable programmatic status exposure and avoid excessive announcements. |
 
@@ -222,6 +222,12 @@ These twelve recipes are proposed engineering procedures. Keep the normative cri
 **TC-11 Session and recovery.** With approved accounts test invalid login, password-manager and paste behavior, factor choice, timeout, expiration, back-navigation, recovery, and logout. Confirm recovery does not bypass security and an interrupted task does not silently lose data. Record tradeoffs for the security and product owner.
 
 **TC-12 Search and navigation.** Build a versioned query set from confirmed top tasks, including synonyms, misspellings, ambiguous queries, and no-result cases. Assess whether current content appears with descriptive context and usable filters. Test keyboard, mobile, and back-navigation. Measure against labeled expected results.
+
+### Obsolescence and baseline mapping fields
+
+WCAG 2.2 removed 4.1.1 Parsing as obsolete. The rule keeps its 2.0 and 2.1 mappings, and its 2.2 mapping is advisory: a 2.2-only target must not fail it.
+
+Each WCAG 2.0 rule carries `baseline_test_id`, the number (01 to 24) of the primary ICT Testing Baseline for Web v3.1 test that covers it. Tests that also touch the criterion are listed in `extensions.baseline_related_test_ids`. Baseline test 03 Non-Interference and test 20 Conforming Alternate Version are aggregate tests and are never a primary mapping. The Baseline covers WCAG 2.0 only, so WCAG 2.1 and 2.2 rules have no `baseline_test_id`. `wcag_mappings` records which versions contain each criterion; see `applicability.md` for the three-mapping policy.
 
 ## 4. Coverage and sampling
 

@@ -422,6 +422,65 @@
         "normative": {
           "type": "boolean",
           "description": "false marks a product engineering rule that is not a legal obligation. Requires extensions.authority_basis and permits a null authority_id."
+        },
+        "baseline_test_id": {
+          "type": "string",
+          "pattern": "^(0[1-9]|1[0-9]|2[0-4])$",
+          "description": "ICT Testing Baseline for Web v3.1 test number (01 to 24) that primarily covers this criterion. Absent when the Baseline has no test for it."
+        },
+        "wcag_mappings": {
+          "type": "array",
+          "description": "Which WCAG versions contain the criterion and the role each version plays. Reports show all mappings and never blend them.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "version": {
+                "type": "string",
+                "enum": [
+                  "2.0",
+                  "2.1",
+                  "2.2"
+                ]
+              },
+              "level": {
+                "type": "string",
+                "enum": [
+                  "A",
+                  "AA",
+                  "AAA"
+                ]
+              },
+              "criterion": {
+                "type": "string",
+                "minLength": 1
+              },
+              "role": {
+                "type": "string",
+                "enum": [
+                  "legal_floor",
+                  "title_ii_target",
+                  "recommended"
+                ]
+              }
+            },
+            "required": [
+              "version",
+              "level",
+              "criterion",
+              "role"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "standards_status": {
+          "type": "string",
+          "enum": [
+            "research",
+            "draft",
+            "pending",
+            "required"
+          ],
+          "description": "Status of the federal website standard on standards.digital.gov that this rule encodes."
         }
       },
       "required": [

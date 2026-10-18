@@ -4,7 +4,7 @@ Establish what the service is for before assessing hierarchy or proposing struct
 
 The profiles and rules in this file are product review guidance, not legal obligations. A separate authority mapping can make a particular outcome mandatory. Findings from this file never enter the regulatory gate unless they are separately mapped to an applicable binding obligation.
 
-Diligent 0.1.0 has no automated UX check. Every `UX-*` rule is a human or model-assisted review question that an agent can route and record.
+Diligent 0.1.1 has no automated UX check. Every `UX-*` rule is a human or model-assisted review question that an agent can route and record.
 
 ## 1. Service brief
 

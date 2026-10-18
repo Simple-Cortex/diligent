@@ -7,7 +7,7 @@ description: "Use when auditing, fixing, or assessing a U.S. government website 
 
 Resolve scope and authority first, collect evidence second, assess third, and propose repairs last. Never certify, and never turn a missing check into a pass.
 
-**Version 0.1.0 is a contracts-and-gate release. It ships zero automated website checks.** It routes the work, defines the artifacts and schemas, holds the authority registry and rule packs, and computes a deterministic gate from results that an agent or a human supplies. Say this whenever a user could be misled. Read `docs/supported-checks.md` for the exact matrix.
+**Version 0.1.1 is a contracts-and-gate release. It ships zero automated website checks.** It routes the work, defines the artifacts and schemas, holds the authority registry and rule packs, and computes a deterministic gate from results that an agent or a human supplies. Say this whenever a user could be misled. Read `docs/supported-checks.md` for the exact matrix.
 
 ## Start and route
 
@@ -35,7 +35,7 @@ The default activity is a read-only audit. Applying code changes is a separate r
 | `verify` | Retest on a changed snapshot by a context that did not write the repair | `references/remediation.md`, `references/evidence.md` |
 | `report` | Readable rendering of the recorded assessment facts | `references/assessment.md` |
 
-Utilities that the CLI runs in 0.1.0: `node <skill-dir>/bin/diligent.mjs init`, `status`, `gate`, `report`, and `rules validate`. Every other command is an agent-performed phase guided by the files above; the CLI prints a clear "not executable in 0.1.0" message for them. `resume` re-enters unfinished work only when inputs and versions are unchanged. The complete input, reads, outputs, and blocker protocol for every command is normative in `references/workflow.md`.
+Utilities that the CLI runs in 0.1.1: `node <skill-dir>/bin/diligent.mjs init`, `status`, `gate`, `report`, and `rules validate`. Every other command is an agent-performed phase guided by the files above; the CLI prints a clear "not executable in 0.1.1" message for them. `resume` re-enters unfinished work only when inputs and versions are unchanged. The complete input, reads, outputs, and blocker protocol for every command is normative in `references/workflow.md`.
 
 Pipeline states: `initialized`, `discovered`, `scoped`, `planned`, `collecting`, `assessed`, `proposed`, `verified`, `reported`. Reporting is allowed from any incomplete state. Repair planning and verification are optional, and their absence must be visible.
 
@@ -120,7 +120,7 @@ Inspect the repository, runtime, and supplied documents before asking. Present a
 | Rationalization | Reality |
 | --- | --- |
 | "The page looks accessible, so mark it pass" | Looks are not evidence. Without a recorded observation the result is `not_tested`. |
-| "No automated check failed, so it passes" | In 0.1.0 no automated check exists. Silence is not a pass. |
+| "No automated check failed, so it passes" | In 0.1.1 no automated check exists. Silence is not a pass. |
 | "It is a `.gov` site, so the federal profile applies" | A hostname does not select a jurisdiction or an agency. Resolve the facts. |
 | "The accessibility statement exists, so the obligation is met" | Presence is not accuracy. Compare to the deployed behavior and ask for owner evidence. |
 | "The vendor says it is conformant" | A vendor report is evidence about a product, not about the deployed configuration. Retest. |

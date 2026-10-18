@@ -61,6 +61,18 @@ Use three-valued logic:
 
 The rule packs name the facts each predicate needs in `required_facts`. Fact ids are lower snake case, for example `section508_covered`, `ada_title2_covered`, `adopted_wcag_version`, `collects_personal_data`, `service_requires_authentication`, and `fisma_system_in_scope`.
 
+## 4a. Three WCAG mappings
+
+Every accessibility rule records which WCAG versions contain its criterion, in `wcag_mappings`. The three versions play different roles and are never merged.
+
+| WCAG version | Role | Why |
+| --- | --- | --- |
+| 2.0 A/AA | `legal_floor` | Revised Section 508 (36 CFR Part 1194) still incorporates WCAG 2.0. No Access Board refresh docket has existed since the 2017 rule |
+| 2.1 AA | `title_ii_target` | ADA Title II (28 CFR Part 35 Subpart H) and HHS Section 504 (45 CFR Part 84 Subpart I) bind WCAG 2.1 AA |
+| 2.2 AA | `recommended` | OMB M-23-22 directs agencies to the most current WCAG, which is 2.2. Guidance, not a legal binding |
+
+A criterion present in 2.0 appears in all three mappings, a 2.1-only criterion in 2.1 and 2.2, and a 2.2-only criterion in 2.2 only. A report always shows all three and never blends them into one score or one pass. A failure against the 2.2 mapping alone is a recommendation finding, not a legal failure. Criterion 4.1.1 Parsing was removed in WCAG 2.2, so its 2.2 mapping is advisory only.
+
 ## 5. Authority and conflicts
 
 Applicable law, policy, or contract governs website obligations. Agency evidence resolves factual scope. Versioned rule records govern a specific run. A conflict between authorities is an unresolved issue for the responsible owner. Do not resolve legal hierarchy by model confidence or by choosing the strictest requirement. Retain both, name the practical conflict and the reviewer, and block only the affected conclusion.
@@ -79,7 +91,7 @@ Validate against the particular authority. A product risk acceptance does not es
 
 | Item | Treatment |
 | --- | --- |
-| ADA Title II compliance dates | 2027-04-26 for entities with a population of 50,000 or more, 2028-04-26 for smaller entities and special district governments, per current Department of Justice guidance. Existing ADA duties continue before those dates. Re-verify at source review |
+| ADA Title II compliance dates | 2027-04-26 for entities with a population of 50,000 or more, 2028-04-26 for smaller entities and special district governments, per the Department of Justice interim final rule 91 FR 20902 (effective 2026-04-20), which moved the dates a year. Existing ADA duties continue before those dates. HHS Section 504 (45 CFR Part 84 Subpart I) dates are 2027-05-11 for recipients with 15 or more employees and 2028-05-10 for fewer, per 91 FR 25496. Re-verify at source review |
 | OMB M-26-18 | Milestones are offsets from the 2026-08-31 issuance. Dates are not computed in the registry. Read the memo for exceptions and certification alternatives |
 | EO 14432 | Implementation guidance was directed within 90 days. Treat later details as unresolved until published |
 | Pending GSA standards | Banner, HTML page title, and meta description are pending with no supplied timeline. Report readiness findings, never premature legal failures |

@@ -3,7 +3,7 @@ import { spawnSync } from 'node:child_process';
 
 /**
  * If `diligent-rs` (or $DILIGENT_RS_BIN) answers `protocol-version` with 1, the
- * native engine is reported. In 0.1.0 no command is delegated: Node executes
+ * native engine is reported. In this release no command is delegated: Node executes
  * everything, and the report says so.
  */
 export function detectEngine(env = process.env) {

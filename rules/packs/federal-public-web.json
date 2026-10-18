@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "pack_id": "federal-public-web",
-  "pack_version": "0.1.0",
+  "pack_version": "0.1.1",
   "profile_ids": [
     "us-federal-public-web"
   ],
@@ -2323,15 +2323,17 @@
       ],
       "owner_role": "web_manager",
       "severity_default": "low",
-      "source_verified_at": "2026-10-15",
+      "source_verified_at": "2026-10-17",
       "source_review_status": "research",
       "extensions": {
         "source_row_id": "GSA-01",
         "class_label": "pending standard",
         "proposed_procedure": "Top of every page, on a line by itself, with flag, official-site text and dropdown information, for .gov and .mil on HTTPS. Scope is public executive-branch .gov and .mil services.",
         "catalog_authority_id": "A49",
-        "modality_basis": "Pending standard; modality not established. Treated as a readiness finding, never a legal failure."
-      }
+        "modality_basis": "Pending standard; modality not established. Treated as a readiness finding, never a legal failure.",
+        "acceptance_criteria": "Banner appears on every page, on its own line, with the flag, official-site text, and an expandable explanation of .gov and HTTPS. Applies to executive-branch public sites on .gov or .mil."
+      },
+      "standards_status": "pending"
     },
     {
       "rule_id": "FED-33",
@@ -2400,15 +2402,17 @@
       ],
       "owner_role": "web_manager",
       "severity_default": "low",
-      "source_verified_at": "2026-10-15",
+      "source_verified_at": "2026-10-17",
       "source_review_status": "research",
       "extensions": {
         "source_row_id": "GSA-02",
         "class_label": "pending standard",
         "proposed_procedure": "Every page has a unique title of at least 20 characters under this pending standard. Descriptiveness needs semantic review.",
         "catalog_authority_id": "A49",
-        "modality_basis": "Pending standard; modality not established. Treated as a readiness finding, never a legal failure."
-      }
+        "modality_basis": "Pending standard; modality not established. Treated as a readiness finding, never a legal failure.",
+        "acceptance_criteria": "Every page has a unique title of at least 20 characters. Applies to executive-branch public sites on .gov or .mil."
+      },
+      "standards_status": "pending"
     },
     {
       "rule_id": "FED-34",
@@ -2477,15 +2481,17 @@
       ],
       "owner_role": "web_manager",
       "severity_default": "low",
-      "source_verified_at": "2026-10-15",
+      "source_verified_at": "2026-10-17",
       "source_review_status": "research",
       "extensions": {
         "source_row_id": "GSA-03",
         "class_label": "pending standard",
         "proposed_procedure": "Every page has a unique description of at least 50 characters under this pending standard. Accuracy is assessed separately.",
         "catalog_authority_id": "A49",
-        "modality_basis": "Pending standard; modality not established. Treated as a readiness finding, never a legal failure."
-      }
+        "modality_basis": "Pending standard; modality not established. Treated as a readiness finding, never a legal failure.",
+        "acceptance_criteria": "Every page has a unique meta description of at least 50 characters. Applies to executive-branch public sites on .gov or .mil."
+      },
+      "standards_status": "pending"
     },
     {
       "rule_id": "FED-35",
