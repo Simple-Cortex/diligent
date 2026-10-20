@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-18-ccc002",
+  "findings": [
+    {
+      "finding_id": "find-c01",
+      "fingerprint": "fp-known-001",
+      "rule_id": "INFRA-02",
+      "obligation_id": "OBL-INFRA-02",
+      "category": "mandatory_failure",
+      "authority_refs": ["A10"],
+      "task_refs": [],
+      "locations": [],
+      "affected_instances": ["https://agency.example.gov/"],
+      "severity": "high",
+      "certainty_basis": "observation",
+      "review_state": "unreviewed",
+      "repair_refs": [],
+      "owner_role": "engineering",
+      "lifecycle": { "state": "open", "history": [] },
+      "observation": "strict-transport-security header is absent.",
+      "impact": "Browsers may connect over plain HTTP.",
+      "evidence_refs": []
+    },
+    {
+      "finding_id": "find-c02",
+      "fingerprint": "fp-new-001",
+      "rule_id": "INFRA-03",
+      "obligation_id": "OBL-INFRA-03",
+      "category": "mandatory_failure",
+      "authority_refs": ["A10"],
+      "task_refs": [],
+      "locations": [],
+      "affected_instances": ["https://agency.example.gov/"],
+      "severity": "critical",
+      "certainty_basis": "observation",
+      "review_state": "unreviewed",
+      "repair_refs": [],
+      "owner_role": "engineering",
+      "lifecycle": { "state": "open", "history": [] },
+      "observation": "No SPF record found.",
+      "impact": "Email spoofing possible.",
+      "evidence_refs": []
+    }
+  ]
+}

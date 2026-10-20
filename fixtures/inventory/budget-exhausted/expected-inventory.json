@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "run_id": "run-2026-10-18-0a1b2c",
   "audit_id": "fixture",
-  "generated_by": "diligent-inventory/0.2.0",
+  "generated_by": "diligent-inventory/0.2.1",
   "routes": [
     {
       "url": "https://example.gov/",

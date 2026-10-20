@@ -17,7 +17,7 @@
     "entity_population_band",
     "service_brief_present"
   ],
-  "claim_boundary": "Diligent 0.2.0 can only record the facts and obligations for a state or local entity under this research profile and compute a deterministic gate from supplied results; local privacy, language, records, and security overlays are not researched, the Node package runs no automated check and automated results from the companion binary are advisory until rules are published, and nothing it produces is a certification or a statement of ADA compliance.",
+  "claim_boundary": "Diligent 0.2.1 can only record the facts and obligations for a state or local entity under this research profile and compute a deterministic gate from supplied results; local privacy, language, records, and security overlays are not researched, the Node package runs no automated check and automated results from the companion binary are advisory until rules are published, and nothing it produces is a certification or a statement of ADA compliance.",
   "notes": "Research profile, not a published profile. The DOJ interim final rule 91 FR 20902 (effective 2026-04-20; authority A68) gives April 26, 2027 for entities with a population of 50,000 or more and April 26, 2028 for smaller entities and special district governments. Existing ADA duties continue before those dates. WCAG 2.1 AA includes every WCAG 2.0 A/AA criterion, so the WCAG 2.0 pack applies here through its also_required_via extension. State, local, tribal, territorial, and District of Columbia privacy, language, records, and security overlays require a jurisdiction specialist before any whole-profile claim.",
   "corroboration": {
     "browser": []

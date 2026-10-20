@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "schema-anyof",
+  "pack_version": "0.1.0",
+  "profile_ids": ["test-profile"],
+  "rules": [
+    {
+      "rule_id": "ANYOF-01",
+      "obligation_id": "OBL-ANYOF-01",
+      "lifecycle": "research",
+      "obligation": "Invalid anyOf match",
+      "authority": {
+        "authority_id": "A01",
+        "section": "1",
+        "modality": "invalid-modality",
+        "incorporated_standard": null
+      },
+      "check_ids": ["ANYOF-01-check"]
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 //!
 //! Implemented: `--version`, `--help`, `protocol-version`, `rules validate`,
 //! `applicability`, `collect`, `assess`, `infra`, `source scan`, `inventory`,
-//! `evidence` and `checks list`. Every other command exits 3 with a clear message. The Node CLI stays authoritative until a
+//! `evidence`, `checks list`, and `gate`. Every other command exits 3 with a clear message. The Node CLI stays authoritative until a
 //! shadow suite proves identical output; it probes this binary to report
 //! which engine is available.
 //!
@@ -16,7 +16,7 @@ const PROTOCOL_VERSION: &str = "1";
 
 const HELP: &str = "diligent-rs: native companion for Diligent\n\
 \n\
-Usage:\n  diligent-rs --version\n  diligent-rs --help\n  diligent-rs protocol-version\n  diligent-rs rules validate [--data-root <dir>] [--schemas <dir>] [--json] [--crosscheck]\n  diligent-rs applicability --scope <SCOPE.json> --profile <id> [options]\n  diligent-rs collect --url <url> --out <dir> [options]\n  diligent-rs assess --capture <dir> --out <dir> [--run-id <id>] [--inventory <INVENTORY.json>] [--no-signals] [--no-corroborate] [--json]\n  diligent-rs infra --url <https://host/> --out <dir> [--run-id <id>] [options]\n  diligent-rs source scan <path> [--out <dir>] [--run-id <id>] [--json]\n  diligent-rs inventory --url <https://host/> --out <dir> [--seed <s>] [--processes <file>] [--json]\n  diligent-rs evidence ingest | verify | resume-plan [options]\n  diligent-rs checks list [--json]\n\n\
+Usage:\n  diligent-rs --version\n  diligent-rs --help\n  diligent-rs protocol-version\n  diligent-rs rules validate [--data-root <dir>] [--schemas <dir>] [--json] [--crosscheck]\n  diligent-rs applicability --scope <SCOPE.json> --profile <id> [options]\n  diligent-rs collect --url <url> --out <dir> [options]\n  diligent-rs assess --capture <dir> --out <dir> [--run-id <id>] [--inventory <INVENTORY.json>] [--no-signals] [--no-corroborate] [--component] [--json]\n  diligent-rs infra --url <https://host/> --out <dir> [--run-id <id>] [options]\n  diligent-rs source scan <path> [--out <dir>] [--run-id <id>] [--json]\n  diligent-rs inventory --url <https://host/> --out <dir> [--seed <s>] [--processes <file>] [--json]\n  diligent-rs evidence ingest | verify | resume-plan [options]\n  diligent-rs checks list [--json]\n  diligent-rs gate <audit-id> [--root <workspace>] [--dir <audit-directory>] [--json] [--now <iso-time>]\n\n\
 rules validate checks authorities/registry.json, every rules/packs/*.json and\n\
 every profiles/*.json against their schemas and the cross-checks in\n\
 scripts/validate-rules.mjs. --data-root defaults to the current directory.\n\
@@ -42,10 +42,14 @@ plus manifest.jsonl. Run `collect --help`.\n\
 infra runs network-level checks on one https origin (redirect, certificate, HSTS, SPF,\n\
 DMARC, disclosure files, robots, sitemap, headers, DAP, privacy link). Run `infra --help`.\n\
 \n\
-source scan runs parser-based checks over saved .html files. Run `source scan --help`.\n\
+source scan runs parser-based checks over saved .html files and component or template files (.jsx, .tsx, .vue, .svelte, .astro, .twig, .liquid). Run `source scan --help`.\n\
 \n\
 checks list prints every check and signal this build knows: browser checks, signals,\n\
 source checks and infra checks, with the rules each informs. --json for machines.\n\
+\n\
+gate loads APPLICABILITY.json, RESULTS.jsonl, EXCEPTIONS.json, REVIEW-QUEUE.json and\n\
+RULES.lock.json, validates each against its schema, and writes ASSESSMENT.json.\n\
+Exit 0 pass_for_declared_scope (or not_applicable), 1 fail, 2 incomplete, 3 invalid.\n\
 \n\
 Every other command is not implemented in this version and exits with code 3.";
 
@@ -65,6 +69,25 @@ missing or invalid SCOPE.json or profile, or an unparseable predicate.";
 const RULES_VALIDATE_HELP: &str = "Usage: diligent-rs rules validate [--data-root <dir>] [--schemas <dir>] [--json] [--crosscheck]\n\
 \n\
 Exit 0 when valid, 3 when anything is invalid or when no data was found.";
+
+const GATE_HELP: &str = "Usage: diligent-rs gate <audit-id> [--root <workspace>] [--dir <audit-directory>] [--json] [--now <iso-time>]\n\
+\n\
+Loads APPLICABILITY.json, RESULTS.jsonl, EXCEPTIONS.json, REVIEW-QUEUE.json and\n\
+RULES.lock.json, validates each against its schema, and writes ASSESSMENT.json.\n\
+\n\
+Overall outcomes and exit codes:\n\
+  0  pass_for_declared_scope (or not_applicable with cited predicates)\n\
+  1  fail: a confirmed failure of an applicable mandatory obligation\n\
+  2  incomplete: unknown or pending applicability, untested or unsupported\n\
+     obligations, open review items, stale evidence, or a missing input\n\
+  3  invalid input or schema (an incomplete ASSESSMENT.json is still written)\n\
+\n\
+Missing APPLICABILITY.json or RESULTS.jsonl is always incomplete, never a pass.\n\
+Exceptions are listed separately and never change a result.\n\
+Options:\n\
+  --dir <path>   use an audit directory directly instead of <root>/.diligent/<audit-id>\n\
+  --now <iso>    fixed computation time, for deterministic replays\n\
+  --json         print the assessment as JSON";
 
 /// Options for `rules validate`.
 #[derive(Debug, PartialEq, Eq)]
@@ -88,6 +111,16 @@ struct ApplicabilityCliOptions {
     json: bool,
 }
 
+/// Options for `gate`.
+#[derive(Debug, PartialEq, Eq)]
+struct GateCliOptions {
+    audit_id: Option<String>,
+    root: Option<PathBuf>,
+    dir: Option<PathBuf>,
+    json: bool,
+    now: Option<String>,
+}
+
 /// Outcome of interpreting command-line arguments.
 #[derive(Debug, PartialEq, Eq)]
 enum Action {
@@ -96,6 +129,9 @@ enum Action {
     Applicability(ApplicabilityCliOptions),
     /// Bad `applicability` arguments: exit 3.
     ApplicabilityBad(String),
+    Gate(GateCliOptions),
+    /// Bad `gate` arguments: exit 2, printed with the `diligent:` prefix so the text matches the Node CLI.
+    GateUsage(String),
     Usage(String),
     Source(Vec<String>),
     /// `collect`: browser evidence collection, parsed by the runtime crate.
@@ -127,6 +163,7 @@ fn interpret(args: &[String]) -> Action {
             None => Action::Usage("rules needs a subcommand. Try `rules validate`.".to_string()),
         },
         Some("applicability") => parse_applicability(&args[1..]),
+        Some("gate") => parse_gate(&args[1..]),
         Some("source") => Action::Source(args.to_vec()),
         Some("collect") => Action::Collect(args.to_vec()),
         Some("infra") => Action::Infra(args.to_vec()),
@@ -136,6 +173,74 @@ fn interpret(args: &[String]) -> Action {
         Some("checks") => parse_checks(&args[1..]),
         Some(other) => Action::NotImplemented(other.to_string()),
     }
+}
+
+fn parse_gate(args: &[String]) -> Action {
+    let mut options = GateCliOptions {
+        audit_id: None,
+        root: None,
+        dir: None,
+        json: false,
+        now: None,
+    };
+    let mut i = 0;
+    while i < args.len() {
+        let token = args[i].as_str();
+        let (name, inline) = match token.strip_prefix("--") {
+            Some(rest) => match rest.split_once('=') {
+                Some((n, v)) => (n, Some(v.to_string())),
+                None => (rest, None),
+            },
+            None if token == "-h" => return Action::Print(GATE_HELP.to_string()),
+            None => {
+                if options.audit_id.is_none() {
+                    options.audit_id = Some(token.to_string());
+                } else {
+                    return Action::GateUsage(
+                        "gate takes at most one <audit-id>. Run with --help.".to_string(),
+                    );
+                }
+                i += 1;
+                continue;
+            }
+        };
+        match name {
+            "help" => return Action::Print(GATE_HELP.to_string()),
+            "json" => {
+                if inline.is_some() {
+                    return Action::GateUsage("option --json does not take a value.".to_string());
+                }
+                options.json = true;
+            }
+            "root" | "dir" | "now" => {
+                let value = match inline {
+                    Some(v) => v,
+                    None => {
+                        i += 1;
+                        match args.get(i) {
+                            Some(v) if !v.starts_with("--") => v.clone(),
+                            _ => {
+                                return Action::GateUsage(format!(
+                                    "option --{name} requires a value."
+                                ))
+                            }
+                        }
+                    }
+                };
+                match name {
+                    "root" => options.root = Some(PathBuf::from(value)),
+                    "dir" => options.dir = Some(PathBuf::from(value)),
+                    "now" => options.now = Some(value),
+                    _ => {}
+                }
+            }
+            other => {
+                return Action::GateUsage(format!("unknown option --{other}. Run with --help."));
+            }
+        }
+        i += 1;
+    }
+    Action::Gate(options)
 }
 
 fn parse_checks(args: &[String]) -> Action {
@@ -179,6 +284,7 @@ fn checks_catalog() -> serde_json::Value {
             "act_ids": c.act,
             "summary": c.summary,
             "never_fails": diligent_assess::checks::never_fails(c.id),
+            "scope": diligent_assess::checks::scope(c.id),
         })).collect::<Vec<_>>(),
         "signals": signals.iter().map(|s| json!({
             "key": s.key,
@@ -479,6 +585,29 @@ fn report_crosscheck(data: &diligent_rules::DataSet, schemas: &Path) {
     }
 }
 
+/// Run `gate` and return the process exit code.
+fn run_gate(options: &GateCliOptions) -> u8 {
+    let result = diligent_gate::run::locate_audit_dir(
+        options.audit_id.as_deref(),
+        options.dir.as_deref(),
+        options.root.as_deref(),
+    )
+    .and_then(|dir| {
+        let now = options
+            .now
+            .clone()
+            .unwrap_or_else(diligent_gate::run::now_iso);
+        diligent_gate::run::run_gate(&dir, &now, options.json)
+    });
+    match result {
+        Ok(code) => code as u8,
+        Err(e) => {
+            eprintln!("{}", e.message);
+            e.exit_code as u8
+        }
+    }
+}
+
 fn main() -> ExitCode {
     let args: Vec<String> = std::env::args().skip(1).collect();
     match interpret(&args) {
@@ -491,6 +620,11 @@ fn main() -> ExitCode {
         Action::ApplicabilityBad(message) => {
             eprintln!("diligent-rs: {message} Run `applicability --help`.");
             ExitCode::from(3)
+        }
+        Action::Gate(options) => ExitCode::from(run_gate(&options)),
+        Action::GateUsage(message) => {
+            eprintln!("diligent: {message}");
+            ExitCode::from(2)
         }
         Action::Usage(message) => {
             eprintln!("diligent-rs: {message}");
@@ -548,10 +682,51 @@ mod tests {
     }
 
     #[test]
-    fn other_commands_are_not_implemented() {
+    fn gate_dispatches_to_gate_crate() {
         assert_eq!(
-            interpret(&args(&["gate"])),
-            Action::NotImplemented("gate".to_string())
+            interpret(&args(&["gate", "test-audit"])),
+            Action::Gate(GateCliOptions {
+                audit_id: Some("test-audit".to_string()),
+                root: None,
+                dir: None,
+                json: false,
+                now: None,
+            })
+        );
+    }
+
+    #[test]
+    fn gate_usage_errors_are_gate_usage() {
+        assert!(matches!(
+            interpret(&args(&["gate", "one", "two"])),
+            Action::GateUsage(m) if m == "gate takes at most one <audit-id>. Run with --help."
+        ));
+        assert!(matches!(
+            interpret(&args(&["gate", "--nope"])),
+            Action::GateUsage(m) if m == "unknown option --nope. Run with --help."
+        ));
+    }
+
+    #[test]
+    fn gate_parses_all_options() {
+        let action = interpret(&args(&[
+            "gate",
+            "test-audit",
+            "--root",
+            "/r",
+            "--dir=/d",
+            "--json",
+            "--now=2026-01-01T00:00:00.000Z",
+        ]));
+        assert_eq!(
+            action,
+            Action::Gate(GateCliOptions {
+                audit_id: Some("test-audit".to_string()),
+                root: Some(PathBuf::from("/r")),
+                dir: Some(PathBuf::from("/d")),
+                json: true,
+                now: Some("2026-01-01T00:00:00.000Z".to_string()),
+            })
         );
     }
 
@@ -817,6 +992,7 @@ mod tests {
             "inventory",
             "evidence",
             "checks",
+            "gate",
         ];
         for sub in &subcommands {
             assert!(

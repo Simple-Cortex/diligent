@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "string-array",
+  "pack_version": "0.1.0",
+  "profile_ids": ["test-profile"],
+  "rules": [
+    {
+      "rule_id": "STRARR-01",
+      "obligation_id": "OBL-STRARR-01",
+      "lifecycle": "research",
+      "obligation": "String where array expected",
+      "authority": {
+        "authority_id": "A01",
+        "section": "1",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "check_ids": "STRARR-01-check"
+    }
+  ]
+}

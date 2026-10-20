@@ -7,7 +7,8 @@ import { spawn } from 'node:child_process';
 import { readFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { detectEngine } from '../scripts/lib/engine.mjs';
+import { describeEngine, nativeDelegates } from '../scripts/lib/engine.mjs';
+import { probeBinary } from '../scripts/lib/orchestrate/engine.mjs';
 import { DILIGENT_VERSION } from '../scripts/lib/cli.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -18,6 +19,9 @@ const UTILITIES = {
   gate: 'gate.mjs',
   report: 'report.mjs',
   audit: 'audit.mjs',
+  sarif: 'sarif.mjs',
+  baseline: 'baseline.mjs',
+  diff: 'diff.mjs',
   'validate-skill': 'validate-skill.mjs',
   install: 'install.mjs',
   check: 'check.mjs',
@@ -51,6 +55,7 @@ Agent-performed phases (guided by skills/<phase>/SKILL.md, no CLI implementation
 
 Global options:
   --json        machine-readable output where supported
+  DILIGENT_ENGINE=node  environment: never delegate gate or rules validate to diligent-rs
   -h, --help    show help (also: diligent <command> --help)
   -v, --version print the version
 
@@ -71,6 +76,21 @@ function runScript(script, args) {
   });
 }
 
+/**
+ * `gate` and `rules validate` run the diligent-rs binary when one reporting protocol 1 is present
+ * (and DILIGENT_ENGINE is not "node"). Returns the exit code, or null when Node should run the script.
+ */
+function runNative(args, label) {
+  if (!nativeDelegates()) return null;
+  const probe = probeBinary();
+  if (!probe.ok) return null;
+  return new Promise(resolvePromise => {
+    const child = spawn(probe.binary, args, { stdio: 'inherit' });
+    child.on('error', error => { console.error(`diligent: failed to start ${label}: ${error.message}`); resolvePromise(3); });
+    child.on('close', (code, signal) => resolvePromise(signal ? 1 : code ?? 1));
+  });
+}
+
 async function main(argv) {
   const json = argv.includes('--json');
   const args = argv.filter(arg => arg !== '--json');
@@ -82,20 +102,30 @@ async function main(argv) {
   }
   if (command === '--version' || command === '-v') {
     const version = await readVersion();
-    if (json) console.log(JSON.stringify({ name: 'diligent', version, engine: detectEngine() }, null, 2));
+    if (json) console.log(JSON.stringify({ name: 'diligent', version, engine: describeEngine() }, null, 2));
     else console.log(version);
     return 0;
   }
   if (command === 'rules') {
-    if (rest[0] === 'validate') return runScript('validate-rules.mjs', [...rest.slice(1), ...(json ? ['--json'] : [])]);
+    if (rest[0] === 'validate') {
+      const tail = [...rest.slice(1), ...(json ? ['--json'] : [])];
+      const hasRoot = tail.some(arg => arg === '--data-root' || arg.startsWith('--data-root='));
+      const native = runNative(['rules', 'validate', ...(hasRoot ? [] : ['--data-root', ROOT]), ...tail], 'diligent-rs rules validate');
+      return native ?? runScript('validate-rules.mjs', tail);
+    }
     if (!rest[0] || rest[0] === '--help' || rest[0] === '-h') { console.log('Usage: diligent rules validate [--data-root <dir>] [--json]'); return rest[0] ? 0 : 2; }
     console.error(`diligent: unknown rules command "${rest[0]}". Use "diligent rules validate".`);
     return 2;
   }
+  if (command === 'gate') {
+    const gateArgs = [...rest, ...(json ? ['--json'] : [])];
+    const native = runNative(['gate', ...gateArgs], 'diligent-rs gate');
+    return native ?? runScript(UTILITIES.gate, gateArgs);
+  }
   if (command in UTILITIES) return runScript(UTILITIES[command], [...rest, ...(json ? ['--json'] : [])]);
   if (AGENT_PHASES.includes(command)) {
     const message = `${command} is an agent-performed phase in ${DILIGENT_VERSION} and has no executable implementation. Read ${command === 'resume' ? 'references/workflow.md' : `skills/${command}/SKILL.md`}.`;
-    if (json) console.log(JSON.stringify({ command, status: 'not_implemented', exit_code: 3, message, engine: detectEngine() }, null, 2));
+    if (json) console.log(JSON.stringify({ command, status: 'not_implemented', exit_code: 3, message, engine: describeEngine() }, null, 2));
     else console.error(message);
     return 3;
   }

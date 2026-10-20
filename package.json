@@ -1,6 +1,6 @@
 {
   "name": "diligent",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "An agent skill that audits U.S. government websites and digital services for accessibility and federal web obligations, with evidence-bound findings and a deterministic gate.",
   "type": "module",
   "license": "MIT",
@@ -29,8 +29,11 @@
     "scripts/lib/artifacts.mjs",
     "scripts/lib/cli.mjs",
     "scripts/lib/data.mjs",
+    "scripts/lib/diff.mjs",
     "scripts/lib/engine.mjs",
+    "scripts/lib/fingerprint.mjs",
     "scripts/lib/manifest.mjs",
+    "scripts/lib/sarif.mjs",
     "scripts/lib/schema.mjs",
     "scripts/lib/scope-facts.mjs",
     "scripts/lib/status.mjs",
@@ -40,6 +43,9 @@
     "scripts/gate.mjs",
     "scripts/report.mjs",
     "scripts/audit.mjs",
+    "scripts/sarif.mjs",
+    "scripts/baseline.mjs",
+    "scripts/diff.mjs",
     "scripts/release-gate.mjs",
     "scripts/e2e-smoke.mjs",
     "scripts/e2e-replay.mjs",
@@ -59,6 +65,8 @@
     "references/facts/*.json",
     "skills/*/SKILL.md",
     "docs/supported-checks.md",
+    "docs/sarif.md",
+    "docs/baseline-diff.md",
     "docs/known-limitations.md",
     "runtime-manifest.json"
   ],
@@ -81,6 +89,11 @@
     "test:packed-artifact": "node --test tests/packed-artifact.test.mjs",
     "release:gate": "node scripts/release-gate.mjs",
     "smoke": "node scripts/e2e-smoke.mjs",
-    "replay": "node scripts/e2e-replay.mjs"
+    "replay": "node scripts/e2e-replay.mjs",
+    "sarif": "node scripts/sarif.mjs",
+    "baseline": "node scripts/baseline.mjs",
+    "diff": "node scripts/diff.mjs",
+    "shadow:rules": "node scripts/shadow-rules.mjs",
+    "shadow:gate": "node scripts/shadow-gate.mjs"
   }
 }

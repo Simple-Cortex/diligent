@@ -1,0 +1,9 @@
+{
+  "gate_exit": 1,
+  "stories": 3,
+  "failing_story": "example-button--broken",
+  "failing_checks_include": ["BRW-AX-NAME-REQUIRED", "BRW-TEXT-CONTRAST"],
+  "also_failing_story": "example-card--wrong-lang",
+  "clean_story": "example-button--clean",
+  "note": "The broken story carries low-contrast text and an image button with no accessible name. The wrong-lang story carries an invalid lang value. The example facts make those obligations mandatory and applicable, so the component gate exits 1."
+}

@@ -1,4 +1,4 @@
-//! Command line entry: `assess --capture <dir> --out <dir> [--run-id <id>] [--inventory <INVENTORY.json>] [--no-signals] [--no-corroborate] [--json]`.
+//! Command line entry: `assess --capture <dir> --out <dir> [--run-id <id>] [--inventory <INVENTORY.json>] [--no-signals] [--no-corroborate] [--component] [--json]`.
 
 use std::fs::{self, File};
 use std::io::{BufWriter, Write};
@@ -9,7 +9,7 @@ use serde::Serialize;
 
 use crate::{assess, AssessOptions};
 
-const USAGE: &str = "usage: assess --capture <dir> --out <dir> [--run-id <id>] [--inventory <INVENTORY.json>] [--no-signals] [--no-corroborate] [--json]\n\n\
+const USAGE: &str = "usage: assess --capture <dir> --out <dir> [--run-id <id>] [--inventory <INVENTORY.json>] [--no-signals] [--no-corroborate] [--component] [--json]\n\n\
 Runs the browser-capture accessibility checks over a `collect` output directory.\n\
   --capture <dir>  directory holding manifest.jsonl and the capture files\n\
   --out <dir>      write RESULTS.jsonl and EVIDENCE.jsonl into <dir>\n\
@@ -17,6 +17,7 @@ Runs the browser-capture accessibility checks over a `collect` output directory.
   --inventory <f>  INVENTORY.json from `inventory`; lets the title check look for duplicate titles\n\
   --no-signals     skip the advisory signals step and SIGNALS.jsonl\n\
   --no-corroborate skip axe-core corroboration even when the capture has an axe_result\n\
+  --component      component mode: whole-page checks record not_tested with a component reason\n\
   --json           print the summary as JSON on stdout\n\n\
 Exit codes: 0 no fail, 1 at least one fail, 2 needs_review and no fail,\n\
 3 usage or load error.\n";
@@ -31,6 +32,7 @@ struct Args {
     inventory: Option<PathBuf>,
     no_signals: bool,
     no_corroborate: bool,
+    component: bool,
     json: bool,
 }
 
@@ -50,6 +52,7 @@ fn parse(args: &[String]) -> Result<Parsed, String> {
     let mut inventory: Option<PathBuf> = None;
     let mut no_signals = false;
     let mut no_corroborate = false;
+    let mut component = false;
     let mut json = false;
     while let Some(arg) = it.next() {
         match arg {
@@ -57,6 +60,7 @@ fn parse(args: &[String]) -> Result<Parsed, String> {
             "--json" => json = true,
             "--no-signals" => no_signals = true,
             "--no-corroborate" => no_corroborate = true,
+            "--component" => component = true,
             "--capture" => {
                 capture = Some(PathBuf::from(
                     it.next().ok_or("--capture needs a directory")?,
@@ -82,6 +86,7 @@ fn parse(args: &[String]) -> Result<Parsed, String> {
         inventory,
         no_signals,
         no_corroborate,
+        component,
         json,
     }))
 }
@@ -132,6 +137,7 @@ pub fn run_cli(args: &[String]) -> u8 {
         inventory: parsed.inventory.clone(),
         no_signals: parsed.no_signals,
         corroborate: !parsed.no_corroborate,
+        component: parsed.component,
     };
     let report = match assess(&parsed.capture, &opts) {
         Ok(r) => r,

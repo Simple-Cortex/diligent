@@ -77,7 +77,7 @@ test('the locks are frozen copies with hashes and a supported-check matrix deriv
     const fed = rules.supported_check_matrix.find(row => row.rule_id === 'FED-01');
     assert.equal(fed.unsupported, true);
     assert.equal(rules.supported_check_matrix.find(row => row.rule_id === 'A11Y-1.1.1').unsupported, false);
-    assert.ok(Object.keys(rules.schema_hashes).length === 33);
+    assert.ok(Object.keys(rules.schema_hashes).length === 34);
     assert.equal(rules.packs.find(p => p.pack_id === 'mini-ux').normative, false);
   });
 });

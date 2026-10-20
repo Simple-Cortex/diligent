@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-18-eeff03",
+  "findings": [
+    {
+      "finding_id": "find-s01",
+      "fingerprint": "fp-special-001",
+      "rule_id": "FED-06",
+      "obligation_id": "OBL-FED-06",
+      "category": "evidence_gap",
+      "authority_refs": ["A28"],
+      "task_refs": [],
+      "locations": [
+        { "url": "https://agency.example.gov/page", "selector": "a[href=\"/privacy\"][title=\"Politique de confidentialité\"]" }
+      ],
+      "affected_instances": ["https://agency.example.gov/page"],
+      "severity": "low",
+      "certainty_basis": "observation",
+      "review_state": "unreviewed",
+      "repair_refs": [],
+      "owner_role": "content",
+      "lifecycle": { "state": "open", "history": [] },
+      "observation": "Aucun lien « confidentialité » trouvé — caractère spécial : é à ü",
+      "impact": "Privacy link may be missing or obscured.",
+      "evidence_refs": ["evidence/ghi789.json"]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "$schema": "diligent-runtime-manifest/v1",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Authority for installed skill files. Everything listed here is included in the runtime skill package. Everything not listed is excluded.",
   "include": [
     "SKILL.md",
@@ -12,8 +12,11 @@
     "scripts/lib/artifacts.mjs",
     "scripts/lib/cli.mjs",
     "scripts/lib/data.mjs",
+    "scripts/lib/diff.mjs",
     "scripts/lib/engine.mjs",
+    "scripts/lib/fingerprint.mjs",
     "scripts/lib/manifest.mjs",
+    "scripts/lib/sarif.mjs",
     "scripts/lib/schema.mjs",
     "scripts/lib/scope-facts.mjs",
     "scripts/lib/status.mjs",
@@ -23,6 +26,9 @@
     "scripts/gate.mjs",
     "scripts/report.mjs",
     "scripts/audit.mjs",
+    "scripts/sarif.mjs",
+    "scripts/baseline.mjs",
+    "scripts/diff.mjs",
     "scripts/release-gate.mjs",
     "scripts/e2e-smoke.mjs",
     "scripts/e2e-replay.mjs",
@@ -42,6 +48,8 @@
     "references/facts/*.json",
     "skills/*/SKILL.md",
     "docs/supported-checks.md",
+    "docs/sarif.md",
+    "docs/baseline-diff.md",
     "docs/known-limitations.md",
     "runtime-manifest.json"
   ],

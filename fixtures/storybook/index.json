@@ -1,0 +1,38 @@
+{
+  "v": 5,
+  "entries": {
+    "example-button--broken": {
+      "type": "story",
+      "id": "example-button--broken",
+      "name": "Broken",
+      "title": "Example/Button",
+      "importPath": "./src/Button.stories.js",
+      "tags": ["story"]
+    },
+    "example-button--clean": {
+      "type": "story",
+      "id": "example-button--clean",
+      "name": "Clean",
+      "title": "Example/Button",
+      "importPath": "./src/Button.stories.js",
+      "tags": ["story"]
+    },
+    "example-button--docs": {
+      "type": "docs",
+      "id": "example-button--docs",
+      "name": "Docs",
+      "title": "Example/Button",
+      "importPath": "./src/Button.stories.js",
+      "storiesImports": [],
+      "tags": ["docs", "autodocs"]
+    },
+    "example-card--wrong-lang": {
+      "type": "story",
+      "id": "example-card--wrong-lang",
+      "name": "Wrong Lang",
+      "title": "Example/Card",
+      "importPath": "./src/Card.stories.js",
+      "tags": ["story"]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "whitespace-auth",
+  "pack_version": "0.1.0",
+  "profile_ids": ["test-profile"],
+  "rules": [
+    {
+      "rule_id": "WS-01",
+      "obligation_id": "OBL-WS-01",
+      "lifecycle": "published",
+      "obligation": "Whitespace-only authority_basis",
+      "authority": {
+        "authority_id": "A01",
+        "section": "1",
+        "modality": "must",
+        "authority_basis": "   ",
+        "incorporated_standard": null
+      },
+      "check_ids": ["WS-01-check"]
+    }
+  ]
+}

@@ -796,7 +796,7 @@
       "title": "Federal HTTPS-only standard (OMB M-15-13)",
       "issuer": "Office of Management and Budget",
       "kind": "binding_policy",
-      "official_url": "https://https.cio.gov/",
+      "official_url": "https://obamawhitehouse.archives.gov/sites/default/files/omb/memoranda/2015/m-15-13.pdf",
       "version_url": null,
       "publication_date": null,
       "effective_date": null,
@@ -808,7 +808,7 @@
       "source_verified_at": null,
       "source_review_status": "research",
       "content_sha256": null,
-      "notes": "Site retrieval was unavailable in one research attempt. Use the original memo or agency implementation if needed. Not fully source-verified."
+      "notes": "The site at https.cio.gov no longer resolves (DNS failure, retrieved 2026-10-20). official_url is the archived OMB M-15-13 memo, read in full on 2026-10-20. Not fully source-verified: no content hash recorded."
     },
     {
       "authority_id": "A44",

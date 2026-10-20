@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Simple-Cortex/diligent/schemas/baseline.schema.json",
+  "title": "Baseline",
+  "description": "A baseline of accepted findings for diff mode.",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "created_from_run": {
+      "type": "string",
+      "minLength": 1
+    },
+    "engine_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "fingerprints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "enum": ["result", "finding"]
+          },
+          "fingerprint": {
+            "type": "string",
+            "minLength": 1
+          },
+          "rule_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "finding_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "check_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "instance_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "first_seen_run": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": ["source", "fingerprint", "rule_id", "first_seen_run"],
+        "additionalProperties": false
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Namespaced vendor or local fields. Unknown top-level fields are rejected; put them here."
+    }
+  },
+  "required": ["schema_version", "created_from_run", "engine_version", "fingerprints"],
+  "additionalProperties": false
+}

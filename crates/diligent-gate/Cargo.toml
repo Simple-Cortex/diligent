@@ -7,3 +7,10 @@ rust-version.workspace = true
 license.workspace = true
 repository.workspace = true
 authors.workspace = true
+
+[dependencies]
+diligent-rules = { path = "../diligent-rules" }
+serde.workspace = true
+serde_json.workspace = true
+diligent-evidence.workspace = true
+

@@ -10,7 +10,8 @@ use serde_json::json;
 use crate::scan::{scan_path, write_jsonl, ScanOptions, ScanReport};
 
 const USAGE: &str = "usage: source scan <path> [--out <dir>] [--run-id <id>] [--json]\n\n\
-Scans .html and .htm files for statically decidable accessibility facts.\n\
+Scans .html, .htm, .jsx, .tsx, .vue, .svelte, .astro, .twig and .liquid files for\n\
+statically decidable accessibility facts.\n\
   --out <dir>  write EVIDENCE.jsonl and RESULTS.jsonl into <dir>\n\
   --run-id <id>  run id for every row and record (default: generated)\n\
   --json       print a JSON summary (with results when --out is absent)\n";

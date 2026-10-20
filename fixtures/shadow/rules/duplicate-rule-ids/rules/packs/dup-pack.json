@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "dup-pack",
+  "pack_version": "0.1.0",
+  "profile_ids": ["test-profile"],
+  "rules": [
+    {
+      "rule_id": "DUP-01",
+      "obligation_id": "OBL-DUP-01",
+      "lifecycle": "research",
+      "obligation": "First rule",
+      "authority": {
+        "authority_id": "A01",
+        "section": "1",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "check_ids": ["DUP-01-check"]
+    },
+    {
+      "rule_id": "DUP-01",
+      "obligation_id": "OBL-DUP-02",
+      "lifecycle": "research",
+      "obligation": "Duplicate rule id",
+      "authority": {
+        "authority_id": "A01",
+        "section": "2",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "check_ids": ["DUP-02-check"]
+    }
+  ]
+}

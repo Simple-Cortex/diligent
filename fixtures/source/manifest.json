@@ -241,6 +241,252 @@
       "check_id": "SRC-LINK-NAME",
       "expected": "fail",
       "note": "image inside the link references the link; terminates with an empty link name"
+    },
+    {
+      "path": "positions/adversarial.html",
+      "check_id": "SRC-TABINDEX-POSITIVE",
+      "expected": "fail",
+      "count": 1,
+      "observed": {
+        "tabindex": 5
+      }
+    },
+    {
+      "path": "templates/jsx/clean.jsx",
+      "check_id": "SRC-CONTROL-NAME",
+      "expected": "pass",
+      "count": 1
+    },
+    {
+      "path": "templates/jsx/clean.jsx",
+      "check_id": "SRC-LINK-NAME",
+      "expected": "pass",
+      "count": 1
+    },
+    {
+      "path": "templates/jsx/clean.jsx",
+      "check_id": "SRC-IMG-ALT-PRESENT",
+      "expected": "needs_review",
+      "count": 1
+    },
+    {
+      "path": "templates/jsx/clean.jsx",
+      "check_id": "SRC-DUP-ID",
+      "expected": "pass",
+      "count": 1
+    },
+    {
+      "path": "templates/jsx/clean.jsx",
+      "check_id": "SRC-TITLE",
+      "expected": "not_tested",
+      "count": 1
+    },
+    {
+      "path": "templates/jsx/expressions.jsx",
+      "check_id": "SRC-IMG-ALT-PRESENT",
+      "expected": "fail",
+      "count": 3
+    },
+    {
+      "path": "templates/jsx/expressions.jsx",
+      "check_id": "SRC-LINK-NAME",
+      "expected": "needs_review",
+      "count": 1,
+      "observed": {
+        "name": "{expr}"
+      }
+    },
+    {
+      "path": "templates/jsx/expressions.jsx",
+      "check_id": "SRC-BUTTON-NAME",
+      "expected": "needs_review",
+      "count": 1,
+      "observed": {
+        "name": "{expr}"
+      }
+    },
+    {
+      "path": "templates/jsx/expressions.jsx",
+      "check_id": "SRC-DUP-ID",
+      "expected": "needs_review",
+      "count": 1,
+      "observed": {
+        "id": "note"
+      }
+    },
+    {
+      "path": "templates/jsx/expressions.jsx",
+      "check_id": "SRC-HEADING-ORDER",
+      "expected": "needs_review",
+      "count": 1,
+      "observed": {
+        "issue": "skipped_level"
+      }
+    },
+    {
+      "path": "templates/jsx/expressions.jsx",
+      "check_id": "SRC-HTML-LANG",
+      "expected": "not_tested",
+      "count": 1
+    },
+    {
+      "path": "templates/vue/clean.vue",
+      "check_id": "SRC-CONTROL-NAME",
+      "expected": "pass",
+      "count": 1
+    },
+    {
+      "path": "templates/vue/clean.vue",
+      "check_id": "SRC-LINK-NAME",
+      "expected": "pass",
+      "count": 1
+    },
+    {
+      "path": "templates/vue/clean.vue",
+      "check_id": "SRC-TITLE",
+      "expected": "not_tested",
+      "count": 1
+    },
+    {
+      "path": "templates/vue/gallery.vue",
+      "check_id": "SRC-IMG-ALT-PRESENT",
+      "expected": "fail",
+      "count": 3
+    },
+    {
+      "path": "templates/vue/gallery.vue",
+      "check_id": "SRC-LINK-NAME",
+      "expected": "needs_review",
+      "count": 1,
+      "observed": {
+        "name": "{expr}"
+      }
+    },
+    {
+      "path": "templates/svelte/clean.svelte",
+      "check_id": "SRC-CONTROL-NAME",
+      "expected": "pass",
+      "count": 1
+    },
+    {
+      "path": "templates/svelte/clean.svelte",
+      "check_id": "SRC-IMG-ALT-PRESENT",
+      "expected": "needs_review",
+      "count": 1
+    },
+    {
+      "path": "templates/svelte/list.svelte",
+      "check_id": "SRC-IMG-ALT-PRESENT",
+      "expected": "fail",
+      "count": 2
+    },
+    {
+      "path": "templates/svelte/list.svelte",
+      "check_id": "SRC-DUP-ID",
+      "expected": "needs_review",
+      "count": 1,
+      "observed": {
+        "id": "empty"
+      }
+    },
+    {
+      "path": "templates/astro/clean.astro",
+      "check_id": "SRC-LINK-NAME",
+      "expected": "pass",
+      "count": 1
+    },
+    {
+      "path": "templates/astro/clean.astro",
+      "check_id": "SRC-IMG-ALT-PRESENT",
+      "expected": "needs_review",
+      "count": 1
+    },
+    {
+      "path": "templates/astro/gallery.astro",
+      "check_id": "SRC-IMG-ALT-PRESENT",
+      "expected": "fail",
+      "count": 2
+    },
+    {
+      "path": "templates/astro/gallery.astro",
+      "check_id": "SRC-LINK-NAME",
+      "expected": "fail",
+      "count": 1
+    },
+    {
+      "path": "templates/twig/clean.twig",
+      "check_id": "SRC-LINK-NAME",
+      "expected": "pass",
+      "count": 1
+    },
+    {
+      "path": "templates/twig/clean.twig",
+      "check_id": "SRC-HEADING-ORDER",
+      "expected": "pass",
+      "count": 1
+    },
+    {
+      "path": "templates/twig/page.twig",
+      "check_id": "SRC-DUP-ID",
+      "expected": "needs_review",
+      "count": 1,
+      "observed": {
+        "id": "nav"
+      }
+    },
+    {
+      "path": "templates/twig/page.twig",
+      "check_id": "SRC-IMG-ALT-PRESENT",
+      "expected": "fail",
+      "count": 2
+    },
+    {
+      "path": "templates/twig/base.twig",
+      "check_id": "SRC-HTML-LANG",
+      "expected": "needs_review",
+      "count": 1,
+      "observed": {
+        "lang": "{expr}"
+      }
+    },
+    {
+      "path": "templates/twig/base.twig",
+      "check_id": "SRC-TITLE",
+      "expected": "needs_review",
+      "count": 1
+    },
+    {
+      "path": "templates/liquid/clean.liquid",
+      "check_id": "SRC-LINK-NAME",
+      "expected": "pass",
+      "count": 1
+    },
+    {
+      "path": "templates/liquid/clean.liquid",
+      "check_id": "SRC-HEADING-ORDER",
+      "expected": "pass",
+      "count": 1
+    },
+    {
+      "path": "templates/liquid/loop.liquid",
+      "check_id": "SRC-CONTROL-NAME",
+      "expected": "fail",
+      "count": 1
+    },
+    {
+      "path": "templates/liquid/loop.liquid",
+      "check_id": "SRC-LINK-NAME",
+      "expected": "needs_review",
+      "count": 1,
+      "observed": {
+        "name": "{expr}"
+      }
+    },
+    {
+      "path": "templates/liquid/loop.liquid",
+      "check_id": "SRC-IMG-ALT-PRESENT",
+      "expected": "needs_review",
+      "count": 1
     }
   ]
 }

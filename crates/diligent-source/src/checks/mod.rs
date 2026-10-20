@@ -26,6 +26,19 @@ pub mod table_headers;
 pub mod title;
 pub mod viewport_zoom;
 
+/// Checks that read the document as a whole (head, `html` attributes, page
+/// chrome). A template fragment has none of that, so these record `not_tested`
+/// for it instead of running.
+pub const DOCUMENT_LEVEL: &[&str] = &[
+    "SRC-HTML-LANG",
+    "SRC-TITLE",
+    "SRC-META-DESCRIPTION",
+    "SRC-VIEWPORT-ZOOM",
+    "SRC-META-REFRESH",
+    "SRC-BANNER-PRESENT",
+    "SRC-IDENTIFIER-LINKS",
+];
+
 /// A registered check: its description and its runner.
 pub struct Check {
     /// Static description.

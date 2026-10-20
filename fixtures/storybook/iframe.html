@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Storybook fixture preview</title>
+<style>
+  body { font: 16px/1.5 sans-serif; color: #111111; background: #ffffff; margin: 16px; }
+  .low { color: #aaaaaa; background: #ffffff; }
+  .primary { color: #ffffff; background: #0b4f9c; border: 0; padding: 8px 16px; min-width: 44px; min-height: 44px; }
+</style>
+</head>
+<body>
+<div id="storybook-root"></div>
+<script>
+  // A minimal stand-in for the Storybook preview: render one story by id from the query string with plain DOM.
+  var stories = {
+    'example-button--broken': function (root) {
+      root.innerHTML = '<p class="low">Low contrast helper text for the button.</p><input class="primary" type="image" width="44" height="44" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=">';
+    },
+    'example-button--clean': function (root) {
+      root.innerHTML = '<p>Choose an option to continue.</p><button class="primary" type="button">Continue</button>';
+    },
+    'example-card--wrong-lang': function (root) {
+      root.innerHTML = '<article><h2>Card title</h2><p lang="english">This paragraph declares a language that is not a valid tag.</p></article>';
+    }
+  };
+  var params = new URLSearchParams(location.search);
+  var render = stories[params.get('id')];
+  if (render) render(document.getElementById('storybook-root'));
+  else document.getElementById('storybook-root').textContent = 'No story found for this id.';
+</script>
+</body>
+</html>

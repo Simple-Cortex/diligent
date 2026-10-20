@@ -1,0 +1,7 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "wrong-profile",
+  "pack_version": "0.1.0",
+  "profile_ids": ["nonexistent-profile"],
+  "rules": []
+}

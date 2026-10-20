@@ -1,0 +1,18 @@
+{
+  "responses": {
+    "https://agency.example.gov/": {
+      "status": 200,
+      "headers": {
+        "strict-transport-security": "max-age=31536000"
+      },
+      "body": "<html><body>Test</body></html>"
+    },
+    "https://hstspreload.org/api/v2/status?domain=example.gov": {
+      "status": 200,
+      "body": "{\"status\":\"pending\"}"
+    }
+  },
+  "addrs": {
+    "agency.example.gov": ["93.184.216.34"]
+  }
+}

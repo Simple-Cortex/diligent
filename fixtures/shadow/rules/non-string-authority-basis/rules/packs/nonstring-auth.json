@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "nonstring-auth",
+  "pack_version": "0.1.0",
+  "profile_ids": ["test-profile"],
+  "rules": [
+    {
+      "rule_id": "NSA-01",
+      "obligation_id": "OBL-NSA-01",
+      "lifecycle": "published",
+      "obligation": "Non-string authority basis",
+      "authority": {
+        "authority_id": "A01",
+        "section": "1",
+        "modality": "must",
+        "authority_basis": 123,
+        "incorporated_standard": null
+      },
+      "check_ids": ["NSA-01-check"]
+    }
+  ]
+}

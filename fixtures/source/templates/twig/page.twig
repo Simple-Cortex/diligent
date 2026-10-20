@@ -1,0 +1,11 @@
+{# page template #}
+{% extends "base.twig" %}
+{% block content %}
+  <img src="{{ hero }}" alt="{{ hero_alt }}">
+  {% if user %}
+    <a href="/account" id="nav">Account</a>
+  {% else %}
+    <a href="/login" id="nav">Sign in</a>
+  {% endif %}
+  <img src="/x.png">
+{% endblock %}

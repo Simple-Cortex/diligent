@@ -1,0 +1,78 @@
+{
+  "A11Y-1.3.5": {
+    "authority.section": "28 CFR 35.200(b); WCAG 2.1 SC 1.3.5"
+  },
+  "A11Y-1.4.10": {
+    "authority.section": "28 CFR 35.200(b); WCAG 2.1 SC 1.4.10"
+  },
+  "A11Y-1.4.11": {
+    "authority.section": "28 CFR 35.200(b); WCAG 2.1 SC 1.4.11"
+  },
+  "A11Y-1.4.12": {
+    "authority.section": "28 CFR 35.200(b); WCAG 2.1 SC 1.4.12"
+  },
+  "A11Y-2.5.3": {
+    "authority.section": "28 CFR 35.200(b); WCAG 2.1 SC 2.5.3"
+  },
+  "FED-01": {
+    "authority.section": "M-23-10 The Use of .gov by Agencies, Agency Actions"
+  },
+  "FED-03": {
+    "authority.section": "M-23-22 §III.A.2"
+  },
+  "FED-04": {
+    "authority.section": "Required web content and links, About Page"
+  },
+  "FED-05": {
+    "authority.section": "M-24-08 §III.A",
+    "authority.modality": "shall"
+  },
+  "FED-06": {
+    "authority.section": "Required web content and links, Privacy Policy"
+  },
+  "FED-07": {
+    "authority.section": "5 U.S.C. 552(a)(2)"
+  },
+  "FED-08": {
+    "authority.section": "Required web content and links, Equal Employment",
+    "authority.modality": "must"
+  },
+  "FED-09": {
+    "authority.section": "Required web content and links, Budget and Performance Reports"
+  },
+  "FED-10": {
+    "authority.section": "Required web content and links, Office of the Inspector General (Consolidated Appropriations Act 2008, Div. D, Title VI, s.534)"
+  },
+  "FED-13": {
+    "authority.section": "Required web content and links, USA.gov"
+  },
+  "FED-17": {
+    "authority.section": "Pub. L. 115-336 s.3(a)(4)"
+  },
+  "FED-18": {
+    "authority.section": "M-23-22 §III.A.4",
+    "authority.modality": "must"
+  },
+  "FED-23": {
+    "authority.section": "Pub. L. 115-336 s.3(a)(8)"
+  },
+  "FED-27": {
+    "authority.section": "M-23-22 §III.A.6"
+  },
+  "FED-29": {
+    "authority.section": "EO 14224 s.3(b)",
+    "authority.modality": "should"
+  },
+  "INFRA-01": {
+    "authority.section": "M-15-13 Implementation"
+  },
+  "INFRA-02": {
+    "authority.section": "BOD 18-01 §II.1.b.i"
+  },
+  "INFRA-03": {
+    "authority.section": "BOD 18-01 §II.1.a"
+  },
+  "INFRA-08": {
+    "authority.section": "BOD 20-01 Required Actions 3"
+  }
+}

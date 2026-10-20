@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "schema-unknown-field",
+  "pack_version": "0.1.0",
+  "profile_ids": ["test-profile"],
+  "rules": [
+    {
+      "rule_id": "UNKN-01",
+      "obligation_id": "OBL-UNKN-01",
+      "lifecycle": "research",
+      "obligation": "Unknown field in rule",
+      "authority": {
+        "authority_id": "A01",
+        "section": "1",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "check_ids": ["UNKN-01-check"],
+      "unknown_field": "this should not be here"
+    }
+  ]
+}

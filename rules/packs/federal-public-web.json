@@ -13,11 +13,11 @@
         "FED-01-gov-domain"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Appropriate government domain and domain governance.",
       "authority": {
         "authority_id": "A28",
-        "section": "unatomized: clause locator pending source review",
+        "section": "M-23-10 The Use of .gov by Agencies, Agency Actions",
         "modality": "must",
         "incorporated_standard": null
       },
@@ -70,8 +70,8 @@
       ],
       "owner_role": "domain_owner",
       "severity_default": "medium",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "WEB-01",
         "class_label": "P/C, A28; A29",
@@ -163,11 +163,11 @@
         "BRW-FED-IDENTIFIER"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Clear parent agency attribution.",
       "authority": {
         "authority_id": "A05",
-        "section": "unatomized: clause locator pending source review",
+        "section": "M-23-22 §III.A.2",
         "modality": "should",
         "incorporated_standard": null
       },
@@ -219,8 +219,8 @@
       ],
       "owner_role": "web_manager",
       "severity_default": "medium",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "WEB-03",
         "class_label": "P/R/C by provision, A05; implementation A31",
@@ -239,11 +239,11 @@
         "SRC-IDENTIFIER-LINKS"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "About information and applicable organizational disclosures.",
       "authority": {
         "authority_id": "A21",
-        "section": "unatomized: clause locator pending source review",
+        "section": "Required web content and links, About Page",
         "modality": "must",
         "incorporated_standard": null
       },
@@ -299,8 +299,8 @@
       ],
       "owner_role": "policy_content_owner",
       "severity_default": "medium",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "WEB-04",
         "class_label": "P/C, A21",
@@ -317,12 +317,12 @@
         "SRC-IDENTIFIER-LINKS"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Accessible accessibility statement and feedback path.",
       "authority": {
         "authority_id": "A06",
-        "section": "unatomized: clause locator pending source review",
-        "modality": "must",
+        "section": "M-24-08 §III.A",
+        "modality": "shall",
         "incorporated_standard": null
       },
       "jurisdiction": "US-federal",
@@ -374,13 +374,13 @@
       ],
       "owner_role": "section508_program_manager",
       "severity_default": "medium",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "WEB-05",
         "class_label": "P, A06; A32",
         "proposed_procedure": "B/O: verify applied standard, known limitations, program-manager name/email, feedback, complaint instructions, reasonable accommodations information, relay guidance, relevant policies, review date.",
-        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "modality_basis": "OMB M-24-08 section III.A says \"Agencies shall maintain a digital accessibility statement on Federal websites\"; reviewed 2026-10-20.",
         "additional_authority_ids": [
           "A32"
         ]
@@ -396,11 +396,11 @@
         "FED-06-privacy-link"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Privacy policy and collection-context notices.",
       "authority": {
         "authority_id": "A09",
-        "section": "unatomized: clause locator pending source review",
+        "section": "Required web content and links, Privacy Policy",
         "modality": "must",
         "incorporated_standard": null
       },
@@ -454,8 +454,8 @@
       ],
       "owner_role": "privacy_officer",
       "severity_default": "medium",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "WEB-06",
         "class_label": "P/C, A09",
@@ -471,11 +471,11 @@
         "SRC-IDENTIFIER-LINKS"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "FOIA access and electronic reading-room duties.",
       "authority": {
         "authority_id": "A22",
-        "section": "unatomized: clause locator pending source review",
+        "section": "5 U.S.C. 552(a)(2)",
         "modality": "shall",
         "incorporated_standard": null
       },
@@ -528,8 +528,8 @@
       ],
       "owner_role": "foia_officer",
       "severity_default": "medium",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "WEB-07",
         "class_label": "L/C, A22",
@@ -545,12 +545,12 @@
         "SRC-IDENTIFIER-LINKS"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "No FEAR Act data link/content.",
       "authority": {
         "authority_id": "A21",
-        "section": "unatomized: clause locator pending source review",
-        "modality": "shall",
+        "section": "Required web content and links, Equal Employment",
+        "modality": "must",
         "incorporated_standard": null
       },
       "jurisdiction": "US-federal",
@@ -603,13 +603,13 @@
       ],
       "owner_role": "policy_content_owner",
       "severity_default": "medium",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "WEB-08",
         "class_label": "L/C, A21",
         "proposed_procedure": "B/O: check principal agency homepage placement, authoritative destination and reporting currency. Do not require a full report on every microsite.",
-        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review."
+        "modality_basis": "Digital.gov required web content, Equal Employment, says \"All federal public websites must comply with the existing No Fear Act\"; reviewed 2026-10-20."
       }
     },
     {
@@ -620,11 +620,11 @@
         "SRC-IDENTIFIER-LINKS"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Budget/performance information.",
       "authority": {
         "authority_id": "A21",
-        "section": "unatomized: clause locator pending source review",
+        "section": "Required web content and links, Budget and Performance Reports",
         "modality": "must",
         "incorporated_standard": null
       },
@@ -678,8 +678,8 @@
       ],
       "owner_role": "policy_content_owner",
       "severity_default": "medium",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "WEB-09",
         "class_label": "P/C, A21",
@@ -695,11 +695,11 @@
         "SRC-IDENTIFIER-LINKS"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Inspector General reporting access.",
       "authority": {
         "authority_id": "A21",
-        "section": "unatomized: clause locator pending source review",
+        "section": "Required web content and links, Office of the Inspector General (Consolidated Appropriations Act 2008, Div. D, Title VI, s.534)",
         "modality": "shall",
         "incorporated_standard": null
       },
@@ -753,8 +753,8 @@
       ],
       "owner_role": "policy_content_owner",
       "severity_default": "medium",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "WEB-10",
         "class_label": "L/C, A21",
@@ -918,11 +918,11 @@
         "SRC-IDENTIFIER-LINKS"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Appropriate government-wide support link.",
       "authority": {
         "authority_id": "A21",
-        "section": "unatomized: clause locator pending source review",
+        "section": "Required web content and links, USA.gov",
         "modality": "must",
         "incorporated_standard": null
       },
@@ -976,8 +976,8 @@
       ],
       "owner_role": "policy_content_owner",
       "severity_default": "medium",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "WEB-13",
         "class_label": "P/C placement index, A21",
@@ -1208,11 +1208,11 @@
         "BRW-FED-SEARCH"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Public content can be searched.",
       "authority": {
         "authority_id": "A04",
-        "section": "unatomized: clause locator pending source review",
+        "section": "Pub. L. 115-336 s.3(a)(4)",
         "modality": "shall",
         "incorporated_standard": null
       },
@@ -1264,8 +1264,8 @@
       ],
       "owner_role": "product_owner",
       "severity_default": "medium",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "EXP-04",
         "class_label": "L qualified, A04; A34",
@@ -1284,12 +1284,12 @@
         "FED-18-sitemap"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Public information is discoverable externally.",
       "authority": {
         "authority_id": "A05",
-        "section": "unatomized: clause locator pending source review",
-        "modality": "should",
+        "section": "M-23-22 §III.A.4",
+        "modality": "must",
         "incorporated_standard": null
       },
       "jurisdiction": "US-federal",
@@ -1340,13 +1340,13 @@
       ],
       "owner_role": "web_manager",
       "severity_default": "medium",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "EXP-05",
         "class_label": "P/R by provision, A05; A35",
         "proposed_procedure": "N/S: inspect robots rules, response codes, canonical URLs, sitemap and indexability. Distinguish intentional restricted data from accidental public-content blocking.",
-        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "modality_basis": "OMB M-23-22 section III.A.4 says \"Agencies' websites must be structured well\" and \"follow search engine optimization (SEO) practices\"; reviewed 2026-10-20.",
         "additional_authority_ids": [
           "A35"
         ]
@@ -1652,11 +1652,11 @@
         "BRW-FED-MOBILE-VIEWPORT"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Functional and usable on common mobile devices.",
       "authority": {
         "authority_id": "A04",
-        "section": "unatomized: clause locator pending source review",
+        "section": "Pub. L. 115-336 s.3(a)(8)",
         "modality": "shall",
         "incorporated_standard": null
       },
@@ -1708,8 +1708,8 @@
       ],
       "owner_role": "product_owner",
       "severity_default": "medium",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "EXP-10",
         "class_label": "L qualified, A04",
@@ -1945,11 +1945,11 @@
         "FED-27-dap"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Digital Analytics Program use where applicable.",
       "authority": {
         "authority_id": "A36",
-        "section": "unatomized: clause locator pending source review",
+        "section": "M-23-22 §III.A.6",
         "modality": "must",
         "incorporated_standard": null
       },
@@ -2004,8 +2004,8 @@
       ],
       "owner_role": "web_manager",
       "severity_default": "medium",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "EXP-14",
         "class_label": "P/C, A36",
@@ -2090,12 +2090,12 @@
         "BRW-FED-LANGUAGE-ACCESS"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Language access under current applicable authority.",
       "authority": {
         "authority_id": "A19",
-        "section": "unatomized: clause locator pending source review",
-        "modality": "shall",
+        "section": "EO 14224 s.3(b)",
+        "modality": "should",
         "incorporated_standard": null
       },
       "jurisdiction": "US-federal",
@@ -2147,13 +2147,13 @@
       ],
       "owner_role": "program_owner",
       "severity_default": "medium",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "EXP-16",
         "class_label": "C, A19; DC example A38",
         "proposed_procedure": "O/B/H: resolve program/jurisdiction obligations; evaluate vital content, human review, language declaration and completion paths. Machine translation alone is not proof of fulfillment.",
-        "modality_basis": "Derived from the blueprint class label (L=shall, P=must, C=shall, R=should; mixed labels containing R default to should). Take the exact modality word from the source at source review.",
+        "modality_basis": "EO 14224 section 3(b) says \"Agency heads should make decisions as they deem necessary\" and \"are not required to\" stop services in other languages; reviewed 2026-10-20.",
         "additional_authority_ids": [
           "A38"
         ]
@@ -2310,7 +2310,7 @@
         "SRC-BANNER-PRESENT"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Federal government banner (pending GSA standard). Readiness finding unless independently required by adopted agency or contract authority.",
       "authority": {
         "authority_id": "A50",
@@ -2371,8 +2371,8 @@
       ],
       "owner_role": "web_manager",
       "severity_default": "low",
-      "source_verified_at": "2026-10-17",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "GSA-01",
         "class_label": "pending standard",
@@ -2391,7 +2391,7 @@
         "SRC-TITLE"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "HTML page title (pending GSA standard). Readiness finding unless independently required by adopted agency or contract authority.",
       "authority": {
         "authority_id": "A51",
@@ -2453,8 +2453,8 @@
       ],
       "owner_role": "web_manager",
       "severity_default": "low",
-      "source_verified_at": "2026-10-17",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "GSA-02",
         "class_label": "pending standard",
@@ -2473,7 +2473,7 @@
         "SRC-META-DESCRIPTION"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Meta page description (pending GSA standard). Readiness finding unless independently required by adopted agency or contract authority.",
       "authority": {
         "authority_id": "A52",
@@ -2535,8 +2535,8 @@
       ],
       "owner_role": "web_manager",
       "severity_default": "low",
-      "source_verified_at": "2026-10-17",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "GSA-03",
         "class_label": "pending standard",

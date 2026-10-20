@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "missing-rule-id",
+  "pack_version": "0.1.0",
+  "profile_ids": ["test-profile"],
+  "rules": [
+    {
+      "obligation_id": "OBL-MRI-01",
+      "lifecycle": "research",
+      "obligation": "Missing rule id",
+      "authority": {
+        "authority_id": "A01",
+        "section": "1",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "check_ids": ["MRI-01-check"]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "registry_version": "0.1.0",
+  "authorities": [
+    {
+      "authority_id": "A01",
+      "kind": "statute",
+      "name": "Test Authority",
+      "status": "active",
+      "jurisdiction": "US-federal",
+      "citation": "Test citation",
+      "url": "https://example.gov/test"
+    },
+    {
+      "authority_id": "A01",
+      "kind": "regulation",
+      "name": "Duplicate Authority",
+      "status": "active",
+      "jurisdiction": "US-federal",
+      "citation": "Duplicate citation",
+      "url": "https://example.gov/dup"
+    }
+  ]
+}

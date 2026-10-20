@@ -19,6 +19,7 @@ pub mod fake;
 pub mod fetch;
 pub mod model;
 pub mod observe;
+pub mod preload;
 
 use diligent_source::sha256::sha256_hex;
 use serde_json::json;

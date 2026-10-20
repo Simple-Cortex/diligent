@@ -13,6 +13,7 @@ import { listJsonFiles, readJsonFile } from './lib/data.mjs';
 const HELP = `Usage:
   node scripts/review-packet.mjs generate --out <file> [--catalog <file.json>] [--data-root <dir>]
   node scripts/review-packet.mjs promote --rules <id,id,...> [--data-root <dir>]
+  node scripts/review-packet.mjs apply --corrections <file.json> [--data-root <dir>]
 
 generate writes one row per rule that any check informs, with its pack, lifecycle,
 authority and clause, modality, baseline test, checks and channels, ACT ids,
@@ -28,7 +29,12 @@ docs/a11y-check-metrics.md. A missing input is named in the header and its cells
 promote sets lifecycle "research" to "draft" and source_review_status to "reviewed" for
 the listed rule ids and changes nothing else. It refuses unknown ids, rules that are not
 at lifecycle "research", and packs whose formatting it would not preserve. It writes
-nothing unless every id is accepted. Run "npm run validate" afterwards.
+nothing unless every id is accepted. It also refuses a rule whose authority.section still
+starts with "unatomized". Run "npm run validate" afterwards.
+
+apply reads {"RULE-ID": {"authority.section": "...", "authority.modality": "...",
+"baseline_test_id": "..."}} and sets exactly those fields. It refuses unknown rule ids and
+any other field, and writes nothing unless every entry passes.
 
 Exit codes: 0 done, 2 usage error or refusal, 3 unexpected error.`;
 
@@ -195,6 +201,7 @@ export async function promote({ ids, dataRoot }) {
     const hit = found.get(id);
     if (!hit) problems.push(`unknown rule id ${id}`);
     else if (hit.rule.lifecycle !== 'research') problems.push(`${id} is at lifecycle "${hit.rule.lifecycle}", not "research"`);
+    else if (String(hit.rule.authority?.section ?? '').startsWith('unatomized')) problems.push(`${id} still has an unatomized authority.section; apply the reviewed clause locator first`);
   }
   const touched = new Set(ids.filter(id => found.has(id)).map(id => found.get(id).pack));
   for (const pack of touched) {
@@ -210,9 +217,56 @@ export async function promote({ ids, dataRoot }) {
   return { promoted: ids, files: [...touched].map(p => p.file) };
 }
 
+const APPLY_FIELDS = new Set(['authority.section', 'authority.modality', 'baseline_test_id']);
+
+/** Sets exactly the listed fields per rule. Writes nothing unless every entry passes. */
+export async function applyCorrections({ corrections, dataRoot }) {
+  const files = await listJsonFiles(join(dataRoot, 'rules', 'packs'));
+  const packs = [];
+  for (const file of files) {
+    const bytes = await readFile(file, 'utf8');
+    packs.push({ file, bytes, json: JSON.parse(bytes) });
+  }
+  const found = new Map();
+  for (const pack of packs) for (const rule of pack.json.rules || []) found.set(rule.rule_id, { pack, rule });
+  const problems = [];
+  if (corrections === null || typeof corrections !== 'object' || Array.isArray(corrections)) {
+    throw new UsageError('refusing to apply: the corrections file must be a JSON object keyed by rule id.');
+  }
+  const touched = new Set();
+  for (const [id, fields] of Object.entries(corrections)) {
+    const hit = found.get(id);
+    if (!hit) { problems.push(`unknown rule id ${id}`); continue; }
+    touched.add(hit.pack);
+    if (fields === null || typeof fields !== 'object' || Array.isArray(fields) || Object.keys(fields).length === 0) {
+      problems.push(`${id}: entry must be an object with at least one field`);
+      continue;
+    }
+    for (const [field, value] of Object.entries(fields)) {
+      if (!APPLY_FIELDS.has(field)) problems.push(`${id}: field "${field}" is not allowed`);
+      else if (typeof value !== 'string' || value.trim() === '') problems.push(`${id}: ${field} must be a non-empty string`);
+      else if (field === 'authority.modality' && !['shall', 'must', 'should', 'may', 'will'].includes(value)) problems.push(`${id}: authority.modality "${value}" is not a modality word`);
+      else if (field.startsWith('authority.') && (hit.rule.authority === null || typeof hit.rule.authority !== 'object')) problems.push(`${id}: rule has no authority object`);
+    }
+  }
+  for (const pack of touched) {
+    if (JSON.stringify(pack.json, null, 2) + '\n' !== pack.bytes) problems.push(`${pack.file} is not formatted as 2-space JSON with a final newline`);
+  }
+  if (problems.length) throw new UsageError(`refusing to apply: ${problems.join('; ')}.`);
+  for (const [id, fields] of Object.entries(corrections)) {
+    const { rule } = found.get(id);
+    for (const [field, value] of Object.entries(fields)) {
+      if (field === 'baseline_test_id') rule.baseline_test_id = value;
+      else rule.authority[field.slice('authority.'.length)] = value;
+    }
+  }
+  for (const pack of touched) await writeFile(pack.file, JSON.stringify(pack.json, null, 2) + '\n');
+  return { applied: Object.keys(corrections), files: [...touched].map(p => p.file) };
+}
+
 async function main() {
   const { positional, options } = parseArgs(process.argv.slice(2), {
-    out: 'string', catalog: 'string', rules: 'string', 'data-root': 'string',
+    out: 'string', catalog: 'string', rules: 'string', corrections: 'string', 'data-root': 'string',
   });
   if (options.help) { console.log(HELP); return 0; }
   const [command, ...extra] = positional;
@@ -232,7 +286,16 @@ async function main() {
     console.log('review-packet: now run `npm run validate`.');
     return 0;
   }
-  throw new UsageError('first argument must be generate or promote. Run with --help.');
+  if (command === 'apply') {
+    if (!options.corrections) throw new UsageError('apply needs --corrections <file.json>.');
+    let corrections;
+    try { corrections = (await readJsonFile(resolve(options.corrections))).json; } catch (error) { throw new UsageError(`cannot read corrections: ${error.message}`); }
+    const result = await applyCorrections({ corrections, dataRoot });
+    console.log(`review-packet: applied corrections to ${result.applied.length} rules.`);
+    console.log('review-packet: now run `npm run validate`.');
+    return 0;
+  }
+  throw new UsageError('first argument must be generate, promote or apply. Run with --help.');
 }
 
 if (isMain(import.meta.url)) runMain(main);

@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-18-ccdd02",
+  "findings": [
+    {
+      "finding_id": "find-r01",
+      "fingerprint": "fp-research-001",
+      "rule_id": "INFRA-12",
+      "obligation_id": "OBL-INFRA-12",
+      "category": "possible_failure",
+      "authority_refs": ["A43"],
+      "task_refs": [],
+      "locations": [
+        { "url": "https://agency.example.gov/" }
+      ],
+      "affected_instances": ["https://agency.example.gov/"],
+      "severity": "medium",
+      "certainty_basis": "observation",
+      "review_state": "unreviewed",
+      "repair_refs": [],
+      "owner_role": "engineering",
+      "lifecycle": { "state": "open", "history": [] },
+      "observation": "HTTPS redirect chain includes a temporary redirect.",
+      "impact": "May indicate misconfigured redirect.",
+      "evidence_refs": ["evidence/def456.json"]
+    }
+  ]
+}

@@ -1,0 +1,2491 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-19-91b4ed",
+  "locked_at": "2026-10-19T17:37:01.979Z",
+  "profile": {
+    "profile_id": "us-federal-public-web",
+    "path": "profiles/us-federal-public-web.json",
+    "sha256": "7fcb6bda883e8269f129b10b9a29e22a962984ce5dc1f268a0f9c3f66b8c6f45"
+  },
+  "schema_hashes": {
+    "agency-profile.schema.json": "d6eada0ee4f9a46b40396d8e308ffdc3754aafcbd75afadb98975ae978dddf9d",
+    "applicability.schema.json": "9d0648a1d82e5d7b827dc9ef2924428edec42583eb5986db361d8e00a9a56123",
+    "assessment.schema.json": "36d56515f633fc5738e088b7edcc8aa41dd6cf78ecc5d2a8c1e099a7058ba08f",
+    "audit-plan.schema.json": "fa808e7e5057ce86d2102d720f83c1e966bc376c7d96a31a1eaa518b9ead3f38",
+    "authorities-lock.schema.json": "e67433a6b4997419649b3d15818bf505e02fa8f8e1ff46248c6dd777f07ad3ca",
+    "authority-registry.schema.json": "a76f3b79f68977cd6346f9105e2064f6f724b8c6fcdc9f2ac45f99e248f2c479",
+    "baseline.schema.json": "d64faaf161f7270e6a8b5a753f1803cdb8cc7da64794a93d6edc19ede91f642b",
+    "cache-key.schema.json": "cfaaba85eb58abfbec5612efbf3a0da67d217c11c0c057675a8ec83e430250c5",
+    "check-result.schema.json": "fb143a8915e16e0eae7906240a90ca5d020ab9ac8dc55426e6793be361e57bbc",
+    "component-backlog.schema.json": "9f8fd7683af1fab621dce015124ef953daf0545187a56367b813e0bd2f0c0b24",
+    "component-baseline.schema.json": "25d82b9121a361cb4a23fdf453dee3130e8b829069b4e20972d2bcc223d9c879",
+    "design-system.schema.json": "e3a073f125cd093702e8bedabcfed9c36ec5f00391f79b7dc5bf339044ba835b",
+    "events.schema.json": "da27792ee2276e688f8480dd17ae25ed399cd1bdb74287a227b6be995eb3d4bc",
+    "evidence-index.schema.json": "d4d35f9d6cd7ff77dfb9b3c0d240ae8fb4076f4ef5ed3aa6982b17e6b7fe79be",
+    "evidence-record.schema.json": "eb2995ea410bdaeea5d2dd9b939815cb205d38b120b32eed9d982f3b69f42861",
+    "exceptions.schema.json": "fcee40cce23640a57ca2e51a0118d92aa48d145b00063f0130c20d2c3b54f536",
+    "findings.schema.json": "8dbdd74eaabd0962b154e8e264bd6fd2521b34507628ee9832b21399c7e7a261",
+    "inventory.schema.json": "a7653cf31a869b141cad7585400db6fe09e542472ac115888533616be8f7d86c",
+    "profile.schema.json": "76aa159352e375e7d0b3f7711e3f3b033d5d06b51fa025fc6e8f4492f85c9b81",
+    "project-context.schema.json": "894aa4c8b199ee98e9675eb63e012f22f3ded13021f90eb3b39a6f6d986936e3",
+    "project-rules.schema.json": "1382c234c1a6544fcfa0996d4c6d11d1c298120a5eab3d438c419b885dc98aab",
+    "regulatory-discovery.schema.json": "448237bdfdb63cd4392b9d796ab07ec595ecaaf61278fd441f089f5d23c3b929",
+    "repairs.schema.json": "4288facd201652d8eede11a63cda2e0d94844a9ee3dec408d68afe52a40ace2e",
+    "resource-catalog.schema.json": "57d40172244086bf5e5f26d70f4f277a1ccf951c967e7f584be3124802522606",
+    "reuse-record.schema.json": "c60178182eed6474792818a78680ca943d64c50ac3ae9956a1bd3d258821b91d",
+    "review-queue.schema.json": "d656c65bd83d76625b240ea542066748f4fe1216a37c69fa06cd92eb39d72418",
+    "rule-pack.schema.json": "19232af20a6ed2456f0556179652dc72811a7c925b0be88b210dc694b788ccb7",
+    "rules-lock.schema.json": "9bf947642a0995f50d5e3dadf90003d1e2e315e8e79049638465dc9db051926b",
+    "run.schema.json": "bde84623363147d9af149af6349a9c07466f3b0db5c435dd0d63e2609ac9f2bd",
+    "sample.schema.json": "7baa2a5b37c090e974b651f027c8a70114c3ca72c6ab3300ff2ab8d1079c7ac3",
+    "scope.schema.json": "e9e2642e2a7bc1e1613f11f469fae72803f079a72b00068be0558351ebc78509",
+    "service-brief.schema.json": "61be701280122a83b2f62991024dc720d73f293b109e00c705ce4b6be602e0b6",
+    "signal.schema.json": "51db2a2553c081d87f1cd13054fa776a4b06669fa5834577378e4684774dd02b",
+    "verification.schema.json": "4ff324260d91fdc54280cb037c90c06cc9fbc7a02c035d70f181fc0fe2c483d6"
+  },
+  "packs": [
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "pack_version": "0.1.1",
+      "path": "rules/packs/a11y-wcag20-aa.json",
+      "sha256": "67dff72e2d2a627848327ce36340b4a5e50c722124f5bf70cda9c279e8dd15b4",
+      "rule_count": 38,
+      "normative": true
+    },
+    {
+      "pack_id": "a11y-wcag21-aa",
+      "pack_version": "0.1.1",
+      "path": "rules/packs/a11y-wcag21-aa.json",
+      "sha256": "fbbf875f5db3fa5f5ecfeb6f01b0f3cb899f6ceb6338e8996322cbea64ee5893",
+      "rule_count": 12,
+      "normative": true
+    },
+    {
+      "pack_id": "a11y-wcag22-aa",
+      "pack_version": "0.1.1",
+      "path": "rules/packs/a11y-wcag22-aa.json",
+      "sha256": "9e99d4018122f56a01f9f4fe16823f7dcbecd0f7bcc8b4b2a69399a8c1041a1b",
+      "rule_count": 6,
+      "normative": true
+    },
+    {
+      "pack_id": "federal-public-web",
+      "pack_version": "0.1.1",
+      "path": "rules/packs/federal-public-web.json",
+      "sha256": "f74e703231f5b5c40a01d979c16e78bd8fe16ed66d6c40ac30034fb87eaec374",
+      "rule_count": 42,
+      "normative": true
+    },
+    {
+      "pack_id": "privacy-collection",
+      "pack_version": "0.1.1",
+      "path": "rules/packs/privacy-collection.json",
+      "sha256": "17773cf295db201cd13ac3cd76856ddf022e07e49d886bc86065997b2b339611",
+      "rule_count": 17,
+      "normative": true
+    },
+    {
+      "pack_id": "infrastructure",
+      "pack_version": "0.1.1",
+      "path": "rules/packs/infrastructure.json",
+      "sha256": "22d39cebcc34921b7e0e5a0c4dfb37575f9f5cf6c9f7cf7f048cc57e8915fab5",
+      "rule_count": 26,
+      "normative": true
+    },
+    {
+      "pack_id": "ux-service",
+      "pack_version": "0.1.1",
+      "path": "rules/packs/ux-service.json",
+      "sha256": "6e6c8903f698ef8f5eb98d253cd6e61fbbaeb2f92ca20e41675b11cb976b5b6a",
+      "rule_count": 18,
+      "normative": false
+    }
+  ],
+  "supported_check_matrix": [
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-1.1.1",
+      "obligation_id": "OBL-A11Y-1.1.1",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "automated",
+        "browser": "automated",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-1.2.1",
+      "obligation_id": "OBL-A11Y-1.2.1",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-1.2.2",
+      "obligation_id": "OBL-A11Y-1.2.2",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-1.2.3",
+      "obligation_id": "OBL-A11Y-1.2.3",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-1.2.4",
+      "obligation_id": "OBL-A11Y-1.2.4",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-1.2.5",
+      "obligation_id": "OBL-A11Y-1.2.5",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-1.3.1",
+      "obligation_id": "OBL-A11Y-1.3.1",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "automated",
+        "browser": "automated",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-1.3.2",
+      "obligation_id": "OBL-A11Y-1.3.2",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-1.3.3",
+      "obligation_id": "OBL-A11Y-1.3.3",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-1.4.1",
+      "obligation_id": "OBL-A11Y-1.4.1",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-1.4.2",
+      "obligation_id": "OBL-A11Y-1.4.2",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "automated",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-1.4.3",
+      "obligation_id": "OBL-A11Y-1.4.3",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "automated",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-1.4.4",
+      "obligation_id": "OBL-A11Y-1.4.4",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "automated",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-1.4.5",
+      "obligation_id": "OBL-A11Y-1.4.5",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-2.1.1",
+      "obligation_id": "OBL-A11Y-2.1.1",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-2.1.2",
+      "obligation_id": "OBL-A11Y-2.1.2",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "assisted",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-2.2.1",
+      "obligation_id": "OBL-A11Y-2.2.1",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "automated",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-2.2.2",
+      "obligation_id": "OBL-A11Y-2.2.2",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-2.3.1",
+      "obligation_id": "OBL-A11Y-2.3.1",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-2.4.1",
+      "obligation_id": "OBL-A11Y-2.4.1",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "automated",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-2.4.2",
+      "obligation_id": "OBL-A11Y-2.4.2",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "automated",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-2.4.3",
+      "obligation_id": "OBL-A11Y-2.4.3",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "automated",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-2.4.4",
+      "obligation_id": "OBL-A11Y-2.4.4",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "automated",
+        "browser": "assisted",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-2.4.5",
+      "obligation_id": "OBL-A11Y-2.4.5",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-2.4.6",
+      "obligation_id": "OBL-A11Y-2.4.6",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-2.4.7",
+      "obligation_id": "OBL-A11Y-2.4.7",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "automated",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-3.1.1",
+      "obligation_id": "OBL-A11Y-3.1.1",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "automated",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-3.1.2",
+      "obligation_id": "OBL-A11Y-3.1.2",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "automated",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-3.2.1",
+      "obligation_id": "OBL-A11Y-3.2.1",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": true
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-3.2.2",
+      "obligation_id": "OBL-A11Y-3.2.2",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-3.2.3",
+      "obligation_id": "OBL-A11Y-3.2.3",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": true
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-3.2.4",
+      "obligation_id": "OBL-A11Y-3.2.4",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": true
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-3.3.1",
+      "obligation_id": "OBL-A11Y-3.3.1",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-3.3.2",
+      "obligation_id": "OBL-A11Y-3.3.2",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "automated",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-3.3.3",
+      "obligation_id": "OBL-A11Y-3.3.3",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-3.3.4",
+      "obligation_id": "OBL-A11Y-3.3.4",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-4.1.1",
+      "obligation_id": "OBL-A11Y-4.1.1",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": true
+    },
+    {
+      "pack_id": "a11y-wcag20-aa",
+      "rule_id": "A11Y-4.1.2",
+      "obligation_id": "OBL-A11Y-4.1.2",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "automated",
+        "browser": "automated",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag21-aa",
+      "rule_id": "A11Y-1.3.4",
+      "obligation_id": "OBL-A11Y-1.3.4",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag21-aa",
+      "rule_id": "A11Y-1.3.5",
+      "obligation_id": "OBL-A11Y-1.3.5",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "automated",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag21-aa",
+      "rule_id": "A11Y-1.4.10",
+      "obligation_id": "OBL-A11Y-1.4.10",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "assisted",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag21-aa",
+      "rule_id": "A11Y-1.4.11",
+      "obligation_id": "OBL-A11Y-1.4.11",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "assisted",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag21-aa",
+      "rule_id": "A11Y-1.4.12",
+      "obligation_id": "OBL-A11Y-1.4.12",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "automated",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag21-aa",
+      "rule_id": "A11Y-1.4.13",
+      "obligation_id": "OBL-A11Y-1.4.13",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag21-aa",
+      "rule_id": "A11Y-2.1.4",
+      "obligation_id": "OBL-A11Y-2.1.4",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": true
+    },
+    {
+      "pack_id": "a11y-wcag21-aa",
+      "rule_id": "A11Y-2.5.1",
+      "obligation_id": "OBL-A11Y-2.5.1",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag21-aa",
+      "rule_id": "A11Y-2.5.2",
+      "obligation_id": "OBL-A11Y-2.5.2",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": true
+    },
+    {
+      "pack_id": "a11y-wcag21-aa",
+      "rule_id": "A11Y-2.5.3",
+      "obligation_id": "OBL-A11Y-2.5.3",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "automated",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag21-aa",
+      "rule_id": "A11Y-2.5.4",
+      "obligation_id": "OBL-A11Y-2.5.4",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag21-aa",
+      "rule_id": "A11Y-4.1.3",
+      "obligation_id": "OBL-A11Y-4.1.3",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag22-aa",
+      "rule_id": "A11Y-2.4.11",
+      "obligation_id": "OBL-A11Y-2.4.11",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "assisted",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag22-aa",
+      "rule_id": "A11Y-2.5.7",
+      "obligation_id": "OBL-A11Y-2.5.7",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag22-aa",
+      "rule_id": "A11Y-2.5.8",
+      "obligation_id": "OBL-A11Y-2.5.8",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "assisted",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag22-aa",
+      "rule_id": "A11Y-3.2.6",
+      "obligation_id": "OBL-A11Y-3.2.6",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": true
+    },
+    {
+      "pack_id": "a11y-wcag22-aa",
+      "rule_id": "A11Y-3.3.7",
+      "obligation_id": "OBL-A11Y-3.3.7",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "a11y-wcag22-aa",
+      "rule_id": "A11Y-3.3.8",
+      "obligation_id": "OBL-A11Y-3.3.8",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-01",
+      "obligation_id": "OBL-FED-01",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "automated",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-02",
+      "obligation_id": "OBL-FED-02",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-03",
+      "obligation_id": "OBL-FED-03",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "assisted",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-04",
+      "obligation_id": "OBL-FED-04",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "assisted",
+        "browser": "assisted",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-05",
+      "obligation_id": "OBL-FED-05",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "assisted",
+        "browser": "automated",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-06",
+      "obligation_id": "OBL-FED-06",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "assisted",
+        "browser": "automated",
+        "network": "assisted",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-07",
+      "obligation_id": "OBL-FED-07",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "assisted",
+        "browser": "assisted",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-08",
+      "obligation_id": "OBL-FED-08",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "assisted",
+        "browser": "assisted",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-09",
+      "obligation_id": "OBL-FED-09",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "assisted",
+        "browser": "assisted",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-10",
+      "obligation_id": "OBL-FED-10",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "assisted",
+        "browser": "assisted",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-11",
+      "obligation_id": "OBL-FED-11",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "assisted",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-12",
+      "obligation_id": "OBL-FED-12",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "assisted",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-13",
+      "obligation_id": "OBL-FED-13",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "assisted",
+        "browser": "assisted",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-14",
+      "obligation_id": "OBL-FED-14",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-15",
+      "obligation_id": "OBL-FED-15",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-16",
+      "obligation_id": "OBL-FED-16",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-17",
+      "obligation_id": "OBL-FED-17",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "automated",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-18",
+      "obligation_id": "OBL-FED-18",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "assisted",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-19",
+      "obligation_id": "OBL-FED-19",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-20",
+      "obligation_id": "OBL-FED-20",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-21",
+      "obligation_id": "OBL-FED-21",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-22",
+      "obligation_id": "OBL-FED-22",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-23",
+      "obligation_id": "OBL-FED-23",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "assisted",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-24",
+      "obligation_id": "OBL-FED-24",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-25",
+      "obligation_id": "OBL-FED-25",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-26",
+      "obligation_id": "OBL-FED-26",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-27",
+      "obligation_id": "OBL-FED-27",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "automated",
+        "network": "assisted",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-28",
+      "obligation_id": "OBL-FED-28",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-29",
+      "obligation_id": "OBL-FED-29",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "assisted",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-30",
+      "obligation_id": "OBL-FED-30",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-31",
+      "obligation_id": "OBL-FED-31",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-32",
+      "obligation_id": "OBL-FED-32",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "assisted",
+        "browser": "assisted",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-33",
+      "obligation_id": "OBL-FED-33",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "assisted",
+        "browser": "automated",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-34",
+      "obligation_id": "OBL-FED-34",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "assisted",
+        "browser": "automated",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-35",
+      "obligation_id": "OBL-FED-35",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-36",
+      "obligation_id": "OBL-FED-36",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-37",
+      "obligation_id": "OBL-FED-37",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-38",
+      "obligation_id": "OBL-FED-38",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-39",
+      "obligation_id": "OBL-FED-39",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-40",
+      "obligation_id": "OBL-FED-40",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-41",
+      "obligation_id": "OBL-FED-41",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "federal-public-web",
+      "rule_id": "FED-42",
+      "obligation_id": "OBL-FED-42",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "privacy-collection",
+      "rule_id": "PRIV-01",
+      "obligation_id": "OBL-PRIV-01",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "privacy-collection",
+      "rule_id": "PRIV-02",
+      "obligation_id": "OBL-PRIV-02",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "privacy-collection",
+      "rule_id": "PRIV-03",
+      "obligation_id": "OBL-PRIV-03",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "privacy-collection",
+      "rule_id": "PRIV-04",
+      "obligation_id": "OBL-PRIV-04",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "privacy-collection",
+      "rule_id": "PRIV-05",
+      "obligation_id": "OBL-PRIV-05",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "privacy-collection",
+      "rule_id": "PRIV-06",
+      "obligation_id": "OBL-PRIV-06",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "privacy-collection",
+      "rule_id": "PRIV-07",
+      "obligation_id": "OBL-PRIV-07",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": true
+    },
+    {
+      "pack_id": "privacy-collection",
+      "rule_id": "PRIV-08",
+      "obligation_id": "OBL-PRIV-08",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "privacy-collection",
+      "rule_id": "PRIV-09",
+      "obligation_id": "OBL-PRIV-09",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "privacy-collection",
+      "rule_id": "PRIV-10",
+      "obligation_id": "OBL-PRIV-10",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "privacy-collection",
+      "rule_id": "PRIV-11",
+      "obligation_id": "OBL-PRIV-11",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "privacy-collection",
+      "rule_id": "PRIV-12",
+      "obligation_id": "OBL-PRIV-12",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "privacy-collection",
+      "rule_id": "PRIV-13",
+      "obligation_id": "OBL-PRIV-13",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "privacy-collection",
+      "rule_id": "PRIV-14",
+      "obligation_id": "OBL-PRIV-14",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "privacy-collection",
+      "rule_id": "PRIV-15",
+      "obligation_id": "OBL-PRIV-15",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "privacy-collection",
+      "rule_id": "PRIV-16",
+      "obligation_id": "OBL-PRIV-16",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "privacy-collection",
+      "rule_id": "PRIV-17",
+      "obligation_id": "OBL-PRIV-17",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "infrastructure",
+      "rule_id": "INFRA-01",
+      "obligation_id": "OBL-INFRA-01",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "automated",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "infrastructure",
+      "rule_id": "INFRA-02",
+      "obligation_id": "OBL-INFRA-02",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "automated",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "infrastructure",
+      "rule_id": "INFRA-03",
+      "obligation_id": "OBL-INFRA-03",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "automated",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "infrastructure",
+      "rule_id": "INFRA-04",
+      "obligation_id": "OBL-INFRA-04",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "infrastructure",
+      "rule_id": "INFRA-05",
+      "obligation_id": "OBL-INFRA-05",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "infrastructure",
+      "rule_id": "INFRA-06",
+      "obligation_id": "OBL-INFRA-06",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "infrastructure",
+      "rule_id": "INFRA-07",
+      "obligation_id": "OBL-INFRA-07",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "infrastructure",
+      "rule_id": "INFRA-08",
+      "obligation_id": "OBL-INFRA-08",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "assisted",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "infrastructure",
+      "rule_id": "INFRA-09",
+      "obligation_id": "OBL-INFRA-09",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": true
+    },
+    {
+      "pack_id": "infrastructure",
+      "rule_id": "INFRA-10",
+      "obligation_id": "OBL-INFRA-10",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": true
+    },
+    {
+      "pack_id": "infrastructure",
+      "rule_id": "INFRA-11",
+      "obligation_id": "OBL-INFRA-11",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": true
+    },
+    {
+      "pack_id": "infrastructure",
+      "rule_id": "INFRA-12",
+      "obligation_id": "OBL-INFRA-12",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "assisted",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "infrastructure",
+      "rule_id": "INFRA-13",
+      "obligation_id": "OBL-INFRA-13",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": true
+    },
+    {
+      "pack_id": "infrastructure",
+      "rule_id": "INFRA-14",
+      "obligation_id": "OBL-INFRA-14",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "infrastructure",
+      "rule_id": "INFRA-15",
+      "obligation_id": "OBL-INFRA-15",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "infrastructure",
+      "rule_id": "INFRA-16",
+      "obligation_id": "OBL-INFRA-16",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "infrastructure",
+      "rule_id": "INFRA-17",
+      "obligation_id": "OBL-INFRA-17",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "infrastructure",
+      "rule_id": "INFRA-18",
+      "obligation_id": "OBL-INFRA-18",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "infrastructure",
+      "rule_id": "INFRA-19",
+      "obligation_id": "OBL-INFRA-19",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "infrastructure",
+      "rule_id": "INFRA-20",
+      "obligation_id": "OBL-INFRA-20",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "infrastructure",
+      "rule_id": "INFRA-21",
+      "obligation_id": "OBL-INFRA-21",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "infrastructure",
+      "rule_id": "INFRA-22",
+      "obligation_id": "OBL-INFRA-22",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": true
+    },
+    {
+      "pack_id": "infrastructure",
+      "rule_id": "INFRA-23",
+      "obligation_id": "OBL-INFRA-23",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "infrastructure",
+      "rule_id": "INFRA-24",
+      "obligation_id": "OBL-INFRA-24",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "unsupported"
+      },
+      "unsupported": true
+    },
+    {
+      "pack_id": "infrastructure",
+      "rule_id": "INFRA-25",
+      "obligation_id": "OBL-INFRA-25",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "infrastructure",
+      "rule_id": "INFRA-26",
+      "obligation_id": "OBL-INFRA-26",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "unsupported",
+        "documentary": "documentary"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "ux-service",
+      "rule_id": "UX-001",
+      "obligation_id": "OBL-UX-001",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "ux-service",
+      "rule_id": "UX-002",
+      "obligation_id": "OBL-UX-002",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "ux-service",
+      "rule_id": "UX-003",
+      "obligation_id": "OBL-UX-003",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "ux-service",
+      "rule_id": "UX-004",
+      "obligation_id": "OBL-UX-004",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "ux-service",
+      "rule_id": "UX-005",
+      "obligation_id": "OBL-UX-005",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "ux-service",
+      "rule_id": "UX-006",
+      "obligation_id": "OBL-UX-006",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "ux-service",
+      "rule_id": "UX-007",
+      "obligation_id": "OBL-UX-007",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "ux-service",
+      "rule_id": "UX-008",
+      "obligation_id": "OBL-UX-008",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "ux-service",
+      "rule_id": "UX-009",
+      "obligation_id": "OBL-UX-009",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "ux-service",
+      "rule_id": "UX-010",
+      "obligation_id": "OBL-UX-010",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "ux-service",
+      "rule_id": "UX-011",
+      "obligation_id": "OBL-UX-011",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "ux-service",
+      "rule_id": "UX-012",
+      "obligation_id": "OBL-UX-012",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "ux-service",
+      "rule_id": "UX-013",
+      "obligation_id": "OBL-UX-013",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "ux-service",
+      "rule_id": "UX-014",
+      "obligation_id": "OBL-UX-014",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "ux-service",
+      "rule_id": "UX-015",
+      "obligation_id": "OBL-UX-015",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "ux-service",
+      "rule_id": "UX-016",
+      "obligation_id": "OBL-UX-016",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "ux-service",
+      "rule_id": "UX-017",
+      "obligation_id": "OBL-UX-017",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    },
+    {
+      "pack_id": "ux-service",
+      "rule_id": "UX-018",
+      "obligation_id": "OBL-UX-018",
+      "lifecycle": "research",
+      "channel_support": {
+        "source": "unsupported",
+        "browser": "unsupported",
+        "network": "unsupported",
+        "model": "unsupported",
+        "human": "human",
+        "documentary": "unsupported"
+      },
+      "unsupported": false
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "check_id": "INFRA-02-hsts-preload",
+  "rule": "INFRA-02",
+  "channel": "assisted",
+  "status": "needs_review",
+  "expected": "strict-transport-security includes both includeSubDomains and preload.",
+  "observed": {
+    "preload_lookup": "unknown",
+    "header": "max-age=31536000",
+    "missing": [
+      "includeSubDomains",
+      "preload"
+    ]
+  },
+  "limitations": [
+    "hstspreload.org reports status \"unknown\"; the preload directive may still be absent from the header.",
+    "One request from one network vantage point; other regions, clients, and times can differ."
+  ]
+}

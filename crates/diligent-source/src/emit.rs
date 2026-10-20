@@ -11,10 +11,45 @@ use crate::model::{
     ENGINE_VERSION, EXTENSION_KEY,
 };
 use crate::sha256::sha256_hex;
+use crate::template::MARK;
 
 const SNIPPET_CHARS: usize = 400;
 const EVIDENCE_LIMITATION: &str =
-    "Static parse of the HTML text only: no rendering, computed styles, scripts, or line and byte offsets.";
+    "Static parse of the markup text only: no rendering, computed styles, or scripts. Line, column and byte offset are reported when the source text contains the element; elements the parser implied have none.";
+const TEMPLATE_LIMITATION: &str =
+    "Template file: the snippet and attributes show the markup after template syntax was masked, and {expr} stands for a template expression.";
+const EXPRESSION_NOTE: &str =
+    "A template expression stands in for part of the value or name; its runtime value is not known.";
+const TAINT_NOTE: &str =
+    "The element carries a template expression or attribute spread that could supply what is missing.";
+const CONDITIONAL_NOTE: &str =
+    "The template holds a conditional or loop, so duplicates may not render together.";
+/// Attributes whose value an expression can change the outcome for.
+const TAINT_ATTRS: &[&str] = &[
+    "alt",
+    "aria-label",
+    "aria-labelledby",
+    "title",
+    "label",
+    "name",
+    "lang",
+    "href",
+    "value",
+    "placeholder",
+    "for",
+    "id",
+    "role",
+    "type",
+    "content",
+    "http-equiv",
+    "scope",
+    "headers",
+    "autocomplete",
+    "tabindex",
+    "autoplay",
+    "controls",
+    "muted",
+];
 const RESULT_LIMITATION: &str =
     "Static pass. Does not establish that any WCAG success criterion is met.";
 
@@ -91,8 +126,17 @@ impl<'a> Emitter<'a> {
 
     /// Records a finding anchored at `el`.
     pub fn emit(&mut self, info: &'static CheckInfo, el: ElementRef<'a>, outcome: Outcome) {
+        if dom::is_component(el) {
+            return;
+        }
+        let outcome = self.adjust(info, el, outcome);
+        let pos = self.ctx.position(el);
+        let templated = self.ctx.template.templated;
         let selector = self.ctx.selector(el);
         let (snippet, truncated) = dom::outer_html_snippet(el, SNIPPET_CHARS);
+        let snippet = snippet.replace(MARK, "{expr}");
+        let mut attributes = dom::attributes_json(el);
+        show_expressions(&mut attributes);
         let evidence_id = format!(
             "ev-{}-{}",
             self.prefix,
@@ -114,8 +158,10 @@ impl<'a> Emitter<'a> {
                 "tag": dom::tag(el),
                 "outer_html": snippet,
                 "outer_html_truncated": truncated,
-                "attributes": dom::attributes_json(el),
-                "byte_offset": Value::Null,
+                "attributes": attributes,
+                "byte_offset": pos.map(|p| p.offset),
+                "line": pos.map(|p| p.line),
+                "column": pos.map(|p| p.column),
             }),
             payload_ref: self.source.path.clone(),
             sha256: self.doc_sha.clone(),
@@ -125,7 +171,13 @@ impl<'a> Emitter<'a> {
                 flags: Vec::new(),
             },
             trust: "direct_observation".to_string(),
-            limitations: vec![EVIDENCE_LIMITATION.to_string()],
+            limitations: {
+                let mut l = vec![EVIDENCE_LIMITATION.to_string()];
+                if templated {
+                    l.push(TEMPLATE_LIMITATION.to_string());
+                }
+                l
+            },
             derived_from: None,
         };
 
@@ -165,6 +217,7 @@ impl<'a> Emitter<'a> {
                         "scope": "static",
                         "instance": selector,
                         "source_path": self.source.path,
+                        "line": pos.map(|p| p.line),
                         "act_rule_ids": info.act,
                         "rule_ids": rule_ids,
                     }),
@@ -180,6 +233,43 @@ impl<'a> Emitter<'a> {
     pub fn emit_root(&mut self, info: &'static CheckInfo, outcome: Outcome) {
         let root = self.ctx.root();
         self.emit(info, root, outcome);
+    }
+
+    /// Downgrades `pass` and `fail` to `needs_review` where a template
+    /// expression, spread or conditional means the markup cannot settle it.
+    fn adjust(&self, info: &CheckInfo, el: ElementRef<'a>, mut o: Outcome) -> Outcome {
+        let facts = self.ctx.template;
+        if !facts.templated {
+            return o;
+        }
+        if matches!(o.state, State::Pass | State::Fail) {
+            let fail = o.state == State::Fail;
+            let note = if contains_mark(&o.observed) {
+                Some(EXPRESSION_NOTE)
+            } else if fail && tainted(el) {
+                Some(TAINT_NOTE)
+            } else if fail && info.id == "SRC-CONTROL-NAME" && self.ctx.label_for_expr {
+                Some(EXPRESSION_NOTE)
+            } else if fail && info.id == "SRC-DUP-ID" && facts.has_conditionals {
+                Some(CONDITIONAL_NOTE)
+            } else {
+                None
+            };
+            if let Some(note) = note {
+                o.state = State::NeedsReview;
+                o.limitations.push(note.to_string());
+            }
+        }
+        show_expressions(&mut o.observed);
+        o
+    }
+
+    /// Records `not_tested` for a document-level check on a template fragment.
+    pub fn skip_fragment(&mut self, info: &'static CheckInfo) {
+        let reason = "The template is a fragment (no html or body tag), so a document-level check does not apply.";
+        let outcome =
+            Outcome::new(State::NotTested, info.summary, json!({ "reason": reason })).limit(reason);
+        self.emit_root(info, outcome);
     }
 
     /// Records `not_tested` once when the check produced nothing.
@@ -199,4 +289,29 @@ impl<'a> Emitter<'a> {
     pub fn finish(self) -> Vec<Finding> {
         self.findings
     }
+}
+
+fn contains_mark(v: &Value) -> bool {
+    match v {
+        Value::String(s) => dom::has_mark(s),
+        Value::Array(a) => a.iter().any(contains_mark),
+        Value::Object(m) => m.values().any(contains_mark),
+        _ => false,
+    }
+}
+
+fn show_expressions(v: &mut Value) {
+    match v {
+        Value::String(s) if dom::has_mark(s) => *s = s.replace(MARK, "{expr}"),
+        Value::Array(a) => a.iter_mut().for_each(show_expressions),
+        Value::Object(m) => m.values_mut().for_each(show_expressions),
+        _ => {}
+    }
+}
+
+fn tainted(el: ElementRef<'_>) -> bool {
+    dom::has_spread(el)
+        || TAINT_ATTRS
+            .iter()
+            .any(|a| dom::attr_value(el, a) == dom::AttrValue::Expression)
 }

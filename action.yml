@@ -1,0 +1,411 @@
+name: Diligent audit
+description: Audit a public website for accessibility and federal web obligations, publish SARIF to code scanning, and fail only on the condition you choose.
+author: Mohsin Amjed
+branding:
+  icon: check-circle
+  color: blue
+
+inputs:
+  url:
+    description: Site to audit. Its origin is the only origin tested.
+    required: true
+  audit-id:
+    description: Audit id under the workspace root.
+    required: false
+    default: 'ci'
+  profile:
+    description: Profile id from profiles/.
+    required: false
+    default: 'us-federal-public-web'
+  pages:
+    description: Most pages to collect, 1 to 200.
+    required: false
+    default: '10'
+  facts:
+    description: JSON object of fact_id to value, passed to the audit through a temporary facts file. Wins over facts-file.
+    required: false
+    default: ''
+  facts-file:
+    description: Path to a facts file. Ignored when facts is set.
+    required: false
+    default: ''
+  baseline:
+    description: Path to a baseline file. Enables diff and marks SARIF results as new or unchanged.
+    required: false
+    default: ''
+  fail-on:
+    description: 'gate fails the step when the gate exits 1 or 3. new, any and none use diligent diff and fail when it exits 1; the gate exit is then reported only.'
+    required: false
+    default: 'gate'
+  upload-sarif:
+    description: Upload the SARIF file to code scanning. Needs security-events write permission.
+    required: false
+    default: 'true'
+  upload-artifacts:
+    description: Upload the audit directory, and the baseline from baseline-out, as the artifact diligent-<audit-id>.
+    required: false
+    default: 'true'
+  sarif-path:
+    description: Where to write the SARIF file. A relative path is resolved against the workspace.
+    required: false
+    default: 'diligent.sarif'
+  diligent-rs-version:
+    description: Release version of the diligent-rs binary to download. Empty means the version in this Action's package.json.
+    required: false
+    default: ''
+  diligent-rs-bin:
+    description: Path to an existing diligent-rs binary. Skips the download.
+    required: false
+    default: ''
+  allow-private:
+    description: Pass --allow-private so the start host may be a private address.
+    required: false
+    default: 'false'
+  baseline-out:
+    description: Write a baseline of this run to this path (relative paths resolve against the workspace) and upload it with the audit artifacts.
+    required: false
+    default: ''
+  chrome-no-sandbox:
+    description: Set DILIGENT_CHROME_NO_SANDBOX=1 for the audit step only. Needed only in root containers. Keep false on GitHub-hosted runners.
+    required: false
+    default: 'false'
+  timeout-ms:
+    description: Per-operation timeout for the audit in milliseconds. The default is above the CLI's 30000 because the first page on a cold runner can exceed it.
+    required: false
+    default: '90000'
+  extra-args:
+    description: Appended to the diligent audit command line, split on whitespace.
+    required: false
+    default: ''
+
+outputs:
+  gate-exit:
+    description: Exit code of the audit, which is the gate exit code (0, 1, 2) or 3 when a stage failed.
+    value: ${{ steps.audit.outputs.gate-exit }}
+  overall:
+    description: Overall result from ASSESSMENT.json.
+    value: ${{ steps.audit.outputs.overall }}
+  run-id:
+    description: Run id of this audit.
+    value: ${{ steps.audit.outputs.run-id }}
+  audit-dir:
+    description: Audit directory.
+    value: ${{ steps.audit.outputs.audit-dir }}
+  sarif-path:
+    description: Absolute path of the SARIF file.
+    value: ${{ steps.sarif.outputs.sarif-path }}
+  baseline-path:
+    description: Absolute path of the baseline written by baseline-out. Empty when baseline-out is not set.
+    value: ${{ steps.write-baseline.outputs.baseline-path }}
+  summary-path:
+    description: Path of the audit's --json summary (stages, exit codes, engine detail). Uploaded with the audit artifacts.
+    value: ${{ steps.audit.outputs.summary-path }}
+  diff-exit:
+    description: Exit code of diligent diff. Empty without a baseline.
+    value: ${{ steps.diff.outputs.diff-exit }}
+  new-count:
+    description: Findings and results not in the baseline. Empty without a baseline.
+    value: ${{ steps.diff.outputs.new-count }}
+  resolved-count:
+    description: Baseline entries that this run resolved. Empty without a baseline.
+    value: ${{ steps.diff.outputs.resolved-count }}
+
+runs:
+  using: composite
+  steps:
+    - name: Check platform and inputs
+      shell: bash
+      env:
+        IN_FAIL_ON: ${{ inputs.fail-on }}
+        IN_BASELINE: ${{ inputs.baseline }}
+      run: |
+        set -euo pipefail
+        if [ "${RUNNER_OS:-}" != "Linux" ] || [ "${RUNNER_ARCH:-}" != "X64" ]; then
+          echo "::error::The Diligent Action runs on Linux x86-64 runners only, because the release builds no Windows binary and no Linux arm64 binary."
+          exit 1
+        fi
+        case "$IN_FAIL_ON" in
+          gate|new|any|none) ;;
+          *) echo "::error::fail-on must be gate, new, any or none, not '$IN_FAIL_ON'."; exit 1 ;;
+        esac
+        if [ -z "$IN_BASELINE" ] && { [ "$IN_FAIL_ON" = "new" ] || [ "$IN_FAIL_ON" = "any" ]; }; then
+          echo "::error::fail-on '$IN_FAIL_ON' compares against a baseline, but the baseline input is empty."
+          exit 1
+        fi
+        if [ -n "$IN_BASELINE" ] && [ ! -f "$IN_BASELINE" ]; then
+          echo "::error::baseline file not found: $IN_BASELINE"
+          exit 1
+        fi
+
+    - name: Set up Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+
+    - name: Install and verify diligent-rs
+      shell: bash
+      env:
+        IN_VERSION: ${{ inputs.diligent-rs-version }}
+        IN_BIN: ${{ inputs.diligent-rs-bin }}
+      run: |
+        set -euo pipefail
+        if [ -n "$IN_BIN" ]; then
+          bin="$(cd "$(dirname "$IN_BIN")" && pwd)/$(basename "$IN_BIN")"
+          if [ ! -x "$bin" ]; then
+            echo "::error::diligent-rs-bin is not an executable file: $IN_BIN"
+            exit 1
+          fi
+        else
+          version="$IN_VERSION"
+          if [ -z "$version" ]; then
+            version="$(node -e "console.log(JSON.parse(require('fs').readFileSync(process.argv[1], 'utf8')).version)" "$GITHUB_ACTION_PATH/package.json")"
+          fi
+          target="x86_64-unknown-linux-gnu"
+          archive="diligent-rs-${version}-${target}.tar.gz"
+          base="https://github.com/Simple-Cortex/diligent/releases/download/v${version}"
+          dir="$RUNNER_TEMP/diligent-rs-download"
+          rm -rf "$dir"
+          mkdir -p "$dir"
+          curl -fsSL --retry 3 -o "$dir/$archive" "$base/$archive"
+          curl -fsSL --retry 3 -o "$dir/SHA256SUMS" "$base/SHA256SUMS"
+          if ! (cd "$dir" && sha256sum -c SHA256SUMS --ignore-missing); then
+            echo "::error::Checksum mismatch for $archive. Refusing to run the downloaded binary."
+            exit 1
+          fi
+          tar -xzf "$dir/$archive" -C "$dir"
+          bin="$dir/diligent-rs-${version}-${target}/diligent-rs"
+          chmod +x "$bin"
+        fi
+        protocol="$("$bin" protocol-version)"
+        if [ "$protocol" != "1" ]; then
+          echo "::error::diligent-rs reports protocol version '$protocol'; this Action needs 1."
+          exit 1
+        fi
+        echo "DILIGENT_RS_BIN=$bin" >> "$GITHUB_ENV"
+
+    - name: Locate Chrome
+      shell: bash
+      run: |
+        set -euo pipefail
+        chrome="${DILIGENT_CHROME:-}"
+        if [ -z "$chrome" ]; then
+          chrome="$(command -v google-chrome || true)"
+        fi
+        if [ -z "$chrome" ] || [ ! -x "$chrome" ]; then
+          echo "::error::Chrome was not found. Install google-chrome on the runner or set DILIGENT_CHROME to a Chrome binary."
+          exit 1
+        fi
+        echo "DILIGENT_CHROME=$chrome" >> "$GITHUB_ENV"
+
+    - name: Run the audit
+      id: audit
+      shell: bash
+      env:
+        IN_URL: ${{ inputs.url }}
+        IN_AUDIT_ID: ${{ inputs.audit-id }}
+        IN_PROFILE: ${{ inputs.profile }}
+        IN_PAGES: ${{ inputs.pages }}
+        IN_FACTS: ${{ inputs.facts }}
+        IN_FACTS_FILE: ${{ inputs.facts-file }}
+        IN_ALLOW_PRIVATE: ${{ inputs.allow-private }}
+        IN_TIMEOUT_MS: ${{ inputs.timeout-ms }}
+        IN_EXTRA_ARGS: ${{ inputs.extra-args }}
+        DILIGENT_CHROME_NO_SANDBOX: ${{ inputs.chrome-no-sandbox == 'true' && '1' || '' }}
+      run: |
+        set -euo pipefail
+        root="$RUNNER_TEMP/diligent"
+        args=(audit --url "$IN_URL" "$IN_AUDIT_ID" --root "$root" --profile "$IN_PROFILE" --pages "$IN_PAGES" --timeout-ms "$IN_TIMEOUT_MS")
+        if [ -n "$IN_FACTS" ]; then
+          facts_path="$RUNNER_TEMP/diligent-facts.json"
+          printf '%s' "$IN_FACTS" > "$facts_path"
+          node -e "const v = JSON.parse(require('fs').readFileSync(process.argv[1], 'utf8')); if (v === null || typeof v !== 'object' || Array.isArray(v)) process.exit(1)" "$facts_path" \
+            || { echo "::error::The facts input must be a JSON object of fact_id: value."; exit 1; }
+          args+=(--facts "$facts_path")
+        elif [ -n "$IN_FACTS_FILE" ]; then
+          args+=(--facts "$IN_FACTS_FILE")
+        fi
+        if [ "$IN_ALLOW_PRIVATE" = "true" ]; then
+          args+=(--allow-private)
+        fi
+        extra=()
+        if [ -n "$IN_EXTRA_ARGS" ]; then
+          read -r -a extra <<< "$IN_EXTRA_ARGS"
+        fi
+        out="$RUNNER_TEMP/diligent-audit.json"
+        err="$RUNNER_TEMP/diligent-audit.err"
+        set +e
+        node "$GITHUB_ACTION_PATH/bin/diligent.mjs" "${args[@]}" ${extra[@]+"${extra[@]}"} --json > "$out" 2> "$err"
+        code=$?
+        set -e
+        echo "gate-exit=$code" >> "$GITHUB_OUTPUT"
+        if ! run_id="$(node -e "const s = JSON.parse(require('fs').readFileSync(process.argv[1], 'utf8')); if (!s.run_id || !s.directory) process.exit(1); console.log(s.run_id + '\n' + s.directory)" "$out" 2>/dev/null)"; then
+          echo "::error::The audit produced no run (exit $code). Last lines of its error output follow."
+          tail -n 20 "$err" >&2 || true
+          exit 1
+        fi
+        run_id="$(printf '%s\n' "$run_id" | sed -n 1p)"
+        audit_dir="$(node -e "console.log(JSON.parse(require('fs').readFileSync(process.argv[1], 'utf8')).directory)" "$out")"
+        overall=""
+        if [ -f "$audit_dir/ASSESSMENT.json" ]; then
+          overall="$(node -e "console.log(JSON.parse(require('fs').readFileSync(process.argv[1], 'utf8')).overall ?? '')" "$audit_dir/ASSESSMENT.json")"
+        fi
+        echo "run-id=$run_id" >> "$GITHUB_OUTPUT"
+        echo "audit-dir=$audit_dir" >> "$GITHUB_OUTPUT"
+        echo "overall=$overall" >> "$GITHUB_OUTPUT"
+        echo "summary-path=$out" >> "$GITHUB_OUTPUT"
+        # Stages that did not finish cleanly, with the engine detail the orchestrator recorded.
+        # The detail is engine output and may echo content from the audited site, so workflow
+        # command processing is turned off around it and the annotation text is escaped.
+        node -e '
+          const s = JSON.parse(require("fs").readFileSync(process.argv[1], "utf8"));
+          const esc = v => String(v ?? "").replace(/%/g, "%25").replace(/\r/g, "%0D").replace(/\n/g, "%0A");
+          const token = require("crypto").randomBytes(16).toString("hex");
+          for (const st of s.stages || []) {
+            if (st.state === "done" || st.state === "passed" || st.state === "skipped") continue;
+            console.log(`::warning::${esc(`stage ${st.name}: ${st.state}, exit ${st.exit_code}${st.warning ? `: ${st.warning}` : ""}`)}`);
+            if (!st.detail) continue;
+            console.log(`::stop-commands::${token}`);
+            for (const line of String(st.detail).split("\n")) console.log(`  ${line.replace(/::/g, ": :")}`);
+            console.log(`::${token}::`);
+          }' "$out"
+
+    - name: Write SARIF
+      id: sarif
+      shell: bash
+      env:
+        IN_SARIF_PATH: ${{ inputs.sarif-path }}
+        IN_BASELINE: ${{ inputs.baseline }}
+        AUDIT_DIR: ${{ steps.audit.outputs.audit-dir }}
+        RUN_ID: ${{ steps.audit.outputs.run-id }}
+      run: |
+        set -euo pipefail
+        sarif="$IN_SARIF_PATH"
+        case "$sarif" in
+          /*) ;;
+          *) sarif="$GITHUB_WORKSPACE/$sarif" ;;
+        esac
+        mkdir -p "$(dirname "$sarif")"
+        args=(sarif --run "$RUN_ID" --dir "$AUDIT_DIR" --out "$sarif")
+        if [ -n "$IN_BASELINE" ]; then
+          args+=(--baseline "$IN_BASELINE")
+        fi
+        node "$GITHUB_ACTION_PATH/bin/diligent.mjs" "${args[@]}"
+        echo "sarif-path=$sarif" >> "$GITHUB_OUTPUT"
+
+    - name: Compare with the baseline
+      id: diff
+      shell: bash
+      env:
+        IN_BASELINE: ${{ inputs.baseline }}
+        IN_FAIL_ON: ${{ inputs.fail-on }}
+        AUDIT_DIR: ${{ steps.audit.outputs.audit-dir }}
+        RUN_ID: ${{ steps.audit.outputs.run-id }}
+      run: |
+        set -euo pipefail
+        if [ -z "$IN_BASELINE" ]; then
+          echo "diff-exit=" >> "$GITHUB_OUTPUT"
+          echo "new-count=" >> "$GITHUB_OUTPUT"
+          echo "resolved-count=" >> "$GITHUB_OUTPUT"
+          exit 0
+        fi
+        mode="$IN_FAIL_ON"
+        if [ "$mode" = "gate" ]; then mode="none"; fi
+        out="$RUNNER_TEMP/diligent-diff.json"
+        set +e
+        node "$GITHUB_ACTION_PATH/bin/diligent.mjs" diff --run "$RUN_ID" --dir "$AUDIT_DIR" --baseline "$IN_BASELINE" --json --fail-on "$mode" > "$out"
+        code=$?
+        set -e
+        echo "diff-exit=$code" >> "$GITHUB_OUTPUT"
+        new_count=""
+        resolved_count=""
+        if [ "$code" = "0" ] || [ "$code" = "1" ]; then
+          new_count="$(node -e "console.log((JSON.parse(require('fs').readFileSync(process.argv[1], 'utf8')).new || []).length)" "$out")"
+          resolved_count="$(node -e "console.log((JSON.parse(require('fs').readFileSync(process.argv[1], 'utf8')).resolved || []).length)" "$out")"
+        fi
+        echo "new-count=$new_count" >> "$GITHUB_OUTPUT"
+        echo "resolved-count=$resolved_count" >> "$GITHUB_OUTPUT"
+
+    - name: Write a baseline
+      id: write-baseline
+      shell: bash
+      env:
+        IN_BASELINE_OUT: ${{ inputs.baseline-out }}
+        AUDIT_DIR: ${{ steps.audit.outputs.audit-dir }}
+        RUN_ID: ${{ steps.audit.outputs.run-id }}
+      run: |
+        set -euo pipefail
+        if [ -z "$IN_BASELINE_OUT" ]; then
+          echo "baseline-path=" >> "$GITHUB_OUTPUT"
+          exit 0
+        fi
+        target="$IN_BASELINE_OUT"
+        case "$target" in
+          /*) ;;
+          *) target="$GITHUB_WORKSPACE/$target" ;;
+        esac
+        mkdir -p "$(dirname "$target")"
+        node "$GITHUB_ACTION_PATH/bin/diligent.mjs" baseline write --run "$RUN_ID" --dir "$AUDIT_DIR" --out "$target"
+        echo "baseline-path=$target" >> "$GITHUB_OUTPUT"
+
+    - name: Decide the result
+      id: decide
+      shell: bash
+      env:
+        IN_FAIL_ON: ${{ inputs.fail-on }}
+        IN_BASELINE: ${{ inputs.baseline }}
+        GATE_EXIT: ${{ steps.audit.outputs.gate-exit }}
+        OVERALL: ${{ steps.audit.outputs.overall }}
+        DIFF_EXIT: ${{ steps.diff.outputs.diff-exit }}
+        NEW_COUNT: ${{ steps.diff.outputs.new-count }}
+        RESOLVED_COUNT: ${{ steps.diff.outputs.resolved-count }}
+      run: |
+        set -euo pipefail
+        line="Diligent: overall ${OVERALL:-unknown}, gate exit ${GATE_EXIT}"
+        if [ -n "$IN_BASELINE" ]; then
+          line="${line}, new ${NEW_COUNT:-n/a}, resolved ${RESOLVED_COUNT:-n/a}"
+        fi
+        echo "$line"
+        if [ "$GATE_EXIT" = "2" ]; then
+          echo "::warning::The audit is incomplete: required work is untested, so a pass cannot be claimed for the declared scope."
+        fi
+        failed=0
+        if [ "$GATE_EXIT" = "3" ]; then
+          echo "::error::A stage failed before the gate could run (gate exit 3). Nothing was audited."
+          failed=1
+        fi
+        if [ -n "$IN_BASELINE" ] && [ -n "$DIFF_EXIT" ] && [ "$DIFF_EXIT" != "0" ] && [ "$DIFF_EXIT" != "1" ]; then
+          if [ "$IN_FAIL_ON" = "gate" ]; then
+            echo "::warning::diligent diff failed (exit $DIFF_EXIT), so new and resolved counts are unavailable. The gate decides this run."
+          else
+            echo "::error::diligent diff failed (exit $DIFF_EXIT), so fail-on '$IN_FAIL_ON' cannot be evaluated."
+            failed=1
+          fi
+        fi
+        if [ "$IN_FAIL_ON" = "gate" ]; then
+          if [ "$GATE_EXIT" = "1" ]; then
+            echo "::error::The gate found a mandatory failure (gate exit 1)."
+            failed=1
+          fi
+        elif [ "$DIFF_EXIT" = "1" ]; then
+          echo "::error::The diff matched fail-on '$IN_FAIL_ON': new ${NEW_COUNT:-0}, resolved ${RESOLVED_COUNT:-0}."
+          failed=1
+        fi
+        exit "$failed"
+
+    - name: Upload SARIF to code scanning
+      if: ${{ always() && inputs.upload-sarif == 'true' && steps.sarif.outputs.sarif-path != '' }}
+      uses: github/codeql-action/upload-sarif@v3
+      with:
+        sarif_file: ${{ steps.sarif.outputs.sarif-path }}
+        category: diligent-${{ inputs.audit-id }}
+
+    - name: Upload the audit directory
+      if: ${{ always() && inputs.upload-artifacts == 'true' && steps.audit.outputs.audit-dir != '' }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: diligent-${{ inputs.audit-id }}
+        path: |
+          ${{ steps.audit.outputs.audit-dir }}
+          ${{ steps.audit.outputs.summary-path }}
+          ${{ steps.write-baseline.outputs.baseline-path }}
+        if-no-files-found: warn

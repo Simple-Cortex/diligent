@@ -36,6 +36,15 @@ export function releaseSteps(options = {}) {
   const chromeAvailable = options.chromeAvailable ?? Boolean(findChrome());
   const smokeEnv = { DILIGENT_RS_BIN: join(ROOT, 'target', 'debug', 'diligent-rs') };
   const steps = [
+    { name: 'vendor names', command: process.execPath, args: ['-e', [
+      "const fs = require('fs');",
+      "const path = require('path');",
+      `const ROOT = ${JSON.stringify(ROOT)};`,
+      "const names = fs.readFileSync(path.join(ROOT, 'tasks', 'forbidden-names.txt'), 'utf8').split('\\n').filter(Boolean);",
+      "const action = fs.readFileSync(path.join(ROOT, 'action.yml'), 'utf8').toLowerCase();",
+      "const found = names.filter(n => action.includes(n.toLowerCase()));",
+      "if (found.length) { console.error('forbidden names in action.yml: ' + found.join(', ')); process.exit(1); }"
+    ].join(' ')] },
     { name: 'validate rules', command: 'npm', args: ['run', 'validate'] },
     { name: 'npm test', command: 'npm', args: ['test'] },
     { name: 'packed artifact', command: 'npm', args: ['run', 'test:packed-artifact'] },

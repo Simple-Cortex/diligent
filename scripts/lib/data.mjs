@@ -6,8 +6,8 @@ import { sha256, pathExists } from './artifacts.mjs';
 export async function readJsonFile(path) {
   const bytes = await readFile(path);
   let json;
-  try { json = JSON.parse(bytes.toString('utf8')); } catch (error) {
-    throw new Error(`${path}: not valid JSON (${error.message})`);
+  try { json = JSON.parse(bytes.toString('utf8')); } catch {
+    throw new Error(`${path}: not valid JSON`);
   }
   return { path, json, sha256: sha256(bytes) };
 }

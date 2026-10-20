@@ -151,6 +151,84 @@ pub fn build(
         }
     }
 
+    // Emit preload response as evidence if present
+    if let Some(r) = &o.preload_response {
+        let id = response_id(r);
+        if seen.insert(id.clone()) {
+            let sha = sha256_hex(&r.body);
+            let path = format!("evidence/{sha}.{}", extension_for(r));
+            if !bodies.iter().any(|b| b.path == path) {
+                bodies.push(StoredBody {
+                    path: path.clone(),
+                    bytes: r.body.clone(),
+                });
+            }
+            let mut stripped = false;
+            let mut headers: Vec<(String, String)> = Vec::new();
+            for (k, v) in &r.headers {
+                if STRIPPED_HEADERS.contains(&k.as_str()) {
+                    stripped = true;
+                    continue;
+                }
+                match headers.iter_mut().find(|(n, _)| n == k) {
+                    Some((_, existing)) => {
+                        existing.push_str(", ");
+                        existing.push_str(v);
+                    }
+                    None => headers.push((k.clone(), v.clone())),
+                }
+            }
+            headers.sort();
+            let mut header_map = Map::new();
+            for (k, v) in headers {
+                header_map.insert(k, Value::String(v));
+            }
+            let mut limitations = vec![
+                "Preload status is an inference from a third-party list snapshot (hstspreload.org), not an observation of the origin.".to_string(),
+            ];
+            if r.truncated {
+                limitations.push(format!(
+                    "Body truncated at {max_body_bytes} bytes; the hash covers the stored bytes only."
+                ));
+            }
+            records.push(EvidenceRecord {
+                schema_version: "1.0.0".to_string(),
+                evidence_id: id,
+                run_id: o.run_id.clone(),
+                kind: "http_response".to_string(),
+                collector: COLLECTOR.to_string(),
+                collector_version: ENGINE_VERSION.to_string(),
+                captured_at: o.captured_at.clone(),
+                snapshot_ref: None,
+                context: json!({
+                    "scope": "network",
+                    "protocol": "http",
+                    "method": "GET",
+                    "url": r.url.as_str(),
+                    "status": r.status,
+                    "headers": Value::Object(header_map),
+                    "body_bytes": r.body.len(),
+                    "body_truncated": r.truncated,
+                    "source": "hstspreload.org",
+                }),
+                payload_ref: path,
+                sha256: sha,
+                data_classification: "public_web_response".to_string(),
+                redaction: Redaction {
+                    applied: stripped,
+                    flags: if stripped {
+                        vec!["headers_stripped:set-cookie,authorization".to_string()]
+                    } else {
+                        Vec::new()
+                    },
+                },
+                trust: "inference".to_string(),
+                limitations,
+                derived_from: None,
+            });
+        }
+    }
+
     for obs in [&o.spf, &o.dmarc] {
         if let DnsObs::Answer { name, txt } = obs {
             let id = dns_id(name, txt);

@@ -1,0 +1,190 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-19-91b4ed",
+  "audit_id": "ci",
+  "profile_id": "us-federal-public-web",
+  "modes": [
+    "page"
+  ],
+  "requested_scope": {
+    "modes": [
+      "page"
+    ],
+    "profile_id": "us-federal-public-web",
+    "detail": "diligent audit --url http://127.0.0.1:36171/"
+  },
+  "engine": {
+    "name": "native-rust",
+    "executed_by": "mixed",
+    "native_available": true,
+    "protocol_version": "1",
+    "binary_version": "0.2.0"
+  },
+  "tool_versions": {
+    "diligent": "0.2.0",
+    "node": "22.23.3",
+    "schema_version": "1.0.0",
+    "authority_registry": "0.1.1",
+    "pack:a11y-wcag20-aa": "0.1.1",
+    "pack:a11y-wcag21-aa": "0.1.1",
+    "pack:a11y-wcag22-aa": "0.1.1",
+    "pack:federal-public-web": "0.1.1",
+    "pack:privacy-collection": "0.1.1",
+    "pack:infrastructure": "0.1.1",
+    "pack:ux-service": "0.1.1",
+    "diligent-rs": "0.2.0"
+  },
+  "started_at": "2026-10-19T17:37:01.979Z",
+  "ended_at": "2026-10-19T17:38:10.776Z",
+  "snapshot_refs": [
+    "http://127.0.0.1:36171/news/2024-budget",
+    "http://127.0.0.1:36171/programs/p-101",
+    "http://127.0.0.1:36171/data/q1-2025"
+  ],
+  "pipeline_state": "reported",
+  "execution_status": "completed",
+  "assessment_complete": false,
+  "budgets": {
+    "pages": 4,
+    "timeout_ms": 30000
+  },
+  "warnings": [
+    "Automated checks ran through diligent-rs 0.2.0. Anything not listed in RESULTS.jsonl is untested.",
+    "collect: http://127.0.0.1:36171/ failed (collector_failure); ",
+    "collect: 3 of 4 pages collected; 0 blocked and 1 failed pages are untested",
+    "infra: infra checks were skipped: http://127.0.0.1:36171 is not https, so HTTPS redirect, certificate, HSTS and header checks do not apply and are untested"
+  ],
+  "extensions": {
+    "audit": {
+      "mode": "live",
+      "corroboration": {
+        "applied": false,
+        "source": "none",
+        "profile_requested": false
+      },
+      "warnings": [
+        "collect: http://127.0.0.1:36171/ failed (collector_failure); ",
+        "collect: 3 of 4 pages collected; 0 blocked and 1 failed pages are untested",
+        "infra: infra checks were skipped: http://127.0.0.1:36171 is not https, so HTTPS redirect, certificate, HSTS and header checks do not apply and are untested"
+      ],
+      "pages": [
+        {
+          "url": "http://127.0.0.1:36171/",
+          "slug": "ea1c7772f541",
+          "collect": "failed",
+          "assess": "not_run",
+          "error": "collector_failure"
+        },
+        {
+          "url": "http://127.0.0.1:36171/news/2024-budget",
+          "slug": "66ad706c8aa0",
+          "collect": "collected",
+          "assess": "assessed"
+        },
+        {
+          "url": "http://127.0.0.1:36171/programs/p-101",
+          "slug": "2cf93feb1c86",
+          "collect": "collected",
+          "assess": "assessed"
+        },
+        {
+          "url": "http://127.0.0.1:36171/data/q1-2025",
+          "slug": "f95df7493cd1",
+          "collect": "collected",
+          "assess": "assessed"
+        }
+      ],
+      "stages": [
+        {
+          "name": "init",
+          "state": "done",
+          "exit_code": 0,
+          "duration_ms": 154,
+          "warning": null,
+          "detail": null
+        },
+        {
+          "name": "scope",
+          "state": "done",
+          "exit_code": 0,
+          "duration_ms": 7,
+          "warning": null,
+          "detail": null
+        },
+        {
+          "name": "applicability",
+          "state": "done",
+          "exit_code": 0,
+          "duration_ms": 64,
+          "warning": null,
+          "detail": null
+        },
+        {
+          "name": "inventory",
+          "state": "done",
+          "exit_code": 0,
+          "duration_ms": 7043,
+          "warning": null,
+          "detail": null
+        },
+        {
+          "name": "plan",
+          "state": "done",
+          "exit_code": 0,
+          "duration_ms": 21,
+          "warning": null,
+          "detail": null
+        },
+        {
+          "name": "collect",
+          "state": "partial",
+          "exit_code": 2,
+          "duration_ms": 61120,
+          "warning": "3 of 4 pages collected; 0 blocked and 1 failed pages are untested",
+          "detail": "http://127.0.0.1:36171/: exit 3, kind collector_failure, message: launching /usr/bin/google-chrome: Timeout while resolving websocket URL from browser process, stderr: BrowserStderr(\"[6621:6651:1019/173726.421128:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \\\"tcp\\\" and on UNI"
+        },
+        {
+          "name": "assess",
+          "state": "done",
+          "exit_code": 0,
+          "duration_ms": 172,
+          "warning": null,
+          "detail": null
+        },
+        {
+          "name": "infra",
+          "state": "skipped",
+          "exit_code": 0,
+          "duration_ms": 0,
+          "warning": "infra checks were skipped: http://127.0.0.1:36171 is not https, so HTTPS redirect, certificate, HSTS and header checks do not apply and are untested",
+          "detail": null
+        },
+        {
+          "name": "merge",
+          "state": "done",
+          "exit_code": 0,
+          "duration_ms": 53,
+          "warning": null,
+          "detail": null
+        },
+        {
+          "name": "gate",
+          "state": "done",
+          "exit_code": 2,
+          "duration_ms": 109,
+          "warning": null,
+          "detail": null
+        },
+        {
+          "name": "report",
+          "state": "done",
+          "exit_code": 0,
+          "duration_ms": 132,
+          "warning": null,
+          "detail": null
+        }
+      ],
+      "review_items": 54
+    }
+  }
+}

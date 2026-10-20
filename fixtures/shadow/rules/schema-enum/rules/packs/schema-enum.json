@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "schema-enum",
+  "pack_version": "0.1.0",
+  "profile_ids": ["test-profile"],
+  "rules": [
+    {
+      "rule_id": "ENUM-01",
+      "obligation_id": "OBL-ENUM-01",
+      "lifecycle": "invalid-lifecycle-value",
+      "obligation": "Invalid lifecycle enum",
+      "authority": {
+        "authority_id": "A01",
+        "section": "1",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "check_ids": ["ENUM-01-check"]
+    }
+  ]
+}

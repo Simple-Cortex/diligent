@@ -1,0 +1,762 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-19-91b4ed",
+  "items": [
+    {
+      "item_id": "rev-res-ee75028a0b-0035",
+      "kind": "human",
+      "task": "result_review: BRW-FED-BANNER on http://127.0.0.1:36171/news/2024-budget::html",
+      "owner_role": "web_manager",
+      "blocking_reason": "{\"banner\":null,\"reason\":\"no banner rendered\"}",
+      "obligation_id": "OBL-FED-32",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-c0dd6568704e",
+        "ev-cap-e866a8403785"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-ee75028a0b-0036",
+      "kind": "human",
+      "task": "result_review: BRW-FED-IDENTIFIER on http://127.0.0.1:36171/news/2024-budget::html > body:nth-child(2) > footer:nth-child(4)",
+      "owner_role": "policy_content_owner",
+      "blocking_reason": "{\"required_link\":\"USA.gov\",\"present\":false,\"identifier_found_by\":\"contentinfo\",\"reason\":\"not in the identifier; the obligation may be met elsewhere\"}",
+      "obligation_id": "OBL-FED-13",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-c0dd6568704e",
+        "ev-cap-e866a8403785"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-ee75028a0b-0037",
+      "kind": "human",
+      "task": "result_review: BRW-FED-IDENTIFIER on http://127.0.0.1:36171/news/2024-budget::html > body:nth-child(2) > footer:nth-child(4)",
+      "owner_role": "policy_content_owner",
+      "blocking_reason": "{\"required_link\":\"About\",\"present\":false,\"identifier_found_by\":\"contentinfo\",\"reason\":\"not in the identifier; the obligation may be met elsewhere\"}",
+      "obligation_id": "OBL-FED-04",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-c0dd6568704e",
+        "ev-cap-e866a8403785"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-ee75028a0b-0038",
+      "kind": "human",
+      "task": "result_review: BRW-FED-IDENTIFIER on http://127.0.0.1:36171/news/2024-budget::html > body:nth-child(2) > footer:nth-child(4)",
+      "owner_role": "section508_program_manager",
+      "blocking_reason": "{\"required_link\":\"Accessibility\",\"present\":false,\"identifier_found_by\":\"contentinfo\",\"reason\":\"not in the identifier; the obligation may be met elsewhere\"}",
+      "obligation_id": "OBL-FED-05",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-c0dd6568704e",
+        "ev-cap-e866a8403785"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-ee75028a0b-0039",
+      "kind": "human",
+      "task": "result_review: BRW-FED-IDENTIFIER on http://127.0.0.1:36171/news/2024-budget::html > body:nth-child(2) > footer:nth-child(4)",
+      "owner_role": "privacy_officer",
+      "blocking_reason": "{\"required_link\":\"Privacy\",\"present\":false,\"identifier_found_by\":\"contentinfo\",\"reason\":\"not in the identifier; the obligation may be met elsewhere\"}",
+      "obligation_id": "OBL-FED-06",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-c0dd6568704e",
+        "ev-cap-e866a8403785"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-ee75028a0b-0040",
+      "kind": "human",
+      "task": "result_review: BRW-FED-IDENTIFIER on http://127.0.0.1:36171/news/2024-budget::html > body:nth-child(2) > footer:nth-child(4)",
+      "owner_role": "foia_officer",
+      "blocking_reason": "{\"required_link\":\"FOIA\",\"present\":false,\"identifier_found_by\":\"contentinfo\",\"reason\":\"not in the identifier; the obligation may be met elsewhere\"}",
+      "obligation_id": "OBL-FED-07",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-c0dd6568704e",
+        "ev-cap-e866a8403785"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-ee75028a0b-0041",
+      "kind": "human",
+      "task": "result_review: BRW-FED-IDENTIFIER on http://127.0.0.1:36171/news/2024-budget::html > body:nth-child(2) > footer:nth-child(4)",
+      "owner_role": "policy_content_owner",
+      "blocking_reason": "{\"required_link\":\"No FEAR\",\"present\":false,\"identifier_found_by\":\"contentinfo\",\"reason\":\"not in the identifier; the obligation may be met elsewhere\"}",
+      "obligation_id": "OBL-FED-08",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-c0dd6568704e",
+        "ev-cap-e866a8403785"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-ee75028a0b-0042",
+      "kind": "human",
+      "task": "result_review: BRW-FED-IDENTIFIER on http://127.0.0.1:36171/news/2024-budget::html > body:nth-child(2) > footer:nth-child(4)",
+      "owner_role": "policy_content_owner",
+      "blocking_reason": "{\"required_link\":\"Performance\",\"present\":false,\"identifier_found_by\":\"contentinfo\",\"reason\":\"not in the identifier; the obligation may be met elsewhere\"}",
+      "obligation_id": "OBL-FED-09",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-c0dd6568704e",
+        "ev-cap-e866a8403785"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-ee75028a0b-0043",
+      "kind": "human",
+      "task": "result_review: BRW-FED-IDENTIFIER on http://127.0.0.1:36171/news/2024-budget::html > body:nth-child(2) > footer:nth-child(4)",
+      "owner_role": "policy_content_owner",
+      "blocking_reason": "{\"required_link\":\"Inspector General\",\"present\":false,\"identifier_found_by\":\"contentinfo\",\"reason\":\"not in the identifier; the obligation may be met elsewhere\"}",
+      "obligation_id": "OBL-FED-10",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-c0dd6568704e",
+        "ev-cap-e866a8403785"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-ee75028a0b-0044",
+      "kind": "human",
+      "task": "result_review: BRW-FED-IDENTIFIER on http://127.0.0.1:36171/news/2024-budget::html > body:nth-child(2) > footer:nth-child(4)",
+      "owner_role": "web_manager",
+      "blocking_reason": "{\"agency_statement\":null,\"identifier_found_by\":\"contentinfo\",\"reason\":\"no \\\"official website of the <agency>\\\" statement naming a parent agency in the identifier\"}",
+      "obligation_id": "OBL-FED-03",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-c0dd6568704e",
+        "ev-cap-e866a8403785"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-ee75028a0b-0045",
+      "kind": "human",
+      "task": "result_review: BRW-FED-SEARCH on http://127.0.0.1:36171/news/2024-budget::html",
+      "owner_role": "product_owner",
+      "blocking_reason": "{\"control\":null,\"home_page\":false,\"reason\":\"no search control on this page; the site may offer it elsewhere\"}",
+      "obligation_id": "OBL-FED-17",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-c0dd6568704e",
+        "ev-cap-e866a8403785"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-ee75028a0b-0047",
+      "kind": "human",
+      "task": "result_review: BRW-FED-PRIVACY-LINK on http://127.0.0.1:36171/news/2024-budget::html",
+      "owner_role": "privacy_officer",
+      "blocking_reason": "{\"location\":null,\"reason\":\"no link names privacy on this page; the site may offer it from the home page only\"}",
+      "obligation_id": "OBL-FED-06",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-c0dd6568704e",
+        "ev-cap-e866a8403785"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-ee75028a0b-0048",
+      "kind": "human",
+      "task": "result_review: BRW-FED-ACCESSIBILITY-STATEMENT on http://127.0.0.1:36171/news/2024-budget::html",
+      "owner_role": "section508_program_manager",
+      "blocking_reason": "{\"location\":null,\"reason\":\"no link names accessibility on this page; the site may offer it from the home page only\"}",
+      "obligation_id": "OBL-FED-05",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-c0dd6568704e",
+        "ev-cap-e866a8403785"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-ee75028a0b-0049",
+      "kind": "human",
+      "task": "result_review: BRW-FED-TITLE-CRITERIA on http://127.0.0.1:36171/news/2024-budget::html > head:nth-child(1) > title:nth-child(1)",
+      "owner_role": "web_manager",
+      "blocking_reason": "{\"title\":\"Budget 2024\",\"length\":11,\"uniqueness\":\"unique among fetched routes\",\"duplicate_urls\":[],\"duplicate_count\":0,\"reasons\":[\"below the pending 20-character minimum\"]}",
+      "obligation_id": "OBL-FED-33",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-c0dd6568704e",
+        "ev-cap-e866a8403785"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-ee75028a0b-0050",
+      "kind": "human",
+      "task": "result_review: BRW-FED-META-DESCRIPTION-CRITERIA on http://127.0.0.1:36171/news/2024-budget::html",
+      "owner_role": "web_manager",
+      "blocking_reason": "{\"count\":0,\"reason\":\"no meta description\"}",
+      "obligation_id": "OBL-FED-34",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-c0dd6568704e",
+        "ev-cap-e866a8403785"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-ee75028a0b-0051",
+      "kind": "human",
+      "task": "result_review: BRW-FED-CONTACT on http://127.0.0.1:36171/news/2024-budget::html",
+      "owner_role": "web_manager",
+      "blocking_reason": "{\"matching_controls\":0,\"reason\":\"no contact or help control rendered\"}",
+      "obligation_id": "OBL-FED-12",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-c0dd6568704e",
+        "ev-cap-e866a8403785"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-ee75028a0b-0052",
+      "kind": "human",
+      "task": "result_review: BRW-FED-LANGUAGE-ACCESS on http://127.0.0.1:36171/news/2024-budget::html",
+      "owner_role": "program_owner",
+      "blocking_reason": "{\"entry_point\":\"absent\",\"document_lang\":\"en\",\"reason\":\"no language access entry point rendered; documentary route applies\"}",
+      "obligation_id": "OBL-FED-29",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-c0dd6568704e",
+        "ev-cap-e866a8403785"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-ee75028a0b-0053",
+      "kind": "human",
+      "task": "result_review: BRW-FED-MOBILE-VIEWPORT on http://127.0.0.1:36171/news/2024-budget::html",
+      "owner_role": "product_owner",
+      "blocking_reason": "{\"scroll_width\":320,\"client_width\":320,\"viewport_width\":320,\"horizontal_overflow\":false,\"viewport_meta\":null,\"causes\":[\"the page has no meta viewport\"]}",
+      "obligation_id": "OBL-FED-23",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-13bf549abcae",
+        "ev-cap-e866a8403785"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-d23e0ed424-0032",
+      "kind": "human",
+      "task": "result_review: BRW-FED-BANNER on http://127.0.0.1:36171/programs/p-101::html",
+      "owner_role": "web_manager",
+      "blocking_reason": "{\"banner\":null,\"reason\":\"no banner rendered\"}",
+      "obligation_id": "OBL-FED-32",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-a9fb29a93cb6",
+        "ev-cap-71c04451c9ee"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-d23e0ed424-0033",
+      "kind": "human",
+      "task": "result_review: BRW-FED-IDENTIFIER on http://127.0.0.1:36171/programs/p-101::html > body:nth-child(2) > footer:nth-child(4)",
+      "owner_role": "policy_content_owner",
+      "blocking_reason": "{\"required_link\":\"USA.gov\",\"present\":false,\"identifier_found_by\":\"contentinfo\",\"reason\":\"not in the identifier; the obligation may be met elsewhere\"}",
+      "obligation_id": "OBL-FED-13",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-a9fb29a93cb6",
+        "ev-cap-71c04451c9ee"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-d23e0ed424-0034",
+      "kind": "human",
+      "task": "result_review: BRW-FED-IDENTIFIER on http://127.0.0.1:36171/programs/p-101::html > body:nth-child(2) > footer:nth-child(4)",
+      "owner_role": "policy_content_owner",
+      "blocking_reason": "{\"required_link\":\"About\",\"present\":false,\"identifier_found_by\":\"contentinfo\",\"reason\":\"not in the identifier; the obligation may be met elsewhere\"}",
+      "obligation_id": "OBL-FED-04",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-a9fb29a93cb6",
+        "ev-cap-71c04451c9ee"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-d23e0ed424-0035",
+      "kind": "human",
+      "task": "result_review: BRW-FED-IDENTIFIER on http://127.0.0.1:36171/programs/p-101::html > body:nth-child(2) > footer:nth-child(4)",
+      "owner_role": "section508_program_manager",
+      "blocking_reason": "{\"required_link\":\"Accessibility\",\"present\":false,\"identifier_found_by\":\"contentinfo\",\"reason\":\"not in the identifier; the obligation may be met elsewhere\"}",
+      "obligation_id": "OBL-FED-05",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-a9fb29a93cb6",
+        "ev-cap-71c04451c9ee"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-d23e0ed424-0036",
+      "kind": "human",
+      "task": "result_review: BRW-FED-IDENTIFIER on http://127.0.0.1:36171/programs/p-101::html > body:nth-child(2) > footer:nth-child(4)",
+      "owner_role": "privacy_officer",
+      "blocking_reason": "{\"required_link\":\"Privacy\",\"present\":false,\"identifier_found_by\":\"contentinfo\",\"reason\":\"not in the identifier; the obligation may be met elsewhere\"}",
+      "obligation_id": "OBL-FED-06",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-a9fb29a93cb6",
+        "ev-cap-71c04451c9ee"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-d23e0ed424-0037",
+      "kind": "human",
+      "task": "result_review: BRW-FED-IDENTIFIER on http://127.0.0.1:36171/programs/p-101::html > body:nth-child(2) > footer:nth-child(4)",
+      "owner_role": "foia_officer",
+      "blocking_reason": "{\"required_link\":\"FOIA\",\"present\":false,\"identifier_found_by\":\"contentinfo\",\"reason\":\"not in the identifier; the obligation may be met elsewhere\"}",
+      "obligation_id": "OBL-FED-07",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-a9fb29a93cb6",
+        "ev-cap-71c04451c9ee"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-d23e0ed424-0038",
+      "kind": "human",
+      "task": "result_review: BRW-FED-IDENTIFIER on http://127.0.0.1:36171/programs/p-101::html > body:nth-child(2) > footer:nth-child(4)",
+      "owner_role": "policy_content_owner",
+      "blocking_reason": "{\"required_link\":\"No FEAR\",\"present\":false,\"identifier_found_by\":\"contentinfo\",\"reason\":\"not in the identifier; the obligation may be met elsewhere\"}",
+      "obligation_id": "OBL-FED-08",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-a9fb29a93cb6",
+        "ev-cap-71c04451c9ee"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-d23e0ed424-0039",
+      "kind": "human",
+      "task": "result_review: BRW-FED-IDENTIFIER on http://127.0.0.1:36171/programs/p-101::html > body:nth-child(2) > footer:nth-child(4)",
+      "owner_role": "policy_content_owner",
+      "blocking_reason": "{\"required_link\":\"Performance\",\"present\":false,\"identifier_found_by\":\"contentinfo\",\"reason\":\"not in the identifier; the obligation may be met elsewhere\"}",
+      "obligation_id": "OBL-FED-09",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-a9fb29a93cb6",
+        "ev-cap-71c04451c9ee"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-d23e0ed424-0040",
+      "kind": "human",
+      "task": "result_review: BRW-FED-IDENTIFIER on http://127.0.0.1:36171/programs/p-101::html > body:nth-child(2) > footer:nth-child(4)",
+      "owner_role": "policy_content_owner",
+      "blocking_reason": "{\"required_link\":\"Inspector General\",\"present\":false,\"identifier_found_by\":\"contentinfo\",\"reason\":\"not in the identifier; the obligation may be met elsewhere\"}",
+      "obligation_id": "OBL-FED-10",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-a9fb29a93cb6",
+        "ev-cap-71c04451c9ee"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-d23e0ed424-0041",
+      "kind": "human",
+      "task": "result_review: BRW-FED-IDENTIFIER on http://127.0.0.1:36171/programs/p-101::html > body:nth-child(2) > footer:nth-child(4)",
+      "owner_role": "web_manager",
+      "blocking_reason": "{\"agency_statement\":null,\"identifier_found_by\":\"contentinfo\",\"reason\":\"no \\\"official website of the <agency>\\\" statement naming a parent agency in the identifier\"}",
+      "obligation_id": "OBL-FED-03",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-a9fb29a93cb6",
+        "ev-cap-71c04451c9ee"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-d23e0ed424-0042",
+      "kind": "human",
+      "task": "result_review: BRW-FED-SEARCH on http://127.0.0.1:36171/programs/p-101::html",
+      "owner_role": "product_owner",
+      "blocking_reason": "{\"control\":null,\"home_page\":false,\"reason\":\"no search control on this page; the site may offer it elsewhere\"}",
+      "obligation_id": "OBL-FED-17",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-a9fb29a93cb6",
+        "ev-cap-71c04451c9ee"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-d23e0ed424-0044",
+      "kind": "human",
+      "task": "result_review: BRW-FED-PRIVACY-LINK on http://127.0.0.1:36171/programs/p-101::html",
+      "owner_role": "privacy_officer",
+      "blocking_reason": "{\"location\":null,\"reason\":\"no link names privacy on this page; the site may offer it from the home page only\"}",
+      "obligation_id": "OBL-FED-06",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-a9fb29a93cb6",
+        "ev-cap-71c04451c9ee"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-d23e0ed424-0045",
+      "kind": "human",
+      "task": "result_review: BRW-FED-ACCESSIBILITY-STATEMENT on http://127.0.0.1:36171/programs/p-101::html",
+      "owner_role": "section508_program_manager",
+      "blocking_reason": "{\"location\":null,\"reason\":\"no link names accessibility on this page; the site may offer it from the home page only\"}",
+      "obligation_id": "OBL-FED-05",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-a9fb29a93cb6",
+        "ev-cap-71c04451c9ee"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-d23e0ed424-0046",
+      "kind": "human",
+      "task": "result_review: BRW-FED-TITLE-CRITERIA on http://127.0.0.1:36171/programs/p-101::html > head:nth-child(1) > title:nth-child(1)",
+      "owner_role": "web_manager",
+      "blocking_reason": "{\"title\":\"Program 101\",\"length\":11,\"uniqueness\":\"unique among fetched routes\",\"duplicate_urls\":[],\"duplicate_count\":0,\"reasons\":[\"below the pending 20-character minimum\"]}",
+      "obligation_id": "OBL-FED-33",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-a9fb29a93cb6",
+        "ev-cap-71c04451c9ee"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-d23e0ed424-0047",
+      "kind": "human",
+      "task": "result_review: BRW-FED-META-DESCRIPTION-CRITERIA on http://127.0.0.1:36171/programs/p-101::html",
+      "owner_role": "web_manager",
+      "blocking_reason": "{\"count\":0,\"reason\":\"no meta description\"}",
+      "obligation_id": "OBL-FED-34",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-a9fb29a93cb6",
+        "ev-cap-71c04451c9ee"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-d23e0ed424-0048",
+      "kind": "human",
+      "task": "result_review: BRW-FED-CONTACT on http://127.0.0.1:36171/programs/p-101::html",
+      "owner_role": "web_manager",
+      "blocking_reason": "{\"matching_controls\":0,\"reason\":\"no contact or help control rendered\"}",
+      "obligation_id": "OBL-FED-12",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-a9fb29a93cb6",
+        "ev-cap-71c04451c9ee"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-d23e0ed424-0049",
+      "kind": "human",
+      "task": "result_review: BRW-FED-LANGUAGE-ACCESS on http://127.0.0.1:36171/programs/p-101::html",
+      "owner_role": "program_owner",
+      "blocking_reason": "{\"entry_point\":\"absent\",\"document_lang\":\"en\",\"reason\":\"no language access entry point rendered; documentary route applies\"}",
+      "obligation_id": "OBL-FED-29",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-a9fb29a93cb6",
+        "ev-cap-71c04451c9ee"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-d23e0ed424-0050",
+      "kind": "human",
+      "task": "result_review: BRW-FED-MOBILE-VIEWPORT on http://127.0.0.1:36171/programs/p-101::html",
+      "owner_role": "product_owner",
+      "blocking_reason": "{\"scroll_width\":320,\"client_width\":320,\"viewport_width\":320,\"horizontal_overflow\":false,\"viewport_meta\":null,\"causes\":[\"the page has no meta viewport\"]}",
+      "obligation_id": "OBL-FED-23",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-e6092e7bfa72",
+        "ev-cap-71c04451c9ee"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-8b33c9fcdc-0033",
+      "kind": "human",
+      "task": "result_review: BRW-FED-BANNER on http://127.0.0.1:36171/data/q1-2025::html",
+      "owner_role": "web_manager",
+      "blocking_reason": "{\"banner\":null,\"reason\":\"no banner rendered\"}",
+      "obligation_id": "OBL-FED-32",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-aecf14b71329",
+        "ev-cap-4fc992a964f2"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-8b33c9fcdc-0034",
+      "kind": "human",
+      "task": "result_review: BRW-FED-IDENTIFIER on http://127.0.0.1:36171/data/q1-2025::html > body:nth-child(2) > footer:nth-child(4)",
+      "owner_role": "policy_content_owner",
+      "blocking_reason": "{\"required_link\":\"USA.gov\",\"present\":false,\"identifier_found_by\":\"contentinfo\",\"reason\":\"not in the identifier; the obligation may be met elsewhere\"}",
+      "obligation_id": "OBL-FED-13",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-aecf14b71329",
+        "ev-cap-4fc992a964f2"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-8b33c9fcdc-0035",
+      "kind": "human",
+      "task": "result_review: BRW-FED-IDENTIFIER on http://127.0.0.1:36171/data/q1-2025::html > body:nth-child(2) > footer:nth-child(4)",
+      "owner_role": "policy_content_owner",
+      "blocking_reason": "{\"required_link\":\"About\",\"present\":false,\"identifier_found_by\":\"contentinfo\",\"reason\":\"not in the identifier; the obligation may be met elsewhere\"}",
+      "obligation_id": "OBL-FED-04",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-aecf14b71329",
+        "ev-cap-4fc992a964f2"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-8b33c9fcdc-0036",
+      "kind": "human",
+      "task": "result_review: BRW-FED-IDENTIFIER on http://127.0.0.1:36171/data/q1-2025::html > body:nth-child(2) > footer:nth-child(4)",
+      "owner_role": "section508_program_manager",
+      "blocking_reason": "{\"required_link\":\"Accessibility\",\"present\":false,\"identifier_found_by\":\"contentinfo\",\"reason\":\"not in the identifier; the obligation may be met elsewhere\"}",
+      "obligation_id": "OBL-FED-05",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-aecf14b71329",
+        "ev-cap-4fc992a964f2"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-8b33c9fcdc-0037",
+      "kind": "human",
+      "task": "result_review: BRW-FED-IDENTIFIER on http://127.0.0.1:36171/data/q1-2025::html > body:nth-child(2) > footer:nth-child(4)",
+      "owner_role": "privacy_officer",
+      "blocking_reason": "{\"required_link\":\"Privacy\",\"present\":false,\"identifier_found_by\":\"contentinfo\",\"reason\":\"not in the identifier; the obligation may be met elsewhere\"}",
+      "obligation_id": "OBL-FED-06",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-aecf14b71329",
+        "ev-cap-4fc992a964f2"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-8b33c9fcdc-0038",
+      "kind": "human",
+      "task": "result_review: BRW-FED-IDENTIFIER on http://127.0.0.1:36171/data/q1-2025::html > body:nth-child(2) > footer:nth-child(4)",
+      "owner_role": "foia_officer",
+      "blocking_reason": "{\"required_link\":\"FOIA\",\"present\":false,\"identifier_found_by\":\"contentinfo\",\"reason\":\"not in the identifier; the obligation may be met elsewhere\"}",
+      "obligation_id": "OBL-FED-07",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-aecf14b71329",
+        "ev-cap-4fc992a964f2"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-8b33c9fcdc-0039",
+      "kind": "human",
+      "task": "result_review: BRW-FED-IDENTIFIER on http://127.0.0.1:36171/data/q1-2025::html > body:nth-child(2) > footer:nth-child(4)",
+      "owner_role": "policy_content_owner",
+      "blocking_reason": "{\"required_link\":\"No FEAR\",\"present\":false,\"identifier_found_by\":\"contentinfo\",\"reason\":\"not in the identifier; the obligation may be met elsewhere\"}",
+      "obligation_id": "OBL-FED-08",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-aecf14b71329",
+        "ev-cap-4fc992a964f2"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-8b33c9fcdc-0040",
+      "kind": "human",
+      "task": "result_review: BRW-FED-IDENTIFIER on http://127.0.0.1:36171/data/q1-2025::html > body:nth-child(2) > footer:nth-child(4)",
+      "owner_role": "policy_content_owner",
+      "blocking_reason": "{\"required_link\":\"Performance\",\"present\":false,\"identifier_found_by\":\"contentinfo\",\"reason\":\"not in the identifier; the obligation may be met elsewhere\"}",
+      "obligation_id": "OBL-FED-09",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-aecf14b71329",
+        "ev-cap-4fc992a964f2"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-8b33c9fcdc-0041",
+      "kind": "human",
+      "task": "result_review: BRW-FED-IDENTIFIER on http://127.0.0.1:36171/data/q1-2025::html > body:nth-child(2) > footer:nth-child(4)",
+      "owner_role": "policy_content_owner",
+      "blocking_reason": "{\"required_link\":\"Inspector General\",\"present\":false,\"identifier_found_by\":\"contentinfo\",\"reason\":\"not in the identifier; the obligation may be met elsewhere\"}",
+      "obligation_id": "OBL-FED-10",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-aecf14b71329",
+        "ev-cap-4fc992a964f2"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-8b33c9fcdc-0042",
+      "kind": "human",
+      "task": "result_review: BRW-FED-IDENTIFIER on http://127.0.0.1:36171/data/q1-2025::html > body:nth-child(2) > footer:nth-child(4)",
+      "owner_role": "web_manager",
+      "blocking_reason": "{\"agency_statement\":null,\"identifier_found_by\":\"contentinfo\",\"reason\":\"no \\\"official website of the <agency>\\\" statement naming a parent agency in the identifier\"}",
+      "obligation_id": "OBL-FED-03",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-aecf14b71329",
+        "ev-cap-4fc992a964f2"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-8b33c9fcdc-0043",
+      "kind": "human",
+      "task": "result_review: BRW-FED-SEARCH on http://127.0.0.1:36171/data/q1-2025::html",
+      "owner_role": "product_owner",
+      "blocking_reason": "{\"control\":null,\"home_page\":false,\"reason\":\"no search control on this page; the site may offer it elsewhere\"}",
+      "obligation_id": "OBL-FED-17",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-aecf14b71329",
+        "ev-cap-4fc992a964f2"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-8b33c9fcdc-0045",
+      "kind": "human",
+      "task": "result_review: BRW-FED-PRIVACY-LINK on http://127.0.0.1:36171/data/q1-2025::html",
+      "owner_role": "privacy_officer",
+      "blocking_reason": "{\"location\":null,\"reason\":\"no link names privacy on this page; the site may offer it from the home page only\"}",
+      "obligation_id": "OBL-FED-06",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-aecf14b71329",
+        "ev-cap-4fc992a964f2"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-8b33c9fcdc-0046",
+      "kind": "human",
+      "task": "result_review: BRW-FED-ACCESSIBILITY-STATEMENT on http://127.0.0.1:36171/data/q1-2025::html",
+      "owner_role": "section508_program_manager",
+      "blocking_reason": "{\"location\":null,\"reason\":\"no link names accessibility on this page; the site may offer it from the home page only\"}",
+      "obligation_id": "OBL-FED-05",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-aecf14b71329",
+        "ev-cap-4fc992a964f2"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-8b33c9fcdc-0047",
+      "kind": "human",
+      "task": "result_review: BRW-FED-TITLE-CRITERIA on http://127.0.0.1:36171/data/q1-2025::html > head:nth-child(1) > title:nth-child(1)",
+      "owner_role": "web_manager",
+      "blocking_reason": "{\"title\":\"Q1 2025\",\"length\":7,\"uniqueness\":\"unique among fetched routes\",\"duplicate_urls\":[],\"duplicate_count\":0,\"reasons\":[\"below the pending 20-character minimum\"]}",
+      "obligation_id": "OBL-FED-33",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-aecf14b71329",
+        "ev-cap-4fc992a964f2"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-8b33c9fcdc-0048",
+      "kind": "human",
+      "task": "result_review: BRW-FED-META-DESCRIPTION-CRITERIA on http://127.0.0.1:36171/data/q1-2025::html",
+      "owner_role": "web_manager",
+      "blocking_reason": "{\"count\":0,\"reason\":\"no meta description\"}",
+      "obligation_id": "OBL-FED-34",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-aecf14b71329",
+        "ev-cap-4fc992a964f2"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-8b33c9fcdc-0049",
+      "kind": "human",
+      "task": "result_review: BRW-FED-CONTACT on http://127.0.0.1:36171/data/q1-2025::html",
+      "owner_role": "web_manager",
+      "blocking_reason": "{\"matching_controls\":0,\"reason\":\"no contact or help control rendered\"}",
+      "obligation_id": "OBL-FED-12",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-aecf14b71329",
+        "ev-cap-4fc992a964f2"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-8b33c9fcdc-0050",
+      "kind": "human",
+      "task": "result_review: BRW-FED-LANGUAGE-ACCESS on http://127.0.0.1:36171/data/q1-2025::html",
+      "owner_role": "program_owner",
+      "blocking_reason": "{\"entry_point\":\"absent\",\"document_lang\":\"en\",\"reason\":\"no language access entry point rendered; documentary route applies\"}",
+      "obligation_id": "OBL-FED-29",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-aecf14b71329",
+        "ev-cap-4fc992a964f2"
+      ],
+      "resolution_evidence_refs": []
+    },
+    {
+      "item_id": "rev-res-8b33c9fcdc-0051",
+      "kind": "human",
+      "task": "result_review: BRW-FED-MOBILE-VIEWPORT on http://127.0.0.1:36171/data/q1-2025::html",
+      "owner_role": "product_owner",
+      "blocking_reason": "{\"scroll_width\":320,\"client_width\":320,\"viewport_width\":320,\"horizontal_overflow\":false,\"viewport_meta\":null,\"causes\":[\"the page has no meta viewport\"]}",
+      "obligation_id": "OBL-FED-23",
+      "status": "open",
+      "evidence_refs": [
+        "ev-cap-759b652d760c",
+        "ev-cap-4fc992a964f2"
+      ],
+      "resolution_evidence_refs": []
+    }
+  ]
+}

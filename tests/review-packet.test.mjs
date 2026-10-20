@@ -115,6 +115,70 @@ test('promote refuses a pack it could not rewrite byte for byte', async () => {
   });
 });
 
+test('promote refuses a rule whose authority.section is still unatomized', async () => {
+  await withTemp(async dir => {
+    await copyTo(FIXTURE, dir);
+    const path = join(dir, 'rules', 'packs', 'fixture-pack.json');
+    const { writeFile } = await import('node:fs/promises');
+    const pack = JSON.parse(await readFile(path, 'utf8'));
+    pack.rules[0].authority.section = 'unatomized: clause locator pending source review';
+    const text = JSON.stringify(pack, null, 2) + '\n';
+    await writeFile(path, text);
+    const result = await run(SCRIPT, ['promote', '--rules', 'FX-1,FX-2', '--data-root', dir]);
+    assert.equal(result.code, 2);
+    assert.match(result.stderr, /FX-1 still has an unatomized authority\.section/);
+    assert.equal(await readFile(path, 'utf8'), text, 'nothing written');
+  });
+});
+
+test('apply sets exactly the listed fields and keeps the file format', async () => {
+  await withTemp(async dir => {
+    await copyTo(FIXTURE, dir);
+    const path = join(dir, 'rules', 'packs', 'fixture-pack.json');
+    const { writeFile } = await import('node:fs/promises');
+    const file = join(dir, 'corr.json');
+    await writeFile(file, JSON.stringify({ 'FX-1': { 'authority.section': 'New s.1', 'authority.modality': 'must' }, 'FX-2': { baseline_test_id: '07' } }));
+    const before = JSON.parse(await readFile(path, 'utf8'));
+    const result = await run(SCRIPT, ['apply', '--corrections', file, '--data-root', dir]);
+    assert.equal(result.code, 0, result.stderr);
+    const after = await readFile(path, 'utf8');
+    const b = JSON.parse(after);
+    assert.equal(after, JSON.stringify(b, null, 2) + '\n');
+    const expected = structuredClone(before);
+    expected.rules[0].authority.section = 'New s.1';
+    expected.rules[0].authority.modality = 'must';
+    expected.rules[1].baseline_test_id = '07';
+    assert.deepEqual(b, expected);
+    assert.deepEqual(Object.keys(b.rules[1]), [...Object.keys(before.rules[1]), 'baseline_test_id'], 'a new field goes last, others keep order');
+  });
+});
+
+test('apply refuses unknown ids and disallowed fields and writes nothing', async () => {
+  await withTemp(async dir => {
+    await copyTo(FIXTURE, dir);
+    const path = join(dir, 'rules', 'packs', 'fixture-pack.json');
+    const before = await readFile(path, 'utf8');
+    const { writeFile } = await import('node:fs/promises');
+    const file = join(dir, 'corr.json');
+    const cases = [
+      { 'FX-1': { 'authority.section': 'ok' }, NOPE: { 'authority.section': 'x' } },
+      { 'FX-1': { 'authority.section': 'ok' }, 'FX-2': { lifecycle: 'draft' } },
+      { 'FX-1': { 'authority.authority_id': 'A02' } },
+      { 'FX-1': { 'authority.modality': 'maybe' } },
+      { 'FX-1': {} },
+      [],
+    ];
+    for (const c of cases) {
+      await writeFile(file, JSON.stringify(c));
+      const result = await run(SCRIPT, ['apply', '--corrections', file, '--data-root', dir]);
+      assert.equal(result.code, 2, JSON.stringify(c));
+      assert.match(result.stderr, /refusing to apply/);
+      assert.equal(await readFile(path, 'utf8'), before, 'nothing written');
+    }
+    assert.equal((await run(SCRIPT, ['apply', '--data-root', dir])).code, 2);
+  });
+});
+
 test('usage errors exit 2', async () => {
   assert.equal((await run(SCRIPT, [])).code, 2);
   assert.equal((await run(SCRIPT, ['generate'])).code, 2);

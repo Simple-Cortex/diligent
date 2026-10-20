@@ -24,7 +24,7 @@ test('frozen enums are exactly as specified', async () => {
   assert.deepEqual(enumOf(pack, '$defs', 'rule', 'properties', 'channel_support', 'properties', 'human'), ['automated', 'assisted', 'human', 'documentary', 'unsupported']);
   const run = await load('run');
   assert.deepEqual(enumOf(run, 'properties', 'pipeline_state'), ['initialized', 'discovered', 'scoped', 'planned', 'collecting', 'assessed', 'proposed', 'verified', 'reported']);
-  assert.deepEqual(enumOf(run, 'properties', 'modes', 'items'), ['source', 'page', 'journey', 'documents', 'combined']);
+  assert.deepEqual(enumOf(run, 'properties', 'modes', 'items'), ['source', 'page', 'journey', 'documents', 'combined', 'component']);
   const registry = await load('authority-registry');
   assert.deepEqual(enumOf(registry, '$defs', 'authority', 'properties', 'kind'), ['statute', 'regulation', 'executive_order', 'binding_policy', 'contract', 'agency_policy', 'technical_standard', 'guidance']);
   assert.deepEqual(enumOf(registry, '$defs', 'authority', 'properties', 'status'), ['active', 'pending', 'draft', 'superseded', 'withdrawn', 'disputed', 'unverified']);

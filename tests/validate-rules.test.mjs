@@ -18,16 +18,25 @@ test('the real shipped authorities, rule packs and profiles validate', async () 
   assert.ok(result.stats.rules > 100);
 });
 
-test('nothing shipped in 0.1.0 is published, and every shipped rule is in the research lifecycle', async () => {
+test('nothing shipped is published: rules are at research, or at draft once reviewed against a primary source', async () => {
   const { readFile, readdir } = await import('node:fs/promises');
   const dir = join(ROOT, 'rules', 'packs');
+  let draft = 0;
   for (const file of await readdir(dir)) {
     const pack = JSON.parse(await readFile(join(dir, file), 'utf8'));
     for (const rule of pack.rules) {
-      assert.equal(rule.lifecycle, 'research', `${pack.pack_id} ${rule.rule_id}`);
-      assert.equal(rule.source_review_status, 'research', `${pack.pack_id} ${rule.rule_id}`);
+      const where = `${pack.pack_id} ${rule.rule_id}`;
+      if (rule.lifecycle === 'draft') {
+        draft += 1;
+        assert.equal(rule.source_review_status, 'reviewed', where);
+        assert.ok(!String(rule.authority?.section).startsWith('unatomized'), `${where}: a reviewed rule has a real clause locator`);
+      } else {
+        assert.equal(rule.lifecycle, 'research', where);
+        assert.equal(rule.source_review_status, 'research', where);
+      }
     }
   }
+  assert.equal(draft, 45, 'the 45 rules reviewed on 2026-10-20 are at draft');
 });
 
 test('the fixture data root is valid', async () => {

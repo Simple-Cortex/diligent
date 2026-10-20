@@ -778,6 +778,7 @@ fn every_emitted_row_is_schema_valid() {
         inventory: None,
         no_signals: false,
         corroborate: true,
+        component: false,
     };
     let report = assess_set(&set, &opts).unwrap();
 

@@ -1,0 +1,15 @@
+{
+  "check_id": "INFRA-02-hsts-preload",
+  "rule": "INFRA-02",
+  "channel": "assisted",
+  "status": "pass",
+  "expected": "strict-transport-security includes both includeSubDomains and preload.",
+  "observed": {
+    "preload_lookup": "preloaded",
+    "basis": "inference"
+  },
+  "limitations": [
+    "Preload status is an inference from the hstspreload.org list snapshot, not a direct observation of the header.",
+    "One request from one network vantage point; other regions, clients, and times can differ."
+  ]
+}

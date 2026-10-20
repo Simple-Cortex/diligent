@@ -594,6 +594,7 @@ fn dap_rows_cite_the_network_log_as_evidence() {
             inventory: None,
             no_signals: false,
             corroborate: true,
+            component: false,
         },
     )
     .unwrap();
@@ -760,6 +761,7 @@ fn the_inventory_option_reaches_the_checks_through_assess_set() {
         inventory: Some(inv),
         no_signals: false,
         corroborate: true,
+        component: false,
     };
     let report = assess_set(&set, &opts).unwrap();
     let row = report

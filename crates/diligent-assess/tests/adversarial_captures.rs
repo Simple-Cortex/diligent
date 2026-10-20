@@ -619,6 +619,7 @@ fn emitted_rows_validate_against_schemas() {
         inventory: None,
         no_signals: false,
         corroborate: true,
+        component: false,
     };
     let report = assess_set(&set, &opts).expect("assess should succeed");
 

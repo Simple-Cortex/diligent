@@ -30,7 +30,8 @@
           "page",
           "journey",
           "documents",
-          "combined"
+          "combined",
+          "component"
         ]
       },
       "minItems": 1,

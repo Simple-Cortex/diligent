@@ -12,7 +12,8 @@
 //!
 //! Entry points:
 //! - [`scan_html`] scans one document held in memory.
-//! - [`scan_path`] walks a file or directory of `.html` and `.htm` files.
+//! - [`scan_text`] scans one document read as a template [`Flavor`].
+//! - [`scan_path`] walks a file or directory of HTML and template files.
 //! - [`write_jsonl`] writes `EVIDENCE.jsonl` and `RESULTS.jsonl` rows.
 //! - [`cli`] runs `source scan <path> [--out <dir>] [--json]`.
 
@@ -21,15 +22,18 @@ pub mod cli;
 pub mod dom;
 pub mod emit;
 pub mod model;
+pub mod positions;
 pub mod scan;
 pub mod sha256;
+pub mod template;
 pub mod time;
 
 pub use cli::cli;
 pub use model::{CheckResult, EvidenceRecord, Finding, SourceRef, State};
 pub use scan::{
-    scan_html, scan_path, write_jsonl, ScanError, ScanOptions, ScanReport, SkippedFile,
+    scan_html, scan_path, scan_text, write_jsonl, ScanError, ScanOptions, ScanReport, SkippedFile,
 };
+pub use template::Flavor;
 
 /// The responsibility this crate owns in the audit specification's module boundaries.
 pub const CRATE_ROLE: &str =

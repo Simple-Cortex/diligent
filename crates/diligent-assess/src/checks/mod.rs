@@ -252,6 +252,37 @@ pub fn never_fails(check_id: &str) -> bool {
     ALL.iter().any(|i| i.id == check_id && i.never_fails)
 }
 
+/// Reason recorded on a document-level check in component mode.
+pub const COMPONENT_REASON: &str = "component mode: whole-page obligation";
+
+/// Checks whose subject is the whole document (landmarks, page chrome, page metadata,
+/// page-wide layout or link sets), not an element. Component mode records these as `not_tested`.
+pub const DOCUMENT_CHECKS: [&str; 14] = [
+    "BRW-BYPASS-BLOCKS",
+    "BRW-FED-BANNER",
+    "BRW-FED-IDENTIFIER",
+    "BRW-FED-TITLE-CRITERIA",
+    "BRW-FED-META-DESCRIPTION-CRITERIA",
+    "BRW-FED-SEARCH",
+    "BRW-FED-PRIVACY-LINK",
+    "BRW-FED-ACCESSIBILITY-STATEMENT",
+    "BRW-FED-CONTACT",
+    "BRW-FED-LANGUAGE-ACCESS",
+    "BRW-FED-DAP",
+    "BRW-FED-MOBILE-VIEWPORT",
+    "BRW-REFLOW-320",
+    "BRW-LINK-SAME-NAME",
+];
+
+/// `"document"` for a whole-page check, else `"element"`.
+pub fn scope(check_id: &str) -> &'static str {
+    if DOCUMENT_CHECKS.contains(&check_id) {
+        "document"
+    } else {
+        "element"
+    }
+}
+
 type Runner = for<'a> fn(&Ctx<'a>) -> Vec<Finding>;
 
 fn runners() -> [Runner; 28] {
@@ -297,9 +328,23 @@ pub fn run(set: &CaptureSet) -> Vec<Finding> {
 
 /// [`run`] with the site inventory `assess --inventory` supplied.
 pub fn run_with(set: &CaptureSet, inventory: &InventoryState) -> Vec<Finding> {
+    run_scoped(set, inventory, false)
+}
+
+/// [`run_with`] for a component capture: each document-level check records one `not_tested`
+/// finding with [`COMPONENT_REASON`] and runs nothing else.
+pub fn run_component(set: &CaptureSet, inventory: &InventoryState) -> Vec<Finding> {
+    run_scoped(set, inventory, true)
+}
+
+fn run_scoped(set: &CaptureSet, inventory: &InventoryState, component: bool) -> Vec<Finding> {
     let ctx = Ctx::with_inventory(set, inventory);
     let mut out: Vec<Finding> = Vec::new();
     for (info, runner) in ALL.iter().zip(runners()) {
+        if component && scope(info.id) == "document" {
+            out.push(not_tested(info, ctx.primary.as_ref(), COMPONENT_REASON));
+            continue;
+        }
         let mut found = runner(&ctx);
         if found.is_empty() {
             found.push(not_tested(info, ctx.primary.as_ref(), info.absent_reason));

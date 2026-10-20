@@ -279,17 +279,79 @@ pub fn hsts(o: &OriginObservation) -> Vec<Outcome> {
     if !has("preload") {
         missing.push("preload");
     }
-    let (st2, obs2) = if header.is_none() {
+    let (st2, obs2, lims2, ev2) = if let Some(preload) = &o.preload_status {
+        match preload {
+            crate::preload::PreloadStatus::Preloaded => {
+                let ev = if let Some(resp) = &o.preload_response {
+                    vec![crate::evidence::response_id(resp)]
+                } else {
+                    vec![]
+                };
+                (
+                    Status::Pass,
+                    json!({ "preload_lookup": "preloaded", "basis": "inference" }),
+                    vec!["Preload status is an inference from the hstspreload.org list snapshot, not a direct observation of the header.".to_string()],
+                    ev,
+                )
+            }
+            crate::preload::PreloadStatus::NotPreloaded(status) => {
+                let ev = if let Some(resp) = &o.preload_response {
+                    vec![crate::evidence::response_id(resp)]
+                } else {
+                    vec![]
+                };
+                (
+                    Status::NeedsReview,
+                    json!({ "preload_lookup": status, "header": header, "missing": missing }),
+                    vec![format!("hstspreload.org reports status \"{status}\"; the preload directive may still be absent from the header.")],
+                    ev,
+                )
+            }
+            crate::preload::PreloadStatus::Failed(reason) => {
+                let base_obs = if header.is_none() {
+                    json!({ "header": Value::Null, "missing": missing })
+                } else if missing.is_empty() {
+                    json!({ "header": header })
+                } else {
+                    json!({ "header": header, "missing": missing })
+                };
+                let base_st = if header.is_none() {
+                    Status::NeedsReview
+                } else if missing.is_empty() {
+                    Status::Pass
+                } else {
+                    Status::NeedsReview
+                };
+                let mut l = l2.iter().map(|s| s.to_string()).collect::<Vec<_>>();
+                l.push(format!("preload lookup failed: {reason}"));
+                let ev = if let Some(resp) = &o.preload_response {
+                    vec![crate::evidence::response_id(resp)]
+                } else {
+                    vec![]
+                };
+                (base_st, base_obs, l, ev)
+            }
+        }
+    } else if header.is_none() {
         (
             Status::NeedsReview,
             json!({ "header": Value::Null, "missing": missing }),
+            l2.iter().map(|s| s.to_string()).collect(),
+            ev.clone(),
         )
     } else if missing.is_empty() {
-        (Status::Pass, json!({ "header": header }))
+        (
+            Status::Pass,
+            json!({ "header": header }),
+            l2.iter().map(|s| s.to_string()).collect(),
+            ev.clone(),
+        )
     } else {
         (
             Status::NeedsReview,
             json!({ "header": header, "missing": missing }),
+            l2.iter().map(|s| s.to_string()).collect(),
+            ev.clone(),
         )
     };
     vec![
@@ -310,8 +372,8 @@ pub fn hsts(o: &OriginObservation) -> Vec<Outcome> {
             st2,
             exp2,
             obs2,
-            &l2,
-            ev,
+            &lims2.iter().map(|s| s.as_str()).collect::<Vec<_>>(),
+            ev2,
         ),
     ]
 }

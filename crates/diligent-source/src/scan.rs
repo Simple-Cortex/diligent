@@ -8,10 +8,12 @@ use scraper::Html;
 use walkdir::WalkDir;
 
 use crate::checks;
-use crate::dom::Ctx;
+use crate::dom::{Ctx, Pos, TemplateFacts};
 use crate::emit::Emitter;
 use crate::model::{Finding, SourceRef, State};
+use crate::positions::{self, LineIndex};
 use crate::sha256::sha256_hex;
+use crate::template::{self, Flavor};
 use crate::time;
 
 /// Default cap on a single file, in bytes.
@@ -73,9 +75,9 @@ pub struct ScanReport {
     pub run_id: String,
     /// Every finding, grouped by file in path order.
     pub findings: Vec<Finding>,
-    /// Number of HTML files scanned.
+    /// Number of files scanned.
     pub files_scanned: usize,
-    /// Number of HTML files skipped.
+    /// Number of files skipped.
     pub files_skipped: usize,
     /// Detail for each skipped file.
     pub skipped: Vec<SkippedFile>,
@@ -110,20 +112,71 @@ impl ScanReport {
 /// Every check records at least one finding: results for what it found, or a
 /// single `not_tested` when its preconditions were absent.
 pub fn scan_html(html: &str, source: &SourceRef) -> Vec<Finding> {
-    let doc = Html::parse_document(html);
-    let ctx = Ctx::new(&doc);
-    let mut em = Emitter::new(&ctx, source, sha256_hex(html.as_bytes()));
+    scan_text(html, source, Flavor::Html)
+}
+
+/// True when `hay` contains `needle` (lowercase ASCII), ignoring ASCII case.
+fn contains_ci(hay: &str, needle: &str) -> bool {
+    let n = needle.as_bytes();
+    hay.as_bytes()
+        .windows(n.len())
+        .any(|w| w.eq_ignore_ascii_case(n))
+}
+
+/// Scans one document held in memory, read as the given flavour.
+///
+/// `Flavor::Html` is parsed as is. Every other flavour goes through the
+/// template pre-pass first. A template with no `html` or `body` tag is a
+/// fragment: document-level checks record `not_tested` for it.
+pub fn scan_text(text: &str, source: &SourceRef, flavor: Flavor) -> Vec<Finding> {
+    let pre = template::preprocess(text, flavor);
+    let doc = Html::parse_document(&pre.html);
+    let tags = positions::start_tags(&pre.html);
+    let lines = LineIndex::new(text);
+    let element_names = doc
+        .tree
+        .root()
+        .descendants()
+        .filter_map(scraper::ElementRef::wrap)
+        .map(|e| e.value().name().to_string())
+        .collect::<Vec<_>>();
+    let aligned = positions::align(element_names.iter().map(String::as_str), &tags);
+    let found: Vec<Option<Pos>> = aligned
+        .iter()
+        .map(|slot| {
+            let tag = tags.get((*slot)?)?;
+            let offset = pre.source_offset(tag.offset, text.len());
+            let (line, column) = lines.locate(offset);
+            Some(Pos {
+                offset: u32::try_from(offset).unwrap_or(u32::MAX),
+                line,
+                column,
+            })
+        })
+        .collect();
+    let templated = flavor != Flavor::Html;
+    let fragment =
+        templated && !contains_ci(&pre.html, "<html") && !contains_ci(&pre.html, "<body");
+    let facts = TemplateFacts {
+        templated,
+        has_conditionals: pre.has_conditionals,
+        fragment,
+    };
+    let ctx = Ctx::with_positions(&doc, &found, facts);
+    let mut em = Emitter::new(&ctx, source, sha256_hex(text.as_bytes()));
     for check in checks::all() {
+        if fragment && checks::DOCUMENT_LEVEL.contains(&check.info.id) {
+            em.skip_fragment(check.info);
+            continue;
+        }
         (check.run)(&mut em);
         em.ensure_recorded(check.info);
     }
     em.finish()
 }
 
-fn is_html_file(path: &Path) -> bool {
-    path.extension()
-        .and_then(|e| e.to_str())
-        .is_some_and(|e| e.eq_ignore_ascii_case("html") || e.eq_ignore_ascii_case("htm"))
+fn is_scannable_file(path: &Path) -> bool {
+    Flavor::from_path(path).is_some()
 }
 
 fn skip_dir(name: &str) -> bool {
@@ -140,10 +193,12 @@ fn display_path(root: &Path, file: &Path) -> String {
     rel.to_string_lossy().replace('\\', "/")
 }
 
-/// Scans a single HTML file, or every `.html` and `.htm` file under a directory.
+/// Scans a single file, or every `.html`, `.htm`, `.jsx`, `.tsx`, `.vue`,
+/// `.svelte`, `.astro`, `.twig` and `.liquid` file under a directory.
 ///
 /// Paths in findings are relative to `path` (or the file name when `path` is a
-/// file). A file passed directly is scanned whatever its extension.
+/// file). A file passed directly is scanned whatever its extension; one with an
+/// unknown extension is read as HTML.
 pub fn scan_path(path: &Path, opts: &ScanOptions) -> Result<ScanReport, ScanError> {
     if !path.exists() {
         return Err(ScanError::NotFound(path.display().to_string()));
@@ -178,7 +233,7 @@ pub fn scan_path(path: &Path, opts: &ScanOptions) -> Result<ScanReport, ScanErro
                     .unwrap_or_else(|| path.display().to_string()),
                 source: e.into(),
             })?;
-            if entry.file_type().is_file() && is_html_file(entry.path()) {
+            if entry.file_type().is_file() && is_scannable_file(entry.path()) {
                 files.push(entry.into_path());
             }
         }
@@ -234,7 +289,8 @@ pub fn scan_path(path: &Path, opts: &ScanOptions) -> Result<ScanReport, ScanErro
             run_id: run_id.clone(),
             captured_at: captured_at.clone(),
         };
-        let findings = scan_html(&html, &source);
+        let flavor = Flavor::from_path(&file).unwrap_or(Flavor::Html);
+        let findings = scan_text(&html, &source, flavor);
         report.files_scanned += 1;
         for f in &findings {
             if f.result.status == State::NotTested {

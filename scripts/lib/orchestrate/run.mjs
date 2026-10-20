@@ -14,6 +14,8 @@ import { applyFacts, assertKnownFacts, knownFactIds, readFactsInput } from './fa
 import { MergeError, mergeSources, writeMerged } from './merge.mjs';
 import { buildAuditPlan, loadProfileData, selectPages } from './plan.mjs';
 import { loadReplay, replayInventory } from './replay.mjs';
+import { StorybookError, discoverStories, storybookInventory } from './storybook.mjs';
+import { componentGateLine, elementCheckIds, runComponentGate } from './component-gate.mjs';
 
 const DETAIL_CAP = 4096;
 /** First `lines` lines of a child's stderr, one line each, for a stage record. */
@@ -30,7 +32,7 @@ const capDetail = parts => (parts.length ? parts.join('\n').slice(0, DETAIL_CAP)
 const SCRIPTS = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const EVENT_STAGE = {
   init: 'initialized', scope: 'scoped', applicability: 'scoped', inventory: 'scoped', plan: 'planned',
-  collect: 'collecting', assess: 'collecting', infra: 'collecting', merge: 'collecting', gate: 'assessed', report: 'reported'
+  collect: 'collecting', assess: 'collecting', infra: 'collecting', merge: 'collecting', gate: 'assessed', 'component-gate': 'assessed', report: 'reported'
 };
 
 export function defaultAuditId(url) {
@@ -40,9 +42,10 @@ export function defaultAuditId(url) {
 
 export function validateOptions(options) {
   let url;
-  try { url = new URL(options.url); } catch { throw new UsageError(`--url "${options.url ?? ''}" is not a valid URL.`); }
-  if (url.protocol !== 'https:' && url.protocol !== 'http:') throw new UsageError('--url must be an http or https URL.');
-  if (url.username || url.password) throw new UsageError('--url must not contain credentials.');
+  const flag = options.storybook ? '--storybook' : '--url';
+  try { url = new URL(options.url); } catch { throw new UsageError(`${flag} "${options.url ?? ''}" is not a valid URL.`); }
+  if (url.protocol !== 'https:' && url.protocol !== 'http:') throw new UsageError(`${flag} must be an http or https URL.`);
+  if (url.username || url.password) throw new UsageError(`${flag} must not contain credentials.`);
   const pages = options.pages === undefined ? 10 : Number(options.pages);
   if (!Number.isInteger(pages) || pages < 1 || pages > 200) throw new UsageError('--pages must be an integer from 1 to 200.');
   const timeoutMs = options.timeoutMs === undefined ? 30000 : Number(options.timeoutMs);
@@ -59,8 +62,10 @@ export function validateOptions(options) {
 export async function runAudit(options, { log = () => {}, env = process.env } = {}) {
   // Replay mode audits recorded captures offline: no discovery, no collection, no network stages.
   if (options.replay && options.url) throw new UsageError('--replay and --url cannot be used together.');
+  if (options.storybook && (options.url || options.replay)) throw new UsageError('--storybook cannot be used with --url or --replay.');
+  const storybookMode = Boolean(options.storybook);
   const replay = options.replay ? await loadReplay(resolve(options.replay)) : null;
-  const { url, pages: requestedPages, timeoutMs } = validateOptions(replay ? { ...options, url: `${replay.origin}/` } : options);
+  const { url, pages: requestedPages, timeoutMs } = validateOptions(replay ? { ...options, url: `${replay.origin}/` } : storybookMode ? { ...options, url: options.storybook } : options);
   const pageBudget = replay ? replay.pages.length : requestedPages;
   const origin = url.origin;
   const startUrl = url.href;
@@ -102,6 +107,8 @@ export async function runAudit(options, { log = () => {}, env = process.env } = 
   let sample = null;
   let infraRan = false;
   let reviewItems = 0;
+  let storybook = null;
+  let componentGate = null;
 
   const record = async (name, fn) => {
     const started = Date.now();
@@ -140,7 +147,8 @@ export async function runAudit(options, { log = () => {}, env = process.env } = 
       execution_status: 'running',
       engine: { name: 'native-rust', executed_by: 'mixed', native_available: true, protocol_version: engine.protocol_version, binary_version: engine.binary_version },
       budgets: { pages: pageBudget, timeout_ms: timeoutMs },
-      requested_scope: { modes: ['page'], profile_id: profileId, detail: replay ? `diligent audit --replay (${replay.pages.length} recorded pages on ${origin})` : `diligent audit --url ${startUrl}` }
+      ...(storybookMode ? { modes: ['page', 'component'] } : {}),
+      requested_scope: { modes: storybookMode ? ['page', 'component'] : ['page'], profile_id: profileId, detail: replay ? `diligent audit --replay (${replay.pages.length} recorded pages on ${origin})` : storybookMode ? `diligent audit --storybook ${startUrl} (component audit, not a site claim)` : `diligent audit --url ${startUrl}` }
     });
     return {};
   });
@@ -175,6 +183,21 @@ export async function runAudit(options, { log = () => {}, env = process.env } = 
 
   // 4. inventory
   await record('inventory', async () => {
+    if (storybookMode) {
+      let stories;
+      try { stories = await discoverStories(startUrl, { allowPrivate: Boolean(options.allowPrivate), timeoutMs }); } catch (error) {
+        if (error instanceof StorybookError) return { state: 'failed', exit_code: 3, warning: error.message };
+        throw error;
+      }
+      storybook = storybookInventory({ baseUrl: startUrl, stories, runId, auditId, seed: options.seed || runId, pages: pageBudget });
+      for (const [name, schema, doc] of [['INVENTORY.json', 'inventory', storybook.inventory], ['SAMPLE.json', 'sample', storybook.sample]]) {
+        const check = await validateData(schema, doc, name);
+        if (!check.ok) return { state: 'failed', exit_code: 3, warning: `${name} built from the story index is invalid: ${check.errors.slice(0, 2).join('; ')}` };
+        await atomicWriteJson(join(dir, name), doc);
+      }
+      sample = storybook.sample;
+      return { state: 'done', warning: `storybook: ${storybook.sampled} of ${storybook.total} stories sampled; docs entries are skipped and play functions are not run` };
+    }
     if (replay) {
       const { inventory, sample: replaySample } = replayInventory({ replay, runId, auditId });
       for (const [name, schema, doc] of [['INVENTORY.json', 'inventory', inventory], ['SAMPLE.json', 'sample', replaySample]]) {
@@ -264,6 +287,7 @@ export async function runAudit(options, { log = () => {}, env = process.env } = 
       if (rec.collect !== 'collected' && rec.collect !== 'supplied') { rec.assess = 'not_run'; continue; }
       const out = join(work, 'assess', rec.slug);
       const args = ['assess', '--capture', rec.captureDir ?? join(work, 'captures', rec.slug), '--out', out, '--run-id', runId, '--inventory', join(dir, 'INVENTORY.json'), '--json'];
+      if (storybookMode) args.push('--component');
       if (options.noSignals) args.push('--no-signals');
       // Corroboration off means off: a capture that carries an axe_result must not be corroborated.
       if (!corroboration.applied) args.push('--no-corroborate');
@@ -276,6 +300,7 @@ export async function runAudit(options, { log = () => {}, env = process.env } = 
   // 8. infra (https only)
   await record('infra', async () => {
     if (replay) return { state: 'skipped', warning: 'replay: network stages skipped' };
+    if (storybookMode) return { state: 'skipped', warning: `storybook: ${origin} hosts a component workshop, not a site to certify, so infra checks were skipped and are untested` };
     if (url.protocol !== 'https:') return { state: 'skipped', warning: `infra checks were skipped: ${origin} is not https, so HTTPS redirect, certificate, HSTS and header checks do not apply and are untested` };
     const out = join(work, 'infra');
     const args = ['infra', '--url', origin, '--out', out, '--run-id', runId, '--timeout-ms', String(timeoutMs), '--json'];
@@ -307,6 +332,16 @@ export async function runAudit(options, { log = () => {}, env = process.env } = 
     gateExit = result.code;
     return result.code === 3 ? { state: 'failed', exit_code: 3, warning: `gate exited 3: ${result.stderr.trim().slice(0, 300)}` } : { exit_code: result.code };
   });
+  if (!failed && storybookMode) {
+    await record('component-gate', async () => {
+      const listed = await runEngine(['checks', 'list', '--json'], { env });
+      const elementIds = listed.code === 0 ? elementCheckIds(tryJson(listed.stdout)) : null;
+      if (!elementIds) return { state: 'failed', exit_code: 3, warning: 'diligent-rs checks list --json did not report a scope for each check; use a diligent-rs build that supports --component' };
+      componentGate = await runComponentGate({ dir, runId, auditId, storybookUrl: startUrl, stories: storybook.all, selected: storybook.selected, pageRecords, elementIds, now: nowIso() });
+      if (componentGate.state === 'invalid') return { state: 'failed', exit_code: 3, warning: `COMPONENT-BASELINE.json would be invalid: ${componentGate.errors.slice(0, 2).join('; ')}` };
+      return { exit_code: componentGate.exit, warning: [...componentGate.problems, ...componentGate.notes].join('; ') || null };
+    });
+  }
   if (!failed) {
     await record('report', async () => {
       const result = await runNode(join(SCRIPTS, 'report.mjs'), ['--dir', dir, '--data-root', dataRoot], { env });
@@ -322,10 +357,16 @@ export async function runAudit(options, { log = () => {}, env = process.env } = 
       await advanceRun(dir, runId, 'initialized', {
         execution_status: failed ? 'failed' : 'completed', ended_at: nowIso(),
         warnings: [`Automated checks ran through diligent-rs ${engine.binary_version ?? 'unknown version'}. Anything not listed in RESULTS.jsonl is untested.`, ...warnings].slice(0, 200),
-        extensions: { audit: { mode: replay ? 'replay' : 'live', ...(replay ? { replay_sha256: replay.sha256 } : {}), corroboration, warnings, pages: pageRecords, stages, review_items: reviewItems } }
+        extensions: { audit: { mode: replay ? 'replay' : storybookMode ? 'storybook' : 'live', ...(storybookMode && storybook ? { storybook: { url: startUrl, total_stories: storybook.total, sampled_stories: storybook.sampled } } : {}), ...(replay ? { replay_sha256: replay.sha256 } : {}), corroboration, warnings, pages: pageRecords, stages, review_items: reviewItems } }
       });
     }
     const summary = { audit_id: auditId, run_id: runId, directory: dir, stages, gate_exit: gateExit, report_path: reportPath, corroboration: { applied: corroboration.applied, source: corroboration.source } };
+    if (storybookMode) {
+      summary.component_gate = componentGate && componentGate.state !== 'invalid'
+        ? { state: componentGate.state, stories: componentGate.stories.length, failed: componentGate.failed, exit: componentGate.exit, line: componentGateLine({ state: componentGate.state, stories: componentGate.stories.length, failed: componentGate.failed, exit: componentGate.exit }) }
+        : null;
+      return { exit: summary.component_gate?.exit ?? 3, summary, warnings };
+    }
     return { exit: gateExit ?? 3, summary, warnings };
   }
 }

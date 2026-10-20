@@ -52,3 +52,51 @@ jobs:
 
       - name: Build the binary
         run: cargo build -p diligent-cli --locked
+
+  shadow-rules:
+    name: shadow rules (Node vs Rust validate)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache cargo
+        uses: Swatinem/rust-cache@v2
+
+      - name: Build the native binary
+        run: cargo build -p diligent-cli --locked
+
+      - name: Run shadow rules suite
+        env:
+          DILIGENT_RS_BIN: ${{ github.workspace }}/target/debug/diligent-rs
+        run: npm run shadow:rules
+
+  shadow-gate:
+    name: shadow gate (Node vs Rust gate)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache cargo
+        uses: Swatinem/rust-cache@v2
+
+      - name: Build the native binary
+        run: cargo build -p diligent-cli --locked
+
+      - name: Run shadow gate suite
+        env:
+          DILIGENT_RS_BIN: ${{ github.workspace }}/target/debug/diligent-rs
+        run: npm run shadow:gate

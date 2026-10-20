@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-19-ddd001",
+  "audit_id": "diff-results-only",
+  "profile_id": "us-federal-public-web",
+  "modes": ["page"],
+  "requested_scope": {},
+  "engine": {
+    "name": "native-rust",
+    "executed_by": "mixed",
+    "native_available": true,
+    "protocol_version": "1.0.0",
+    "binary_version": "0.2.0"
+  },
+  "tool_versions": { "diligent-rs": "0.2.0" },
+  "started_at": "2026-10-19T14:00:00Z",
+  "ended_at": "2026-10-19T14:05:00Z",
+  "snapshot_refs": [],
+  "pipeline_state": "assessed",
+  "execution_status": "completed",
+  "assessment_complete": true,
+  "budgets": {},
+  "warnings": []
+}

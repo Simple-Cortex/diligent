@@ -9,6 +9,8 @@ use std::collections::HashMap;
 use scraper::{ElementRef, Html, Node};
 use serde_json::{Map, Value};
 
+use crate::template::{COMPONENT_TAG, MARK, SPREAD_ATTR};
+
 /// SVG element namespace.
 pub const SVG_NS: &str = "http://www.w3.org/2000/svg";
 /// HTML element namespace.
@@ -16,16 +18,57 @@ pub const HTML_NS: &str = "http://www.w3.org/1999/xhtml";
 
 const MAX_DEPTH: usize = 128;
 
+/// Where an element starts in the source text.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct Pos {
+    /// Byte offset in the source text.
+    pub offset: u32,
+    /// 1-based line.
+    pub line: u32,
+    /// 1-based column, counted in characters.
+    pub column: u32,
+}
+
+/// What the template pre-pass learned about a document.
+#[derive(Debug, Clone, Copy, Default)]
+pub struct TemplateFacts {
+    /// The text came from a template flavour, not plain HTML.
+    pub templated: bool,
+    /// The template holds a conditional or a loop.
+    pub has_conditionals: bool,
+    /// The template has no `html` or `body` tag, so it is a fragment.
+    pub fragment: bool,
+}
+
 /// Parsed document plus lookup tables built once per scan.
 pub struct Ctx<'a> {
     /// Every element in document order. The first is the `html` element.
     pub elements: Vec<ElementRef<'a>>,
     ids: HashMap<&'a str, Vec<ElementRef<'a>>>,
+    positions: HashMap<usize, Pos>,
+    /// What the template pre-pass learned. All false for plain HTML.
+    pub template: TemplateFacts,
+    /// A `label` has an expression for its `for` attribute.
+    pub label_for_expr: bool,
+}
+
+fn node_key(el: ElementRef<'_>) -> usize {
+    std::ptr::from_ref(el.value()) as usize
 }
 
 impl<'a> Ctx<'a> {
     /// Builds the element list and id table for a parsed document.
     pub fn new(doc: &'a Html) -> Self {
+        Self::with_positions(doc, &[], TemplateFacts::default())
+    }
+
+    /// Like [`Ctx::new`], with a position for each element (one entry per
+    /// element in document order, `None` when unknown) and template facts.
+    pub fn with_positions(
+        doc: &'a Html,
+        positions: &[Option<Pos>],
+        template: TemplateFacts,
+    ) -> Self {
         let elements: Vec<ElementRef<'a>> = doc
             .tree
             .root()
@@ -33,14 +76,34 @@ impl<'a> Ctx<'a> {
             .filter_map(ElementRef::wrap)
             .collect();
         let mut ids: HashMap<&'a str, Vec<ElementRef<'a>>> = HashMap::new();
+        let mut label_for_expr = false;
         for el in &elements {
             if let Some(id) = el.value().id() {
-                if !id.is_empty() {
+                if !id.is_empty() && !id.contains(MARK) {
                     ids.entry(id).or_default().push(*el);
                 }
             }
+            if tag(*el) == "label" && attr(*el, "for").is_some_and(has_mark) {
+                label_for_expr = true;
+            }
         }
-        Ctx { elements, ids }
+        let positions = elements
+            .iter()
+            .zip(positions)
+            .filter_map(|(el, p)| p.map(|p| (node_key(*el), p)))
+            .collect();
+        Ctx {
+            elements,
+            ids,
+            positions,
+            template,
+            label_for_expr,
+        }
+    }
+
+    /// Where `el` starts in the source, when the source text contains it.
+    pub fn position(&self, el: ElementRef<'a>) -> Option<Pos> {
+        self.positions.get(&node_key(el)).copied()
     }
 
     /// The `html` element. The HTML parser always creates one.
@@ -103,6 +166,44 @@ fn nth_of_type(el: ElementRef<'_>) -> usize {
         .filter(|s| tag(*s) == name)
         .count()
         + 1
+}
+
+/// What an attribute holds, as far as the markup says.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum AttrValue<'a> {
+    /// The attribute is not there.
+    Absent,
+    /// The attribute is there with only whitespace.
+    Blank,
+    /// A literal value.
+    Text(&'a str),
+    /// A template expression stands in for all or part of the value.
+    Expression,
+}
+
+/// Classifies an attribute. An expression wins over literal text.
+pub fn attr_value<'a>(el: ElementRef<'a>, name: &str) -> AttrValue<'a> {
+    match attr(el, name) {
+        None => AttrValue::Absent,
+        Some(v) if has_mark(v) => AttrValue::Expression,
+        Some(v) if v.trim_matches(is_ascii_ws).is_empty() => AttrValue::Blank,
+        Some(v) => AttrValue::Text(v),
+    }
+}
+
+/// True when `s` holds a template expression marker.
+pub fn has_mark(s: &str) -> bool {
+    s.contains(MARK)
+}
+
+/// True for a component element left opaque by the template pre-pass.
+pub fn is_component(el: ElementRef<'_>) -> bool {
+    tag(el) == COMPONENT_TAG
+}
+
+/// True when the element carries an attribute spread.
+pub fn has_spread(el: ElementRef<'_>) -> bool {
+    has_attr(el, SPREAD_ATTR)
 }
 
 /// Local tag name, lowercase for HTML elements.
@@ -365,6 +466,9 @@ fn collect_text<'a>(
                     continue;
                 }
                 out.push(' ');
+                if name == COMPONENT_TAG {
+                    out.push(MARK);
+                }
                 if name == "img" {
                     out.push_str(&image_name_inner(ctx, c, walk));
                 } else if let Some(label) = attr_trim(c, "aria-label") {

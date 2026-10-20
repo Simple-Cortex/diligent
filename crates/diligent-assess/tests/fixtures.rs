@@ -245,6 +245,7 @@ fn emitted_rows_validate_against_the_schemas() {
         inventory: None,
         no_signals: false,
         corroborate: true,
+        component: false,
     };
     let mut problems: Vec<String> = Vec::new();
     let mut rows = 0usize;

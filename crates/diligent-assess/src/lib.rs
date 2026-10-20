@@ -76,6 +76,8 @@ pub struct AssessOptions {
     /// Run the axe-core corroboration step when the capture has an `axe_result`. Default true.
     /// False skips the step entirely: no corroboration extensions, no axe evidence rows.
     pub corroborate: bool,
+    /// Component mode: document-level checks record `not_tested` with the component reason.
+    pub component: bool,
 }
 
 impl Default for AssessOptions {
@@ -86,6 +88,7 @@ impl Default for AssessOptions {
             inventory: None,
             no_signals: false,
             corroborate: true,
+            component: false,
         }
     }
 }
@@ -170,7 +173,11 @@ pub fn assess_set(set: &CaptureSet, opts: &AssessOptions) -> Result<AssessReport
         None => inventory::InventoryState::NotSupplied,
         Some(path) => inventory::load(path),
     };
-    let checked = checks::run_with(set, &inventory);
+    let checked = if opts.component {
+        checks::run_component(set, &inventory)
+    } else {
+        checks::run_with(set, &inventory)
+    };
     let (findings, corroboration) = if opts.corroborate {
         corroborate::apply(set, checked)
     } else {

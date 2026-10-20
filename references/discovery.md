@@ -2,7 +2,7 @@
 
 Discovery runs before final scope and planning. It has two tracks: the actual UI architecture, and the actual project and agency purpose. An unknown in one track never blocks independent work in the other. The audit must work with any component library, several libraries, custom components, or no formal design system. A particular government design system is one possible resource, not the assumed stack. Require its adoption only when a verified applicable authority or contract requires it.
 
-`init` starts discovery automatically. In 0.2.0 discovery is an agent-performed phase.
+`init` starts discovery automatically. In 0.2.1 discovery is an agent-performed phase.
 
 ## 1. Passive project discovery
 

@@ -14,7 +14,7 @@
         "BRW-FOCUS-OBSCURED"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Meet WCAG 2.2 success criterion 2.4.11 Focus not obscured, minimum at level AA as a product target.",
       "authority": {
         "authority_id": "A03",
@@ -69,8 +69,8 @@
       ],
       "owner_role": "accessibility_lead",
       "severity_default": "medium",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "WCAG-2.2-2.4.11",
         "wcag_level": "AA",
@@ -175,7 +175,7 @@
         "BRW-TARGET-SIZE"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Meet WCAG 2.2 success criterion 2.5.8 Target size, minimum at level AA as a product target.",
       "authority": {
         "authority_id": "A03",
@@ -230,8 +230,8 @@
       ],
       "owner_role": "accessibility_lead",
       "severity_default": "medium",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "WCAG-2.2-2.5.8",
         "wcag_level": "AA",

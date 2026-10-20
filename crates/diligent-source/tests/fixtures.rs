@@ -8,7 +8,7 @@ use std::collections::BTreeSet;
 use std::fs;
 use std::path::{Path, PathBuf};
 
-use diligent_source::{scan_html, Finding, SourceRef, State};
+use diligent_source::{scan_html, scan_text, Finding, Flavor, SourceRef, State};
 use serde_json::Value;
 
 fn repo_root() -> PathBuf {
@@ -158,7 +158,8 @@ fn authored_fixtures_match_manifest() {
         let check = entry["check_id"].as_str().unwrap();
         let html =
             fs::read_to_string(dir.join(path)).unwrap_or_else(|e| panic!("read {path}: {e}"));
-        let findings = scan_html(&html, &SourceRef::new(path));
+        let flavor = Flavor::from_path(Path::new(path)).unwrap_or(Flavor::Html);
+        let findings = scan_text(&html, &SourceRef::new(path), flavor);
         let want = State::parse(entry["expected"].as_str().unwrap()).expect("known state");
         let got = aggregate(&findings, check);
         if got != Some(want) {
@@ -211,10 +212,28 @@ fn authored_manifest_covers_every_fixture_file() {
         .collect();
     let on_disk = html_files(&dir);
     // selector/ fixtures are exercised by selectors.rs rather than the manifest.
-    let on_disk: BTreeSet<String> = on_disk
+    let mut on_disk: BTreeSet<String> = on_disk
         .into_iter()
         .filter(|p| !p.starts_with("selector/"))
         .collect();
+    // Template flavours have their own extensions; every file there is listed too.
+    let templates = dir.join("templates");
+    let mut stack = vec![templates.clone()];
+    while let Some(d) = stack.pop() {
+        for entry in fs::read_dir(&d).unwrap() {
+            let p = entry.unwrap().path();
+            if p.is_dir() {
+                stack.push(p);
+            } else {
+                on_disk.insert(
+                    p.strip_prefix(&dir)
+                        .unwrap()
+                        .to_string_lossy()
+                        .replace('\\', "/"),
+                );
+            }
+        }
+    }
     assert_eq!(listed, on_disk);
 }
 

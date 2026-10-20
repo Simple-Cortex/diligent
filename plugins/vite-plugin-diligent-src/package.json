@@ -1,0 +1,9 @@
+{
+  "name": "vite-plugin-diligent-src",
+  "description": "Adds data-diligent-src to native elements during development so a browser audit can point back at the source line.",
+  "private": true,
+  "type": "module",
+  "main": "index.mjs",
+  "exports": "./index.mjs",
+  "license": "MIT"
+}

@@ -4,9 +4,12 @@
 //! finding. Row shapes follow `schemas/check-result.schema.json` and
 //! `schemas/evidence-record.schema.json`.
 
-use diligent_capture::{CaptureSet, ManifestEntry, Viewport};
-use serde_json::{json, Value};
+use std::collections::HashMap;
 
+use diligent_capture::{CaptureSet, ManifestEntry, Viewport};
+use serde_json::{json, Map, Value};
+
+use crate::capture_view::CaptureView;
 use crate::checks;
 use crate::clock::sha256_hex;
 use crate::corroborate;
@@ -107,6 +110,59 @@ pub(crate) fn evidence_record(
     }
 }
 
+/// Attribute the build plugin stamps on elements: `<path>:<line>`.
+const SOURCE_ATTR: &str = "data-diligent-src";
+/// Longest `source_ref` kept.
+const SOURCE_REF_CHARS: usize = 300;
+
+/// Source references found in captured DOM snapshots, keyed by selector, one
+/// table per `(viewport, media)` view, built the first time a finding needs it.
+#[derive(Default)]
+struct SourceRefs {
+    views: Vec<(Viewport, String, HashMap<String, String>)>,
+}
+
+impl SourceRefs {
+    /// The `data-diligent-src` value of the element a finding is about.
+    fn of(&mut self, set: &CaptureSet, f: &Finding) -> Option<String> {
+        let viewport = f.viewport?;
+        let media = f.media.as_deref()?;
+        let at = match self
+            .views
+            .iter()
+            .position(|(v, m, _)| same_viewport(*v, viewport) && m == media)
+        {
+            Some(at) => at,
+            None => {
+                self.views.push((
+                    viewport,
+                    media.to_string(),
+                    Self::index(set, viewport, media),
+                ));
+                self.views.len() - 1
+            }
+        };
+        self.views[at].2.get(&f.instance).cloned()
+    }
+
+    fn index(set: &CaptureSet, viewport: Viewport, media: &str) -> HashMap<String, String> {
+        let mut map = HashMap::new();
+        let Some(view) = CaptureView::new(set, viewport, media) else {
+            return map;
+        };
+        for el in view.elements() {
+            let Some(value) = view.attr(el, SOURCE_ATTR).map(str::trim) else {
+                continue;
+            };
+            if !value.is_empty() {
+                map.entry(view.selector(el))
+                    .or_insert_with(|| value.chars().take(SOURCE_REF_CHARS).collect());
+            }
+        }
+        map
+    }
+}
+
 /// Builds the result and evidence rows for `findings`.
 ///
 /// Evidence rows come out in order of first use, one per distinct capture
@@ -127,10 +183,14 @@ pub fn rows(
 
     let mut evidence: Vec<EvidenceRecord> = Vec::new();
     let mut used: Vec<usize> = Vec::new();
+    // Per evidence row (same order): selector -> source ref of the findings that rest on it.
+    let mut source_maps: Vec<Map<String, Value>> = Vec::new();
+    let mut source_refs = SourceRefs::default();
     let mut results: Vec<CheckResult> = Vec::with_capacity(findings.len());
 
     for (n, f) in findings.iter().enumerate() {
         let mut refs: Vec<String> = Vec::new();
+        let source_ref = source_refs.of(set, f);
         for key in &f.evidence {
             let Some(idx) = entry_for(set, key) else {
                 continue;
@@ -140,6 +200,12 @@ pub fn rows(
             if !used.contains(&idx) {
                 used.push(idx);
                 evidence.push(evidence_record(set, entry, run_id));
+                source_maps.push(Map::new());
+            }
+            if let (Some(src), "dom_snapshot") = (&source_ref, key.kind) {
+                if let Some(at) = used.iter().position(|u| *u == idx) {
+                    source_maps[at].insert(f.instance.clone(), json!(src));
+                }
             }
             if !refs.contains(&id) {
                 refs.push(id);
@@ -179,24 +245,30 @@ pub fn rows(
             supersedes_result_id: None,
             extensions: {
                 let mut ext = serde_json::Map::new();
-                ext.insert(
-                    EXTENSION_KEY.to_string(),
-                    json!({
-                        "scope": "rendered",
-                        "channel": "browser",
-                        "act_rule_ids": info.map(|i| i.act).unwrap_or(&[]),
-                        "rule_ids": f.wcag,
-                        "viewport": f.viewport.map(viewport_json),
-                        "media": f.media,
-                        "instance": f.instance,
-                    }),
-                );
+                let mut assess = json!({
+                    "scope": "rendered",
+                    "channel": "browser",
+                    "act_rule_ids": info.map(|i| i.act).unwrap_or(&[]),
+                    "rule_ids": f.wcag,
+                    "viewport": f.viewport.map(viewport_json),
+                    "media": f.media,
+                    "instance": f.instance,
+                });
+                if let Some(src) = &source_ref {
+                    assess["source_ref"] = json!(src);
+                }
+                ext.insert(EXTENSION_KEY.to_string(), assess);
                 if let Some(c) = &f.corroboration {
                     ext.insert(corroborate::EXTENSION_KEY.to_string(), c.clone());
                 }
                 Value::Object(ext)
             },
         });
+    }
+    for (record, map) in evidence.iter_mut().zip(source_maps) {
+        if !map.is_empty() {
+            record.context["source_refs"] = Value::Object(map);
+        }
     }
     (results, evidence)
 }

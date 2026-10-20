@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-18-abcdef",
+  "findings": [
+    {
+      "finding_id": "find-001",
+      "fingerprint": "fp-aaa-111",
+      "rule_id": "INFRA-12",
+      "obligation_id": "OBL-INFRA-12",
+      "category": "mandatory_failure",
+      "authority_refs": ["A10"],
+      "task_refs": [],
+      "locations": [
+        { "url": "https://agency.example.gov/", "selector": "head > meta" }
+      ],
+      "affected_instances": ["https://agency.example.gov/"],
+      "severity": "high",
+      "certainty_basis": "observation",
+      "review_state": "unreviewed",
+      "repair_refs": [],
+      "owner_role": "engineering",
+      "lifecycle": { "state": "open", "history": [] },
+      "observation": "strict-transport-security header is absent.",
+      "impact": "Browsers may connect over plain HTTP without upgrade.",
+      "evidence_refs": ["evidence/abc123.json"]
+    }
+  ]
+}

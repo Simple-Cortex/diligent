@@ -57,7 +57,7 @@ async function main() {
   const loaded = {};
   for (const name of names) loaded[name] = await loadArtifact(dir, name);
 
-  const limitations = [`Diligent ${DILIGENT_VERSION} runs no automated website checks. Results come only from human or documentary input.`];
+  const limitations = [`Diligent ${DILIGENT_VERSION} runs automated website checks only through the separately installed diligent-rs binary; without it, results come from human or documentary input.`];
   const unresolved = [];
   const invalid = names.filter(name => loaded[name].exists && !loaded[name].ok);
 

@@ -478,7 +478,7 @@ dependencies = [
 
 [[package]]
 name = "diligent-assess"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "diligent-capture",
  "jsonschema",
@@ -491,7 +491,7 @@ dependencies = [
 
 [[package]]
 name = "diligent-capture"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "serde",
  "serde_json",
@@ -500,10 +500,11 @@ dependencies = [
 
 [[package]]
 name = "diligent-cli"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "diligent-assess",
  "diligent-evidence",
+ "diligent-gate",
  "diligent-infra",
  "diligent-inventory",
  "diligent-rules",
@@ -514,7 +515,7 @@ dependencies = [
 
 [[package]]
 name = "diligent-evidence"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "diligent-capture",
  "diligent-infra",
@@ -527,11 +528,17 @@ dependencies = [
 
 [[package]]
 name = "diligent-gate"
-version = "0.2.0"
+version = "0.2.1"
+dependencies = [
+ "diligent-evidence",
+ "diligent-rules",
+ "serde",
+ "serde_json",
+]
 
 [[package]]
 name = "diligent-infra"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "diligent-netpolicy",
  "diligent-source",
@@ -549,7 +556,7 @@ dependencies = [
 
 [[package]]
 name = "diligent-inventory"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "diligent-infra",
  "diligent-netpolicy",
@@ -567,15 +574,15 @@ dependencies = [
 
 [[package]]
 name = "diligent-netpolicy"
-version = "0.2.0"
+version = "0.2.1"
 
 [[package]]
 name = "diligent-report"
-version = "0.2.0"
+version = "0.2.1"
 
 [[package]]
 name = "diligent-rules"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "jsonschema",
  "regex",
@@ -586,7 +593,7 @@ dependencies = [
 
 [[package]]
 name = "diligent-runtime"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "async-trait",
  "chromiumoxide",
@@ -602,7 +609,7 @@ dependencies = [
 
 [[package]]
 name = "diligent-source"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "scraper",
  "serde",

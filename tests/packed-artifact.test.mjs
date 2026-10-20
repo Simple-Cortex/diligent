@@ -52,7 +52,7 @@ test('the packed tarball equals the manifest, installs, and runs from inside', a
     const installed = (await readdir(destination)).sort();
     for (const name of ['docs', 'tests', 'fixtures', 'evals', 'crates']) {
       if (name === 'docs') {
-        assert.deepEqual((await readdir(join(destination, 'docs'))).sort(), ['known-limitations.md', 'supported-checks.md']);
+        assert.deepEqual((await readdir(join(destination, 'docs'))).sort(), ['baseline-diff.md', 'known-limitations.md', 'sarif.md', 'supported-checks.md']);
       } else assert.ok(!installed.includes(name), `installer copied excluded ${name}`);
     }
     const manifest = JSON.parse(await readFile(join(destination, 'runtime-manifest.json'), 'utf8'));

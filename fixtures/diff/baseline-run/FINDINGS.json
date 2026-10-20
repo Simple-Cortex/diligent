@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-18-bbb001",
+  "findings": [
+    {
+      "finding_id": "find-b01",
+      "fingerprint": "fp-known-001",
+      "rule_id": "INFRA-02",
+      "obligation_id": "OBL-INFRA-02",
+      "category": "mandatory_failure",
+      "authority_refs": ["A10"],
+      "task_refs": [],
+      "locations": [],
+      "affected_instances": ["https://agency.example.gov/"],
+      "severity": "high",
+      "certainty_basis": "observation",
+      "review_state": "unreviewed",
+      "repair_refs": [],
+      "owner_role": "engineering",
+      "lifecycle": { "state": "open", "history": [] },
+      "observation": "strict-transport-security header is absent.",
+      "impact": "Browsers may connect over plain HTTP.",
+      "evidence_refs": []
+    },
+    {
+      "finding_id": "find-b02",
+      "fingerprint": "fp-resolved-001",
+      "rule_id": "FED-06",
+      "obligation_id": "OBL-FED-06",
+      "category": "evidence_gap",
+      "authority_refs": ["A28"],
+      "task_refs": [],
+      "locations": [],
+      "affected_instances": ["https://agency.example.gov/"],
+      "severity": "low",
+      "certainty_basis": "observation",
+      "review_state": "unreviewed",
+      "repair_refs": [],
+      "owner_role": "content",
+      "lifecycle": { "state": "open", "history": [] },
+      "observation": "Privacy link not found.",
+      "impact": "Privacy link may be missing.",
+      "evidence_refs": []
+    }
+  ]
+}

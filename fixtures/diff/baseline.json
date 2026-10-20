@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "created_from_run": "run-2026-10-18-bbb001",
+  "engine_version": "0.2.0",
+  "fingerprints": [
+    {
+      "source": "finding",
+      "fingerprint": "fp-known-001",
+      "rule_id": "INFRA-02",
+      "finding_id": "find-b01",
+      "first_seen_run": "run-2026-10-18-bbb001"
+    },
+    {
+      "source": "finding",
+      "fingerprint": "fp-resolved-001",
+      "rule_id": "FED-06",
+      "finding_id": "find-b02",
+      "first_seen_run": "run-2026-10-18-bbb001"
+    },
+    {
+      "source": "finding",
+      "fingerprint": "fp-unverified-001",
+      "rule_id": "INFRA-12",
+      "finding_id": "find-b03",
+      "first_seen_run": "run-2026-10-18-bbb001"
+    }
+  ]
+}

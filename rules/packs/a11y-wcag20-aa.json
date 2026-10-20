@@ -16,7 +16,7 @@
         "SRC-SVG-NAME"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Meet WCAG 2.0 success criterion 1.1.1 Non-text content at level A where the incorporated standard applies.",
       "authority": {
         "authority_id": "A01",
@@ -76,8 +76,8 @@
       ],
       "owner_role": "accessibility_lead",
       "severity_default": "high",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "WCAG-2.0-1.1.1",
         "wcag_level": "A",
@@ -640,7 +640,7 @@
         "SRC-TABLE-HEADERS"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Meet WCAG 2.0 success criterion 1.3.1 Relationships at level A where the incorporated standard applies.",
       "authority": {
         "authority_id": "A01",
@@ -699,8 +699,8 @@
       ],
       "owner_role": "accessibility_lead",
       "severity_default": "high",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "WCAG-2.0-1.3.1",
         "wcag_level": "A",
@@ -1060,7 +1060,7 @@
         "SRC-MEDIA-AUTOPLAY"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Meet WCAG 2.0 success criterion 1.4.2 Audio control at level A where the incorporated standard applies.",
       "authority": {
         "authority_id": "A01",
@@ -1117,8 +1117,8 @@
       ],
       "owner_role": "accessibility_lead",
       "severity_default": "high",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "WCAG-2.0-1.4.2",
         "wcag_level": "A",
@@ -1166,7 +1166,7 @@
         "BRW-TEXT-CONTRAST"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Meet WCAG 2.0 success criterion 1.4.3 Text contrast at level AA where the incorporated standard applies.",
       "authority": {
         "authority_id": "A01",
@@ -1227,8 +1227,8 @@
       ],
       "owner_role": "accessibility_lead",
       "severity_default": "medium",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "WCAG-2.0-1.4.3",
         "wcag_level": "AA",
@@ -1273,7 +1273,7 @@
         "SRC-VIEWPORT-ZOOM"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Meet WCAG 2.0 success criterion 1.4.4 Resize text at level AA where the incorporated standard applies.",
       "authority": {
         "authority_id": "A01",
@@ -1331,8 +1331,8 @@
       ],
       "owner_role": "accessibility_lead",
       "severity_default": "medium",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "WCAG-2.0-1.4.4",
         "wcag_level": "AA",
@@ -1583,7 +1583,7 @@
         "BRW-FOCUS-CYCLE"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Meet WCAG 2.0 success criterion 2.1.2 No keyboard trap at level A where the incorporated standard applies.",
       "authority": {
         "authority_id": "A01",
@@ -1641,8 +1641,8 @@
       ],
       "owner_role": "accessibility_lead",
       "severity_default": "high",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "WCAG-2.0-2.1.2",
         "wcag_level": "A",
@@ -1690,7 +1690,7 @@
         "SRC-META-REFRESH"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Meet WCAG 2.0 success criterion 2.2.1 Timing at level A where the incorporated standard applies.",
       "authority": {
         "authority_id": "A01",
@@ -1749,8 +1749,8 @@
       ],
       "owner_role": "accessibility_lead",
       "severity_default": "high",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "WCAG-2.0-2.2.1",
         "wcag_level": "A",
@@ -2005,7 +2005,7 @@
         "BRW-BYPASS-BLOCKS"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Meet WCAG 2.0 success criterion 2.4.1 Bypass blocks at level A where the incorporated standard applies.",
       "authority": {
         "authority_id": "A01",
@@ -2064,8 +2064,8 @@
       ],
       "owner_role": "accessibility_lead",
       "severity_default": "high",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "WCAG-2.0-2.4.1",
         "wcag_level": "A",
@@ -2110,7 +2110,7 @@
         "SRC-TITLE"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Meet WCAG 2.0 success criterion 2.4.2 Page title at level A where the incorporated standard applies.",
       "authority": {
         "authority_id": "A01",
@@ -2169,8 +2169,8 @@
       ],
       "owner_role": "accessibility_lead",
       "severity_default": "high",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "WCAG-2.0-2.4.2",
         "wcag_level": "A",
@@ -2215,7 +2215,7 @@
         "SRC-TABINDEX-POSITIVE"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Meet WCAG 2.0 success criterion 2.4.3 Focus order at level A where the incorporated standard applies.",
       "authority": {
         "authority_id": "A01",
@@ -2273,8 +2273,8 @@
       ],
       "owner_role": "accessibility_lead",
       "severity_default": "high",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "WCAG-2.0-2.4.3",
         "wcag_level": "A",
@@ -2320,7 +2320,7 @@
         "SRC-LINK-NAME"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Meet WCAG 2.0 success criterion 2.4.4 Link purpose at level A where the incorporated standard applies.",
       "authority": {
         "authority_id": "A01",
@@ -2380,8 +2380,8 @@
       ],
       "owner_role": "accessibility_lead",
       "severity_default": "high",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "WCAG-2.0-2.4.4",
         "wcag_level": "A",
@@ -2633,7 +2633,7 @@
         "BRW-FOCUS-VISIBLE"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Meet WCAG 2.0 success criterion 2.4.7 Visible focus at level AA where the incorporated standard applies.",
       "authority": {
         "authority_id": "A01",
@@ -2693,8 +2693,8 @@
       ],
       "owner_role": "accessibility_lead",
       "severity_default": "medium",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "WCAG-2.0-2.4.7",
         "wcag_level": "AA",
@@ -2739,7 +2739,7 @@
         "SRC-HTML-LANG"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Meet WCAG 2.0 success criterion 3.1.1 Page language at level A where the incorporated standard applies.",
       "authority": {
         "authority_id": "A01",
@@ -2798,8 +2798,8 @@
       ],
       "owner_role": "accessibility_lead",
       "severity_default": "high",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "WCAG-2.0-3.1.1",
         "wcag_level": "A",
@@ -2844,7 +2844,7 @@
         "BRW-ELEMENT-LANG-VALID"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Meet WCAG 2.0 success criterion 3.1.2 Language changes at level AA where the incorporated standard applies.",
       "authority": {
         "authority_id": "A01",
@@ -2904,8 +2904,8 @@
       ],
       "owner_role": "accessibility_lead",
       "severity_default": "medium",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "WCAG-2.0-3.1.2",
         "wcag_level": "AA",
@@ -3462,7 +3462,7 @@
         "SRC-CONTROL-NAME"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Meet WCAG 2.0 success criterion 3.3.2 Labels/instructions at level A where the incorporated standard applies.",
       "authority": {
         "authority_id": "A01",
@@ -3524,8 +3524,8 @@
       ],
       "owner_role": "accessibility_lead",
       "severity_default": "high",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "WCAG-2.0-3.3.2",
         "wcag_level": "A",
@@ -3895,7 +3895,7 @@
         "SRC-LINK-NAME"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Meet WCAG 2.0 success criterion 4.1.2 Name/role/value at level A where the incorporated standard applies.",
       "authority": {
         "authority_id": "A01",
@@ -3954,8 +3954,8 @@
       ],
       "owner_role": "accessibility_lead",
       "severity_default": "high",
-      "source_verified_at": "2026-10-15",
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "WCAG-2.0-4.1.2",
         "wcag_level": "A",

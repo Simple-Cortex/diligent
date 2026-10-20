@@ -155,7 +155,7 @@ fn iter_or_empty(value: Option<&Value>) -> Vec<Value> {
 fn file_problem_message(problem: &FileProblem, path: &Path) -> String {
     match problem {
         FileProblem::Missing => "file is missing".to_string(),
-        FileProblem::NotJson(msg) => format!("{}: not valid JSON ({msg})", path.display()),
+        FileProblem::NotJson => format!("{}: not valid JSON", path.display()),
         FileProblem::Unreadable(msg) => msg.clone(),
     }
 }

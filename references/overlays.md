@@ -2,7 +2,7 @@
 
 The baseline packs are not a substitute for jurisdiction, sector, program, or contract determinations. Each activated overlay needs its own source review, versioned controls, and an accountable reviewer before any overall coverage claim.
 
-Diligent 0.2.0 ships only the baseline packs at the `research` lifecycle. No overlay pack ships. This file tells an agent how to recognize that an overlay is triggered, what evidence it needs, and how to keep the assessment honest until the overlay exists.
+Diligent 0.2.1 ships only the baseline packs at the `research` lifecycle. No overlay pack ships. This file tells an agent how to recognize that an overlay is triggered, what evidence it needs, and how to keep the assessment honest until the overlay exists.
 
 ## 1. Conditional overlays
 

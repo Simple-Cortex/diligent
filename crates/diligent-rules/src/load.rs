@@ -31,8 +31,9 @@ pub enum LoadError {
 pub enum FileProblem {
     /// The file does not exist.
     Missing,
-    /// The file exists but is not valid JSON. Carries the parser message.
-    NotJson(String),
+    /// The file exists but is not valid JSON. The parser message is dropped
+    /// so the report matches the Node output byte for byte.
+    NotJson,
     /// Any other read failure. Carries the I/O message.
     Unreadable(String),
 }
@@ -152,7 +153,7 @@ fn read_json(path: &Path) -> Result<Value, FileProblem> {
     };
     // Node decodes with U+FFFD replacement for invalid UTF-8, so do the same.
     let text = String::from_utf8_lossy(&bytes);
-    serde_json::from_str(&text).map_err(|e| FileProblem::NotJson(e.to_string()))
+    serde_json::from_str(&text).map_err(|_| FileProblem::NotJson)
 }
 
 /// Names ending in `.json`, sorted by UTF-16 code units like JavaScript's

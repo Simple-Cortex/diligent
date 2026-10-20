@@ -1,0 +1,19 @@
+{
+  "check_id": "INFRA-02-hsts-preload",
+  "rule": "INFRA-02",
+  "channel": "assisted",
+  "status": "needs_review",
+  "expected": "strict-transport-security includes both includeSubDomains and preload.",
+  "observed": {
+    "header": "max-age=31536000",
+    "missing": [
+      "includeSubDomains",
+      "preload"
+    ]
+  },
+  "limitations": [
+    "Does not consult the Chromium HSTS preload list, so it cannot say the domain is preloaded. The list holds individual .gov domains (thousands, not every one) and has no entry for the .gov or .mil top-level domains, so a missing preload token here does not show the domain is unprotected; check hstspreload.org.",
+    "preload lookup failed: timeout",
+    "One request from one network vantage point; other regions, clients, and times can differ."
+  ]
+}

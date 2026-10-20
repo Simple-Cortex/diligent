@@ -2,7 +2,7 @@
 
 This file is the normative protocol for command routing, durable artifacts, questions, reviewer isolation, and the all-host fallback. It is host-neutral: paths are workspace-relative and nothing depends on a particular agent, IDE, shell, or environment variable.
 
-The installable Diligent 0.2.0 package ships zero automated website checks. The CLI runs `init`, `status`, `gate`, `report`, and `rules validate`, and `audit` when the `diligent-rs` companion binary is installed; the binary runs the Source, Browser and Network checks that `docs/supported-checks.md` marks automated or assisted. Every other command below is an agent-performed phase.
+The installable Diligent 0.2.1 package ships zero automated website checks. The CLI runs `init`, `status`, `gate`, `report`, and `rules validate`, and `audit` when the `diligent-rs` companion binary is installed; the binary runs the Source, Browser and Network checks that `docs/supported-checks.md` marks automated or assisted. Every other command below is an agent-performed phase.
 
 ## 1. Resolve paths once
 

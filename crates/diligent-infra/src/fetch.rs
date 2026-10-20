@@ -34,6 +34,8 @@ pub struct Options {
     pub captured_at: Option<String>,
     /// Fixed run id. `None` generates one. Set by fixtures.
     pub run_id: Option<String>,
+    /// Query hstspreload.org for INFRA-02-hsts-preload. Default false.
+    pub preload_lookup: bool,
 }
 
 impl Default for Options {
@@ -45,6 +47,7 @@ impl Default for Options {
             allow_private_origin: false,
             captured_at: None,
             run_id: None,
+            preload_lookup: false,
         }
     }
 }

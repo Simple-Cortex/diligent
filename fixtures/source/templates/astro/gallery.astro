@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro';
+const { photos, ok } = Astro.props;
+---
+<Layout title="Gallery">
+  <h1>Gallery</h1>
+  {photos.map((p) => <img src={p.url} alt={p.alt} />)}
+  <img src="/raw.png" />
+  {ok && <a href="/x"></a>}
+</Layout>

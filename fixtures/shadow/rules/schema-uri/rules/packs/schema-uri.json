@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "schema-uri",
+  "pack_version": "0.1.0",
+  "profile_ids": ["test-profile"],
+  "rules": [
+    {
+      "rule_id": "URI-01",
+      "obligation_id": "OBL-URI-01",
+      "lifecycle": "research",
+      "obligation": "Invalid URI format",
+      "authority": {
+        "authority_id": "A01",
+        "section": "1",
+        "modality": "must",
+        "incorporated_standard": null
+      },
+      "check_ids": ["URI-01-check"],
+      "authority": {
+        "authority_id": "A01",
+        "section": "1",
+        "modality": "must",
+        "url": "not a valid uri"
+      }
+    }
+  ]
+}

@@ -154,7 +154,7 @@ pub struct EvidenceRecord {
     pub captured_at: String,
     /// Always null for the static pass.
     pub snapshot_ref: Option<String>,
-    /// Selector, snippet, attributes, source path, byte offset (null).
+    /// Selector, snippet, attributes, source path, byte offset, line and column (null when unknown).
     pub context: Value,
     /// Source path of the scanned document.
     pub payload_ref: String,

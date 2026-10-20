@@ -126,6 +126,19 @@ export async function validateData(schemaName, data, label, { packageRoot = PACK
 }
 
 /**
+ * Load an artifact for a run directory. A real audit keeps RUN.json under <audit>/runs/<run-id>/ and the
+ * result artifacts in <audit>/, while fixtures keep everything in one directory. RUN.json always comes from
+ * runDir. Any other artifact comes from runDir when it exists there, else from the audit directory when
+ * runDir is <audit>/runs/<run-id>.
+ */
+export async function loadRunArtifact(runDir, name, options) {
+  const local = await loadArtifact(runDir, name, options);
+  if (name === 'RUN.json' || local.exists) return local;
+  if (basename(dirname(resolve(runDir))) === 'runs') return loadArtifact(dirname(dirname(resolve(runDir))), name, options);
+  return local;
+}
+
+/**
  * Read and validate one artifact from an audit directory.
  * Returns { name, path, exists, ok, errors, data }. `data` is an array for JSONL artifacts.
  */
@@ -145,8 +158,8 @@ export async function loadArtifact(dir, name, { packageRoot = PACKAGE_ROOT } = {
     for (let i = 0; i < lines.length; i++) {
       if (lines[i].trim() === '') continue;
       let record;
-      try { record = JSON.parse(lines[i]); } catch (error) {
-        errors.push(`${name} line ${i + 1}: not valid JSON (${error.message})`);
+      try { record = JSON.parse(lines[i]); } catch {
+        errors.push(`${name} line ${i + 1}: not valid JSON`);
         continue;
       }
       const result = await validateData(spec.schema, record, name, { packageRoot, prefix: ` line ${i + 1}` });
@@ -156,8 +169,8 @@ export async function loadArtifact(dir, name, { packageRoot = PACKAGE_ROOT } = {
     return { name, path, exists: true, ok: errors.length === 0, errors, data: records };
   }
   let data;
-  try { data = JSON.parse(text); } catch (error) {
-    return { name, path, exists: true, ok: false, errors: [`${name}: not valid JSON (${error.message})`], data: null };
+  try { data = JSON.parse(text); } catch {
+    return { name, path, exists: true, ok: false, errors: [`${name}: not valid JSON`], data: null };
   }
   const result = await validateData(spec.schema, data, name, { packageRoot });
   return { name, path, exists: true, ok: result.ok, errors: result.errors, data };

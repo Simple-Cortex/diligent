@@ -11,7 +11,7 @@ use crate::fetch::{DnsResolver, Options, ReqwestFetcher};
 use crate::model::{InfraReport, Status};
 use crate::run;
 
-const USAGE: &str = "usage: infra --url <https://host/> --out <dir> [--timeout-ms 15000] [--max-body-bytes 2097152] [--skip-dns] [--allow-private] [--run-id <id>] [--json]\n\n\
+const USAGE: &str = "usage: infra --url <https://host/> --out <dir> [--timeout-ms 15000] [--max-body-bytes 2097152] [--skip-dns] [--allow-private] [--preload-lookup] [--run-id <id>] [--json]\n\n\
 Runs network-level checks on one https origin and writes RESULTS.jsonl, EVIDENCE.jsonl,\n\
 and evidence/<sha256>.<ext> body files into <dir>.\n\
   --url <url>            https origin to check (required)\n\
@@ -20,6 +20,7 @@ and evidence/<sha256>.<ext> body files into <dir>.\n\
   --max-body-bytes <n>   largest body kept per response (default 2097152)\n\
   --skip-dns             do not run DNS checks; record them as not_tested\n\
   --allow-private        exempt the --url host (only) from the private-address policy\n\
+  --preload-lookup       query hstspreload.org for INFRA-02-hsts-preload (off by default)\n\
   --run-id <id>          run id for every row and evidence record (default: generated)\n\
   --json                 print a JSON summary to stdout\n\n\
 Exit 0 when every row is pass, needs_review, or not_tested; 1 when any row is fail;\n\
@@ -63,6 +64,7 @@ fn parse(args: &[String]) -> Result<Option<Args>, String> {
             "--json" => json = true,
             "--skip-dns" => opts.skip_dns = true,
             "--allow-private" => opts.allow_private_origin = true,
+            "--preload-lookup" => opts.preload_lookup = true,
             "--url" | "--out" | "--timeout-ms" | "--max-body-bytes" | "--run-id" => {
                 let v = match inline {
                     Some(v) => v,

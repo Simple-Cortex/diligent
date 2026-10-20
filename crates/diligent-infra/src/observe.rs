@@ -6,6 +6,7 @@ use url::Url;
 use crate::fetch::{
     vet_target, FetchError, FetchResponse, Fetcher, Options, ResolveError, Resolver, MAX_REDIRECTS,
 };
+use crate::preload::{lookup_preload, PreloadStatus};
 
 /// Why a redirect chain stopped.
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -261,6 +262,10 @@ pub struct OriginObservation {
     pub spf: DnsObs,
     /// TXT at `_dmarc.<apex>`.
     pub dmarc: DnsObs,
+    /// HSTS preload status from hstspreload.org (None if lookup not performed).
+    pub preload_status: Option<PreloadStatus>,
+    /// HSTS preload API response (None if lookup not performed or failed before response).
+    pub preload_response: Option<FetchResponse>,
 }
 
 impl OriginObservation {
@@ -440,6 +445,13 @@ pub fn capture(
     let spf = lookup(resolver, apex.clone(), opts);
     let dmarc = lookup(resolver, format!("_dmarc.{apex}"), opts);
 
+    let (preload_status, preload_response) = if opts.preload_lookup {
+        let result = lookup_preload(fetcher, &apex);
+        (Some(result.status), result.response)
+    } else {
+        (None, None)
+    };
+
     Some(OriginObservation {
         origin: origin.clone(),
         host,
@@ -455,5 +467,7 @@ pub fn capture(
         declared_sitemaps,
         spf,
         dmarc,
+        preload_status,
+        preload_response,
     })
 }

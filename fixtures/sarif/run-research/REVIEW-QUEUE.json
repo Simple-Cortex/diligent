@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run-2026-10-18-ccdd02",
+  "items": [
+    {
+      "item_id": "rq-001",
+      "kind": "human",
+      "task": "result_review: INFRA-01-https-redirect on https://agency.example.gov/",
+      "owner_role": "engineering",
+      "blocking_reason": "needs_review result requires human judgement",
+      "obligation_id": "OBL-INFRA-01",
+      "status": "open",
+      "evidence_refs": [],
+      "resolution_evidence_refs": []
+    }
+  ]
+}

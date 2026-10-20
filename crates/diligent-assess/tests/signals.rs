@@ -1033,6 +1033,7 @@ fn opts(no_signals: bool) -> AssessOptions {
         inventory: None,
         no_signals,
         corroborate: true,
+        component: false,
     }
 }
 

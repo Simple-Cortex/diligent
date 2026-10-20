@@ -78,7 +78,9 @@ fn findings_conform_to_the_schemas() {
                 .count()
                 <= 400
         );
-        assert!(ev["context"]["byte_offset"].is_null());
+        assert!(ev["context"]["byte_offset"].is_null() || ev["context"]["byte_offset"].is_u64());
+        assert!(ev["context"]["line"].is_null() || ev["context"]["line"].is_u64());
+        assert!(ev["context"]["column"].is_null() || ev["context"]["column"].is_u64());
         for r in rs["evidence_refs"].as_array().unwrap() {
             assert!(evidence_ids.contains(r.as_str().unwrap()));
         }

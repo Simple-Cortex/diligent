@@ -14,11 +14,11 @@
         "INFRA-01-https-redirect"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "HTTPS across public websites/services.",
       "authority": {
         "authority_id": "A43",
-        "section": "unatomized: clause locator pending source review",
+        "section": "M-15-13 Implementation",
         "modality": "must",
         "incorporated_standard": null
       },
@@ -71,8 +71,8 @@
       ],
       "owner_role": "security_owner",
       "severity_default": "high",
-      "source_verified_at": null,
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "SEC-01",
         "class_label": "P, A43; A13",
@@ -92,11 +92,11 @@
         "INFRA-02-hsts-preload"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "HSTS in applicable scope.",
       "authority": {
         "authority_id": "A13",
-        "section": "unatomized: clause locator pending source review",
+        "section": "BOD 18-01 §II.1.b.i",
         "modality": "must",
         "incorporated_standard": null
       },
@@ -148,8 +148,8 @@
       ],
       "owner_role": "security_owner",
       "severity_default": "high",
-      "source_verified_at": null,
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "SEC-02",
         "class_label": "P/C, A13",
@@ -166,11 +166,11 @@
         "INFRA-03-spf"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Protect mail-enabled domains.",
       "authority": {
         "authority_id": "A13",
-        "section": "unatomized: clause locator pending source review",
+        "section": "BOD 18-01 §II.1.a",
         "modality": "must",
         "incorporated_standard": null
       },
@@ -221,8 +221,8 @@
       ],
       "owner_role": "security_owner",
       "severity_default": "high",
-      "source_verified_at": null,
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "SEC-03",
         "class_label": "P/C, A13",
@@ -525,11 +525,11 @@
         "INFRA-08-vdp"
       ],
       "version": "0.1.0",
-      "lifecycle": "research",
+      "lifecycle": "draft",
       "obligation": "Vulnerability disclosure intake and response.",
       "authority": {
         "authority_id": "A12",
-        "section": "unatomized: clause locator pending source review",
+        "section": "BOD 20-01 Required Actions 3",
         "modality": "must",
         "incorporated_standard": null
       },
@@ -581,8 +581,8 @@
       ],
       "owner_role": "security_owner",
       "severity_default": "high",
-      "source_verified_at": null,
-      "source_review_status": "research",
+      "source_verified_at": "2026-10-20",
+      "source_review_status": "reviewed",
       "extensions": {
         "source_row_id": "SEC-08",
         "class_label": "P/C/O, A12",

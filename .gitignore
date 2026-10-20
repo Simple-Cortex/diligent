@@ -10,19 +10,17 @@ target/
 # Evaluation results are collected per-run and are not part of the package.
 evals/results/*
 
-# Artifacts the skill writes into a consuming workspace. Never tracked here.
-.diligent/
+# Artifacts the skill writes into a consuming workspace.
+# Track audit reports and structured findings; ignore transient run state.
+.diligent/*
+!.diligent/*/
+!.diligent/*/*.json
+!.diligent/*/*.jsonl
+!.diligent/*/*.md
+!.diligent/*/runs/
 
 # Session handoffs and working specs. Local coordination state, not part of the skill.
 tasks/
-
-# Local agent/editor tooling
-.serena/
-.codebase-memory/
-.claude/
-.playwright-mcp/
-.playwright-cli/
-test-results/
 
 # Working screenshots. Anything tracked here ships to every user.
 *.png
@@ -36,5 +34,3 @@ Thumbs.db
 # Logs and editor scratch
 *.log
 *.swp
-.idea/
-.vscode/

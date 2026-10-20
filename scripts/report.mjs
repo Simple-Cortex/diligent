@@ -256,7 +256,25 @@ export function renderWcagMappings(wcag, { assessment, applicability }) {
   return out;
 }
 
-export function renderReport({ auditId, assessment, run, brief, findings, applicability, repairs, verification, rulesLock, authoritiesLock, evidence, scope, signals = null, signalsProblem = null, signalsSkipped = 0, wcag = null }) {
+/** Notice and per-story table for a component audit (diligent audit --storybook). Empty for a site audit. */
+export function renderComponentNotice(baseline) {
+  const info = baseline?.extensions?.['diligent.storybook'];
+  if (!info) return [];
+  const out = [];
+  out.push(`> **Component audit of ${code(info.storybook_url, 200)}.** ${info.sampled_stories} of ${info.total_stories} stories were audited as components. Whole-page obligations are not tested in this mode (${code(info.whole_page_obligations?.reason ?? 'component mode: whole-page obligation', 120)}). This is not a site claim, and the site-level status above reflects only that.`);
+  out.push('>');
+  out.push(`> Component gate: ${code(info.gate?.state ?? 'unknown')} (exit ${info.gate?.exit ?? 'n/a'}); ${info.gate?.failed_stories ?? 0} stor${info.gate?.failed_stories === 1 ? 'y' : 'ies'} failed an element-level mandatory check.${info.gate?.problems?.length ? ` ${info.gate.problems.map(p => clip(p, 300)).join('; ')}.` : ''}${info.gate?.notes?.length ? ` ${info.gate.notes.map(n => clip(n, 300)).join(' ')}` : ''}`);
+  out.push('');
+  out.push('### Stories');
+  out.push('');
+  out.push(table(['Story', 'Component', 'Failed checks'], (info.stories || []).map(story => [
+    code(story.id, 120), clip(story.title, 120), story.failed ? story.failed_checks.map(id => code(id)).join(', ') : (story.assess === 'assessed' ? 'none' : `not assessed (${clip(story.collect === 'collected' ? story.assess : story.collect, 40)})`)
+  ])));
+  out.push('');
+  return out;
+}
+
+export function renderReport({ auditId, assessment, run, brief, findings, applicability, repairs, verification, rulesLock, authoritiesLock, evidence, scope, signals = null, signalsProblem = null, signalsSkipped = 0, wcag = null, componentBaseline = null }) {
   const out = [];
   const target = brief?.service_name ? `${clip(brief.service_name, 120)} (${code(auditId)})` : code(auditId);
   const profile = code(run?.profile_id || rulesLock?.profile?.profile_id || 'not recorded');
@@ -271,6 +289,7 @@ export function renderReport({ auditId, assessment, run, brief, findings, applic
   out.push('');
   out.push(`> ${clip(assessment.claim_boundary, 600)}`);
   out.push('');
+  out.push(...renderComponentNotice(componentBaseline));
 
   // 1
   out.push(`## 1. ${SECTION_TITLES[0]}`);
@@ -456,6 +475,9 @@ async function main() {
   } else if (signalsFile.exists) {
     optional.signalsProblem = `the file could not be read (${signalsFile.errors.length} error${signalsFile.errors.length === 1 ? '' : 's'}).`;
   }
+  const componentFile = await loadArtifact(dir, 'COMPONENT-BASELINE.json');
+  if (componentFile.exists && !componentFile.ok) { console.error('diligent report: COMPONENT-BASELINE.json is invalid; refusing to render it.'); return 3; }
+  optional.componentBaseline = componentFile.exists && componentFile.data.run_id === assessment.data.run_id ? componentFile.data : null;
   optional.wcag = await buildWcagIndex(optional.rulesLock, options['data-root'] || PACKAGE_ROOT);
   const latest = await latestRun(dir);
   const run = latest?.data && latest.data.run_id === assessment.data.run_id ? latest.data : null;

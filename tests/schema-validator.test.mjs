@@ -149,7 +149,7 @@ test('boolean schemas', () => {
 test('every shipped schema uses only supported keywords and has the contract header', async () => {
   const dir = join(ROOT, 'schemas');
   const names = (await readdir(dir)).filter(n => n.endsWith('.schema.json'));
-  assert.equal(names.length, 33);
+  assert.equal(names.length, 34);
   for (const name of names) {
     const schema = JSON.parse(await readFile(join(dir, name), 'utf8'));
     assert.deepEqual(checkSchema(schema), [], name);

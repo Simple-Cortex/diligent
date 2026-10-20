@@ -30,7 +30,7 @@ Corroboration by a second engine is optional, enabled per profile, and never aut
 7. Otherwise, if the selected profile is wholly excluded with evidence, the status is `not_applicable`.
 8. Otherwise the status is `pass_for_declared_scope`, with explicit scope and coverage statements.
 
-Recommendations and UX hypotheses do not enter the regulatory gate unless separately mapped to an applicable binding obligation. A parent obligation is not closed by one passing child while other evidence remains missing. In 0.2.0 every rule is at the research lifecycle, so a clean `pass_for_declared_scope` requires that the declared scope contains no required unsupported check.
+Recommendations and UX hypotheses do not enter the regulatory gate unless separately mapped to an applicable binding obligation. A parent obligation is not closed by one passing child while other evidence remains missing. In 0.2.1 most rules are at the research lifecycle (45 engine-informed rules sit at draft), so a clean `pass_for_declared_scope` requires that the declared scope contains no required unsupported check.
 
 Exit codes for `gate`: 0 pass for declared scope, 1 mandatory failure, 2 incomplete, 3 invalid configuration or execution failure. Reporting commands may exit 0 when a report was written while the assessment stays non-passing. Document this for CI users. No option may relabel failed or missing checks as passing. A baseline-comparison option may filter display noise but retains pre-existing mandatory failures in the totals.
 
@@ -67,7 +67,7 @@ Section 4 shows accessibility results under the three WCAG mappings, read from e
 
 Signals are the advisory counterpart of results. A signal records a measured practice number or a lead for a person to look at, with a threshold, its cited source and a confidence of `high`, `medium` or `low`. Signal states are `lead`, `within_practice`, `informational` and `not_tested`, and every signal carries `normative: false` and a label of `lab`, `static` or `field`. Signals live in `SIGNALS.jsonl`, never in `RESULTS.jsonl` or `APPLICABILITY.json`, and the gate does not read the file, so a `needs_review` style lead cannot make an audit incomplete and a clean set of signals cannot make one pass. Section 10 groups them by family, shows leads first with value, unit, threshold rule, source and confidence, then within-practice counts and informational numbers. It says "aligned with" and never "required". A missing file reads as "not available", and an invalid file is named without blocking the report.
 
-Write plain language first, then technical detail. Never describe a model-generated hypothesis as an observed user failure. Do not show an attractive overall percentage that conceals mandatory failures or untested obligations. Report coverage as counts with denominators. In 0.2.0 state in the first lines which automated checks ran, or that none did (the Node package alone runs none; the `diligent-rs` companion binary runs the checks the matrix marks).
+Write plain language first, then technical detail. Never describe a model-generated hypothesis as an observed user failure. Do not show an attractive overall percentage that conceals mandatory failures or untested obligations. Report coverage as counts with denominators. In 0.2.1 state in the first lines which automated checks ran, or that none did (the Node package alone runs none; the `diligent-rs` companion binary runs the checks the matrix marks).
 
 ## 5. Model-assisted review
 
@@ -84,7 +84,7 @@ A model must never invent a source, turn an inference into a direct observation,
 | Finding support | `../prompts/finding-support.md` | `supported`, `contradicted`, `insufficient_evidence` | Independent review where required; keep contradictions |
 | Repair comparison | `../prompts/repair-preference.md` | an option id or `no_supported_choice` | Deterministic checks and task verification after implementation |
 
-Content question coverage and task barrier review are also defined as bounded tasks in the blueprint but are not shipped as prompts in 0.2.0. Route them to a human reviewer through the review queue.
+Content question coverage and task barrier review are also defined as bounded tasks in the blueprint but are not shipped as prompts in 0.2.1. Route them to a human reviewer through the review queue.
 
 ### Frozen request and response
 
@@ -103,6 +103,6 @@ A request carries `task_id`, `task_version`, `rule_refs`, `evidence_refs`, `evid
 
 ### Calibration and escalation
 
-No task is calibrated in 0.2.0. Before enabling any automation for a task: build a task-specific dataset with independent expert labels and adjudicated disagreements, split by service, site, or template family; publish class counts, precision, recall, false-negative rate, calibration, abstention rate, and uncertainty intervals; and derive thresholds from documented error costs and held-out evidence. Do not use one threshold for every rule or severity. Do not treat several opinions that share evidence or lineage as independent votes. Zero observed misses in a small set is not proof of zero risk.
+No task is calibrated in 0.2.1. Before enabling any automation for a task: build a task-specific dataset with independent expert labels and adjudicated disagreements, split by service, site, or template family; publish class counts, precision, recall, false-negative rate, calibration, abstention rate, and uncertainty intervals; and derive thresholds from documented error costs and held-out evidence. Do not use one threshold for every rule or severity. Do not treat several opinions that share evidence or lineage as independent votes. Zero observed misses in a small set is not proof of zero risk.
 
 Escalate to a human when evidence is missing, outputs disagree materially, authority applicability is disputed, consequences are high, a repair changes approved legal or program language, or an example is outside the validated domain. Drift after a model, prompt, rule, extraction, or domain change returns the affected task to review-only.

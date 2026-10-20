@@ -1,0 +1,6 @@
+{% for item in collection.items %}
+  <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+{% endfor %}
+{% comment %}<img src="/hidden.png">{% endcomment %}
+<img src="{{ product.image }}" alt="{{ product.title }}">
+<input type="text" name="q">

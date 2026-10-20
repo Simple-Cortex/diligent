@@ -1,8 +1,10 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { chmod, writeFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import { chmod, readFile, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { ROOT, VERSION, run, withTemp } from './helpers.mjs';
+import { FIXED_NOW, ROOT, VERSION, copyTo, run, withTemp } from './helpers.mjs';
 
 const bin = (args, opts) => run('bin/diligent.mjs', args, opts);
 
@@ -61,7 +63,7 @@ test('--json is forwarded to utilities', async () => {
   assert.equal(JSON.parse(result.stdout).ok, true);
 });
 
-test('a native diligent-rs reporting protocol 1 is detected but nothing is delegated', async () => {
+test('a native diligent-rs reporting protocol 1 is detected and gate and rules validate are delegated to it', async () => {
   await withTemp(async tmp => {
     const fake = join(tmp, 'diligent-rs');
     await writeFile(fake, '#!/bin/sh\n[ "$1" = "protocol-version" ] && echo 1\n');
@@ -69,9 +71,51 @@ test('a native diligent-rs reporting protocol 1 is detected but nothing is deleg
     const json = JSON.parse((await bin(['--version', '--json'], { env: { DILIGENT_RS_BIN: fake } })).stdout);
     assert.equal(json.engine.name, 'native-rust');
     assert.equal(json.engine.native_available, true);
-    assert.equal(json.engine.executed_by, 'node', 'Node still executes every command in this release');
+    assert.equal(json.engine.executed_by, 'native-rust');
+    assert.deepEqual(json.engine.delegated, ['gate', 'rules validate']);
+    const forced = JSON.parse((await bin(['--version', '--json'], { env: { DILIGENT_RS_BIN: fake, DILIGENT_ENGINE: 'node' } })).stdout);
+    assert.equal(forced.engine.name, 'native-rust');
+    assert.equal(forced.engine.executed_by, 'node');
+    assert.deepEqual(forced.engine.delegated, []);
     await writeFile(fake, '#!/bin/sh\necho 2\n');
     const mismatch = JSON.parse((await bin(['--version', '--json'], { env: { DILIGENT_RS_BIN: fake } })).stdout);
     assert.equal(mismatch.engine.name, 'node-fallback');
+    assert.equal(mismatch.engine.executed_by, 'node');
+    assert.deepEqual(mismatch.engine.delegated, []);
   });
+});
+
+const NATIVE = [process.env.DILIGENT_RS_BIN, join(ROOT, 'target', 'debug', 'diligent-rs')].find(path => path && existsSync(path));
+const nativeTest = NATIVE ? test : test.skip;
+
+nativeTest('gate through the binary exits 0 and writes the same ASSESSMENT.json as the Node path', async () => {
+  await withTemp(async tmp => {
+    const viaNative = join(tmp, 'native');
+    const viaNode = join(tmp, 'node');
+    await copyTo(join(ROOT, 'fixtures', 'gate', 'pass-declared-scope'), viaNative);
+    await copyTo(join(ROOT, 'fixtures', 'gate', 'pass-declared-scope'), viaNode);
+    const args = ['gate', '--dir', '.', '--now', FIXED_NOW];
+    const native = await bin(args, { cwd: viaNative, env: { DILIGENT_RS_BIN: NATIVE } });
+    const node = await bin(args, { cwd: viaNode, env: { DILIGENT_RS_BIN: NATIVE, DILIGENT_ENGINE: 'node' } });
+    assert.equal(native.code, 0, native.stderr);
+    assert.equal(node.code, 0, node.stderr);
+    assert.equal(native.stdout.replaceAll(viaNative, '<audit>'), node.stdout.replaceAll(viaNode, '<audit>'));
+    assert.equal(await readFile(join(viaNative, 'ASSESSMENT.json'), 'utf8'), await readFile(join(viaNode, 'ASSESSMENT.json'), 'utf8'));
+  });
+});
+
+nativeTest('gate argument errors through the binary match the Node text and exit code', async () => {
+  const native = await bin(['gate', 'one', 'two'], { env: { DILIGENT_RS_BIN: NATIVE } });
+  const node = await bin(['gate', 'one', 'two'], { env: { DILIGENT_RS_BIN: NATIVE, DILIGENT_ENGINE: 'node' } });
+  assert.equal(native.code, 2);
+  assert.equal(native.code, node.code);
+  assert.equal(native.stderr, node.stderr);
+});
+
+nativeTest('rules validate through the binary exits 0 on the package root', async () => {
+  const result = await bin(['rules', 'validate'], { env: { DILIGENT_RS_BIN: NATIVE }, cwd: tmpdir() });
+  assert.equal(result.code, 0, result.stderr);
+  const json = await bin(['--json', 'rules', 'validate'], { env: { DILIGENT_RS_BIN: NATIVE }, cwd: tmpdir() });
+  assert.equal(json.code, 0);
+  assert.equal(JSON.parse(json.stdout).ok, true);
 });

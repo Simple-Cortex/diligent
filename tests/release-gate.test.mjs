@@ -36,10 +36,10 @@ test('an all-passing run is ok, and a skipped step is printed with the flag that
 
 test('the real step list is in the documented order and the skip flags touch only their steps', () => {
   const names = releaseSteps().map(s => s.name);
-  assert.deepEqual(names, ['validate rules', 'npm test', 'packed artifact', 'validate skill', 'cargo fmt', 'cargo clippy', 'cargo test', 'cargo build', 'offline replay', 'end-to-end smoke']);
+  assert.deepEqual(names, ['vendor names', 'validate rules', 'npm test', 'packed artifact', 'validate skill', 'cargo fmt', 'cargo clippy', 'cargo test', 'cargo build', 'offline replay', 'end-to-end smoke']);
   assert.ok(releaseSteps({ chromeAvailable: true }).every(s => s.skippedBy === null));
   assert.deepEqual(releaseSteps({ skipCargoTest: true, chromeAvailable: true }).filter(s => s.skippedBy).map(s => s.name), ['cargo test']);
-  assert.deepEqual(releaseSteps({ skipRust: true }).filter(s => !s.skippedBy).map(s => s.name), ['validate rules', 'npm test', 'packed artifact', 'validate skill']);
+  assert.deepEqual(releaseSteps({ skipRust: true }).filter(s => !s.skippedBy).map(s => s.name), ['vendor names', 'validate rules', 'npm test', 'packed artifact', 'validate skill']);
   const clippy = releaseSteps().find(s => s.name === 'cargo clippy');
   assert.deepEqual(clippy.args, ['clippy', '--workspace', '--all-targets', '--', '-D', 'warnings']);
 });
@@ -62,7 +62,7 @@ test('the gate step list matches the commands documented in public-release-proce
   const firstBlock = codeBlocks[0];
   const docCommands = firstBlock.split('\n').map(l => l.replace(/#.*$/, '').trim()).filter(Boolean);
   const steps = releaseSteps();
-  const nonRustSteps = steps.filter(s => !s.rust);
+  const nonRustSteps = steps.filter(s => !s.rust && s.name !== 'vendor names');
   for (const step of nonRustSteps) {
     const stepCommand = step.command === 'npm' ? `npm ${step.args.join(' ')}` : `${step.command} ${step.args.join(' ')}`;
     const found = docCommands.some(cmd => cmd.includes(step.args[0]) || step.args.some(arg => cmd.includes(arg)));

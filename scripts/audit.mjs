@@ -6,6 +6,7 @@ import { runAudit } from './lib/orchestrate/run.mjs';
 
 const HELP = `Usage: diligent audit --url <https://host/> [audit-id] [options]
        diligent audit --replay <replay.json> [audit-id] [options]
+       diligent audit --storybook <https://host/storybook/> [audit-id] [options]
 
 Runs init, scope, applicability, inventory, plan, collect, assess, infra, merge,
 gate and report in one pass. The Node skill orchestrates, the diligent-rs binary
@@ -18,6 +19,10 @@ Options:
                          collection and the network stages are skipped; applicability, assess, merge, gate and report run as usual.
                          Needs diligent-rs but no Chrome and no network. A relative captures path is tried against the replay
                          file's directory, the package root, then the current directory
+  --storybook <url>      audit the stories of a built Storybook (7 or 8) as components, from <url>/index.json. Each sampled story
+                         page is captured and assessed with the element-level checks; whole-page obligations are recorded as not
+                         tested. The exit code comes from the component gate and writes COMPONENT-BASELINE.json. --pages caps the
+                         stories. A component audit is not a site claim. Excludes --url and --replay
   --profile <id>         profile from profiles/ (default us-federal-public-web)
   --root <dir>           workspace root (default: $DILIGENT_ROOT, nearest .diligent/, or cwd)
   --data-root <dir>      read authorities, rules and profiles from <dir>
@@ -40,19 +45,21 @@ Without facts, applicability stays unknown and the gate is incomplete. Facts are
 supplied by you, never guessed; see references/facts/ for an example.
 Running this command records, as an event, that you granted network access to the origin.
 
-Exit codes: the gate's (0 pass for declared scope, 1 mandatory failure, 2 incomplete),
+Exit codes: the gate's (0 pass for declared scope, 1 mandatory failure, 2 incomplete; with --storybook the component
+gate's: 1 when an element-level mandatory check fails on a sampled story, 0 when every sampled story was assessed, else 2),
 or 3 when a stage failed before the gate could run, or the diligent-rs binary is missing.
 Diligent ${DILIGENT_VERSION}. Diligent is not a government service and does not certify anything.`;
 
 async function main() {
   const { positional, options } = parseArgs(process.argv.slice(2), {
-    url: 'string', replay: 'string', profile: 'string', root: 'string', 'data-root': 'string', facts: 'string', fact: 'string', pages: 'string', seed: 'string',
+    url: 'string', replay: 'string', storybook: 'string', profile: 'string', root: 'string', 'data-root': 'string', facts: 'string', fact: 'string', pages: 'string', seed: 'string',
     processes: 'string', corroborate: 'string', 'no-corroborate': 'boolean', 'no-signals': 'boolean', 'allow-private': 'boolean', 'strict-origins': 'boolean',
     'chrome-path': 'string', 'timeout-ms': 'string', json: 'boolean'
   });
   if (options.help) { console.log(HELP); return 0; }
   if (positional.length > 1) throw new UsageError('audit takes at most one [audit-id]. Run with --help.');
-  if (!options.url && !options.replay) throw new UsageError('audit requires --url <https://host/> or --replay <file>. Run with --help.');
+  if (options.storybook && (options.url || options.replay)) throw new UsageError('--storybook is mutually exclusive with --url and --replay.');
+  if (!options.url && !options.replay && !options.storybook) throw new UsageError('audit requires --url <https://host/>, --replay <file> or --storybook <url>. Run with --help.');
   // parseArgs keeps the last value of a repeated option; collect every --fact here.
   const pairs = [];
   const argv = process.argv.slice(2);
@@ -61,7 +68,7 @@ async function main() {
     else if (argv[i].startsWith('--fact=')) pairs.push(argv[i].slice('--fact='.length));
   }
   const result = await runAudit({
-    url: options.url, replay: options.replay, auditId: positional[0], profile: options.profile, root: options.root, dataRoot: options['data-root'], facts: options.facts,
+    url: options.url, replay: options.replay, storybook: options.storybook, auditId: positional[0], profile: options.profile, root: options.root, dataRoot: options['data-root'], facts: options.facts,
     fact: pairs, pages: options.pages, seed: options.seed, processes: options.processes, corroborate: options.corroborate, noCorroborate: options['no-corroborate'],
     noSignals: options['no-signals'], allowPrivate: options['allow-private'], strictOrigins: options['strict-origins'],
     chromePath: options['chrome-path'], timeoutMs: options['timeout-ms']
@@ -72,6 +79,7 @@ async function main() {
   console.log(`Audit ${s.audit_id} (${s.run_id}) at ${s.directory}`);
   for (const stage of s.stages) console.log(`  ${stage.state.padEnd(8)} ${stage.name} (${stage.duration_ms} ms)${stage.warning ? `: ${stage.warning}` : ''}`);
   console.log(s.gate_exit === null ? 'The gate did not run.' : `Gate exit ${s.gate_exit}: ${['pass for declared scope', 'mandatory failure', 'incomplete', 'invalid input'][s.gate_exit] ?? 'unknown'}.`);
+  if (s.component_gate) console.log(s.component_gate.line);
   if (s.report_path) console.log(`Report: ${s.report_path}`);
   return result.exit;
 }
